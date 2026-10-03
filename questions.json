@@ -1,0 +1,850 @@
+{
+  "version": 1,
+  "title": "Map58 Question Database",
+  "description": "Bank soal awal Map58. Soal dibuat khusus untuk game dan tidak menyalin mentah bank soal pihak lain.",
+  "scope": {
+    "levels": [
+      "SD",
+      "SMP",
+      "SMA",
+      "Dasar"
+    ],
+    "initial_question_count": 80,
+    "answer_format_initial": "numeric_string",
+    "image_support": true,
+    "difficulty_range": [
+      1,
+      5
+    ]
+  },
+  "grading_reference": {
+    "correct_answer": 10,
+    "wrong_answer": -5,
+    "knockout": -2,
+    "revive_teammate": 5,
+    "grades": [
+      {
+        "min": -999999,
+        "max": 59,
+        "grade": "D"
+      },
+      {
+        "min": 60,
+        "max": 74,
+        "grade": "C"
+      },
+      {
+        "min": 75,
+        "max": 94,
+        "grade": "B"
+      },
+      {
+        "min": 95,
+        "max": 999999,
+        "grade": "A"
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "sd_001",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Penjumlahan",
+      "question": "27 + 15 = ?",
+      "answer": "42",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_002",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Pengurangan",
+      "question": "84 - 29 = ?",
+      "answer": "55",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_003",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Perkalian",
+      "question": "7 × 8 = ?",
+      "answer": "56",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_004",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Pembagian",
+      "question": "72 ÷ 9 = ?",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_005",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Pecahan",
+      "question": "Setengah dari 18 adalah ...",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_006",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Pecahan",
+      "question": "Tiga perempat dari 20 adalah ...",
+      "answer": "15",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_007",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Geometri",
+      "question": "Sebuah persegi memiliki sisi 6 cm. Berapa kelilingnya dalam cm?",
+      "answer": "24",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_008",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Geometri",
+      "question": "Sebuah persegi panjang berukuran 8 cm × 5 cm. Berapa luasnya dalam cm²?",
+      "answer": "40",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_009",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Waktu",
+      "question": "Pukul 07.45 ditambah 45 menit menjadi pukul berapa? Tulis jamnya dalam format 24 jam tanpa tanda titik.",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_010",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Uang",
+      "question": "Rp2.500 dikurangi Rp750 sama dengan berapa rupiah?",
+      "answer": "1750",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_011",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Perkalian",
+      "question": "Ada 5 kantong. Setiap kantong berisi 6 kelereng. Berapa kelereng semuanya?",
+      "answer": "30",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_012",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Pola",
+      "question": "Bilangan berikut: 2, 4, 6, 8, ... Bilangan berikutnya adalah ...",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_013",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Perkalian",
+      "question": "3 kotak masing-masing berisi 12 pensil. Berapa jumlah pensil seluruhnya?",
+      "answer": "36",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_014",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Satuan",
+      "question": "1 kilogram sama dengan berapa gram?",
+      "answer": "1000",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_015",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Satuan",
+      "question": "2 liter sama dengan berapa mililiter?",
+      "answer": "2000",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_016",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Pembagian",
+      "question": "45 permen dibagikan sama rata kepada 5 anak. Setiap anak mendapat ... permen.",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_017",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Operasi hitung",
+      "question": "9 + 9 × 2 = ?",
+      "answer": "27",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_018",
+      "level": "SD",
+      "difficulty": 2,
+      "category": "Geometri",
+      "question": "Luas sebuah persegi adalah 49 cm². Panjang sisinya adalah ... cm.",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_019",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Pecahan",
+      "question": "Seperempat dari 32 adalah ...",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sd_020",
+      "level": "SD",
+      "difficulty": 1,
+      "category": "Penjumlahan",
+      "question": "125 + 375 = ?",
+      "answer": "500",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_001",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Aljabar",
+      "question": "3x + 5 = 20. Nilai x adalah ...",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_002",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Aljabar",
+      "question": "2x - 7 = 11. Nilai x adalah ...",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_003",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Persentase",
+      "question": "15% dari 200 adalah ...",
+      "answer": "30",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_004",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Perbandingan",
+      "question": "Perbandingan A:B = 3:5. Jika A + B = 32, nilai A adalah ...",
+      "answer": "12",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_005",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Pythagoras",
+      "question": "Segitiga siku-siku memiliki sisi tegak 6 cm dan alas 8 cm. Sisi miringnya adalah ... cm.",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_006",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Geometri",
+      "question": "Luas segitiga dengan alas 12 cm dan tinggi 7 cm adalah ... cm².",
+      "answer": "42",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_007",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Bangun ruang",
+      "question": "Balok berukuran 10 cm × 4 cm × 3 cm. Volumenya adalah ... cm³.",
+      "answer": "120",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_008",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Statistika",
+      "question": "Rata-rata dari 6, 8, 10, dan 12 adalah ...",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_009",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Pola",
+      "question": "Barisan 5, 9, 13, 17, ... Bilangan berikutnya adalah ...",
+      "answer": "21",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_010",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Pangkat",
+      "question": "2⁵ = ?",
+      "answer": "32",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_011",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Akar",
+      "question": "√144 = ?",
+      "answer": "12",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_012",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Persentase",
+      "question": "0,75 × 80 = ?",
+      "answer": "60",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_013",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Persentase",
+      "question": "Sebuah barang berharga Rp150000 mendapat diskon 20%. Harga setelah diskon adalah ... rupiah.",
+      "answer": "120000",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_014",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Persamaan",
+      "question": "4x + 2 = 2x + 18. Nilai x adalah ...",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_015",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Geometri",
+      "question": "Persegi panjang memiliki panjang 11 cm dan lebar 6 cm. Kelilingnya adalah ... cm.",
+      "answer": "34",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_016",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Koordinat",
+      "question": "Jarak vertikal dari titik (2,3) ke titik (2,9) adalah ... satuan.",
+      "answer": "6",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_017",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "Sudut",
+      "question": "Dalam sebuah segitiga, dua sudutnya 65° dan 55°. Sudut ketiga adalah ...°.",
+      "answer": "60",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_018",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Persentase",
+      "question": "Bunga sederhana 5% dari Rp400000 adalah ... rupiah.",
+      "answer": "20000",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_019",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "KPK",
+      "question": "KPK dari 6 dan 8 adalah ...",
+      "answer": "24",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_020",
+      "level": "SMP",
+      "difficulty": 2,
+      "category": "FPB",
+      "question": "FPB dari 36 dan 48 adalah ...",
+      "answer": "12",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_001",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Persamaan kuadrat",
+      "question": "Akar-akar x² - 5x + 6 = 0 adalah 2 dan 3. Akar yang lebih kecil adalah ...",
+      "answer": "2",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_002",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Fungsi kuadrat",
+      "question": "Untuk y = x² - 6x + 5, nilai x pada titik puncak adalah ...",
+      "answer": "3",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_003",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Turunan",
+      "question": "Turunan f(x) = x³ - 3x² pada x = 2 bernilai ...",
+      "answer": "0",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_004",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Integral",
+      "question": "∫ 0 hingga 3 dari 2x dx = ?",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_005",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Logaritma",
+      "question": "log₂ 32 = ?",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_006",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Barisan aritmetika",
+      "question": "Barisan dimulai 3, 7, 11, ... Jumlah 10 suku pertama adalah ...",
+      "answer": "210",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_007",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Barisan geometri",
+      "question": "Barisan 3, 6, 12, 24, ... Suku ke-5 adalah ...",
+      "answer": "48",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_008",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Determinan",
+      "question": "Determinan matriks [[2,1],[3,4]] adalah ...",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_009",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Sistem persamaan",
+      "question": "2x + y = 11 dan x - y = 1. Nilai x adalah ...",
+      "answer": "4",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_010",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Kombinatorika",
+      "question": "Banyak cara memilih 2 benda dari 5 benda berbeda adalah ...",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_011",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Pangkat",
+      "question": "3 × 2⁴ = ?",
+      "answer": "48",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_012",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Eksponen",
+      "question": "Bilangan 3 diduakalikan 5 kali berturut-turut. Hasil akhirnya adalah ...",
+      "answer": "96",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_013",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Logaritma",
+      "question": "log₁₀ 1000 = ?",
+      "answer": "3",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_014",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Fungsi linear",
+      "question": "y = 2x + 5. Jika x = 7, nilai y adalah ...",
+      "answer": "19",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_015",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Matriks",
+      "question": "Jejak (trace) matriks [[5,2],[1,7]] adalah ...",
+      "answer": "12",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_016",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Barisan",
+      "question": "Jumlah n bilangan ganjil pertama adalah 81. Nilai n adalah ...",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_017",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Turunan",
+      "question": "Jika f(x) = 4x² - 3x + 1, maka f'(2) = ...",
+      "answer": "13",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_018",
+      "level": "SMA",
+      "difficulty": 4,
+      "category": "Integral",
+      "question": "∫ 0 hingga 3 dari x² dx = ?",
+      "answer": "9",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_019",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Limit",
+      "question": "lim x→3 dari (x² - 9)/(x - 3) = ?",
+      "answer": "6",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_020",
+      "level": "SMA",
+      "difficulty": 3,
+      "category": "Deret geometri",
+      "question": "2 + 4 + 8 + 16 + 32 = ?",
+      "answer": "62",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_001",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Integral",
+      "question": "∫ 0 hingga 2 dari 3x² dx = ?",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_002",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Turunan",
+      "question": "Jika f(x) = x³ + 2x, maka f'(1) = ...",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_003",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Integral",
+      "question": "∫ 0 hingga 1 dari 6x dx = ?",
+      "answer": "3",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_004",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Deret",
+      "question": "Jumlah 1 + 2 + 3 + ... + 10 adalah ...",
+      "answer": "55",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_005",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Kombinatorika",
+      "question": "Banyak kombinasi memilih 3 benda dari 8 benda berbeda adalah ...",
+      "answer": "56",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_006",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Permutasi",
+      "question": "Ada 5 benda berbeda. Banyak susunan untuk menggunakan semuanya adalah ...",
+      "answer": "120",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_007",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Rekursi",
+      "question": "Diberikan a₁ = 1 dan aₙ = 2aₙ₋₁ + 1. Nilai a₃ adalah ...",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_008",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Matriks",
+      "question": "Untuk matriks [[1,2],[0,1]], elemen baris pertama kolom kedua setelah dikalikan dengan matriks itu sendiri sebanyak 5 kali adalah ...",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_009",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Eigenvalue",
+      "question": "Matriks diagonal [[3,0],[0,5]] memiliki nilai eigen terbesar ...",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_010",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Sistem persamaan",
+      "question": "x + y + z = 6, x + 2y + z = 8, x + y + 2z = 9. Nilai x adalah ...",
+      "answer": "1",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_011",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Geometri",
+      "question": "Sebuah lingkaran berjari-jari 7 cm memiliki luas 49π cm². Koefisien π adalah ...",
+      "answer": "49",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_012",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Integral",
+      "question": "∫ 0 hingga 1 dari 4x³ dx = ?",
+      "answer": "1",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_013",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Deret kubik",
+      "question": "1³ + 2³ + 3³ + 4³ = ?",
+      "answer": "100",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_014",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Kombinatorika",
+      "question": "Banyak kombinasi memilih 4 benda dari 10 benda berbeda adalah ...",
+      "answer": "210",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_015",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Matriks",
+      "question": "Nilai eigen terbesar matriks [[2,1],[1,2]] adalah ...",
+      "answer": "3",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_016",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Determinan",
+      "question": "Determinan matriks segitiga dengan diagonal 2, 3, dan 4 adalah ...",
+      "answer": "24",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_017",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Barisan Fibonacci",
+      "question": "Dengan F₁ = 1 dan F₂ = 1, nilai F₈ adalah ...",
+      "answer": "21",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_018",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Bilangan kompleks",
+      "question": "Modulus dari 3 + 4i adalah ...",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_019",
+      "level": "Dasar",
+      "difficulty": 4,
+      "category": "Vektor",
+      "question": "Panjang vektor (6,8) adalah ...",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "dasar_020",
+      "level": "Dasar",
+      "difficulty": 5,
+      "category": "Persamaan diferensial",
+      "question": "Diketahui dy/dx = 2x dan y(0) = 3. Nilai y(2) adalah ...",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    }
+  ]
+}
