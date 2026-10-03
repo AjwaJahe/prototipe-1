@@ -1,0 +1,155 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="MatDarkWood"]
+albedo_color = Color(0.16, 0.09, 0.04, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="MatMattress"]
+albedo_color = Color(0.65, 0.70, 0.75, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="MatWhite"]
+albedo_color = Color(0.84, 0.84, 0.80, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="MatCabinet"]
+albedo_color = Color(0.45, 0.28, 0.12, 1)
+roughness = 0.92
+
+[sub_resource type="StandardMaterial3D" id="MatMetal"]
+albedo_color = Color(0.25, 0.27, 0.30, 1)
+metallic = 0.55
+roughness = 0.65
+
+[sub_resource type="BoxMesh" id="BedFrameMesh"]
+size = Vector3(3.1, 0.28, 1.55)
+material = SubResource("MatDarkWood")
+
+[sub_resource type="BoxMesh" id="MattressMesh"]
+size = Vector3(2.85, 0.30, 1.35)
+material = SubResource("MatMattress")
+
+[sub_resource type="BoxMesh" id="PillowMesh"]
+size = Vector3(0.72, 0.18, 1.05)
+material = SubResource("MatWhite")
+
+[sub_resource type="BoxMesh" id="BedLegMesh"]
+size = Vector3(0.14, 0.75, 0.14)
+material = SubResource("MatDarkWood")
+
+[sub_resource type="BoxMesh" id="CabinetBodyMesh"]
+size = Vector3(2.0, 3.2, 0.95)
+material = SubResource("MatCabinet")
+
+[sub_resource type="BoxMesh" id="CabinetTopMesh"]
+size = Vector3(2.15, 0.14, 1.05)
+material = SubResource("MatDarkWood")
+
+[sub_resource type="BoxMesh" id="CabinetHandleMesh"]
+size = Vector3(0.12, 0.12, 0.06)
+material = SubResource("MatMetal")
+
+[sub_resource type="BoxShape3D" id="BedCollisionShape"]
+size = Vector3(3.1, 0.35, 1.55)
+
+[sub_resource type="BoxShape3D" id="CabinetCollisionShape"]
+size = Vector3(2.0, 3.2, 0.95)
+
+[node name="UKS_Furniture" type="Node3D"]
+
+[node name="Bed_Left" type="Node3D" parent="."]
+position = Vector3(-3.65, 0, 0.75)
+rotation = Vector3(0, -1.5707964, 0)
+
+[node name="Frame" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(0, 0.46, 0)
+mesh = SubResource("BedFrameMesh")
+
+[node name="Mattress" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(0, 0.77, 0)
+mesh = SubResource("MattressMesh")
+
+[node name="Pillow" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(-0.92, 0.99, 0)
+mesh = SubResource("PillowMesh")
+
+[node name="Leg_FL" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(-1.35, 0.075, -0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Leg_FR" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(-1.35, 0.075, 0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Leg_BL" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(1.35, 0.075, -0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Leg_BR" type="MeshInstance3D" parent="Bed_Left"]
+position = Vector3(1.35, 0.075, 0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Collision" type="StaticBody3D" parent="Bed_Left"]
+
+[node name="Shape" type="CollisionShape3D" parent="Bed_Left/Collision"]
+position = Vector3(0, 0.46, 0)
+shape = SubResource("BedCollisionShape")
+
+[node name="Bed_Right" type="Node3D" parent="."]
+position = Vector3(3.65, 0, 0.75)
+rotation = Vector3(0, 1.5707964, 0)
+
+[node name="Frame" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(0, 0.46, 0)
+mesh = SubResource("BedFrameMesh")
+
+[node name="Mattress" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(0, 0.77, 0)
+mesh = SubResource("MattressMesh")
+
+[node name="Pillow" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(-0.92, 0.99, 0)
+mesh = SubResource("PillowMesh")
+
+[node name="Leg_FL" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(-1.35, 0.075, -0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Leg_FR" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(-1.35, 0.075, 0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Leg_BL" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(1.35, 0.075, -0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Leg_BR" type="MeshInstance3D" parent="Bed_Right"]
+position = Vector3(1.35, 0.075, 0.62)
+mesh = SubResource("BedLegMesh")
+
+[node name="Collision" type="StaticBody3D" parent="Bed_Right"]
+
+[node name="Shape" type="CollisionShape3D" parent="Bed_Right/Collision"]
+position = Vector3(0, 0.46, 0)
+shape = SubResource("BedCollisionShape")
+
+[node name="Cabinet" type="Node3D" parent="."]
+position = Vector3(-4.15, 0, -6.10)
+
+[node name="Body" type="MeshInstance3D" parent="Cabinet"]
+position = Vector3(0, 1.60, 0)
+mesh = SubResource("CabinetBodyMesh")
+
+[node name="Top" type="MeshInstance3D" parent="Cabinet"]
+position = Vector3(0, 3.22, 0)
+mesh = SubResource("CabinetTopMesh")
+
+[node name="Handle" type="MeshInstance3D" parent="Cabinet"]
+position = Vector3(0, 1.60, -0.51)
+mesh = SubResource("CabinetHandleMesh")
+
+[node name="Collision" type="StaticBody3D" parent="Cabinet"]
+
+[node name="Shape" type="CollisionShape3D" parent="Cabinet/Collision"]
+position = Vector3(0, 1.60, 0)
+shape = SubResource("CabinetCollisionShape")

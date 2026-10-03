@@ -225,20 +225,9 @@ func _build_principal_room() -> void:
     _create_cabinet(room, Vector3(4.5, 0, 2.8))
 
 func _build_uks() -> void:
-    var center := Vector3(58.1547, 0.0, -3.4886)
-    var room := Node3D.new()
-    room.name = "UKSFurniture"
-    room.position = center
-    add_child(room)
-
-    # Kasur berada di sepanjang dinding kiri dan kanan, mendekati pojok belakang.
-    # Keduanya diputar 90 derajat agar memanjang mengikuti sisi ruangan.
-    _create_bed(room, Vector3(-3.65, 0, 0.75), -PI / 2.0)
-    _create_bed(room, Vector3(3.65, 0, 0.75), PI / 2.0)
-
-    # Pintu masuk UKS berada pada dinding barat (sisi X negatif).
-    # Lemari ditempelkan ke pojok depan-samping pintu: sudut barat-laut.
-    _create_cabinet(room, Vector3(-4.15, 0, -6.10), 0.0)
+    # UKS_Furniture.tscn sudah menjadi child scene editable di Map58_Furniture.tscn.
+    # Tidak dibuat ulang lewat script agar tidak terjadi duplikasi.
+    return
 
 func _create_bed(parent: Node3D, at: Vector3, facing := 0.0) -> void:
     var group := Node3D.new()
