@@ -4,13 +4,13 @@ extends RefCounted
 const GRID_WIDTH: int = 24
 const GRID_HEIGHT: int = 32
 
-const MIN_POINTS: int = 6
+const MIN_POINTS: int = 4
 const MAX_DIGITS: int = 6
 
-const MIN_CONFIDENCE: float = 0.54
-const MIN_MARGIN: float = 0.035
+const MIN_CONFIDENCE: float = 0.32
+const MIN_MARGIN: float = 0.004
 
-const MAX_HORIZONTAL_GAP_RATIO: float = 0.18
+const MAX_HORIZONTAL_GAP_RATIO: float = 0.30
 
 
 var templates: Dictionary = {}
