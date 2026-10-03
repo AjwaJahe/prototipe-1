@@ -397,6 +397,225 @@ func _group_strokes(
 	return groups
 
 
+func recognize_against_answer(
+	strokes: Array,
+	expected_answer: String
+) -> Dictionary:
+
+	var usable: Array = []
+
+	for value in strokes:
+		if not value is PackedVector2Array:
+			continue
+
+		var stroke: PackedVector2Array = value as PackedVector2Array
+
+		if stroke.size() >= 2:
+			usable.append(stroke)
+
+	var expected: String = expected_answer.strip_edges()
+
+	if usable.is_empty() or expected.is_empty():
+		return {
+			"ok": false,
+			"text": "",
+			"score": 0.0
+		}
+
+	# Soal sudah mengetahui jawaban yang benar.
+	# Untuk jawaban angka, kita ukur kemiripan tulisan dengan digit yang
+	# memang diharapkan, bukan memaksa classifier menebak semua 0-9.
+	for character in expected:
+		if not "0123456789".contains(character):
+			return recognize_strokes(strokes)
+
+	var expected_digits: int = expected.length()
+	var sorted_indices: Array = []
+
+	for i in range(usable.size()):
+		sorted_indices.append(i)
+
+	# Urutkan stroke dari kiri ke kanan.
+	for i in range(sorted_indices.size()):
+		for j in range(i + 1, sorted_indices.size()):
+			var left_index: int = int(sorted_indices[i])
+			var right_index: int = int(sorted_indices[j])
+
+			var left_rect: Rect2 = _bounds(usable[left_index])
+			var right_rect: Rect2 = _bounds(usable[right_index])
+
+			if right_rect.position.x < left_rect.position.x:
+				var swap_value: int = left_index
+				sorted_indices[i] = right_index
+				sorted_indices[j] = swap_value
+
+	if usable.size() < expected_digits:
+		return {
+			"ok": false,
+			"text": "",
+			"score": 0.0
+		}
+
+	# Dynamic programming mencoba pembagian stroke yang berurutan.
+	# Ini lebih stabil daripada satu aturan jarak/gap tetap.
+	var neg_inf: float = -INF
+	var dp: Array = []
+	var parent: Array = []
+
+	for d in range(expected_digits + 1):
+		var row: Array = []
+		var parent_row: Array = []
+
+		for s in range(usable.size() + 1):
+			row.append(neg_inf)
+			parent_row.append(-1)
+
+		dp.append(row)
+		parent.append(parent_row)
+
+	dp[0][0] = 0.0
+
+	for d in range(1, expected_digits + 1):
+		var remaining_digits: int = expected_digits - d
+
+		for end_index in range(d, usable.size() - remaining_digits + 1):
+			var best_value: float = neg_inf
+
+			for start_index in range(d - 1, end_index):
+				var previous: float = float(dp[d - 1][start_index])
+
+				if previous <= neg_inf * 0.5:
+					continue
+
+				var points: PackedVector2Array = PackedVector2Array()
+
+				for k in range(start_index, end_index):
+					var source_index: int = int(sorted_indices[k])
+
+					for point in usable[source_index]:
+						points.append(point)
+
+				if points.size() < MIN_POINTS:
+					continue
+
+				var digit: String = expected.substr(d - 1, 1)
+				var local_score: float = _expected_digit_similarity(
+					points,
+					digit
+				)
+
+				var segment_score: float = previous + local_score
+
+				if segment_score > best_value:
+					best_value = segment_score
+
+				dp[d][end_index] = best_value
+
+	if float(dp[expected_digits][usable.size()]) <= neg_inf * 0.5:
+		return {
+			"ok": false,
+			"text": "",
+			"score": 0.0
+		}
+
+	var average_score: float = (
+		float(dp[expected_digits][usable.size()])
+		/
+		float(expected_digits)
+	)
+
+	# Jangan menerima hanya karena bentuk umum terlihat mirip.
+	# Kita kombinasikan dua pemeriksaan:
+	# 1) recognizer umum harus mengenali jawaban yang sama, ATAU
+	# 2) kemiripan langsung terhadap jawaban benar harus sangat tinggi.
+	# Ini menjaga toleransi tulisan tangan tanpa membuat hampir semua bentuk
+	# dianggap benar.
+	var generic_result: Dictionary = recognize_strokes(strokes)
+	var generic_ok: bool = bool(generic_result.get("ok", false))
+	var generic_text: String = String(generic_result.get("text", ""))
+	var generic_score: float = float(generic_result.get("score", 0.0))
+
+	if generic_ok and generic_text == expected:
+		return {
+			"ok": true,
+			"text": expected,
+			"score": maxf(average_score, generic_score)
+		}
+
+	# Untuk tulisan yang recognizer umum gagal kenali tetapi bentuknya
+	# sangat dekat dengan jawaban yang benar, izinkan sebagai tulisan tangan.
+	if average_score >= 0.90:
+		return {
+			"ok": true,
+			"text": expected,
+			"score": average_score
+		}
+
+	# Bila recognizer umum mengenali digit lain, kembalikan digit tersebut
+	# agar soal dinilai SALAH, bukan BENAR atau "tidak terbaca".
+	if generic_ok and not generic_text.is_empty():
+		return {
+			"ok": false,
+			"text": generic_text,
+			"score": generic_score
+		}
+
+	return {
+		"ok": false,
+		"text": "",
+		"score": average_score
+	}
+
+
+func _expected_digit_similarity(
+	points: PackedVector2Array,
+	digit: String
+) -> float:
+
+	if not templates.has(digit):
+		return 0.0
+
+	if points.size() < MIN_POINTS:
+		return 0.0
+
+	var candidate: PackedByteArray = _rasterize(points)
+
+	var candidate_features: Dictionary = _features(
+		points,
+		candidate,
+		1
+	)
+
+	var best_score: float = 0.0
+	var variants: Array = templates[digit]
+
+	for variant_value in variants:
+		if not variant_value is Dictionary:
+			continue
+
+		var variant: Dictionary = variant_value
+
+		var shape_score: float = _shape_similarity(
+			candidate,
+			PackedByteArray(variant["mask"])
+		)
+
+		var feature_score: float = _feature_similarity(
+			candidate_features,
+			variant
+		)
+
+		var total: float = (
+			shape_score * 0.72
+			+
+			feature_score * 0.28
+		)
+
+		best_score = maxf(best_score, total)
+
+	return clampf(best_score, 0.0, 1.0)
+
+
 func _recognize_digit(
 	points: PackedVector2Array,
 	stroke_count: int

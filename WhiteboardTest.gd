@@ -12,9 +12,10 @@ const IMAGE_HEIGHT: int = 672
 
 const WRITING_OFFSET: float = 0.08
 const BRUSH_RADIUS: int = 10
-const ERASER_DRAG_SENSITIVITY: float = 0.008
+const ERASER_DRAG_SENSITIVITY: float = 0.0045
 const ERASER_HALF_WIDTH: float = 0.42
 const ERASER_HALF_HEIGHT: float = 0.20
+const DRAW_SENSITIVITY: float = 0.0045
 
 
 @onready var player_body: CharacterBody3D = $Player/CharacterBody3D
@@ -59,6 +60,9 @@ var writing_surface: MeshInstance3D = null
 var recognizer: Object = null
 var eraser_button: StaticBody3D = null
 var eraser_dragging: bool = false
+var brush_local_position: Vector3 = Vector3.ZERO
+var brush_initialized: bool = false
+var fresh_attempt_on_next_draw: bool = false
 
 var cursor_layer: CanvasLayer = null
 var cursor_root: Control = null
@@ -96,18 +100,17 @@ func _input(event: InputEvent) -> void:
 		if motion_event == null:
 			return
 
-		# Saat menulis, pakai posisi mouse sebenarnya di layar untuk menentukan
-		# titik di papan. Jangan handle event supaya Player.gd tetap bisa
-		# memutar POV.
+		# Mouse tetap CAPTURED seperti mode FPS biasa. Karena Player.gd juga
+		# menerima InputEventMouseMotion, POV tetap dapat diputar.
+		# Saat menulis, titik pena mengikuti arah pandangan (tengah layar).
 		if drawing:
-			_add_board_point_from_screen(motion_event.position)
+			_add_board_point_from_relative(motion_event.relative)
 			return
 
-		# Saat penghapus dipegang, penghapus bergerak mengikuti posisi mouse
-		# pada bidang papan. Event tetap diteruskan ke Player.gd agar POV bisa
-		# bergerak pada saat yang sama.
+		# Saat penghapus dipegang, gerakan relatif mouse dipakai untuk
+		# menggeser penghapus di permukaan papan. POV tetap menerima event yang sama.
 		if eraser_dragging:
-			_move_eraser_to_screen(motion_event.position)
+			_move_eraser_by_relative(motion_event.relative)
 			return
 
 		return
@@ -352,6 +355,7 @@ func _attach_question() -> void:
 
 
 	question_active = true
+	fresh_attempt_on_next_draw = false
 
 
 	_clear_answer_only()
@@ -408,6 +412,14 @@ func _start_drawing() -> void:
 		return
 
 
+	# Setelah percobaan sebelumnya dinyatakan "tidak terbaca",
+	# klik kiri berikutnya memulai jawaban baru agar coretan percobaan lama
+	# tidak terus menumpuk di recognizer. Untuk stroke tambahan pada satu
+	# jawaban, tidak ada reset selama belum dikoreksi.
+	if fresh_attempt_on_next_draw:
+		_clear_answer_only()
+		fresh_attempt_on_next_draw = false
+
 	drawing = true
 
 
@@ -416,17 +428,20 @@ func _start_drawing() -> void:
 	)
 
 
-	# Lepaskan mouse capture supaya posisi mouse nyata dapat dipakai
-	# sebagai kursor menulis. Player.gd tetap menerima mouse motion sehingga
-	# POV masih dapat bergerak.
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	# Tetap CAPTURED seperti mode FPS normal. Jangan memakai posisi mouse
+	# absolut karena Godot memindahkan cursor ke posisi virtual saat capture.
+	# Titik pena mengikuti ray tepat di tengah layar.
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
-	# Titik awal mengikuti posisi kursor saat mode menulis dimulai.
-	_add_board_point_from_screen(
-		get_viewport().get_mouse_position()
-	)
-
+	# Titik awal diambil dari pusat pandangan, lalu setelah itu posisi
+	# pena dikendalikan oleh gerakan relatif mouse. Kamera tetap boleh
+	# berputar karena event mouse tidak di-handle oleh script ini.
+	if not _initialize_brush_from_center():
+		drawing = false
+		_set_status(
+			"Arahkan pandangan ke papan untuk mulai menulis."
+		)
+		return
 
 	_set_status(
 		"Menulis... " +
@@ -454,6 +469,8 @@ func _stop_drawing() -> void:
 	current_stroke = (
 		PackedVector2Array()
 	)
+
+	brush_initialized = false
 
 
 	# Setelah selesai menulis, kembali ke mode FPS normal.
@@ -517,8 +534,9 @@ func _check_answer() -> void:
 
 	var result_value: Variant = (
 		recognizer.call(
-			"recognize_strokes",
-			strokes
+			"recognize_against_answer",
+			strokes,
+			question_answer
 		)
 	)
 
@@ -588,7 +606,7 @@ func _check_answer() -> void:
 	)
 
 
-	if not readable:
+	if not readable and answer_text.is_empty():
 
 		_set_result(
 			"TIDAK TERBACA",
@@ -601,10 +619,11 @@ func _check_answer() -> void:
 		)
 
 
+		fresh_attempt_on_next_draw = true
+
 		_set_status(
 			"Jawaban tidak cukup yakin. " +
-			"Gunakan penghapus papan " +
-			"lalu gambar ulang."
+			"Gunakan penghapus papan atau klik kiri untuk memulai ulang."
 		)
 
 
@@ -694,6 +713,8 @@ func _check_answer() -> void:
 
 
 func _erase_answer() -> void:
+
+	fresh_attempt_on_next_draw = false
 
 	if not question_active:
 
@@ -809,6 +830,124 @@ func _exit_board_session() -> void:
 	)
 
 
+func _initialize_brush_from_center() -> bool:
+
+	var viewport_size: Vector2 = (
+		get_viewport()
+		.get_visible_rect()
+		.size
+	)
+
+	var center: Vector2 = (
+		viewport_size * 0.5
+	)
+
+	var hit: Dictionary = (
+		_raycast_from_screen(
+			center
+		)
+	)
+
+	if hit.is_empty():
+		return false
+
+	var collider_value: Variant = (
+		hit.get(
+			"collider"
+		)
+	)
+
+	if not collider_value is Node3D:
+		return false
+
+	var collider: Node3D = (
+		collider_value as Node3D
+	)
+
+	if collider == null or collider != board:
+		return false
+
+	var position_value: Variant = (
+		hit.get(
+			"position"
+		)
+	)
+
+	if not position_value is Vector3:
+		return false
+
+	var world_position: Vector3 = (
+		position_value as Vector3
+	)
+
+	brush_local_position = (
+		board.global_transform.affine_inverse()
+		*
+		world_position
+	)
+
+	var min_x: float = -BOARD_WIDTH * 0.5
+	var max_x: float = BOARD_WIDTH * 0.5
+	var min_y: float = -BOARD_HEIGHT * 0.5
+	var max_y: float = BOARD_HEIGHT * 0.5
+
+	brush_local_position.x = clampf(
+		brush_local_position.x,
+		min_x,
+		max_x
+	)
+
+	brush_local_position.y = clampf(
+		brush_local_position.y,
+		min_y,
+		max_y
+	)
+
+	brush_local_position.z = WRITING_OFFSET
+	brush_initialized = true
+
+	_add_board_point_from_local(
+		brush_local_position
+	)
+
+	return true
+
+
+func _add_board_point_from_relative(relative_motion: Vector2) -> void:
+
+	if not brush_initialized:
+		return
+
+	brush_local_position.x += (
+		relative_motion.x * DRAW_SENSITIVITY
+	)
+
+	brush_local_position.y -= (
+		relative_motion.y * DRAW_SENSITIVITY
+	)
+
+	brush_local_position.x = clampf(
+		brush_local_position.x,
+		-BOARD_WIDTH * 0.5,
+		BOARD_WIDTH * 0.5
+	)
+
+	brush_local_position.y = clampf(
+		brush_local_position.y,
+		-BOARD_HEIGHT * 0.5,
+		BOARD_HEIGHT * 0.5
+	)
+
+	_add_board_point_from_local(
+		brush_local_position
+	)
+
+
+func _add_board_point_from_center() -> void:
+
+	_initialize_brush_from_center()
+
+
 func _add_board_point_from_screen(screen_position: Vector2) -> void:
 
 	var hit: Dictionary = (
@@ -855,8 +994,13 @@ func _add_board_point_from_screen(screen_position: Vector2) -> void:
 		world_position
 	)
 
-	# Papan uji berukuran 6 x 3.36. Batasi titik agar tidak pernah menulis
-	# di luar permukaan papan.
+	_add_board_point_from_local(
+		local_position
+	)
+
+
+func _add_board_point_from_local(local_position: Vector3) -> void:
+
 	if absf(local_position.x) > BOARD_WIDTH * 0.5:
 		return
 
@@ -871,11 +1015,19 @@ func _add_board_point_from_screen(screen_position: Vector2) -> void:
 		0.5 - (local_position.y / BOARD_HEIGHT)
 	) * float(IMAGE_HEIGHT - 1)
 
-	var board_point: Vector2 = Vector2(px, py)
+	var board_point: Vector2 = Vector2(
+		px,
+		py
+	)
 
 	if current_stroke.is_empty():
-		current_stroke.append(board_point)
+
+		current_stroke.append(
+			board_point
+		)
+
 		_draw_dot(board_point)
+
 		return
 
 	var last_point: Vector2 = (
@@ -885,8 +1037,16 @@ func _add_board_point_from_screen(screen_position: Vector2) -> void:
 	)
 
 	if last_point.distance_to(board_point) >= 1.0:
-		current_stroke.append(board_point)
-		_draw_line(last_point, board_point)
+
+		current_stroke.append(
+			board_point
+		)
+
+		_draw_line(
+			last_point,
+			board_point
+		)
+
 
 func _pick_item(
 	target: Node3D
@@ -1613,13 +1773,9 @@ func _start_eraser_drag() -> void:
 
 	eraser_dragging = true
 
-	# Mouse menjadi cursor nyata agar penghapus benar-benar dapat di-drag
-	# pada permukaan papan.
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-	_move_eraser_to_screen(
-		get_viewport().get_mouse_position()
-	)
+	# Tetap CAPTURED agar Player.gd terus menerima gerakan mouse untuk POV.
+	# Gerakan relatif mouse di sini juga dipakai untuk menggeser penghapus.
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	_set_status(
 		"Penghapus dipegang. " +
@@ -1643,7 +1799,7 @@ func _stop_eraser_drag() -> void:
 	)
 
 
-func _move_eraser_to_screen(screen_position: Vector2) -> void:
+func _move_eraser_by_relative(relative_motion: Vector2) -> void:
 
 	if eraser_button == null:
 		return
@@ -1651,41 +1807,19 @@ func _move_eraser_to_screen(screen_position: Vector2) -> void:
 	if not question_active:
 		return
 
-	var hit: Dictionary = (
-		_raycast_board_from_screen(
-			screen_position
-		)
-	)
-
-	if hit.is_empty():
-		return
-
-	var position_value: Variant = (
-		hit.get(
-			"position"
-		)
-	)
-
-	if not position_value is Vector3:
-		return
-
-	var world_position: Vector3 = (
-		position_value as Vector3
-	)
-
-	var local_position: Vector3 = (
-		board.global_transform.affine_inverse()
-		*
-		world_position
-	)
+	# Papan menggunakan sumbu X untuk kiri/kanan dan Y untuk atas/bawah.
+	# Mouse Y bertambah saat bergerak ke bawah, sedangkan koordinat papan Y
+	# bertambah ke atas, jadi tandanya dibalik.
+	eraser_button.position.x += relative_motion.x * ERASER_DRAG_SENSITIVITY
+	eraser_button.position.y -= relative_motion.y * ERASER_DRAG_SENSITIVITY
 
 	var min_x: float = -BOARD_WIDTH * 0.5 + ERASER_HALF_WIDTH
 	var max_x: float = BOARD_WIDTH * 0.5 - ERASER_HALF_WIDTH
 	var min_y: float = -BOARD_HEIGHT * 0.5 + ERASER_HALF_HEIGHT
 	var max_y: float = BOARD_HEIGHT * 0.5 - ERASER_HALF_HEIGHT
 
-	eraser_button.position.x = clampf(local_position.x, min_x, max_x)
-	eraser_button.position.y = clampf(local_position.y, min_y, max_y)
+	eraser_button.position.x = clampf(eraser_button.position.x, min_x, max_x)
+	eraser_button.position.y = clampf(eraser_button.position.y, min_y, max_y)
 	eraser_button.position.z = 0.28
 
 	_erase_under_eraser()
@@ -1747,8 +1881,8 @@ func _filter_strokes_by_eraser() -> void:
 		return
 
 	var center: Vector2 = Vector2(
-		(local_position_to_image_x(eraser_button.position.x)),
-		(local_position_to_image_y(eraser_button.position.y))
+		local_position_to_image_x(eraser_button.position.x),
+		local_position_to_image_y(eraser_button.position.y)
 	)
 
 	var half_width: float = (ERASER_HALF_WIDTH / BOARD_WIDTH) * float(IMAGE_WIDTH)
