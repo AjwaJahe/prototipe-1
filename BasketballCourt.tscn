@@ -1,129 +1,306 @@
 [gd_scene format=3]
 
 [sub_resource type="StandardMaterial3D" id="MatMetal"]
-albedo_color = Color(0.18, 0.20, 0.23, 1)
-metallic = 0.55
-roughness = 0.65
+albedo_color = Color(0.16, 0.18, 0.20, 1)
+metallic = 0.65
+roughness = 0.60
 
-[sub_resource type="StandardMaterial3D" id="MatBoard"]
-albedo_color = Color(0.90, 0.90, 0.84, 1)
-roughness = 0.8
+[sub_resource type="StandardMaterial3D" id="MatWhite"]
+albedo_color = Color(0.92, 0.92, 0.88, 1)
+roughness = 0.82
 
-[sub_resource type="StandardMaterial3D" id="MatRim"]
-albedo_color = Color(0.85, 0.30, 0.05, 1)
-roughness = 0.7
+[sub_resource type="StandardMaterial3D" id="MatFrame"]
+albedo_color = Color(0.05, 0.05, 0.055, 1)
+roughness = 0.80
+
+[sub_resource type="StandardMaterial3D" id="MatRed"]
+albedo_color = Color(0.55, 0.05, 0.035, 1)
+roughness = 0.72
 
 [sub_resource type="StandardMaterial3D" id="MatNet"]
-albedo_color = Color(0.92, 0.92, 0.92, 1)
-roughness = 0.9
-
-[sub_resource type="CylinderMesh" id="PoleMesh"]
-top_radius = 0.13
-bottom_radius = 0.16
-height = 3.8
-radial_segments = 12
-material = SubResource("MatMetal")
-
-[sub_resource type="BoxMesh" id="BaseMesh"]
-size = Vector3(1.6, 0.18, 1.1)
-material = SubResource("MatMetal")
-
-[sub_resource type="BoxMesh" id="ArmMesh"]
-size = Vector3(1.8, 0.14, 0.14)
-material = SubResource("MatMetal")
+albedo_color = Color(0.95, 0.95, 0.95, 1)
+roughness = 0.90
 
 [sub_resource type="BoxMesh" id="BackboardMesh"]
-size = Vector3(1.9, 1.1, 0.10)
-material = SubResource("MatBoard")
+size = Vector3(1.85, 1.10, 0.10)
+material = SubResource("MatWhite")
 
-[sub_resource type="CylinderMesh" id="RimMesh"]
-top_radius = 0.23
-bottom_radius = 0.23
-height = 0.06
-radial_segments = 24
-material = SubResource("MatRim")
+[sub_resource type="BoxMesh" id="BackboardFrameTop"]
+size = Vector3(1.98, 0.08, 0.13)
+material = SubResource("MatFrame")
 
-[sub_resource type="TorusMesh" id="RimTorus"]
+[sub_resource type="BoxMesh" id="BackboardFrameBottom"]
+size = Vector3(1.98, 0.08, 0.13)
+material = SubResource("MatFrame")
+
+[sub_resource type="BoxMesh" id="BackboardFrameSide"]
+size = Vector3(0.08, 1.10, 0.13)
+material = SubResource("MatFrame")
+
+[sub_resource type="BoxMesh" id="SquareTargetTop"]
+size = Vector3(0.70, 0.055, 0.035)
+material = SubResource("MatFrame")
+
+[sub_resource type="BoxMesh" id="SquareTargetBottom"]
+size = Vector3(0.70, 0.055, 0.035)
+material = SubResource("MatFrame")
+
+[sub_resource type="BoxMesh" id="SquareTargetSide"]
+size = Vector3(0.055, 0.62, 0.035)
+material = SubResource("MatFrame")
+
+[sub_resource type="TorusMesh" id="RimMesh"]
 inner_radius = 0.22
 outer_radius = 0.26
-rings = 12
-ring_segments = 24
-material = SubResource("MatRim")
-
-[sub_resource type="SphereMesh" id="BasketballMesh"]
-radius = 0.20
-height = 0.40
-radial_segments = 16
 rings = 10
-material = SubResource("MatRim")
+ring_segments = 24
+material = SubResource("MatRed")
 
-[sub_resource type="BoxShape3D" id="PoleCollision"]
-size = Vector3(0.32, 3.8, 0.32)
+[sub_resource type="TorusMesh" id="NetBottomMesh"]
+inner_radius = 0.09
+outer_radius = 0.12
+rings = 8
+ring_segments = 16
+material = SubResource("MatNet")
+
+[sub_resource type="CylinderMesh" id="NetCordMesh"]
+top_radius = 0.012
+bottom_radius = 0.012
+height = 0.58
+radial_segments = 6
+material = SubResource("MatNet")
+
+[sub_resource type="CylinderMesh" id="BackMountMesh"]
+top_radius = 0.045
+bottom_radius = 0.045
+height = 0.95
+radial_segments = 10
+material = SubResource("MatMetal")
+
+[sub_resource type="BoxMesh" id="SupportArmMesh"]
+size = Vector3(1.15, 0.08, 0.08)
+material = SubResource("MatMetal")
+
+[sub_resource type="CylinderMesh" id="NetCordMesh"]
+top_radius = 0.012
+bottom_radius = 0.012
+height = 0.58
+radial_segments = 6
+material = SubResource("MatNet")
+
+[sub_resource type="BoxShape3D" id="BackboardCollision"]
+size = Vector3(1.85, 1.10, 0.10)
 
 [node name="BasketballCourt" type="Node3D"]
 
 [node name="Hoop_Left" type="Node3D" parent="."]
-position = Vector3(-18.0, 0, 0)
+position = Vector3(-18.9, 0, 0)
 rotation = Vector3(0, -1.5707964, 0)
 
-[node name="Base" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 0.10, 0)
-mesh = SubResource("BaseMesh")
-
-[node name="Pole" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 1.9, 0)
-mesh = SubResource("PoleMesh")
-
-[node name="Arm" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.8, 3.65, 0)
-mesh = SubResource("ArmMesh")
-
 [node name="Backboard" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(1.62, 3.65, 0)
+position = Vector3(0, 3.60, 0)
 mesh = SubResource("BackboardMesh")
+
+[node name="FrameTop" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0, 4.17, -0.08)
+mesh = SubResource("BackboardFrameTop")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0, 3.03, -0.08)
+mesh = SubResource("BackboardFrameBottom")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.95, 3.60, -0.08)
+mesh = SubResource("BackboardFrameSide")
+
+[node name="FrameRight" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.95, 3.60, -0.08)
+mesh = SubResource("BackboardFrameSide")
+
+[node name="TargetTop" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0, 3.74, -0.14)
+mesh = SubResource("SquareTargetTop")
+
+[node name="TargetBottom" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0, 3.12, -0.14)
+mesh = SubResource("SquareTargetBottom")
+
+[node name="TargetLeft" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.35, 3.43, -0.14)
+mesh = SubResource("SquareTargetSide")
+
+[node name="TargetRight" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.35, 3.43, -0.14)
+mesh = SubResource("SquareTargetSide")
 
 [node name="Rim" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(2.65, 3.48, 0)
+position = Vector3(0, 3.08, -0.36)
 rotation = Vector3(1.5707964, 0, 0)
-mesh = SubResource("RimTorus")
+mesh = SubResource("RimMesh")
 
-[node name="PoleCollision" type="StaticBody3D" parent="Hoop_Left"]
+[node name="NetBottom" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0, 2.52, -0.36)
+rotation = Vector3(1.5707964, 0, 0)
+mesh = SubResource("NetBottomMesh")
 
-[node name="Shape" type="CollisionShape3D" parent="Hoop_Left/PoleCollision"]
-position = Vector3(0, 1.9, 0)
-shape = SubResource("PoleCollision")
+[node name="NetCord_0" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.24, 2.80, -0.36)
+rotation = Vector3(0.0, 0.0, 0.40)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_1" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.17, 2.80, -0.53)
+rotation = Vector3(0.36, 0.0, 0.28)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_2" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.0, 2.80, -0.60)
+rotation = Vector3(0.42, 0.0, 0.0)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_3" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.17, 2.80, -0.53)
+rotation = Vector3(0.36, 0.0, -0.28)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_4" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.24, 2.80, -0.36)
+rotation = Vector3(0.0, 0.0, -0.40)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_5" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.17, 2.80, -0.19)
+rotation = Vector3(-0.36, 0.0, -0.28)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_6" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.0, 2.80, -0.12)
+rotation = Vector3(-0.42, 0.0, 0.0)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_7" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.17, 2.80, -0.19)
+rotation = Vector3(-0.36, 0.0, 0.28)
+mesh = SubResource("NetCordMesh")
+
+[node name="MountLeft" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.70, 4.05, 0.12)
+mesh = SubResource("BackMountMesh")
+
+[node name="MountRight" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.70, 4.05, 0.12)
+mesh = SubResource("BackMountMesh")
+
+[node name="SupportArmLeft" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(-0.55, 4.08, 0.25)
+rotation = Vector3(0, 0, -0.48)
+mesh = SubResource("SupportArmMesh")
+
+[node name="SupportArmRight" type="MeshInstance3D" parent="Hoop_Left"]
+position = Vector3(0.55, 4.08, 0.25)
+rotation = Vector3(0, 0, 0.48)
+mesh = SubResource("SupportArmMesh")
+
+[node name="BackboardCollision" type="StaticBody3D" parent="Hoop_Left"]
+[node name="Shape" type="CollisionShape3D" parent="Hoop_Left/BackboardCollision"]
+position = Vector3(0, 3.60, 0)
+shape = SubResource("BackboardCollision")
 
 [node name="Hoop_Right" type="Node3D" parent="."]
-position = Vector3(18.0, 0, 0)
+position = Vector3(18.9, 0, 0)
 rotation = Vector3(0, 1.5707964, 0)
 
-[node name="Base" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 0.10, 0)
-mesh = SubResource("BaseMesh")
-
-[node name="Pole" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 1.9, 0)
-mesh = SubResource("PoleMesh")
-
-[node name="Arm" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.8, 3.65, 0)
-mesh = SubResource("ArmMesh")
-
 [node name="Backboard" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-1.62, 3.65, 0)
+position = Vector3(0, 3.60, 0)
 mesh = SubResource("BackboardMesh")
 
+[node name="FrameTop" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0, 4.17, -0.08)
+mesh = SubResource("BackboardFrameTop")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0, 3.03, -0.08)
+mesh = SubResource("BackboardFrameBottom")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.95, 3.60, -0.08)
+mesh = SubResource("BackboardFrameSide")
+
+[node name="FrameRight" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.95, 3.60, -0.08)
+mesh = SubResource("BackboardFrameSide")
+
+[node name="TargetTop" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0, 3.74, -0.14)
+mesh = SubResource("SquareTargetTop")
+
+[node name="TargetBottom" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0, 3.12, -0.14)
+mesh = SubResource("SquareTargetBottom")
+
+[node name="TargetLeft" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.35, 3.43, -0.14)
+mesh = SubResource("SquareTargetSide")
+
+[node name="TargetRight" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.35, 3.43, -0.14)
+mesh = SubResource("SquareTargetSide")
+
 [node name="Rim" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-2.65, 3.48, 0)
+position = Vector3(0, 3.08, -0.36)
 rotation = Vector3(1.5707964, 0, 0)
-mesh = SubResource("RimTorus")
+mesh = SubResource("RimMesh")
 
-[node name="PoleCollision" type="StaticBody3D" parent="Hoop_Right"]
+[node name="NetBottom" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0, 2.52, -0.36)
+rotation = Vector3(1.5707964, 0, 0)
+mesh = SubResource("NetBottomMesh")
 
-[node name="Shape" type="CollisionShape3D" parent="Hoop_Right/PoleCollision"]
-position = Vector3(0, 1.9, 0)
-shape = SubResource("PoleCollision")
+[node name="NetCord_0" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.24, 2.80, -0.36)
+rotation = Vector3(0.0, 0.0, 0.40)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_1" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.17, 2.80, -0.53)
+rotation = Vector3(0.36, 0.0, 0.28)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_2" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.0, 2.80, -0.60)
+rotation = Vector3(0.42, 0.0, 0.0)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_3" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.17, 2.80, -0.53)
+rotation = Vector3(0.36, 0.0, -0.28)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_4" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.24, 2.80, -0.36)
+rotation = Vector3(0.0, 0.0, -0.40)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_5" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.17, 2.80, -0.19)
+rotation = Vector3(-0.36, 0.0, -0.28)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_6" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.0, 2.80, -0.12)
+rotation = Vector3(-0.42, 0.0, 0.0)
+mesh = SubResource("NetCordMesh")
+[node name="NetCord_7" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.17, 2.80, -0.19)
+rotation = Vector3(-0.36, 0.0, 0.28)
+mesh = SubResource("NetCordMesh")
 
-[node name="Basketball" type="MeshInstance3D" parent="."]
-position = Vector3(0, 0.25, 0)
-mesh = SubResource("BasketballMesh")
+[node name="MountLeft" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.70, 4.05, 0.12)
+mesh = SubResource("BackMountMesh")
+
+[node name="MountRight" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.70, 4.05, 0.12)
+mesh = SubResource("BackMountMesh")
+
+[node name="SupportArmLeft" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(-0.55, 4.08, 0.25)
+rotation = Vector3(0, 0, -0.48)
+mesh = SubResource("SupportArmMesh")
+
+[node name="SupportArmRight" type="MeshInstance3D" parent="Hoop_Right"]
+position = Vector3(0.55, 4.08, 0.25)
+rotation = Vector3(0, 0, 0.48)
+mesh = SubResource("SupportArmMesh")
+
+[node name="BackboardCollision" type="StaticBody3D" parent="Hoop_Right"]
+[node name="Shape" type="CollisionShape3D" parent="Hoop_Right/BackboardCollision"]
+position = Vector3(0, 3.60, 0)
+shape = SubResource("BackboardCollision")
