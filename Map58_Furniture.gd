@@ -215,7 +215,7 @@ func _build_principal_room() -> void:
     _create_cabinet(room, Vector3(4.5, 0, 2.8))
 
 func _build_uks() -> void:
-    var center := Vector3(58.1547, 0.0, 3.4886)
+    var center := Vector3(58.1547, 0.0, -3.4886)
     var room := Node3D.new()
     room.name = "UKSFurniture"
     room.position = center
