@@ -94,7 +94,7 @@ size = Vector3(1.85, 1.10, 0.10)
 [node name="BasketballCourt" type="Node3D"]
 
 [node name="Hoop_Left" type="Node3D" parent="."]
-position = Vector3(-18.9, 0, 0)
+position = Vector3(-14.5, 0, 0)
 rotation = Vector3(0, -1.5707964, 0)
 
 [node name="Backboard" type="MeshInstance3D" parent="Hoop_Left"]
@@ -200,7 +200,7 @@ position = Vector3(0, 3.60, 0)
 shape = SubResource("BackboardCollision")
 
 [node name="Hoop_Right" type="Node3D" parent="."]
-position = Vector3(18.9, 0, 0)
+position = Vector3(14.5, 0, 0)
 rotation = Vector3(0, 1.5707964, 0)
 
 [node name="Backboard" type="MeshInstance3D" parent="Hoop_Right"]
