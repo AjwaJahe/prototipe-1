@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bng7o3tab5iml" path="res://lantai.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bas2emljo8uk1" path="res://map58/Map58.tscn" id="3_h2yge"]
 [ext_resource type="Script" path="res://Map58_SpawnManager.gd" id="4_spawn"]
+[ext_resource type="PackedScene" path="res://Teacher.tscn" id="5_teacher"]
 
 [node name="Main" type="Node3D" unique_id=1437950529]
 
@@ -56,3 +57,6 @@ position = Vector3(31.22849, -0.180014, -65.21802)
 
 [node name="TeacherSpawn" type="Marker3D" parent="SpawnManager" unique_id=1884000021]
 position = Vector3(-28.43625, -0.180013, -41.5864)
+
+[node name="Teacher" parent="." instance=ExtResource("5_teacher")]
+position = Vector3(-28.43625, 0.819987, -41.5864)
