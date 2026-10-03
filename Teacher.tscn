@@ -8,10 +8,12 @@ radius = 0.42
 height = 2.15
 
 [node name="Teacher" type="CharacterBody3D"]
-script = ExtResource("2_anim")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 position = Vector3(0, 1.08, 0)
 shape = SubResource("TeacherCollision")
 
 [node name="TeacherModel" parent="." instance=ExtResource("1_model")]
+
+[node name="TeacherAnimation" type="Node" parent="."]
+script = ExtResource("2_anim")

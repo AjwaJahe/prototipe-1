@@ -6,30 +6,48 @@ extends Node
 @export var body_bob_height: float = 0.035
 
 var time_value := 0.0
-
-@onready var body: CharacterBody3D = get_parent() as CharacterBody3D
-@onready var visual: Node3D = body.get_node_or_null("PlayerCharacter/world") as Node3D
-@onready var leg_l: Node3D = visual.get_node_or_null("Leg_L") as Node3D
-@onready var leg_r: Node3D = visual.get_node_or_null("Leg_R") as Node3D
-@onready var arm_l: Node3D = visual.get_node_or_null("Arm_L") as Node3D
-@onready var arm_r: Node3D = visual.get_node_or_null("Arm_R") as Node3D
-@onready var torso: Node3D = visual.get_node_or_null("Torso") as Node3D
+var body: CharacterBody3D
+var visual: Node3D
+var leg_l: Node3D
+var leg_r: Node3D
+var arm_l: Node3D
+var arm_r: Node3D
+var torso: Node3D
 
 var leg_l_base := Vector3.ZERO
 var leg_r_base := Vector3.ZERO
 var arm_l_base := Vector3.ZERO
 var arm_r_base := Vector3.ZERO
 var torso_base_y := 0.0
+var ready_for_animation := false
 
 func _ready() -> void:
+    body = get_parent() as CharacterBody3D
+    if body == null:
+        push_warning("PlayerAnimation: parent CharacterBody3D tidak ditemukan.")
+        return
+
+    visual = body.get_node_or_null("PlayerCharacter/world") as Node3D
+    if visual == null:
+        push_warning("PlayerAnimation: PlayerCharacter/world tidak ditemukan.")
+        return
+
+    leg_l = visual.get_node_or_null("Leg_L") as Node3D
+    leg_r = visual.get_node_or_null("Leg_R") as Node3D
+    arm_l = visual.get_node_or_null("Arm_L") as Node3D
+    arm_r = visual.get_node_or_null("Arm_R") as Node3D
+    torso = visual.get_node_or_null("Torso") as Node3D
+
     if leg_l: leg_l_base = leg_l.rotation
     if leg_r: leg_r_base = leg_r.rotation
     if arm_l: arm_l_base = arm_l.rotation
     if arm_r: arm_r_base = arm_r.rotation
     if torso: torso_base_y = torso.position.y
 
+    ready_for_animation = true
+
 func _process(delta: float) -> void:
-    if body == null or visual == null:
+    if not ready_for_animation or body == null or visual == null:
         return
 
     var horizontal_speed := Vector2(body.velocity.x, body.velocity.z).length()
