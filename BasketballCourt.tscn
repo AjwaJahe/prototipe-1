@@ -85,6 +85,46 @@ size = Vector3(1.15, 0.08, 0.08)
 [sub_resource type="BoxShape3D" id="BackboardCollision"]
 size = Vector3(1.85, 1.1, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="MatCourtWood"]
+albedo_color = Color(0.43, 0.22, 0.085, 1)
+roughness = 0.86
+
+[sub_resource type="StandardMaterial3D" id="MatCourtLine"]
+albedo_color = Color(0.95, 0.90, 0.70, 1)
+roughness = 0.78
+
+[sub_resource type="BoxMesh" id="CourtFloorMesh"]
+size = Vector3(31.5, 0.05, 42.0)
+material = SubResource("MatCourtWood")
+
+[sub_resource type="BoxMesh" id="CourtLineX"]
+size = Vector3(0.10, 0.035, 41.0)
+material = SubResource("MatCourtLine")
+
+[sub_resource type="BoxMesh" id="CourtLineZ"]
+size = Vector3(31.0, 0.035, 0.10)
+material = SubResource("MatCourtLine")
+
+[sub_resource type="BoxMesh" id="CenterLineZ"]
+size = Vector3(0.10, 0.035, 41.0)
+material = SubResource("MatCourtLine")
+
+[sub_resource type="TorusMesh" id="CenterCircleMesh"]
+inner_radius = 4.0
+outer_radius = 4.10
+rings = 4
+ring_segments = 64
+material = SubResource("MatCourtLine")
+
+[sub_resource type="BoxMesh" id="KeyLineX"]
+size = Vector3(0.10, 0.035, 10.0)
+material = SubResource("MatCourtLine")
+
+[sub_resource type="BoxMesh" id="KeyLineZ"]
+size = Vector3(7.6, 0.035, 0.10)
+material = SubResource("MatCourtLine")
+
+
 [node name="BasketballCourt" type="Node3D" unique_id=1857519132]
 
 [node name="Hoop_Left" type="Node3D" parent="." unique_id=9602276]
@@ -288,3 +328,74 @@ mesh = SubResource("SupportArmMesh")
 [node name="Shape" type="CollisionShape3D" parent="Hoop_Right/BackboardCollision" unique_id=26999253]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 shape = SubResource("BackboardCollision")
+[node name="CourtFloor" type="Node3D" parent="."]
+
+[node name="Surface" type="MeshInstance3D" parent="CourtFloor"]
+position = Vector3(0, 0.03, 0)
+mesh = SubResource("CourtFloorMesh")
+
+[node name="Lines" type="Node3D" parent="CourtFloor"]
+
+[node name="EndLineA" type="MeshInstance3D" parent="CourtFloor/Lines"]
+position = Vector3(-15.45, 0.07, 0)
+mesh = SubResource("CourtLineX")
+
+[node name="EndLineB" type="MeshInstance3D" parent="CourtFloor/Lines"]
+position = Vector3(15.45, 0.07, 0)
+mesh = SubResource("CourtLineX")
+
+[node name="SideLineA" type="MeshInstance3D" parent="CourtFloor/Lines"]
+position = Vector3(0, 0.07, -20.70)
+mesh = SubResource("CourtLineZ")
+
+[node name="SideLineB" type="MeshInstance3D" parent="CourtFloor/Lines"]
+position = Vector3(0, 0.07, 20.70)
+mesh = SubResource("CourtLineZ")
+
+[node name="CenterLine" type="MeshInstance3D" parent="CourtFloor/Lines"]
+position = Vector3(0, 0.07, 0)
+mesh = SubResource("CenterLineZ")
+
+[node name="CenterCircle" type="MeshInstance3D" parent="CourtFloor/Lines"]
+position = Vector3(0, 0.085, 0)
+rotation = Vector3(1.5707964, 0, 0)
+mesh = SubResource("CenterCircleMesh")
+
+[node name="KeyLeft" type="Node3D" parent="CourtFloor/Lines"]
+position = Vector3(-11.65, 0.0, 0)
+
+[node name="OuterA" type="MeshInstance3D" parent="CourtFloor/Lines/KeyLeft"]
+position = Vector3(0, 0.07, -5.0)
+mesh = SubResource("KeyLineZ")
+
+[node name="OuterB" type="MeshInstance3D" parent="CourtFloor/Lines/KeyLeft"]
+position = Vector3(0, 0.07, 5.0)
+mesh = SubResource("KeyLineZ")
+
+[node name="SideA" type="MeshInstance3D" parent="CourtFloor/Lines/KeyLeft"]
+position = Vector3(-3.8, 0.07, 0)
+mesh = SubResource("KeyLineX")
+
+[node name="SideB" type="MeshInstance3D" parent="CourtFloor/Lines/KeyLeft"]
+position = Vector3(3.8, 0.07, 0)
+mesh = SubResource("KeyLineX")
+
+[node name="KeyRight" type="Node3D" parent="CourtFloor/Lines"]
+position = Vector3(11.65, 0.0, 0)
+
+[node name="OuterA" type="MeshInstance3D" parent="CourtFloor/Lines/KeyRight"]
+position = Vector3(0, 0.07, -5.0)
+mesh = SubResource("KeyLineZ")
+
+[node name="OuterB" type="MeshInstance3D" parent="CourtFloor/Lines/KeyRight"]
+position = Vector3(0, 0.07, 5.0)
+mesh = SubResource("KeyLineZ")
+
+[node name="SideA" type="MeshInstance3D" parent="CourtFloor/Lines/KeyRight"]
+position = Vector3(-3.8, 0.07, 0)
+mesh = SubResource("KeyLineX")
+
+[node name="SideB" type="MeshInstance3D" parent="CourtFloor/Lines/KeyRight"]
+position = Vector3(3.8, 0.07, 0)
+mesh = SubResource("KeyLineX")
+
