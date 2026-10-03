@@ -231,18 +231,17 @@ func _build_uks() -> void:
     room.position = center
     add_child(room)
 
-    # Kasur 1: sisi kiri UKS, sesuai lingkaran hijau kiri.
-    _create_bed(room, Vector3(-3.15, 0, -0.4))
+    # Dua kasur ditempatkan di pojok kiri dan kanan ruangan.
+    _create_bed(room, Vector3(-2.55, 0, 1.35))
+    _create_bed(room, Vector3(2.55, 0, 1.35), PI)
 
-    # Kasur 2: sisi depan/bawah UKS, sesuai lingkaran hijau bawah.
-    _create_bed(room, Vector3(0.85, 0, -2.25))
+    # Lemari ditempatkan di samping pintu masuk, bukan di tengah ruangan.
+    _create_cabinet(room, Vector3(3.65, 0, -2.95), 0.0)
 
-    # Lemari diperbesar dan ditempatkan di sisi kanan, sesuai lingkaran merah.
-    _create_cabinet(room, Vector3(4.0, 0, 2.0))
-
-func _create_bed(parent: Node3D, at: Vector3) -> void:
+func _create_bed(parent: Node3D, at: Vector3, facing := 0.0) -> void:
     var group := Node3D.new()
     group.position = at
+    group.rotation.y = facing
     parent.add_child(group)
 
     var frame := BoxMesh.new()
