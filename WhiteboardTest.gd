@@ -1,4 +1,4 @@
-extends Node3D
+﻿extends Node3D
 
 
 const INTERACT_DISTANCE: float = 6.0
@@ -17,6 +17,9 @@ const ERASER_HALF_WIDTH: float = 0.42
 const ERASER_HALF_HEIGHT: float = 0.20
 const DRAW_SENSITIVITY: float = 0.0045
 
+@export_enum("SD", "SMP", "SMA", "Dasar") var question_level: String = "SD"
+@export var question_count: int = 10
+
 
 @onready var player_body: CharacterBody3D = $Player/CharacterBody3D
 @onready var camera: Camera3D = $Player/CharacterBody3D/Camera3D
@@ -26,6 +29,7 @@ const DRAW_SENSITIVITY: float = 0.0045
 @onready var board_question: Label3D = $TestObjects/Blackboard/Question
 
 @onready var paper: StaticBody3D = $TestObjects/QuestionPaper
+@onready var paper_label: Label3D = $TestObjects/QuestionPaper/Label3D
 @onready var chalk: StaticBody3D = $TestObjects/Chalk
 
 @onready var status_label: Label = $UI/Status
@@ -45,8 +49,11 @@ var inventory: Array = []
 var selected_slot: int = -1
 
 var question_active: bool = false
-var question_text: String = "1 + 1 = ?"
-var question_answer: String = "2"
+var question_text: String = ""
+var question_answer: String = ""
+var current_question: Dictionary = {}
+var questions_solved: int = 0
+var question_database: Variant = null
 
 var drawing: bool = false
 
@@ -74,6 +81,8 @@ var cursor_dot: ColorRect = null
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+	_load_question_database()
+	_prepare_next_question()
 	_create_recognizer()
 	_setup_board()
 	_setup_eraser()
@@ -341,6 +350,34 @@ func _handle_right_click() -> void:
 		_attach_question()
 
 
+func _load_question_database() -> void:
+
+	var database_script: Script = load("res://QuestionDatabase.gd") as Script
+	if database_script == null:
+		push_error("QuestionDatabase.gd tidak dapat dimuat.")
+		return
+
+	question_database = database_script.new()
+
+
+func _prepare_next_question() -> bool:
+
+	if question_database == null or questions_solved >= question_count:
+		return false
+
+	var max_difficulty: int = min(5, 1 + int(questions_solved / 2))
+	current_question = question_database.get_random_question(question_level, max_difficulty)
+
+	if current_question.is_empty():
+		return false
+
+	question_text = String(current_question.get("question", ""))
+	question_answer = String(current_question.get("answer", ""))
+	if paper_label != null:
+		paper_label.text = "KERTAS SOAL\n" + question_text
+	return not question_text.is_empty() and not question_answer.is_empty()
+
+
 func _attach_question() -> void:
 
 	if not inventory.has(
@@ -353,6 +390,14 @@ func _attach_question() -> void:
 
 		return
 
+
+	if questions_solved >= question_count:
+		_set_status("Semua soal pada sesi ini sudah dijawab.")
+		return
+
+	if current_question.is_empty() and not _prepare_next_question():
+		_set_status("Soal dari database tidak tersedia.")
+		return
 
 	question_active = true
 	fresh_attempt_on_next_draw = false
@@ -369,6 +414,10 @@ func _attach_question() -> void:
 
 	board_question.text = (
 		question_text
+	)
+
+	paper_label.text = (
+		"KERTAS SOAL\n" + question_text
 	)
 
 	board_question.position = Vector3(
@@ -708,6 +757,17 @@ func _check_answer() -> void:
 
 	question_active = false
 
+	if questions_solved < question_count:
+		_prepare_next_question()
+		paper.visible = true
+		var paper_collision := paper.get_node_or_null("CollisionShape3D") as CollisionShape3D
+		if paper_collision != null:
+			paper_collision.disabled = false
+
+		chalk.visible = true
+		var chalk_collision := chalk.get_node_or_null("CollisionShape3D") as CollisionShape3D
+		if chalk_collision != null:
+			chalk_collision.disabled = false
 
 	_update_eraser_visibility()
 
@@ -1416,7 +1476,7 @@ func _slot_text(
 				index + 1
 			)
 			+
-			"\n—"
+			"\nΓÇö"
 		)
 
 
@@ -2202,7 +2262,7 @@ func _update_prompt() -> void:
 	if drawing:
 
 		prompt_label.text = (
-			"MENULIS — tahan klik kiri dan gerakkan POV dengan mouse"
+			"MENULIS ΓÇö tahan klik kiri dan gerakkan POV dengan mouse"
 		)
 
 		return
@@ -2210,7 +2270,7 @@ func _update_prompt() -> void:
 	if eraser_dragging:
 
 		prompt_label.text = (
-			"MENGHAPUS — tahan klik kiri dan geser penghapus"
+			"MENGHAPUS ΓÇö tahan klik kiri dan geser penghapus"
 		)
 
 		return
@@ -2301,7 +2361,7 @@ func _update_prompt() -> void:
 
 
 		prompt_label.text = (
-			"KLIK KIRI — Ambil "
+			"KLIK KIRI ΓÇö Ambil "
 			+
 			_item_name(
 				item_type
@@ -2314,21 +2374,21 @@ func _update_prompt() -> void:
 		if question_active:
 
 			prompt_label.text = (
-				"TAHAN KLIK KIRI — Tulis | " +
-				"KLIK KANAN — Koreksi"
+				"TAHAN KLIK KIRI ΓÇö Tulis | " +
+				"KLIK KANAN ΓÇö Koreksi"
 			)
 
 		else:
 
 			prompt_label.text = (
-				"KLIK KANAN — Tempel Soal"
+				"KLIK KANAN ΓÇö Tempel Soal"
 			)
 
 
 	elif interaction_type == "eraser":
 
 		prompt_label.text = (
-			"TAHAN KLIK KIRI — Geser Penghapus"
+			"TAHAN KLIK KIRI ΓÇö Geser Penghapus"
 		)
 
 
