@@ -236,9 +236,9 @@ func _build_uks() -> void:
     _create_bed(room, Vector3(-3.65, 0, 0.75), -PI / 2.0)
     _create_bed(room, Vector3(3.65, 0, 0.75), PI / 2.0)
 
-    # Lemari ditempatkan di sisi dinding dekat pintu masuk.
-    # Lemari masuk sampai benar-benar ke pojok depan kanan, menempel dinding.
-    _create_cabinet(room, Vector3(4.25, 0, -3.73), 0.0)
+    # Pintu masuk UKS berada pada dinding barat (sisi X negatif).
+    # Lemari ditempelkan ke pojok depan-samping pintu: sudut barat-laut.
+    _create_cabinet(room, Vector3(-4.15, 0, -6.10), 0.0)
 
 func _create_bed(parent: Node3D, at: Vector3, facing := 0.0) -> void:
     var group := Node3D.new()
