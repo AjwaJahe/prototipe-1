@@ -543,8 +543,10 @@ func recognize_against_answer(
 		}
 
 	# Untuk tulisan yang recognizer umum gagal kenali tetapi bentuknya
-	# sangat dekat dengan jawaban yang benar, izinkan sebagai tulisan tangan.
-	if average_score >= 0.90:
+	# cukup dekat dengan jawaban yang benar, izinkan sebagai tulisan tangan.
+	# Ambang dibuat lebih toleran daripada 0.90, tetapi tetap cukup tinggi
+	# agar bentuk yang jauh berbeda tidak otomatis diterima.
+	if not generic_ok and average_score >= 0.84:
 		return {
 			"ok": true,
 			"text": expected,
