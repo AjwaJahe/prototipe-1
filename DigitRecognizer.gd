@@ -456,62 +456,80 @@ func recognize_against_answer(
 			"score": 0.0
 		}
 
-	# Dynamic programming mencoba pembagian stroke yang berurutan.
-	# Ini lebih stabil daripada satu aturan jarak/gap tetap.
+	# Cari jawaban pada bagian PALING KANAN dari tulisan.
+	# Ini memungkinkan pemain menulis:
+	#   5 x 6 = 30
+	# tetapi recognizer hanya mengambil 30 sebagai jawaban.
+	# Prefix perhitungan di sebelah kiri tidak dipaksa menjadi digit.
 	var neg_inf: float = -INF
-	var dp: Array = []
-	var parent: Array = []
+	var best_total: float = neg_inf
 
-	for d in range(expected_digits + 1):
-		var row: Array = []
-		var parent_row: Array = []
+	for suffix_start in range(usable.size()):
+		var suffix_count: int = usable.size() - suffix_start
+		if suffix_count < expected_digits:
+			continue
 
-		for s in range(usable.size() + 1):
-			row.append(neg_inf)
-			parent_row.append(-1)
+		# Satu digit biasanya 1 stroke, tetapi digit seperti 4 dapat
+		# ditulis dengan lebih dari satu stroke. Maksimum 3 stroke per digit
+		# cukup longgar tanpa mengambil terlalu banyak coretan dari prefix.
+		var dp: Array = []
 
-		dp.append(row)
-		parent.append(parent_row)
+		for d in range(expected_digits + 1):
+			var row: Array = []
+			for consumed in range(suffix_count + 1):
+				row.append(neg_inf)
+			dp.append(row)
 
-	dp[0][0] = 0.0
+		dp[0][0] = 0.0
 
-	for d in range(1, expected_digits + 1):
-		var remaining_digits: int = expected_digits - d
+		for d in range(1, expected_digits + 1):
+			var digit: String = expected.substr(d - 1, 1)
 
-		for end_index in range(d, usable.size() - remaining_digits + 1):
-			var best_value: float = neg_inf
+			for consumed in range(1, suffix_count + 1):
+				var best_value: float = neg_inf
 
-			for start_index in range(d - 1, end_index):
-				var previous: float = float(dp[d - 1][start_index])
+				for stroke_count in range(1, 4):
+					var previous_consumed: int = consumed - stroke_count
+					if previous_consumed < 0:
+						continue
 
-				if previous <= neg_inf * 0.5:
-					continue
+					var previous: float = float(dp[d - 1][previous_consumed])
+					if previous <= neg_inf * 0.5:
+						continue
 
-				var points: PackedVector2Array = PackedVector2Array()
+					if d == expected_digits:
+						if consumed != suffix_count:
+							continue
 
-				for k in range(start_index, end_index):
-					var source_index: int = int(sorted_indices[k])
+					var points: PackedVector2Array = PackedVector2Array()
 
-					for point in usable[source_index]:
-						points.append(point)
+					for k in range(
+						suffix_start + previous_consumed,
+						suffix_start + consumed
+					):
+						var source_index: int = int(sorted_indices[k])
+						for point in usable[source_index]:
+							points.append(point)
 
-				if points.size() < MIN_POINTS:
-					continue
+					if points.size() < MIN_POINTS:
+						continue
 
-				var digit: String = expected.substr(d - 1, 1)
-				var local_score: float = _expected_digit_similarity(
-					points,
-					digit
-				)
+					var local_score: float = _expected_digit_similarity(
+						points,
+						digit
+					)
 
-				var segment_score: float = previous + local_score
+					var segment_score: float = previous + local_score
 
-				if segment_score > best_value:
-					best_value = segment_score
+					if segment_score > best_value:
+						best_value = segment_score
 
-				dp[d][end_index] = best_value
+				dp[d][consumed] = best_value
 
-	if float(dp[expected_digits][usable.size()]) <= neg_inf * 0.5:
+		if float(dp[expected_digits][suffix_count]) > best_total:
+			best_total = float(dp[expected_digits][suffix_count])
+
+	if best_total <= neg_inf * 0.5:
 		return {
 			"ok": false,
 			"text": "",
@@ -519,7 +537,7 @@ func recognize_against_answer(
 		}
 
 	var average_score: float = (
-		float(dp[expected_digits][usable.size()])
+		best_total
 		/
 		float(expected_digits)
 	)
@@ -544,9 +562,8 @@ func recognize_against_answer(
 
 	# Untuk tulisan yang recognizer umum gagal kenali tetapi bentuknya
 	# cukup dekat dengan jawaban yang benar, izinkan sebagai tulisan tangan.
-	# Ambang dibuat lebih toleran daripada 0.90, tetapi tetap cukup tinggi
-	# agar bentuk yang jauh berbeda tidak otomatis diterima.
-	if not generic_ok and average_score >= 0.84:
+	# Ambang tetap tinggi agar tulisan yang berbeda tidak otomatis diterima.
+	if not generic_ok and average_score >= 0.93:
 		return {
 			"ok": true,
 			"text": expected,
