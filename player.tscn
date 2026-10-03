@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://de85urc7xvr18"]
+
+[ext_resource type="Script" uid="uid://bo7eluyq1nrsq" path="res://Player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://ks48eekvgaqg" path="res://PlayerCharacter.tscn" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://bdked6k6x8c7y" path="res://FirstPersonLocalHeadCulling.gd" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1bvp3"]
+
+[node name="Player" type="Node3D" unique_id=387136255]
+top_level = true
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1505067806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+wall_min_slide_angle = 0.33161256
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1120537753]
+shape = SubResource("CapsuleShape3D_1bvp3")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1715152463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+cull_mask = 1047553
+script = ExtResource("3_i3pqv")
+
+[node name="PlayerCharacter" parent="CharacterBody3D" unique_id=605798639 instance=ExtResource("2_onrkg")]

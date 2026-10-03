@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch72vqv4gjqlt"]
+
+[ext_resource type="PackedScene" uid="uid://de85urc7xvr18" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bng7o3tab5iml" path="res://lantai.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bas2emljo8uk1" path="res://map58/Map58.tscn" id="3_h2yge"]
+
+[node name="Main" type="Node3D" unique_id=1437950529]
+
+[node name="Player" parent="." unique_id=387136255 instance=ExtResource("1_0xm2m")]
+
+[node name="Lantai" parent="." unique_id=857479751 instance=ExtResource("2_h2yge")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1291981908]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 45, 0)
+
+[node name="Map58" parent="." unique_id=1373125441 instance=ExtResource("3_h2yge")]

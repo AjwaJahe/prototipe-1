@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bng7o3tab5iml"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5viw"]
+albedo_color = Color(0, 0.42754805, 0, 1)
+albedo_texture_msdf = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_uj04i"]
+material = SubResource("StandardMaterial3D_p5viw")
+size = Vector3(15, 1, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+
+[node name="Lantai" type="Node3D" unique_id=857479751]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1349232269]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1998035840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5972109, -1.7686489, -2.8417013)
+mesh = SubResource("BoxMesh_uj04i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=169305654]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, -1.5972109, -1.7686489, -2.8417013)
+shape = SubResource("BoxShape3D_272bh")

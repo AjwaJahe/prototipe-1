@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://bm7oser0hox7w"]
+
+[ext_resource type="PackedScene" uid="uid://de85urc7xvr18" path="res://player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://b45dkdath602f" path="res://WhiteboardTest.gd" id="2_script"]
+
+[sub_resource type="StandardMaterial3D" id="FloorMat"]
+albedo_color = Color(0.16, 0.17, 0.18, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="WallMat"]
+albedo_color = Color(0.28, 0.29, 0.31, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="WallMesh"]
+size = Vector3(20, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="WallShape"]
+size = Vector3(20, 4, 0.2)
+
+[sub_resource type="BoxMesh" id="BoardMesh"]
+size = Vector3(6, 3.36, 0.14)
+
+[sub_resource type="BoxShape3D" id="BoardShape"]
+size = Vector3(6, 3.36, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="PaperMat"]
+albedo_color = Color(0.95, 0.92, 0.78, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="PaperMesh"]
+size = Vector3(0.8, 0.05, 1)
+
+[sub_resource type="BoxShape3D" id="PaperShape"]
+size = Vector3(0.8, 0.05, 1)
+
+[sub_resource type="StandardMaterial3D" id="ChalkMat"]
+albedo_color = Color(0.9, 0.9, 0.88, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="ChalkMesh"]
+size = Vector3(0.16, 0.16, 0.55)
+
+[sub_resource type="BoxShape3D" id="ChalkShape"]
+size = Vector3(0.16, 0.16, 0.55)
+
+[sub_resource type="StyleBoxFlat" id="SlotStyle"]
+bg_color = Color(0.05, 0.05, 0.06, 0.85)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.85, 0.82, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="WhiteboardTest" type="Node3D" unique_id=1065761807]
+script = ExtResource("2_script")
+
+[node name="World" type="Node3D" parent="." unique_id=1716710098]
+
+[node name="Floor" type="StaticBody3D" parent="World" unique_id=1565985406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -1)
+
+[node name="Mesh" type="MeshInstance3D" parent="World/Floor" unique_id=521548971]
+material_override = SubResource("FloorMat")
+mesh = SubResource("FloorMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor" unique_id=1829213734]
+shape = SubResource("FloorShape")
+
+[node name="BackWall" type="StaticBody3D" parent="World" unique_id=455339555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -10)
+
+[node name="Mesh" type="MeshInstance3D" parent="World/BackWall" unique_id=1896650327]
+material_override = SubResource("WallMat")
+mesh = SubResource("WallMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BackWall" unique_id=89320050]
+shape = SubResource("WallShape")
+
+[node name="Light" type="DirectionalLight3D" parent="World" unique_id=148825493]
+transform = Transform3D(0.90630776, 0.34618863, -0.24240388, 0, 0.57357645, 0.81915206, 0.42261827, -0.74240386, 0.5198368, 0, 0, 0)
+light_energy = 1.4
+shadow_enabled = true
+
+[node name="FillLight" type="OmniLight3D" parent="World" unique_id=1436305902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 3)
+light_energy = 7.0
+omni_range = 24.0
+
+[node name="Player" parent="." unique_id=1108610069 instance=ExtResource("1_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 3.8)
+
+[node name="TestObjects" type="Node3D" parent="." unique_id=1200296618]
+
+[node name="Blackboard" type="StaticBody3D" parent="TestObjects" unique_id=837803425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -7)
+metadata/interaction_type = "blackboard"
+
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/Blackboard" unique_id=405402420]
+mesh = SubResource("BoardMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Blackboard" unique_id=1388250046]
+shape = SubResource("BoardShape")
+
+[node name="Question" type="Label3D" parent="TestObjects/Blackboard" unique_id=551306675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0.09)
+visible = false
+billboard = 1
+modulate = Color(0.92, 0.96, 0.88, 1)
+text = "1 + 1 = ?"
+font_size = 42
+
+[node name="QuestionPaper" type="StaticBody3D" parent="TestObjects" unique_id=1319003937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 0.48, 1.1)
+metadata/interaction_type = "item"
+metadata/item_type = "paper"
+
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/QuestionPaper" unique_id=1462434737]
+material_override = SubResource("PaperMat")
+mesh = SubResource("PaperMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/QuestionPaper" unique_id=1207489280]
+shape = SubResource("PaperShape")
+
+[node name="Label3D" type="Label3D" parent="TestObjects/QuestionPaper" unique_id=227073354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+billboard = 1
+modulate = Color(1, 0.95, 0.75, 1)
+text = "KERTAS SOAL
+1 + 1 = ?"
+font_size = 26
+
+[node name="Chalk" type="StaticBody3D" parent="TestObjects" unique_id=1144326426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.34, 1.1)
+metadata/interaction_type = "item"
+metadata/item_type = "chalk"
+
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/Chalk" unique_id=161042965]
+material_override = SubResource("ChalkMat")
+mesh = SubResource("ChalkMesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Chalk" unique_id=1180598218]
+shape = SubResource("ChalkShape")
+
+[node name="Label3D" type="Label3D" parent="TestObjects/Chalk" unique_id=2076785745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+billboard = 1
+modulate = Color(0.92, 0.92, 0.9, 1)
+text = "KAPUR"
+font_size = 26
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1657648927]
+
+[node name="Prompt" type="Label" parent="UI" unique_id=579579524]
+offset_left = 280.0
+offset_top = 22.0
+offset_right = 880.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="UI" unique_id=1111027795]
+offset_left = 25.0
+offset_top = 24.0
+offset_right = 650.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.93, 0.93, 0.92, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="Result" type="Label" parent="UI" unique_id=1793821716]
+offset_left = 350.0
+offset_top = 74.0
+offset_right = 800.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="UI" unique_id=1394845812]
+offset_left = 220.0
+offset_top = 555.0
+offset_right = 930.0
+offset_bottom = 625.0
+theme_override_colors/font_color = Color(0.92, 0.92, 0.92, 1)
+theme_override_font_sizes/font_size = 16
+text = "Klik kiri = interaksi • 1/2 = pilih item • P = buang item"
+horizontal_alignment = 1
+
+[node name="DrawCursor" type="Label" parent="UI" unique_id=1375973668]
+visible = false
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.95, 0.96, 0.9, 0.95)
+theme_override_font_sizes/font_size = 18
+text = "•"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventory" type="Control" parent="UI" unique_id=1254386492]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 570.0
+offset_right = 652.0
+offset_bottom = 648.0
+
+[node name="Slot1" type="Panel" parent="UI/Inventory" unique_id=1359430968]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("SlotStyle")
+
+[node name="Item" type="Label" parent="UI/Inventory/Slot1" unique_id=791516755]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "1
+—"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="Panel" parent="UI/Inventory" unique_id=211773217]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 152.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("SlotStyle")
+
+[node name="Item" type="Label" parent="UI/Inventory/Slot2" unique_id=625940377]
+layout_mode = 0
+offset_right = 72.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 15
+text = "2
+—"
+horizontal_alignment = 1
+vertical_alignment = 1

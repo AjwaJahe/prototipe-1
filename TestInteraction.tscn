@@ -1,0 +1,357 @@
+[gd_scene load_steps=26 format=3]
+
+[ext_resource type="PackedScene" path="res://player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://TestInteraction.gd" id="2_script"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+size = Vector3(28, 0.2, 24)
+[sub_resource type="BoxShape3D" id="BoxShape_floor"]
+size = Vector3(28, 0.2, 24)
+[sub_resource type="StandardMaterial3D" id="Mat_floor"]
+albedo_color = Color(0.18, 0.19, 0.21, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="BoxMesh_wall"]
+size = Vector3(28, 4, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape_wall"]
+size = Vector3(28, 4, 0.2)
+[sub_resource type="StandardMaterial3D" id="Mat_wall"]
+albedo_color = Color(0.30, 0.32, 0.36, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="BoxMesh_paper"]
+size = Vector3(0.8, 0.05, 1.1)
+[sub_resource type="BoxShape3D" id="BoxShape_paper"]
+size = Vector3(0.8, 0.05, 1.1)
+[sub_resource type="StandardMaterial3D" id="Mat_paper"]
+albedo_color = Color(0.95, 0.92, 0.78, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_chalk"]
+size = Vector3(0.18, 0.18, 0.65)
+[sub_resource type="BoxShape3D" id="BoxShape_chalk"]
+size = Vector3(0.18, 0.18, 0.65)
+[sub_resource type="StandardMaterial3D" id="Mat_chalk"]
+albedo_color = Color(0.88, 0.88, 0.84, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_medkit"]
+size = Vector3(0.7, 0.4, 0.45)
+[sub_resource type="BoxShape3D" id="BoxShape_medkit"]
+size = Vector3(0.7, 0.4, 0.45)
+[sub_resource type="StandardMaterial3D" id="Mat_medkit"]
+albedo_color = Color(0.72, 0.20, 0.20, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_door"]
+size = Vector3(1.6, 2.8, 0.15)
+[sub_resource type="BoxShape3D" id="BoxShape_door"]
+size = Vector3(1.6, 2.8, 0.15)
+[sub_resource type="StandardMaterial3D" id="Mat_door"]
+albedo_color = Color(0.25, 0.14, 0.08, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="BoxMesh_board"]
+size = Vector3(5.0, 2.8, 0.15)
+[sub_resource type="BoxShape3D" id="BoxShape_board"]
+size = Vector3(5.0, 2.8, 0.15)
+[sub_resource type="StandardMaterial3D" id="Mat_board"]
+albedo_color = Color(0.03, 0.08, 0.06, 1)
+roughness = 0.65
+
+[sub_resource type="BoxMesh" id="BoxMesh_hide"]
+size = Vector3(1.5, 2.5, 1.5)
+[sub_resource type="BoxShape3D" id="BoxShape_hide"]
+size = Vector3(1.5, 2.5, 1.5)
+[sub_resource type="StandardMaterial3D" id="Mat_hide"]
+albedo_color = Color(0.10, 0.12, 0.15, 1)
+roughness = 0.95
+
+[sub_resource type="CapsuleMesh" id="Capsule_friend"]
+radius = 0.35
+height = 1.1
+[sub_resource type="CapsuleShape3D" id="Shape_friend"]
+radius = 0.35
+height = 1.1
+[sub_resource type="StandardMaterial3D" id="Mat_friend"]
+albedo_color = Color(0.25, 0.38, 0.72, 1)
+roughness = 0.9
+
+[node name="TestInteraction" type="Node3D"]
+script = ExtResource("2_script")
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="World"]
+position = Vector3(0, -0.1, 0)
+collision_layer = 1
+[node name="Mesh" type="MeshInstance3D" parent="World/Floor"]
+mesh = SubResource("BoxMesh_floor")
+material_override = SubResource("Mat_floor")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Floor"]
+shape = SubResource("BoxShape_floor")
+
+[node name="BackWall" type="StaticBody3D" parent="World"]
+position = Vector3(0, 2, -11)
+collision_layer = 1
+[node name="Mesh" type="MeshInstance3D" parent="World/BackWall"]
+mesh = SubResource("BoxMesh_wall")
+material_override = SubResource("Mat_wall")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/BackWall"]
+shape = SubResource("BoxShape_wall")
+
+[node name="SideWallL" type="StaticBody3D" parent="World"]
+position = Vector3(-14, 2, 0)
+rotation_degrees = Vector3(0, 90, 0)
+collision_layer = 1
+[node name="Mesh" type="MeshInstance3D" parent="World/SideWallL"]
+mesh = SubResource("BoxMesh_wall")
+material_override = SubResource("Mat_wall")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/SideWallL"]
+shape = SubResource("BoxShape_wall")
+
+[node name="SideWallR" type="StaticBody3D" parent="World"]
+position = Vector3(14, 2, 0)
+rotation_degrees = Vector3(0, 90, 0)
+collision_layer = 1
+[node name="Mesh" type="MeshInstance3D" parent="World/SideWallR"]
+mesh = SubResource("BoxMesh_wall")
+material_override = SubResource("Mat_wall")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/SideWallR"]
+shape = SubResource("BoxShape_wall")
+
+[node name="Light" type="DirectionalLight3D" parent="World"]
+rotation_degrees = Vector3(-55, -25, 0)
+light_energy = 1.2
+shadow_enabled = true
+[node name="FillLight" type="OmniLight3D" parent="World"]
+position = Vector3(0, 3.5, 2)
+omni_range = 20.0
+light_energy = 8.0
+
+[node name="Player" parent="." instance=ExtResource("1_player")]
+position = Vector3(0, -2, 7.5)
+
+[node name="TestObjects" type="Node3D" parent="."]
+
+[node name="PaperBehindDoor" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(3.5, 0.45, -7.2)
+collision_layer = 1
+metadata/interaction_type = "item"
+metadata/item_type = "paper"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/PaperBehindDoor"]
+mesh = SubResource("BoxMesh_paper")
+material_override = SubResource("Mat_paper")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/PaperBehindDoor"]
+shape = SubResource("BoxShape_paper")
+[node name="Label3D" type="Label3D" parent="TestObjects/PaperBehindDoor"]
+position = Vector3(0, 0.65, 0)
+text = "KERTAS — DI BALIK PINTU"
+font_size = 28
+modulate = Color(1, 0.94, 0.75, 1)
+billboard = 1
+
+[node name="PaperVisible" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(-5.0, 0.45, -1.5)
+collision_layer = 1
+metadata/interaction_type = "item"
+metadata/item_type = "paper"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/PaperVisible"]
+mesh = SubResource("BoxMesh_paper")
+material_override = SubResource("Mat_paper")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/PaperVisible"]
+shape = SubResource("BoxShape_paper")
+[node name="Label3D" type="Label3D" parent="TestObjects/PaperVisible"]
+position = Vector3(0, 0.65, 0)
+text = "KERTAS SOAL"
+font_size = 30
+modulate = Color(1, 0.94, 0.75, 1)
+billboard = 1
+
+[node name="Chalk" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(-3.2, 0.35, -1.5)
+collision_layer = 1
+metadata/interaction_type = "item"
+metadata/item_type = "chalk"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/Chalk"]
+mesh = SubResource("BoxMesh_chalk")
+material_override = SubResource("Mat_chalk")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Chalk"]
+shape = SubResource("BoxShape_chalk")
+[node name="Label3D" type="Label3D" parent="TestObjects/Chalk"]
+position = Vector3(0, 0.55, 0)
+text = "KAPUR"
+font_size = 30
+billboard = 1
+
+[node name="Medkit" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(5.0, 0.3, -1.5)
+collision_layer = 1
+metadata/interaction_type = "item"
+metadata/item_type = "medkit"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/Medkit"]
+mesh = SubResource("BoxMesh_medkit")
+material_override = SubResource("Mat_medkit")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Medkit"]
+shape = SubResource("BoxShape_medkit")
+[node name="Label3D" type="Label3D" parent="TestObjects/Medkit"]
+position = Vector3(0, 0.6, 0)
+text = "MEDKIT"
+font_size = 30
+modulate = Color(1, 0.65, 0.65, 1)
+billboard = 1
+
+[node name="Door" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(3.5, 1.4, -4.8)
+collision_layer = 1
+metadata/interaction_type = "door"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/Door"]
+position = Vector3(0.8, 0, 0)
+mesh = SubResource("BoxMesh_door")
+material_override = SubResource("Mat_door")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Door"]
+position = Vector3(0.8, 0, 0)
+shape = SubResource("BoxShape_door")
+[node name="Label3D" type="Label3D" parent="TestObjects/Door"]
+position = Vector3(0.8, 1.75, 0)
+text = "PINTU TEST\n(Tutup = blokir)"
+font_size = 28
+modulate = Color(1, 0.85, 0.65, 1)
+billboard = 1
+
+[node name="Blackboard" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(0, 2.2, -8.5)
+collision_layer = 1
+metadata/interaction_type = "blackboard"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/Blackboard"]
+mesh = SubResource("BoxMesh_board")
+material_override = SubResource("Mat_board")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/Blackboard"]
+shape = SubResource("BoxShape_board")
+[node name="Label3D" type="Label3D" parent="TestObjects/Blackboard"]
+position = Vector3(0, 1.7, 0.12)
+text = "PAPAN TULIS\nPilih Kertas + punya Kapur\nlalu TAHAN KLIK KIRI"
+font_size = 26
+modulate = Color(0.75, 0.95, 0.82, 1)
+billboard = 1
+
+[node name="HidingSpot" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(-5.0, 1.25, -6.2)
+collision_layer = 1
+metadata/interaction_type = "hiding"
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/HidingSpot"]
+mesh = SubResource("BoxMesh_hide")
+material_override = SubResource("Mat_hide")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/HidingSpot"]
+shape = SubResource("BoxShape_hide")
+[node name="Label3D" type="Label3D" parent="TestObjects/HidingSpot"]
+position = Vector3(0, 1.6, 0)
+text = "LEMARI\nBERSEMBUNYI"
+font_size = 28
+modulate = Color(0.8, 0.85, 1, 1)
+billboard = 1
+
+[node name="DownedFriend" type="StaticBody3D" parent="TestObjects"]
+position = Vector3(5.0, 0.6, -6.0)
+rotation_degrees = Vector3(0, 0, 90)
+collision_layer = 1
+metadata/interaction_type = "downed_friend"
+metadata/healed = false
+[node name="Mesh" type="MeshInstance3D" parent="TestObjects/DownedFriend"]
+mesh = SubResource("Capsule_friend")
+material_override = SubResource("Mat_friend")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestObjects/DownedFriend"]
+shape = SubResource("Shape_friend")
+[node name="Label3D" type="Label3D" parent="TestObjects/DownedFriend"]
+position = Vector3(0, 1.0, 0)
+text = "TEMAN KO\nPilih MEDKIT + tahan kanan"
+font_size = 26
+modulate = Color(0.75, 0.84, 1, 1)
+billboard = 1
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TopLeft" type="Panel" parent="UI"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 640.0
+offset_bottom = 142.0
+[node name="Title" type="Label" parent="UI/TopLeft"]
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 600.0
+offset_bottom = 34.0
+text = "MAP58 — TEST INTERAKSI v2"
+theme_override_font_sizes/font_size = 19
+[node name="Controls" type="Label" parent="UI/TopLeft"]
+offset_left = 14.0
+offset_top = 38.0
+offset_right = 600.0
+offset_bottom = 74.0
+text = "Kiri: ambil/interaksi | tahan kiri: gambar\nKanan: sembunyi | tahan kanan: medkit | 1/2: pilih item | P: buang item | TAB: mouse UI"
+[node name="Status" type="Label" parent="UI/TopLeft"]
+offset_left = 14.0
+offset_top = 78.0
+offset_right = 600.0
+offset_bottom = 112.0
+text = "Status"
+
+[node name="CenterPrompt" type="Label" parent="UI"]
+offset_left = 385.0
+offset_top = 610.0
+offset_right = 895.0
+offset_bottom = 648.0
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 19
+
+[node name="HeldItem" type="Label" parent="UI"]
+offset_left = 480.0
+offset_top = 665.0
+offset_right = 800.0
+offset_bottom = 700.0
+text = "DIPAKAI: KOSONG"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+
+[node name="HealProgress" type="Label" parent="UI"]
+offset_left = 960.0
+offset_top = 86.0
+offset_right = 1245.0
+offset_bottom = 116.0
+text = ""
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 17
+
+[node name="BottomInventory" type="Panel" parent="UI"]
+offset_left = 390.0
+offset_top = 715.0
+offset_right = 660.0
+offset_bottom = 825.0
+[node name="Capacity" type="Label" parent="UI/BottomInventory"]
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 258.0
+offset_bottom = 29.0
+text = "SLOT 0/5"
+horizontal_alignment = 1
+[node name="Slots" type="HBoxContainer" parent="UI/BottomInventory"]
+offset_left = 12.0
+offset_top = 34.0
+offset_right = 628.0
+offset_bottom = 98.0
+theme_override_constants/separation = 8
+[node name="Slot1" type="Button" parent="UI/BottomInventory/Slots"]
+custom_minimum_size = Vector2(112, 55)
+text = "1\n—"
+[node name="Slot2" type="Button" parent="UI/BottomInventory/Slots"]
+custom_minimum_size = Vector2(112, 55)
+text = "2\n—"
+
+[node name="Crosshair" type="Label" parent="UI"]
+offset_left = 626.0
+offset_top = 346.0
+offset_right = 656.0
+offset_bottom = 372.0
+text = "+"
+theme_override_font_sizes/font_size = 24

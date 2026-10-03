@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ks48eekvgaqg"]
+
+[ext_resource type="PackedScene" uid="uid://bio6tnu12x20a" path="res://Map58_PlayerCharacter.glb" id="1_glb"]
+
+[node name="PlayerCharacter" unique_id=831616939 instance=ExtResource("1_glb")]
+
+[node name="Fringe_0" parent="world" parent_id_path=PackedInt32Array(802349331) index="9" unique_id=152500613]
+layers = 2
+
+[node name="Fringe_1" parent="world" parent_id_path=PackedInt32Array(802349331) index="10" unique_id=386278240]
+layers = 2
+
+[node name="Fringe_2" parent="world" parent_id_path=PackedInt32Array(802349331) index="11" unique_id=1503993560]
+layers = 2
+
+[node name="Fringe_3" parent="world" parent_id_path=PackedInt32Array(802349331) index="12" unique_id=516828303]
+layers = 2
+
+[node name="Fringe_4" parent="world" parent_id_path=PackedInt32Array(802349331) index="13" unique_id=1086604018]
+layers = 2
+
+[node name="Eye_L" parent="world" parent_id_path=PackedInt32Array(802349331) index="14" unique_id=1957813873]
+layers = 2
+
+[node name="Eye_R" parent="world" parent_id_path=PackedInt32Array(802349331) index="15" unique_id=827496713]
+layers = 2
+
+[node name="Brow_L" parent="world" parent_id_path=PackedInt32Array(802349331) index="16" unique_id=746416127]
+layers = 2
+
+[node name="Brow_R" parent="world" parent_id_path=PackedInt32Array(802349331) index="17" unique_id=582333853]
+layers = 2
+
+[node name="Ear_L" parent="world" parent_id_path=PackedInt32Array(802349331) index="18" unique_id=779624542]
+layers = 2
+
+[node name="Ear_R" parent="world" parent_id_path=PackedInt32Array(802349331) index="19" unique_id=1614758674]
+layers = 2
