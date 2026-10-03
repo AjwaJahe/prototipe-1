@@ -2043,7 +2043,7 @@ func _raycast_board_from_screen(screen_position: Vector2) -> Dictionary:
 
 	var result: Dictionary = (
 		get_world_3d()
-		direct_space_state
+		.direct_space_state
 		.intersect_ray(
 			query
 		)
