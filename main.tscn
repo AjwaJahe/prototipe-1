@@ -66,5 +66,5 @@ position = Vector3(-28.43625, 0.819987, -41.5864)
 [node name="Furniture" parent="." instance=ExtResource("6_furniture")]
 
 [node name="BasketballCourt" parent="." instance=ExtResource("7_basket")]
-position = Vector3(342.4047, -0.18, 241.9386)
+position = Vector3(42.4047, -0.18, 8.0614)
 rotation = Vector3(0, 1.5707964, 0)
