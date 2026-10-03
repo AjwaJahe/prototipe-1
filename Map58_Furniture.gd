@@ -154,11 +154,21 @@ func _create_cabinet(parent: Node3D, at: Vector3, facing := 0.0) -> void:
     group.position = at
     group.rotation.y = facing
     parent.add_child(group)
-    _mesh(cabinet_mesh, Vector3(0, 1.55, 0), group)
+
+    var cabinet_body := BoxMesh.new()
+    cabinet_body.size = Vector3(2.0, 3.2, 0.95)
+    cabinet_body.material = mat_cabinet
+    _mesh(cabinet_body, Vector3(0, 1.60, 0), group)
+
+    var top := BoxMesh.new()
+    top.size = Vector3(2.15, 0.14, 1.05)
+    top.material = mat_dark_wood
+    _mesh(top, Vector3(0, 3.22, 0), group)
+
     var handle := BoxMesh.new()
     handle.size = Vector3(0.12, 0.12, 0.06)
     handle.material = mat_metal
-    _mesh(handle, Vector3(0, 1.55, -0.38), group)
+    _mesh(handle, Vector3(0, 1.60, -0.51), group)
 
 func _build_classrooms() -> void:
     var rooms := [
@@ -221,10 +231,14 @@ func _build_uks() -> void:
     room.position = center
     add_child(room)
 
-    _create_bed(room, Vector3(-2.4, 0, 0))
-    _create_bed(room, Vector3(2.0, 0, 0))
+    # Kasur 1: sisi kiri UKS, sesuai lingkaran hijau kiri.
+    _create_bed(room, Vector3(-3.15, 0, -0.4))
 
-    _create_cabinet(room, Vector3(4.2, 0, 2.8))
+    # Kasur 2: sisi depan/bawah UKS, sesuai lingkaran hijau bawah.
+    _create_bed(room, Vector3(0.85, 0, -2.25))
+
+    # Lemari diperbesar dan ditempatkan di sisi kanan, sesuai lingkaran merah.
+    _create_cabinet(room, Vector3(4.0, 0, 2.0))
 
 func _create_bed(parent: Node3D, at: Vector3) -> void:
     var group := Node3D.new()
@@ -232,23 +246,28 @@ func _create_bed(parent: Node3D, at: Vector3) -> void:
     parent.add_child(group)
 
     var frame := BoxMesh.new()
-    frame.size = Vector3(3.1, 0.30, 1.55)
+    frame.size = Vector3(3.1, 0.28, 1.55)
     frame.material = mat_dark_wood
-    _mesh(frame, Vector3(0, 0.28, 0), group)
+    _mesh(frame, Vector3(0, 0.46, 0), group)
 
     var mattress := BoxMesh.new()
-    mattress.size = Vector3(2.85, 0.28, 1.35)
+    mattress.size = Vector3(2.85, 0.30, 1.35)
     mattress.material = mat_mattress
-    _mesh(mattress, Vector3(0, 0.62, 0), group)
+    _mesh(mattress, Vector3(0, 0.77, 0), group)
 
     var pillow := BoxMesh.new()
     pillow.size = Vector3(0.72, 0.18, 1.05)
     pillow.material = mat_white
-    _mesh(pillow, Vector3(-0.92, 0.84, 0), group)
+    _mesh(pillow, Vector3(-0.92, 0.99, 0), group)
 
+    # Kaki dibuat lebih tinggi supaya ruang bawah kasur terlihat jelas
+    # dan nantinya bisa dipakai sebagai area persembunyian.
+    var bed_leg_mesh := BoxMesh.new()
+    bed_leg_mesh.size = Vector3(0.14, 0.75, 0.14)
+    bed_leg_mesh.material = mat_dark_wood
     for x in [-1.35, 1.35]:
         for z in [-0.62, 0.62]:
-            _mesh(leg_mesh, Vector3(x, 0.02, z), group)
+            _mesh(bed_leg_mesh, Vector3(x, 0.075, z), group)
 
 func _build_hall_benches() -> void:
     var positions := [
