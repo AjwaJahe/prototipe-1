@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://de85urc7xvr18" path="res://player.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bng7o3tab5iml" path="res://lantai.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bas2emljo8uk1" path="res://map58/Map58.tscn" id="3_h2yge"]
+[ext_resource type="Script" path="res://Map58_SpawnManager.gd" id="4_spawn"]
 
 [node name="Main" type="Node3D" unique_id=1437950529]
 
@@ -14,3 +15,44 @@
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 45, 0)
 
 [node name="Map58" parent="." unique_id=1373125441 instance=ExtResource("3_h2yge")]
+
+[node name="SpawnManager" type="Node3D" parent="." unique_id=1884000001]
+script = ExtResource("4_spawn")
+
+[node name="StudentSpawns" type="Node3D" parent="SpawnManager" unique_id=1884000002]
+
+[node name="Kelas_10_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000010]
+position = Vector3(-3.646515, -0.180012, -26.45901)
+
+[node name="Kelas_10_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000011]
+position = Vector3(13.79099, -0.180012, -26.45901)
+
+[node name="Kelas_10_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000012]
+position = Vector3(31.22849, -0.180012, -26.45901)
+
+[node name="Kelas_10_D" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000013]
+position = Vector3(48.66599, -0.180012, -26.45901)
+
+[node name="Kelas_11_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000014]
+position = Vector3(-3.646515, -0.180013, -45.841)
+
+[node name="Kelas_11_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000015]
+position = Vector3(13.79099, -0.180013, -45.841)
+
+[node name="Kelas_11_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000016]
+position = Vector3(31.22849, -0.180013, -45.841)
+
+[node name="Kelas_11_D" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000017]
+position = Vector3(48.66599, -0.180013, -45.841)
+
+[node name="Kelas_12_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000018]
+position = Vector3(-3.646515, -0.180014, -65.21802)
+
+[node name="Kelas_12_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000019]
+position = Vector3(13.79099, -0.180014, -65.21802)
+
+[node name="Kelas_12_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000020]
+position = Vector3(31.22849, -0.180014, -65.21802)
+
+[node name="TeacherSpawn" type="Marker3D" parent="SpawnManager" unique_id=1884000021]
+position = Vector3(-28.43625, -0.180013, -41.5864)
