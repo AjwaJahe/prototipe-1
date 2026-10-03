@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bas2emljo8uk1" path="res://map58/Map58.tscn" id="3_h2yge"]
 [ext_resource type="Script" path="res://Map58_SpawnManager.gd" id="4_spawn"]
 [ext_resource type="PackedScene" path="res://Teacher.tscn" id="5_teacher"]
+[ext_resource type="PackedScene" path="res://Map58_Furniture.tscn" id="6_furniture"]
 
 [node name="Main" type="Node3D" unique_id=1437950529]
 
@@ -60,3 +61,5 @@ position = Vector3(-28.43625, -0.180013, -41.5864)
 
 [node name="Teacher" parent="." instance=ExtResource("5_teacher")]
 position = Vector3(-28.43625, 0.819987, -41.5864)
+
+[node name="Furniture" parent="." instance=ExtResource("6_furniture")]
