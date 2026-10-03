@@ -7,4 +7,4 @@
 script = ExtResource("1_furn")
 
 [node name="UKS_Furniture" parent="." instance=ExtResource("2_uks")]
-position = Vector3(58.1547, -0.18, -3.4886)
+position = Vector3(58.1547, 0.0, -3.4886)
