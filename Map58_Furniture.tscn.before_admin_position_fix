@@ -1,0 +1,22 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Map58_Furniture.gd" id="1_furn"]
+[ext_resource type="PackedScene" path="res://UKS_Furniture.tscn" id="2_uks"]
+[ext_resource type="PackedScene" path="res://Library_Furniture.tscn" id="3_library"]
+[ext_resource type="PackedScene" path="res://GuestRoom_Furniture.tscn" id="4_guest"]
+[ext_resource type="PackedScene" path="res://Administration_Furniture.tscn" id="5_admin"]
+
+[node name="Map58_Furniture" type="Node3D"]
+script = ExtResource("1_furn")
+
+[node name="UKS_Furniture" parent="." instance=ExtResource("2_uks")]
+position = Vector3(58.1547, 0.0, -3.4886)
+
+[node name="Library_Furniture" parent="." instance=ExtResource("3_library")]
+position = Vector3(-44.1873, 0.0, -15.1915)
+
+[node name="GuestRoom_Furniture" parent="." instance=ExtResource("4_guest")]
+position = Vector3(-0.0181, 0.0, 0.9745)
+
+[node name="Administration_Furniture" parent="." instance=ExtResource("5_admin")]
+position = Vector3(-0.0181, 0.0, 10.4649)

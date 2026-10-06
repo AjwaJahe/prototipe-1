@@ -1,0 +1,1178 @@
+[gd_scene format=3 uid="uid://c2not1ay3gsj4"]
+
+[sub_resource type="StandardMaterial3D" id="Material_Wood"]
+albedo_color = Color(0.3, 0.16, 0.08, 1)
+roughness = 0.58
+
+[sub_resource type="BoxMesh" id="Mesh_FrameHorizontal"]
+size = Vector3(1.15, 0.1, 0.12)
+
+[sub_resource type="BoxMesh" id="Mesh_FrameVertical"]
+size = Vector3(0.1, 2.3, 0.12)
+
+[sub_resource type="StandardMaterial3D" id="Material_Wicker"]
+albedo_color = Color(0.62, 0.34, 0.16, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="Mesh_Weave"]
+size = Vector3(0.78, 0.045, 0.04)
+
+[sub_resource type="StandardMaterial3D" id="Material_Metal"]
+albedo_color = Color(0.16, 0.15, 0.14, 1)
+metallic = 0.72
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="Mesh_Foot"]
+size = Vector3(0.24, 0.1, 0.22)
+
+[node name="ToiletSketsel_Furniture" type="Node3D" unique_id=1918914290]
+
+[node name="FurnitureRoot" type="Node3D" parent="." unique_id=835578570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6887369, 0, -1.3040707)
+
+[node name="Panel_01" type="Node3D" parent="FurnitureRoot" unique_id=191099591]
+transform = Transform3D(0.9945219, 0, -0.104528464, 0, 1, 0, 0.104528464, 0, 0.9945219, -1.74, 0, 0)
+
+[node name="FrameTop" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1282245888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=17402731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1225610544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="FrameRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1183012572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="WeaveA_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1522477307]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=51765119]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=926962604]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.19, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1166054720]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, -0.19, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1818295842]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1737339394]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=577465269]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0.19, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1711229106]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0.19, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1470378459]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=1603412364]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0.38, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=568043207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_01" unique_id=937518901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="Panel_02" type="Node3D" parent="FurnitureRoot" unique_id=100058932]
+transform = Transform3D(0.9945219, 0, 0.104528464, 0, 1, 0, -0.104528464, 0, 0.9945219, -0.58, 0, 0)
+
+[node name="FrameTop" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=567709668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=475327447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=344671308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="FrameRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=279638892]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="WeaveA_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1038440574]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1302867333]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=724647952]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.19, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=270228026]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, -0.19, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=259908140]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1313906573]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1596794654]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0.19, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=531349957]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0.19, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1090970916]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1117276684]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0.38, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=123206070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_02" unique_id=1320642212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="Panel_03" type="Node3D" parent="FurnitureRoot" unique_id=930058780]
+transform = Transform3D(0.9945219, 0, -0.104528464, 0, 1, 0, 0.104528464, 0, 0.9945219, 0.58, 0, 0)
+
+[node name="FrameTop" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1443251736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=556923032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1408914377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="FrameRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=684821397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="WeaveA_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=747212166]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=474935380]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=700059746]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.19, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1654513620]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, -0.19, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=2147346176]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1536531071]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1215265314]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0.19, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1617643755]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0.19, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1463357929]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, 0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=1845064228]
+transform = Transform3D(0.8480481, 0.52991927, 0, -0.52991927, 0.8480481, 0, 0, 0, 1, 0.38, 1.18, -0.048)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=927743056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_03" unique_id=2108319319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="Panel_04" type="Node3D" parent="FurnitureRoot" unique_id=942673279]
+transform = Transform3D(0.9945219, 0, 0.104528464, 0, 1, 0, -0.104528464, 0, 0.9945219, 1.74, 0, 0)
+
+[node name="FrameTop" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=1011545023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=435098139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameHorizontal")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=813327389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="FrameRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=1730049969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.175, 0)
+material_override = SubResource("Material_Wood")
+mesh = SubResource("Mesh_FrameVertical")
+
+[node name="WeaveA_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=12957750]
+transform = Transform3D(0.8480481, -0.52991927, 0, 0.52991927, 0.8480481, 0, 0, 0, 1, -0.38, 1.18, -0.06)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=1206750696]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=1835769349]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=2044666605]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=816466796]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=1341139924]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=376022779]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=542031716]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=1617275073]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_01" unique_id=1603286556]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=132341925]
+transform = Transform3D(0.8480481, -0.5299193, 0, 0.52991927, 0.8480481, 0, -7.450581e-09, 0, 1, -0.38, 1.6115326, -0.060000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=2143163051]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=2032186658]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=635926486]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=103267128]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=494911928]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=2054743032]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=1775784642]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=1180338381]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_02" unique_id=599654214]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=1478347680]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -1.4901161e-08, 0, 1, -0.38, 2.0582519, -0.060000032)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=1373723384]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=516234528]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=343361774]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=1736633484]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=1384138707]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=1740277165]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=2097651248]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=1990670102]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_03" unique_id=779917826]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_06" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=517582551]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -2.2351742e-08, -3.7252903e-09, 1, -1.668994, 2.0582519, -0.19547875)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=1360115063]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=1692541979]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=799372224]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=378271714]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=291620392]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=745764136]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=24779148]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=834667651]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_06" unique_id=1758669413]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_07" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=538811506]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -2.9802322e-08, -7.450581e-09, 1, -1.6689941, 1.5828633, -0.19547878)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=354073298]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=1582128624]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=1065857933]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=1745224291]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=1861569755]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=683421459]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=1900278313]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=1537990968]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_07" unique_id=384417654]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_08" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=719403279]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -3.7252903e-08, -1.1175871e-08, 1, -1.6689942, 0.80748534, -0.1954788)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=546703122]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=1202244091]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=1825350933]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=1300830919]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=1439673566]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=438931293]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=1199122187]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=581111453]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_08" unique_id=940043560]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_09" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=185490268]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -4.4703484e-08, -1.4901161e-08, 1, -1.6689943, 0.3766899, -0.19547881)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=1472151958]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=2128903652]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=1318165755]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=417602860]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=1540196457]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=1807164062]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=1403125981]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=1144375233]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_09" unique_id=625379799]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_10" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=2085213773]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -5.9604645e-08, -2.2351742e-08, 1, -2.7139018, 0.3766899, -0.30530304)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=138252407]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=1499967915]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=1597966903]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=167961207]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=1617101309]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=968887018]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=2076598787]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=1411515770]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_10" unique_id=453804496]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_11" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=1178386407]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -6.7055225e-08, -2.6077032e-08, 1, -2.7139018, 0.7795043, -0.30530304)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=2081746287]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=338291915]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=227917305]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=484072438]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=1583052569]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=783124573]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=986348093]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=1449680488]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_11" unique_id=1217831006]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_12" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=332526736]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -7.4505806e-08, -2.9802322e-08, 1, -2.7139018, 1.6162109, -0.30530304)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=413580173]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=986718169]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=802619274]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=144853946]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=780779678]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=627608679]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=75081620]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=1055257674]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_12" unique_id=21204075]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_13" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=87960076]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -8.195639e-08, -3.3527613e-08, 1, -2.7139018, 2.0290756, -0.30530304)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=1306282376]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=1033998926]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=1296311658]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=942783359]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=154373311]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=688049595]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=1679403542]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=1376338362]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_13" unique_id=2136766661]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_14" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=863958876]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -9.685755e-08, -4.0978193e-08, 1, -3.8295217, 2.0290756, -0.42255944)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=134346492]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=1509062463]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=581051104]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=10966995]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=1572058496]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=402990171]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=1507032474]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=1046726038]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_14" unique_id=1889523954]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_15" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=171927460]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -1.1175871e-07, -4.8428774e-08, 1, -3.8295217, 1.584166, -0.42255956)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=648473954]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=232826219]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=1150191048]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=505568309]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=1660884552]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=1966097384]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=287864904]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=1304080912]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_15" unique_id=347072982]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_16" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=448582313]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -1.1920929e-07, -5.2154064e-08, 1, -3.8295217, 0.77193546, -0.42255962)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=1323405630]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=846592915]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=668831341]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=989186484]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=528346418]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=978108495]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=628557164]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=143094090]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_16" unique_id=596627735]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_17" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=240799885]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -1.2665987e-07, -5.5879354e-08, 1, -3.8295217, 0.32906985, -0.42255968)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=681371267]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=1080184439]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=590368708]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=434655052]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=989717379]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=1886217923]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=747470947]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=1778781582]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_17" unique_id=680501578]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=834691926]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -2.2351742e-08, -3.7252903e-09, 1, -0.38, 0.78570366, -0.060000047)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=1900927156]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=440470927]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=1279847925]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=71499062]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=15419722]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=2036312999]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=478516138]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=811158960]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_04" unique_id=1028788735]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=333648307]
+transform = Transform3D(0.8480481, -0.5299194, 0, 0.52991927, 0.8480481, 0, -3.7252903e-08, -1.1175871e-08, 1, -0.38, 0.3094201, -0.060000077)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_01" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=20400469]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0, 5.9604645e-08, 0.012000002)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=982706888]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.16112924, -0.10068467, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_02" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=1628745255]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.16112912, -0.10068469, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=849951203]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.3222581, -0.20136929, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_03" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=1371980544]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.32225835, -0.20136932, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=1599962106]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.4833876, -0.30205402, 2.9802322e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_04" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=913644794]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.48338735, -0.302054, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveA_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=1980318095]
+transform = Transform3D(0.99999994, 5.9138983e-08, -7.450581e-09, -3.0267984e-08, 0.9999999, -3.7252903e-09, 7.450581e-09, 0, 0.9999998, 0.6445166, -0.4027386, 1.4901161e-08)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="WeaveB_05" type="MeshInstance3D" parent="FurnitureRoot/Panel_04/WeaveA_05" unique_id=162769973]
+transform = Transform3D(0.43837103, 0.89879405, -7.450581e-09, -0.898794, 0.43837103, -3.7252903e-09, -7.450581e-09, 1.4901161e-08, 0.9999998, 0.64451635, -0.40273866, 0.012000017)
+material_override = SubResource("Material_Wicker")
+mesh = SubResource("Mesh_Weave")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=526144809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/Panel_04" unique_id=2003400747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.05, 0)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="Hinge_01" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1260287874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74, 1.15, 0.08)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="Hinge_02" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1301333348]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58, 1.15, 0.08)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")
+
+[node name="Hinge_03" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1004234676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.58, 1.15, 0.08)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Foot")

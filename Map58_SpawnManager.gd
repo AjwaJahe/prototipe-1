@@ -35,7 +35,7 @@ func _place_student() -> void:
 	var candidates: Array[Marker3D] = []
 
 	for child in student_spawns.get_children():
-		if child is Marker3D:
+		if child is Marker3D and not String(child.name).to_upper().contains("12_D"):
 			candidates.append(child as Marker3D)
 
 	if candidates.is_empty():
@@ -51,6 +51,7 @@ func _place_student() -> void:
 
 	player_body.global_position = selected.global_position + Vector3.UP * student_spawn_height
 	player_body.velocity = Vector3.ZERO
+	player_body.set_meta("intro_spawn_marker_name", String(selected.name))
 
 	print(
 		"Map58 student spawn | ",

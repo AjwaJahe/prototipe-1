@@ -1,0 +1,704 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_GreenBoard"]
+albedo_color = Color(0.055, 0.24, 0.13, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="Mesh_Board"]
+size = Vector3(0.14, 2.4, 9.4)
+
+[sub_resource type="StandardMaterial3D" id="Mat_WoodDark"]
+albedo_color = Color(0.3, 0.15, 0.055, 1)
+roughness = 0.72
+
+[sub_resource type="BoxMesh" id="Mesh_BoardFrameHorizontal"]
+size = Vector3(0.22, 0.12, 9.72)
+
+[sub_resource type="BoxMesh" id="Mesh_BoardFrameVertical"]
+size = Vector3(0.22, 2.64, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohyr6"]
+size = Vector3(0.14, 2.4, 9.4)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Wood"]
+albedo_color = Color(0.55, 0.3, 0.12, 1)
+roughness = 0.68
+
+[sub_resource type="BoxMesh" id="Mesh_TeacherTop"]
+size = Vector3(1.8, 0.12, 1.05)
+
+[sub_resource type="BoxMesh" id="Mesh_TeacherPanel"]
+size = Vector3(0.1, 0.78, 0.95)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ruifp"]
+size = Vector3(1.8, 0.78, 1.05)
+
+[sub_resource type="BoxMesh" id="Mesh_ChairSeat"]
+size = Vector3(0.62, 0.12, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_ChairBack"]
+size = Vector3(0.1, 0.72, 0.62)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Metal"]
+albedo_color = Color(0.18, 0.18, 0.17, 1)
+metallic = 0.55
+roughness = 0.38
+
+[sub_resource type="BoxMesh" id="Mesh_ChairLeg"]
+size = Vector3(0.07, 0.62, 0.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4nfqt"]
+size = Vector3(0.62, 0.72, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_StudentDeskTop"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_DeskLeg"]
+size = Vector3(0.08, 0.7, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wsio3"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rsce3"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yri26"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a5ckv"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syra3"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_417tw"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1r3e2"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bgw6m"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ac3rv"]
+size = Vector3(1.65, 0.12, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_CupboardBody"]
+size = Vector3(0.9, 2, 3.2)
+
+[sub_resource type="BoxMesh" id="Mesh_CupboardShelf"]
+size = Vector3(0.72, 0.08, 2.95)
+
+[sub_resource type="BoxShape3D" id="ClassDeskSolidCollision"]
+size = Vector3(1.08, 1.08, 1.78)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q0jp6"]
+size = Vector3(0.9, 2, 3.2)
+
+[node name="Kelas_10_A_Furniture" type="Node3D" unique_id=1600118005]
+
+[node name="FurnitureRoot" type="Node3D" parent="." unique_id=495572051]
+
+[node name="Whiteboard" type="Node3D" parent="FurnitureRoot" unique_id=137160749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7, 2.05, 0)
+
+[node name="Board" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard" unique_id=1523118665]
+material_override = SubResource("Mat_GreenBoard")
+mesh = SubResource("Mesh_Board")
+
+[node name="FrameTop" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard" unique_id=126407153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, 1.27, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameHorizontal")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard" unique_id=1361512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -1.39, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameHorizontal")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard" unique_id=2058726497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.06, -4.76)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameVertical")
+
+[node name="FrameRight" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard" unique_id=447817382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02, -0.06, 4.76)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameVertical")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/Whiteboard" unique_id=1765990629]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/Whiteboard/FurnitureCollision" unique_id=1355962045]
+shape = SubResource("BoxShape3D_ohyr6")
+
+[node name="TeacherDesk" type="Node3D" parent="FurnitureRoot" unique_id=395109831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/TeacherDesk" unique_id=594401880]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_TeacherTop")
+
+[node name="PanelLeft" type="MeshInstance3D" parent="FurnitureRoot/TeacherDesk" unique_id=1112893150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.43)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_TeacherPanel")
+
+[node name="PanelRight" type="MeshInstance3D" parent="FurnitureRoot/TeacherDesk" unique_id=416917547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.43)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_TeacherPanel")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/TeacherDesk" unique_id=1562448292]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/TeacherDesk/FurnitureCollision" unique_id=48684245]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("BoxShape3D_ruifp")
+[node name="Node3D" type="Node3D" parent="FurnitureRoot" unique_id=82245903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.32549, 0, -0.24955821)
+
+[node name="Chair_09" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=1237144545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 4)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_09" unique_id=916320601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_09" unique_id=305846131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_09" unique_id=493560241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_09" unique_id=87991781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_09" unique_id=1285508530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_09" unique_id=1871638183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_08" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=1381452558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.20098448)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_08" unique_id=61748080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_08" unique_id=1602611728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_08" unique_id=1526727455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_08" unique_id=1823500762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_08" unique_id=20887165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_08" unique_id=1921807339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_07" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=1997457283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4699998, 0, -3.768421)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_07" unique_id=962110146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_07" unique_id=573694857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_07" unique_id=483193227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_07" unique_id=2063304553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_07" unique_id=57568595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_07" unique_id=1465603924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_06" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=1868764642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.469164, 0, 3.993722)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_06" unique_id=1664890476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_06" unique_id=1270348186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_06" unique_id=2016784706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_06" unique_id=525141103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_06" unique_id=1086622401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_06" unique_id=1156613745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_05" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=2117361282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.639516, 0, 0.3348174)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_05" unique_id=1100672149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_05" unique_id=140882397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_05" unique_id=1742115444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_05" unique_id=768674620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_05" unique_id=1968141420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_05" unique_id=464111209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_04" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=1197729140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4478617, 0, -3.5359385)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_04" unique_id=2050229603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_04" unique_id=235120784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_04" unique_id=1691575421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_04" unique_id=592626014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_04" unique_id=545703384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_04" unique_id=1282616627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_03" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=1232542032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9300003, 0, 4.038485)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_03" unique_id=2069632486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_03" unique_id=284805169]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_03" unique_id=1543202079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_03" unique_id=2126616891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_03" unique_id=414545118]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_03" unique_id=692644280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_02" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=749194857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9300003, 0, 0.11993742)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_02" unique_id=165475398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_02" unique_id=622196977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_02" unique_id=1696269916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_02" unique_id=1993626533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_02" unique_id=493293556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_02" unique_id=276615303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_01" type="Node3D" parent="FurnitureRoot/Node3D" unique_id=257862427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9300003, 0, -3.8212445)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_01" unique_id=1126431180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_01" unique_id=1615809866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_01" unique_id=1072867242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_01" unique_id=216197784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_01" unique_id=1838629700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, -0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Node3D/Chair_01" unique_id=642113617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24, 0.23, 0.26)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+
+[node name="StudentDesks" type="Node3D" parent="FurnitureRoot" unique_id=1130514779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1975956, 0, -1.8959877)
+
+[node name="Desk_01" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=1326490411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9999998, 0, 5.55)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01" unique_id=1715181336]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01" unique_id=1633200255]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01" unique_id=1581174530]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_01" unique_id=612972629]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_01/FurnitureCollision" unique_id=1821287169]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_02" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=56279673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3317563, 0, 5.55)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02" unique_id=635604579]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02" unique_id=2075977918]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02" unique_id=1631999889]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_02" unique_id=1303346695]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_02/FurnitureCollision" unique_id=362911046]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_03" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=881327772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2000003, 0, 5.55)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03" unique_id=1551311115]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03" unique_id=844994885]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03" unique_id=1983672649]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_03" unique_id=171778271]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_03/FurnitureCollision" unique_id=1407045612]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_04" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=268467627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.8500001)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04" unique_id=1715623068]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04" unique_id=150828852]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04" unique_id=933372517]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_04" unique_id=1287419172]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_04/FurnitureCollision" unique_id=1496471497]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_05" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=1032178934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3367785, 0, 1.85)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05" unique_id=1261263411]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05" unique_id=1124531338]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05" unique_id=844712274]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_05" unique_id=1908389471]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_05/FurnitureCollision" unique_id=1653160119]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_06" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=987009745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0, 1.8499998)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06" unique_id=1948264924]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06" unique_id=176916059]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06" unique_id=584930837]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_06" unique_id=1717569793]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_06/FurnitureCollision" unique_id=1900285575]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_07" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=2025521293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.8499999)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07" unique_id=1233637482]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07" unique_id=891252337]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07" unique_id=1495936600]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_07" unique_id=1367689082]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_07/FurnitureCollision" unique_id=1816545774]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_08" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=104460252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3199757, 0, -1.8500001)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08" unique_id=1813814892]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08" unique_id=1990071221]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08" unique_id=1472875456]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_08" unique_id=608560788]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_08/FurnitureCollision" unique_id=1039450940]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Desk_09" type="Node3D" parent="FurnitureRoot/StudentDesks" unique_id=320157242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2, 0, -1.8500003)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09" unique_id=1052909785]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_StudentDeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09" unique_id=1030809875]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.8849517e-08, 0.5, 0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09" unique_id=326867855]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.8849517e-08, 0.5, -0.66)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/StudentDesks/Desk_09" unique_id=854225163]
+collision_layer = 1
+collision_mask = 1
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/StudentDesks/Desk_09/FurnitureCollision" unique_id=1632379087]
+position = Vector3(0, 0.54, 0)
+shape = SubResource("ClassDeskSolidCollision")
+[node name="Cupboard" type="Node3D" parent="FurnitureRoot" unique_id=1799989455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65, 0, 4.85)
+
+[node name="Body" type="MeshInstance3D" parent="FurnitureRoot/Cupboard" unique_id=353320112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_CupboardBody")
+
+[node name="Shelf_01" type="MeshInstance3D" parent="FurnitureRoot/Cupboard" unique_id=1900111295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_CupboardShelf")
+
+[node name="Shelf_02" type="MeshInstance3D" parent="FurnitureRoot/Cupboard" unique_id=1255434064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_CupboardShelf")
+
+[node name="Shelf_03" type="MeshInstance3D" parent="FurnitureRoot/Cupboard" unique_id=812795142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_CupboardShelf")
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/Cupboard" unique_id=1163850483]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureRoot/Cupboard/FurnitureCollision" unique_id=996535788]
+shape = SubResource("BoxShape3D_q0jp6")

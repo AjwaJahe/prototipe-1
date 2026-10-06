@@ -1,0 +1,793 @@
+[gd_scene format=3 uid="uid://bangkulorongv1"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_Wood"]
+albedo_color = Color(0.40, 0.19, 0.07, 1)
+roughness = 0.70
+
+[sub_resource type="StandardMaterial3D" id="Mat_WoodDark"]
+albedo_color = Color(0.28, 0.12, 0.04, 1)
+roughness = 0.74
+
+[sub_resource type="StandardMaterial3D" id="Mat_Metal"]
+albedo_color = Color(0.10, 0.10, 0.095, 1)
+metallic = 0.45
+roughness = 0.42
+
+[sub_resource type="BoxMesh" id="Mesh_Seat"]
+size = Vector3(3.40, 0.14, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_SeatMiddle"]
+size = Vector3(3.18, 0.10, 0.18)
+
+[sub_resource type="BoxMesh" id="Mesh_Back"]
+size = Vector3(3.34, 0.16, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_BackBottom"]
+size = Vector3(3.20, 0.14, 0.14)
+
+[sub_resource type="BoxMesh" id="Mesh_Leg"]
+size = Vector3(0.10, 0.60, 0.10)
+
+[sub_resource type="BoxMesh" id="Mesh_FrameBar"]
+size = Vector3(0.10, 0.34, 0.72)
+
+[sub_resource type="BoxMesh" id="Mesh_SideBar"]
+size = Vector3(0.10, 0.18, 0.68)
+
+[sub_resource type="BoxMesh" id="Mesh_BackPost"]
+size = Vector3(0.10, 1.18, 0.10)
+
+[node name="BangkuLorong_Furniture" type="Node3D"]
+
+[node name="FurnitureRoot" type="Node3D" parent="."]
+
+
+[node name="Bench_01" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(12.06, 0, -21.35)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_02" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(21.86, 0, -21.2)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_03" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(21.24, 0, -42.3)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_04" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(6.62, 0, -49.57)
+rotation_degrees = Vector3(0, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_05" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(54.07, 0, -50.28)
+rotation_degrees = Vector3(0, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_06" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(-15.47, 0, -50.43)
+rotation_degrees = Vector3(0, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_07" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(-15.47, 0, -59.55)
+rotation_degrees = Vector3(0, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_08" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(3.66, 0, -68.67)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_09" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(59.67, 0, -67.96)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+
+[node name="Bench_10" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(29.8, 0, -69.53)
+rotation_degrees = Vector3(0, 90, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(-1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(0, 1.43, -0.30)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(0, 1.12, -0.30)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(-1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(1.52, 0.30, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(-1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(1.52, 0.30, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(-1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(-1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10"]
+position = Vector3(1.52, 1.00, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+

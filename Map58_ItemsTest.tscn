@@ -1,0 +1,72 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://items/KertasSoal.tscn" id="1_paper"]
+[ext_resource type="PackedScene" path="res://items/Kapur.tscn" id="2_chalk"]
+[ext_resource type="PackedScene" path="res://items/KunciKelas.tscn" id="3_classkey"]
+[ext_resource type="PackedScene" path="res://items/KunciMerah.tscn" id="4_redkey"]
+[ext_resource type="PackedScene" path="res://items/KunciBiru.tscn" id="5_bluekey"]
+[ext_resource type="PackedScene" path="res://items/KunciKuning.tscn" id="6_yellowkey"]
+[ext_resource type="PackedScene" path="res://items/Medkit.tscn" id="7_medkit"]
+
+[node name="Map58_ItemsTest" type="Node3D"]
+
+; Parent instance remains at world position (-0.0181, 0, 8.25).
+; Child positions below are local to this root and were chosen from verified
+; room/door instance coordinates already present in Map58_Furniture.tscn.
+
+[node name="KertasSoal_01" parent="." instance=ExtResource("1_paper")]
+position = Vector3(-44.1692, 0.02, -23.4415)
+
+[node name="KertasSoal_02" parent="." instance=ExtResource("1_paper")]
+position = Vector3(-47.8001, 0.02, -39.0441)
+
+[node name="KertasSoal_03" parent="." instance=ExtResource("1_paper")]
+position = Vector3(-3.6284, 0.02, -54.091)
+
+[node name="KertasSoal_04" parent="." instance=ExtResource("1_paper")]
+position = Vector3(48.6841, 0.02, -73.468)
+
+[node name="KertasSoal_05" parent="." instance=ExtResource("1_paper")]
+position = Vector3(42.4228, 0.02, -0.1886)
+
+[node name="Kapur_01" parent="." instance=ExtResource("2_chalk")]
+position = Vector3(-3.6284, 0.02, -34.709)
+
+[node name="Kapur_02" parent="." instance=ExtResource("2_chalk")]
+position = Vector3(31.2466, 0.02, -34.709)
+
+[node name="Kapur_03" parent="." instance=ExtResource("2_chalk")]
+position = Vector3(48.6841, 0.02, -54.091)
+
+[node name="Kapur_04" parent="." instance=ExtResource("2_chalk")]
+position = Vector3(-44.1690, 0.02, -82.7603)
+
+[node name="Kapur_05" parent="." instance=ExtResource("2_chalk")]
+position = Vector3(-28.4182, 0.02, -49.8364)
+
+[node name="KunciKelas" parent="." instance=ExtResource("3_classkey")]
+position = Vector3(44.2153, 0.0, -64.093)
+
+[node name="KunciMerah" parent="." instance=ExtResource("4_redkey")]
+position = Vector3(-54.4064, 0.0, -50.0077)
+
+[node name="KunciBiru" parent="." instance=ExtResource("5_bluekey")]
+position = Vector3(54.9188, 0.0, -10.7386)
+
+[node name="KunciKuning" parent="." instance=ExtResource("6_yellowkey")]
+position = Vector3(-30.4018, 0.0, 1.1176)
+
+[node name="Medkit_01" parent="." instance=ExtResource("7_medkit")]
+position = Vector3(58.1728, 0.0, -11.7386)
+
+[node name="Medkit_02" parent="." instance=ExtResource("7_medkit")]
+position = Vector3(0.0, 0.0, -7.2755)
+
+[node name="Medkit_03" parent="." instance=ExtResource("7_medkit")]
+position = Vector3(0.0, 0.0, -6.7123)
+
+[node name="Medkit_04" parent="." instance=ExtResource("7_medkit")]
+position = Vector3(-29.9859, 0.0, -33.25)
+
+[node name="Medkit_05" parent="." instance=ExtResource("7_medkit")]
+position = Vector3(23.6761, 0.0, -71.1472)

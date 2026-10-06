@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bas2emljo8uk1"]
+
+[ext_resource type="PackedScene" uid="uid://2uxj8fgvb3hw" path="res://map58/Map58.glb" id="1_map"]
+[ext_resource type="Script" uid="uid://c27ctg2d1oyv1" path="res://map58/Map58_FloorCollision.gd" id="3_collision"]
+[ext_resource type="Script" uid="uid://cl20wb88mapd3" path="res://map58/Map58_AppearanceController.gd" id="4_style"]
+[ext_resource type="Script" path="res://MapWallCopyTest.gd" id="5_walltest"]
+
+[node name="Map58" type="Node3D" unique_id=1256601147]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -300, 0, 250)
+script = ExtResource("3_collision")
+
+[node name="Visual" parent="." unique_id=1707876348 instance=ExtResource("1_map")]
+
+[node name="Furniture" type="Node3D" parent="." unique_id=1357182129]
+
+[node name="MapWallAboveDoor_Test" type="Node3D" parent="."]
+script = ExtResource("5_walltest")
+
+[node name="AppearanceController" type="Node3D" parent="." unique_id=1299921615]
+script = ExtResource("4_style")

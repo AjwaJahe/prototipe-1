@@ -1,0 +1,46 @@
+extends Node3D
+
+@export var open_distance: float = 3.2
+@export var animation_duration: float = 0.35
+@export var use_map_wall: bool = false
+
+@onready var door_slide: AnimatableBody3D = $DoorPivot
+
+var _is_open := false
+var _tween: Tween
+var _closed_x: float
+
+
+func _ready() -> void:
+	if door_slide == null:
+		push_error("PintuKelas: DoorPivot tidak ditemukan.")
+		return
+
+	_closed_x = door_slide.position.x
+
+	var wall_above := get_node_or_null("WallAboveDoor") as MeshInstance3D
+	if wall_above != null:
+		wall_above.visible = not use_map_wall
+
+
+func interact(_player: Node = null) -> void:
+	if door_slide == null:
+		return
+
+	if _tween != null:
+		_tween.kill()
+
+	# Arah timur pada layout Map58 = +X.
+	var target_x := _closed_x + open_distance if not _is_open else _closed_x
+
+	_tween = create_tween()
+	_tween.set_trans(Tween.TRANS_SINE)
+	_tween.set_ease(Tween.EASE_OUT)
+	_tween.tween_property(
+		door_slide,
+		"position:x",
+		target_x,
+		animation_duration
+	)
+
+	_is_open = not _is_open

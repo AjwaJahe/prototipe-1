@@ -1,0 +1,13 @@
+RESULT|res://Administration_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://BangkuLorong_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://FemaleToilet_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://GuestRoom_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://Kantin_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://Kelas_10_A_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://Library_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://MaleToilet_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://PrincipalOffice_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://TeacherRoom_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://ToiletSketsel_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://UKS_Furniture.tscn|structural=0|non_identity=0
+RESULT|res://Warehouse_Furniture.tscn|structural=0|non_identity=0

@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bangkulorongfresh"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_Wood"]
+albedo_color = Color(0.42, 0.20, 0.07, 1)
+roughness = 0.72
+
+[sub_resource type="StandardMaterial3D" id="Mat_WoodDark"]
+albedo_color = Color(0.30, 0.13, 0.04, 1)
+roughness = 0.76
+
+[sub_resource type="StandardMaterial3D" id="Mat_Metal"]
+albedo_color = Color(0.08, 0.08, 0.075, 1)
+metallic = 0.45
+roughness = 0.45
+
+[sub_resource type="BoxMesh" id="Mesh_Seat"]
+size = Vector3(3.60, 0.14, 0.72)
+
+[sub_resource type="BoxMesh" id="Mesh_Back"]
+size = Vector3(3.50, 0.16, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_BackSupport"]
+size = Vector3(0.10, 1.55, 0.10)
+
+[sub_resource type="BoxMesh" id="Mesh_Leg"]
+size = Vector3(0.11, 0.70, 0.11)
+
+[sub_resource type="BoxMesh" id="Mesh_LongFrame"]
+size = Vector3(3.30, 0.10, 0.10)
+
+[sub_resource type="BoxMesh" id="Mesh_CrossFrame"]
+size = Vector3(0.10, 0.10, 0.58)
+
+[node name="BangkuLorong_Furniture" type="Node3D"]
+
+[node name="FurnitureRoot" type="Node3D" parent="."]
+
+[node name="Bench" type="Node3D" parent="FurnitureRoot"]
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(0, 1.43, -0.31)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(-1.48, 1.05, -0.30)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackSupport")
+
+[node name="BackSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(1.48, 1.05, -0.30)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackSupport")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(-1.52, 0.35, 0.25)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(1.52, 0.35, 0.25)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(-1.52, 0.35, -0.25)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(1.52, 0.35, -0.25)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Frame_Front" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(0, 0.35, 0.25)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_LongFrame")
+
+[node name="Frame_Back" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(0, 0.35, -0.25)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_LongFrame")
+
+[node name="Frame_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(-1.52, 0.50, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_CrossFrame")
+
+[node name="Frame_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench"]
+position = Vector3(1.52, 0.50, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_CrossFrame")

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ch72vqv4gjqlt"]
+
+[ext_resource type="PackedScene" uid="uid://de85urc7xvr18" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bng7o3tab5iml" path="res://lantai.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bas2emljo8uk1" path="res://map58/Map58.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://drkunxer5dfrv" path="res://Map58_SpawnManager.gd" id="4_spawn"]
+[ext_resource type="PackedScene" path="res://Teacher.tscn" id="5_teacher"]
+[ext_resource type="PackedScene" uid="uid://b7l75jdi3ly3p" path="res://Map58_Furniture.tscn" id="6_furniture"]
+[ext_resource type="PackedScene" uid="uid://ses6lko2vaa5" path="res://BasketballCourt.tscn" id="7_basket"]
+[ext_resource type="PackedScene" uid="uid://syv0u3a3f1qf" path="res://BasketballBleachers.tscn" id="8_bleachers"]
+[ext_resource type="PackedScene" path="res://Map58_WallAboveOpenings.tscn" id="9_wall_caps"]
+[ext_resource type="PackedScene" path="res://Map58_Roof.tscn" id="10_roof"]
+
+[node name="Main" type="Node3D" unique_id=1437950529]
+
+[node name="Player" parent="." unique_id=387136255 instance=ExtResource("1_0xm2m")]
+
+[node name="Lantai" parent="." unique_id=857479751 instance=ExtResource("2_h2yge")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1291981908]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 45, 0)
+
+[node name="Map58" parent="." unique_id=1373125441 instance=ExtResource("3_h2yge")]
+
+[node name="SpawnManager" type="Node3D" parent="." unique_id=1884000001]
+script = ExtResource("4_spawn")
+
+[node name="StudentSpawns" type="Node3D" parent="SpawnManager" unique_id=1884000002]
+
+[node name="Kelas_10_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, -0.180012, -26.45901)
+
+[node name="Kelas_10_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, -0.180012, -26.45901)
+
+[node name="Kelas_10_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180012, -26.45901)
+
+[node name="Kelas_10_D" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, -0.180012, -26.45901)
+
+[node name="Kelas_11_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, -0.180013, -45.841)
+
+[node name="Kelas_11_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, -0.180013, -45.841)
+
+[node name="Kelas_11_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180013, -45.841)
+
+[node name="Kelas_11_D" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, -0.180013, -45.841)
+
+[node name="Kelas_12_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, -0.180014, -65.21802)
+
+[node name="Kelas_12_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, -0.180014, -65.21802)
+
+[node name="Kelas_12_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180014, -65.21802)
+
+[node name="TeacherSpawn" type="Marker3D" parent="SpawnManager" unique_id=1884000021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, -0.180013, -41.5864)
+
+[node name="Teacher" parent="." unique_id=1037771686 instance=ExtResource("5_teacher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, 0.819987, -41.5864)
+
+[node name="Furniture" parent="." unique_id=1821440065 instance=ExtResource("6_furniture")]
+
+[node name="BasketballCourt" parent="." unique_id=1740109745 instance=ExtResource("7_basket")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4047, -0.18, 8.0614)
+
+[node name="BasketballBleachers" parent="." unique_id=472992913 instance=ExtResource("8_bleachers")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -0.18, -3.49)
+
+[node name="Map58_WallAboveOpenings" parent="." instance=ExtResource("9_wall_caps")]
+
+[node name="Map58_Roof" parent="." instance=ExtResource("10_roof")]
+position = Vector3(1.82425, 0, -26.4991)

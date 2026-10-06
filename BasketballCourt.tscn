@@ -1,422 +1,397 @@
-[gd_scene format=3]
-
-[sub_resource type="StandardMaterial3D" id="MatMetal"]
-albedo_color = Color(0.16, 0.18, 0.20, 1)
-metallic = 0.65
-roughness = 0.60
-
-[sub_resource type="StandardMaterial3D" id="MatWhite"]
-albedo_color = Color(0.92, 0.92, 0.88, 1)
-roughness = 0.82
-shading_mode = 0
-
-[sub_resource type="StandardMaterial3D" id="MatFrame"]
-albedo_color = Color(0.05, 0.05, 0.055, 1)
-roughness = 0.80
-
-[sub_resource type="StandardMaterial3D" id="MatRed"]
-albedo_color = Color(0.55, 0.05, 0.035, 1)
-roughness = 0.72
-
-[sub_resource type="StandardMaterial3D" id="MatNet"]
-albedo_color = Color(0.95, 0.95, 0.95, 1)
-roughness = 0.90
+[gd_scene format=3 uid="uid://ses6lko2vaa5"]
 
 [sub_resource type="StandardMaterial3D" id="MatCourtWood"]
 albedo_color = Color(0.43, 0.22, 0.085, 1)
 roughness = 0.86
 
+[sub_resource type="BoxMesh" id="CourtFloorMesh"]
+material = SubResource("MatCourtWood")
+size = Vector3(17.533203, 0.05, 31.5)
+
 [sub_resource type="StandardMaterial3D" id="MatCourtLine"]
-albedo_color = Color(0.95, 0.90, 0.70, 1)
+albedo_color = Color(0.95, 0.9, 0.7, 1)
 roughness = 0.78
 
+[sub_resource type="BoxMesh" id="CourtEndLineMesh"]
+material = SubResource("MatCourtLine")
+size = Vector3(17.438843, 0.035, 0.1)
+
+[sub_resource type="BoxMesh" id="CourtSideLineMesh"]
+material = SubResource("MatCourtLine")
+size = Vector3(0.001, 0.035, 31)
+
+[sub_resource type="BoxMesh" id="CourtCenterLineMesh"]
+material = SubResource("MatCourtLine")
+size = Vector3(17.795197, 0.035, 0.1)
+
+[sub_resource type="TorusMesh" id="CourtCenterCircleMesh"]
+material = SubResource("MatCourtLine")
+inner_radius = 4.0
+outer_radius = 4.1
+rings = 4
+ring_segments = 64
+
+[sub_resource type="BoxMesh" id="CourtKeyLineShortMesh"]
+material = SubResource("MatCourtLine")
+size = Vector3(0.1, 0.035, 13.113647)
+
+[sub_resource type="BoxMesh" id="CourtKeyLineLongMesh"]
+material = SubResource("MatCourtLine")
+size = Vector3(7.6, 0.035, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="MatWhite"]
+shading_mode = 0
+albedo_color = Color(0.92, 0.92, 0.88, 1)
+
 [sub_resource type="BoxMesh" id="BackboardMesh"]
-size = Vector3(1.85, 1.10, 0.10)
 material = SubResource("MatWhite")
+size = Vector3(1.85, 1.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="MatFrame"]
+albedo_color = Color(0.05, 0.05, 0.055, 1)
+roughness = 0.8
 
 [sub_resource type="BoxMesh" id="BackboardFrameTop"]
-size = Vector3(1.98, 0.08, 0.13)
 material = SubResource("MatFrame")
+size = Vector3(1.98, 0.08, 0.13)
 
 [sub_resource type="BoxMesh" id="BackboardFrameBottom"]
-size = Vector3(1.98, 0.08, 0.13)
 material = SubResource("MatFrame")
+size = Vector3(1.98, 0.08, 0.13)
 
 [sub_resource type="BoxMesh" id="BackboardFrameSide"]
-size = Vector3(0.08, 1.10, 0.13)
 material = SubResource("MatFrame")
+size = Vector3(0.08, 1.1, 0.13)
 
 [sub_resource type="BoxMesh" id="SquareTargetTop"]
-size = Vector3(0.70, 0.055, 0.035)
 material = SubResource("MatFrame")
+size = Vector3(0.7, 0.055, 0.035)
 
 [sub_resource type="BoxMesh" id="SquareTargetBottom"]
-size = Vector3(0.70, 0.055, 0.035)
 material = SubResource("MatFrame")
+size = Vector3(0.7, 0.055, 0.035)
 
 [sub_resource type="BoxMesh" id="SquareTargetSide"]
-size = Vector3(0.055, 0.62, 0.035)
 material = SubResource("MatFrame")
+size = Vector3(0.055, 0.62, 0.035)
+
+[sub_resource type="StandardMaterial3D" id="MatRed"]
+albedo_color = Color(0.55, 0.05, 0.035, 1)
+roughness = 0.72
 
 [sub_resource type="TorusMesh" id="RimMesh"]
+material = SubResource("MatRed")
 inner_radius = 0.22
 outer_radius = 0.26
 rings = 10
 ring_segments = 24
-material = SubResource("MatRed")
+
+[sub_resource type="StandardMaterial3D" id="MatNet"]
+albedo_color = Color(0.95, 0.95, 0.95, 1)
+roughness = 0.9
 
 [sub_resource type="TorusMesh" id="NetBottomMesh"]
+material = SubResource("MatNet")
 inner_radius = 0.09
 outer_radius = 0.12
 rings = 8
 ring_segments = 16
-material = SubResource("MatNet")
 
 [sub_resource type="CylinderMesh" id="NetCordMesh"]
+material = SubResource("MatNet")
 top_radius = 0.012
 bottom_radius = 0.012
 height = 0.58
 radial_segments = 6
-material = SubResource("MatNet")
+
+[sub_resource type="StandardMaterial3D" id="MatMetal"]
+albedo_color = Color(0.16, 0.18, 0.2, 1)
+metallic = 0.65
+roughness = 0.6
 
 [sub_resource type="CylinderMesh" id="BackMountMesh"]
+material = SubResource("MatMetal")
 top_radius = 0.045
 bottom_radius = 0.045
 height = 0.95
 radial_segments = 10
-material = SubResource("MatMetal")
 
 [sub_resource type="BoxMesh" id="SupportArmMesh"]
-size = Vector3(1.15, 0.08, 0.08)
 material = SubResource("MatMetal")
+size = Vector3(1.15, 0.08, 0.08)
 
 [sub_resource type="BoxShape3D" id="BackboardCollision"]
-size = Vector3(1.85, 1.10, 0.10)
+size = Vector3(1.85, 1.1, 0.1)
 
-[sub_resource type="BoxMesh" id="CourtFloorMesh"]
-size = Vector3(42.0, 0.05, 31.5)
-material = SubResource("MatCourtWood")
+[node name="BasketballCourt" type="Node3D" unique_id=708320279]
 
-[sub_resource type="BoxMesh" id="CourtEndLineMesh"]
-size = Vector3(41.0, 0.035, 0.10)
-material = SubResource("MatCourtLine")
+[node name="CourtFloor" type="Node3D" parent="." unique_id=1639940570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
-[sub_resource type="BoxMesh" id="CourtSideLineMesh"]
-size = Vector3(0.10, 0.035, 31.0)
-material = SubResource("MatCourtLine")
-
-[sub_resource type="BoxMesh" id="CourtCenterLineMesh"]
-size = Vector3(41.0, 0.035, 0.10)
-material = SubResource("MatCourtLine")
-
-[sub_resource type="TorusMesh" id="CourtCenterCircleMesh"]
-inner_radius = 4.0
-outer_radius = 4.10
-rings = 4
-ring_segments = 64
-material = SubResource("MatCourtLine")
-
-[sub_resource type="BoxMesh" id="CourtKeyLineLongMesh"]
-size = Vector3(7.6, 0.035, 0.10)
-material = SubResource("MatCourtLine")
-
-[sub_resource type="BoxMesh" id="CourtKeyLineShortMesh"]
-size = Vector3(0.10, 0.035, 10.0)
-material = SubResource("MatCourtLine")
-
-[node name="BasketballCourt" type="Node3D"]
-
-[node name="CourtFloor" type="Node3D" parent="."]
-
-[node name="Surface" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(0, 0.21, 0)
+[node name="Surface" type="MeshInstance3D" parent="CourtFloor" unique_id=1824627307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0048828125, 0.21, 0)
 mesh = SubResource("CourtFloorMesh")
 
-[node name="EndLineFront" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(0, 0.255, -15.45)
+[node name="EndLineFront" type="MeshInstance3D" parent="CourtFloor" unique_id=1986685715]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058776855, 0.255, -15.45)
 mesh = SubResource("CourtEndLineMesh")
 
-[node name="EndLineBack" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(0, 0.255, 15.45)
+[node name="EndLineBack" type="MeshInstance3D" parent="CourtFloor" unique_id=1999488753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, 15.45)
 mesh = SubResource("CourtEndLineMesh")
 
-[node name="SideLineLeft" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(-20.70, 0.255, 0)
+[node name="SideLineLeft" type="MeshInstance3D" parent="CourtFloor" unique_id=1800927686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6356854, 0.255, 0)
 mesh = SubResource("CourtSideLineMesh")
 
-[node name="SideLineRight" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(20.70, 0.255, 0)
+[node name="SideLineRight" type="MeshInstance3D" parent="CourtFloor" unique_id=1996459435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6592484, 0.255, 0)
 mesh = SubResource("CourtSideLineMesh")
 
-[node name="CenterLine" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(0, 0.255, 0)
+[node name="CenterLine" type="MeshInstance3D" parent="CourtFloor" unique_id=1680274569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0129852295, 0.255, 0)
 mesh = SubResource("CourtCenterLineMesh")
 
-[node name="CenterCircle" type="MeshInstance3D" parent="CourtFloor"]
-position = Vector3(0, 0.27, 0)
-rotation = Vector3(1.5707964, 0, 0)
+[node name="CenterCircle" type="MeshInstance3D" parent="CourtFloor" unique_id=1038122381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27, 0)
 mesh = SubResource("CourtCenterCircleMesh")
 
-[node name="Key_Left" type="Node3D" parent="CourtFloor"]
-position = Vector3(0, 0, -11.65)
+[node name="Key_Left" type="Node3D" parent="CourtFloor" unique_id=2052198371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.65)
 
-[node name="OuterA" type="MeshInstance3D" parent="CourtFloor/Key_Left"]
-position = Vector3(0, 0.255, -5.0)
+[node name="OuterA" type="MeshInstance3D" parent="CourtFloor/Key_Left" unique_id=1200893666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, 2.7780762)
 mesh = SubResource("CourtKeyLineShortMesh")
 
-[node name="OuterB" type="MeshInstance3D" parent="CourtFloor/Key_Left"]
-position = Vector3(0, 0.255, 5.0)
+[node name="OuterB" type="MeshInstance3D" parent="CourtFloor/Key_Left" unique_id=736566050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, 5)
 mesh = SubResource("CourtKeyLineShortMesh")
 
-[node name="SideA" type="MeshInstance3D" parent="CourtFloor/Key_Left"]
-position = Vector3(-3.8, 0.255, 0)
+[node name="SideA" type="MeshInstance3D" parent="CourtFloor/Key_Left" unique_id=1040775799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0.255, 0)
 mesh = SubResource("CourtKeyLineLongMesh")
 
-[node name="SideB" type="MeshInstance3D" parent="CourtFloor/Key_Left"]
-position = Vector3(3.8, 0.255, 0)
+[node name="SideB" type="MeshInstance3D" parent="CourtFloor/Key_Left" unique_id=1085377339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, 0.255, 0)
 mesh = SubResource("CourtKeyLineLongMesh")
 
-[node name="Key_Right" type="Node3D" parent="CourtFloor"]
-position = Vector3(0, 0, 11.65)
+[node name="Key_Right" type="Node3D" parent="CourtFloor" unique_id=1100673838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.65)
 
-[node name="OuterA" type="MeshInstance3D" parent="CourtFloor/Key_Right"]
-position = Vector3(0, 0.255, -5.0)
+[node name="OuterA" type="MeshInstance3D" parent="CourtFloor/Key_Right" unique_id=507840064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, -5)
 mesh = SubResource("CourtKeyLineShortMesh")
 
-[node name="OuterB" type="MeshInstance3D" parent="CourtFloor/Key_Right"]
-position = Vector3(0, 0.255, 5.0)
+[node name="OuterB" type="MeshInstance3D" parent="CourtFloor/Key_Right" unique_id=1894636886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, -2.7941284)
 mesh = SubResource("CourtKeyLineShortMesh")
 
-[node name="SideA" type="MeshInstance3D" parent="CourtFloor/Key_Right"]
-position = Vector3(-3.8, 0.255, 0)
+[node name="SideA" type="MeshInstance3D" parent="CourtFloor/Key_Right" unique_id=1146617959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8, 0.255, 0)
 mesh = SubResource("CourtKeyLineLongMesh")
 
-[node name="SideB" type="MeshInstance3D" parent="CourtFloor/Key_Right"]
-position = Vector3(3.8, 0.255, 0)
+[node name="SideB" type="MeshInstance3D" parent="CourtFloor/Key_Right" unique_id=1592498305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, 0.255, 0)
 mesh = SubResource("CourtKeyLineLongMesh")
 
-[node name="Hoop_Left" type="Node3D" parent="."]
-position = Vector3(-6.0, 0.0, 14.5)
-rotation = Vector3(0, 0, 0)
+[node name="Hoop_Left" type="Node3D" parent="." unique_id=1887447568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 14.5)
 
-[node name="Backboard" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 3.60, 0)
+[node name="Backboard" type="MeshInstance3D" parent="Hoop_Left" unique_id=136375512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 mesh = SubResource("BackboardMesh")
 
-[node name="FrameTop" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 4.17, -0.08)
+[node name="FrameTop" type="MeshInstance3D" parent="Hoop_Left" unique_id=1714482285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17, -0.08)
 mesh = SubResource("BackboardFrameTop")
 
-[node name="FrameBottom" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 3.03, -0.08)
+[node name="FrameBottom" type="MeshInstance3D" parent="Hoop_Left" unique_id=2011219300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03, -0.08)
 mesh = SubResource("BackboardFrameBottom")
 
-[node name="FrameLeft" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.95, 3.60, -0.08)
+[node name="FrameLeft" type="MeshInstance3D" parent="Hoop_Left" unique_id=143832802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3.6, -0.08)
 mesh = SubResource("BackboardFrameSide")
 
-[node name="FrameRight" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.95, 3.60, -0.08)
+[node name="FrameRight" type="MeshInstance3D" parent="Hoop_Left" unique_id=1339778251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 3.6, -0.08)
 mesh = SubResource("BackboardFrameSide")
 
-[node name="TargetTop" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 3.74, -0.14)
+[node name="TargetTop" type="MeshInstance3D" parent="Hoop_Left" unique_id=641706195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.74, -0.14)
 mesh = SubResource("SquareTargetTop")
 
-[node name="TargetBottom" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 3.12, -0.14)
+[node name="TargetBottom" type="MeshInstance3D" parent="Hoop_Left" unique_id=2011574962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12, -0.14)
 mesh = SubResource("SquareTargetBottom")
 
-[node name="TargetLeft" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.35, 3.43, -0.14)
+[node name="TargetLeft" type="MeshInstance3D" parent="Hoop_Left" unique_id=654000760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 3.43, -0.14)
 mesh = SubResource("SquareTargetSide")
 
-[node name="TargetRight" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.35, 3.43, -0.14)
+[node name="TargetRight" type="MeshInstance3D" parent="Hoop_Left" unique_id=1220991743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 3.43, -0.14)
 mesh = SubResource("SquareTargetSide")
 
-[node name="Rim" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 3.08, -0.36)
-rotation = Vector3(1.5707964, 0, 0)
+[node name="Rim" type="MeshInstance3D" parent="Hoop_Left" unique_id=832875102]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.08, -0.36)
 mesh = SubResource("RimMesh")
 
-[node name="NetBottom" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0, 2.52, -0.36)
-rotation = Vector3(1.5707964, 0, 0)
+[node name="NetBottom" type="MeshInstance3D" parent="Hoop_Left" unique_id=969772623]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.52, -0.36)
 mesh = SubResource("NetBottomMesh")
 
-[node name="NetCord_0" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.24, 2.80, -0.36)
-rotation = Vector3(0.0, 0.0, 0.40)
+[node name="NetCord_0" type="MeshInstance3D" parent="Hoop_Left" unique_id=1627666555]
+transform = Transform3D(0.921061, -0.38941833, 0, 0.38941833, 0.921061, 0, 0, 0, 1, 0.24, 2.8, -0.36)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_1" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.17, 2.80, -0.53)
-rotation = Vector3(0.36, 0.0, 0.28)
+[node name="NetCord_1" type="MeshInstance3D" parent="Hoop_Left" unique_id=2066869445]
+transform = Transform3D(0.96105546, -0.27635565, 0, 0.25864038, 0.89944875, -0.35227424, 0.097352974, 0.33855507, 0.9358968, 0.17, 2.8, -0.53)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_2" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.0, 2.80, -0.60)
-rotation = Vector3(0.42, 0.0, 0.0)
+[node name="NetCord_2" type="MeshInstance3D" parent="Hoop_Left" unique_id=1860242750]
+transform = Transform3D(1, 0, 0, 0, 0.9130889, -0.40776044, 0, 0.40776044, 0.9130889, 0, 2.8, -0.6)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_3" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.17, 2.80, -0.53)
-rotation = Vector3(0.36, 0.0, -0.28)
+[node name="NetCord_3" type="MeshInstance3D" parent="Hoop_Left" unique_id=2082968018]
+transform = Transform3D(0.96105546, 0.27635565, 0, -0.25864038, 0.89944875, -0.35227424, -0.097352974, 0.33855507, 0.9358968, -0.17, 2.8, -0.53)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_4" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.24, 2.80, -0.36)
-rotation = Vector3(0.0, 0.0, -0.40)
+[node name="NetCord_4" type="MeshInstance3D" parent="Hoop_Left" unique_id=140116831]
+transform = Transform3D(0.921061, 0.38941833, 0, -0.38941833, 0.921061, 0, 0, 0, 1, -0.24, 2.8, -0.36)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_5" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.17, 2.80, -0.19)
-rotation = Vector3(-0.36, 0.0, -0.28)
+[node name="NetCord_5" type="MeshInstance3D" parent="Hoop_Left" unique_id=1283327456]
+transform = Transform3D(0.96105546, 0.27635565, 0, -0.25864038, 0.89944875, 0.35227424, 0.097352974, -0.33855507, 0.9358968, -0.17, 2.8, -0.19)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_6" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.0, 2.80, -0.12)
-rotation = Vector3(-0.42, 0.0, 0.0)
+[node name="NetCord_6" type="MeshInstance3D" parent="Hoop_Left" unique_id=301898959]
+transform = Transform3D(1, 0, 0, 0, 0.9130889, 0.40776044, 0, -0.40776044, 0.9130889, 0, 2.8, -0.12)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_7" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.17, 2.80, -0.19)
-rotation = Vector3(-0.36, 0.0, 0.28)
+[node name="NetCord_7" type="MeshInstance3D" parent="Hoop_Left" unique_id=70787583]
+transform = Transform3D(0.96105546, -0.27635565, 0, 0.25864038, 0.89944875, 0.35227424, -0.097352974, -0.33855507, 0.9358968, 0.17, 2.8, -0.19)
 mesh = SubResource("NetCordMesh")
 
-[node name="MountLeft" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.70, 4.05, 0.12)
+[node name="MountLeft" type="MeshInstance3D" parent="Hoop_Left" unique_id=1695313044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 4.05, 0.12)
 mesh = SubResource("BackMountMesh")
 
-[node name="MountRight" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.70, 4.05, 0.12)
+[node name="MountRight" type="MeshInstance3D" parent="Hoop_Left" unique_id=217983768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 4.05, 0.12)
 mesh = SubResource("BackMountMesh")
 
-[node name="SupportArmLeft" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(-0.55, 4.08, 0.25)
-rotation = Vector3(0, 0, -0.48)
+[node name="SupportArmLeft" type="MeshInstance3D" parent="Hoop_Left" unique_id=2093235618]
+transform = Transform3D(0.8869949, 0.46177918, 0, -0.46177918, 0.8869949, 0, 0, 0, 1, -0.55, 4.08, 0.25)
 mesh = SubResource("SupportArmMesh")
 
-[node name="SupportArmRight" type="MeshInstance3D" parent="Hoop_Left"]
-position = Vector3(0.55, 4.08, 0.25)
-rotation = Vector3(0, 0, 0.48)
+[node name="SupportArmRight" type="MeshInstance3D" parent="Hoop_Left" unique_id=390801746]
+transform = Transform3D(0.8869949, -0.46177918, 0, 0.46177918, 0.8869949, 0, 0, 0, 1, 0.55, 4.08, 0.25)
 mesh = SubResource("SupportArmMesh")
 
-[node name="BackboardCollision" type="StaticBody3D" parent="Hoop_Left"]
-[node name="Shape" type="CollisionShape3D" parent="Hoop_Left/BackboardCollision"]
-position = Vector3(0, 3.60, 0)
+[node name="BackboardCollision" type="StaticBody3D" parent="Hoop_Left" unique_id=571252466]
+
+[node name="Shape" type="CollisionShape3D" parent="Hoop_Left/BackboardCollision" unique_id=1901888623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 shape = SubResource("BackboardCollision")
 
-[node name="Hoop_Right" type="Node3D" parent="."]
-position = Vector3(-6.0, 0.0, -14.5)
-rotation = Vector3(0, 3.1415927, 0)
+[node name="Hoop_Right" type="Node3D" parent="." unique_id=180277553]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -6, 0, -14.5)
 
-[node name="Backboard" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 3.60, 0)
+[node name="Backboard" type="MeshInstance3D" parent="Hoop_Right" unique_id=1803384365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 mesh = SubResource("BackboardMesh")
 
-[node name="FrameTop" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 4.17, -0.08)
+[node name="FrameTop" type="MeshInstance3D" parent="Hoop_Right" unique_id=1255923037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17, -0.08)
 mesh = SubResource("BackboardFrameTop")
 
-[node name="FrameBottom" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 3.03, -0.08)
+[node name="FrameBottom" type="MeshInstance3D" parent="Hoop_Right" unique_id=1313467223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03, -0.08)
 mesh = SubResource("BackboardFrameBottom")
 
-[node name="FrameLeft" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.95, 3.60, -0.08)
+[node name="FrameLeft" type="MeshInstance3D" parent="Hoop_Right" unique_id=807200822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 3.6, -0.08)
 mesh = SubResource("BackboardFrameSide")
 
-[node name="FrameRight" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.95, 3.60, -0.08)
+[node name="FrameRight" type="MeshInstance3D" parent="Hoop_Right" unique_id=510322917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 3.6, -0.08)
 mesh = SubResource("BackboardFrameSide")
 
-[node name="TargetTop" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 3.74, -0.14)
+[node name="TargetTop" type="MeshInstance3D" parent="Hoop_Right" unique_id=2011819420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.74, -0.14)
 mesh = SubResource("SquareTargetTop")
 
-[node name="TargetBottom" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 3.12, -0.14)
+[node name="TargetBottom" type="MeshInstance3D" parent="Hoop_Right" unique_id=2017493623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12, -0.14)
 mesh = SubResource("SquareTargetBottom")
 
-[node name="TargetLeft" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.35, 3.43, -0.14)
+[node name="TargetLeft" type="MeshInstance3D" parent="Hoop_Right" unique_id=1820961103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 3.43, -0.14)
 mesh = SubResource("SquareTargetSide")
 
-[node name="TargetRight" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.35, 3.43, -0.14)
+[node name="TargetRight" type="MeshInstance3D" parent="Hoop_Right" unique_id=1425816341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, 3.43, -0.14)
 mesh = SubResource("SquareTargetSide")
 
-[node name="Rim" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 3.08, -0.36)
-rotation = Vector3(1.5707964, 0, 0)
+[node name="Rim" type="MeshInstance3D" parent="Hoop_Right" unique_id=2011523675]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 3.08, -0.36)
 mesh = SubResource("RimMesh")
 
-[node name="NetBottom" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0, 2.52, -0.36)
-rotation = Vector3(1.5707964, 0, 0)
+[node name="NetBottom" type="MeshInstance3D" parent="Hoop_Right" unique_id=1740917254]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 2.52, -0.36)
 mesh = SubResource("NetBottomMesh")
 
-[node name="NetCord_0" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.24, 2.80, -0.36)
-rotation = Vector3(0.0, 0.0, 0.40)
+[node name="NetCord_0" type="MeshInstance3D" parent="Hoop_Right" unique_id=719406150]
+transform = Transform3D(0.921061, -0.38941833, 0, 0.38941833, 0.921061, 0, 0, 0, 1, 0.24, 2.8, -0.36)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_1" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.17, 2.80, -0.53)
-rotation = Vector3(0.36, 0.0, 0.28)
+[node name="NetCord_1" type="MeshInstance3D" parent="Hoop_Right" unique_id=1292482646]
+transform = Transform3D(0.96105546, -0.27635565, 0, 0.25864038, 0.89944875, -0.35227424, 0.097352974, 0.33855507, 0.9358968, 0.17, 2.8, -0.53)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_2" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.0, 2.80, -0.60)
-rotation = Vector3(0.42, 0.0, 0.0)
+[node name="NetCord_2" type="MeshInstance3D" parent="Hoop_Right" unique_id=1644348895]
+transform = Transform3D(1, 0, 0, 0, 0.9130889, -0.40776044, 0, 0.40776044, 0.9130889, 0, 2.8, -0.6)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_3" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.17, 2.80, -0.53)
-rotation = Vector3(0.36, 0.0, -0.28)
+[node name="NetCord_3" type="MeshInstance3D" parent="Hoop_Right" unique_id=164034234]
+transform = Transform3D(0.96105546, 0.27635565, 0, -0.25864038, 0.89944875, -0.35227424, -0.097352974, 0.33855507, 0.9358968, -0.17, 2.8, -0.53)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_4" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.24, 2.80, -0.36)
-rotation = Vector3(0.0, 0.0, -0.40)
+[node name="NetCord_4" type="MeshInstance3D" parent="Hoop_Right" unique_id=708034023]
+transform = Transform3D(0.921061, 0.38941833, 0, -0.38941833, 0.921061, 0, 0, 0, 1, -0.24, 2.8, -0.36)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_5" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.17, 2.80, -0.19)
-rotation = Vector3(-0.36, 0.0, -0.28)
+[node name="NetCord_5" type="MeshInstance3D" parent="Hoop_Right" unique_id=2103235284]
+transform = Transform3D(0.96105546, 0.27635565, 0, -0.25864038, 0.89944875, 0.35227424, 0.097352974, -0.33855507, 0.9358968, -0.17, 2.8, -0.19)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_6" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.0, 2.80, -0.12)
-rotation = Vector3(-0.42, 0.0, 0.0)
+[node name="NetCord_6" type="MeshInstance3D" parent="Hoop_Right" unique_id=976915658]
+transform = Transform3D(1, 0, 0, 0, 0.9130889, 0.40776044, 0, -0.40776044, 0.9130889, 0, 2.8, -0.12)
 mesh = SubResource("NetCordMesh")
 
-[node name="NetCord_7" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.17, 2.80, -0.19)
-rotation = Vector3(-0.36, 0.0, 0.28)
+[node name="NetCord_7" type="MeshInstance3D" parent="Hoop_Right" unique_id=1524133944]
+transform = Transform3D(0.96105546, -0.27635565, 0, 0.25864038, 0.89944875, 0.35227424, -0.097352974, -0.33855507, 0.9358968, 0.17, 2.8, -0.19)
 mesh = SubResource("NetCordMesh")
 
-[node name="MountLeft" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.70, 4.05, 0.12)
+[node name="MountLeft" type="MeshInstance3D" parent="Hoop_Right" unique_id=1265267215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 4.05, 0.12)
 mesh = SubResource("BackMountMesh")
 
-[node name="MountRight" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.70, 4.05, 0.12)
+[node name="MountRight" type="MeshInstance3D" parent="Hoop_Right" unique_id=355325674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 4.05, 0.12)
 mesh = SubResource("BackMountMesh")
 
-[node name="SupportArmLeft" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(-0.55, 4.08, 0.25)
-rotation = Vector3(0, 0, -0.48)
+[node name="SupportArmLeft" type="MeshInstance3D" parent="Hoop_Right" unique_id=396779255]
+transform = Transform3D(0.8869949, 0.46177918, 0, -0.46177918, 0.8869949, 0, 0, 0, 1, -0.55, 4.08, 0.25)
 mesh = SubResource("SupportArmMesh")
 
-[node name="SupportArmRight" type="MeshInstance3D" parent="Hoop_Right"]
-position = Vector3(0.55, 4.08, 0.25)
-rotation = Vector3(0, 0, 0.48)
+[node name="SupportArmRight" type="MeshInstance3D" parent="Hoop_Right" unique_id=303776574]
+transform = Transform3D(0.8869949, -0.46177918, 0, 0.46177918, 0.8869949, 0, 0, 0, 1, 0.55, 4.08, 0.25)
 mesh = SubResource("SupportArmMesh")
 
-[node name="BackboardCollision" type="StaticBody3D" parent="Hoop_Right"]
-[node name="Shape" type="CollisionShape3D" parent="Hoop_Right/BackboardCollision"]
-position = Vector3(0, 3.60, 0)
+[node name="BackboardCollision" type="StaticBody3D" parent="Hoop_Right" unique_id=1617844074]
+
+[node name="Shape" type="CollisionShape3D" parent="Hoop_Right/BackboardCollision" unique_id=589789978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
 shape = SubResource("BackboardCollision")

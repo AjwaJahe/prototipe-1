@@ -1,0 +1,712 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: Intel - Intel(R) HD Graphics 620
+WARNING: Your video card drivers are known to have low quality OpenGL 3.3 support, switching to ANGLE.
+   at: DisplayServerWindows (platform/windows/display_server_windows.cpp:8229)
+Accessibility: window 0 adapter created.
+EGL: EGL_ANGLE_surface_orientation is supported.
+EGL: Using optimal surface orientation: Invert Y
+SDL: Init OK!
+Accessibility: window 0 adapter activated.
+Requested V-Sync mode: Enabled - FPS will likely be capped to the monitor refresh rate.
+Using "winink" pen tablet driver...
+godot: ENABLING GL DEBUG
+Shader 'CanvasSdfShaderGLES3' SHA256: 97771411eda219d1e22bbb109cc47dc3ae86692ed32cc042c2bbe88e9202774c
+Shader 'SkeletonShaderGLES3' SHA256: 2fae9c29133d9be5970c7205d8e640794d9a6c9bb8bfb57137c9f39aaaead985
+Shader 'ParticlesShaderGLES3' SHA256: c0c7f9e0e2c8f414f1a0c83853ebff756adc81e80f19b522cb91614a6aa0aede
+Shader 'ParticlesCopyShaderGLES3' SHA256: 43b80ff0efaf87f59447451c004cf2fdcf89201579fd908ffb50a4ce475597d5
+Shader 'CopyShaderGLES3' SHA256: df968353f6cb82f0210fdbccd2349a1e06dced7735eb2257dec6f9fa63dccc42
+Shader 'CubemapFilterShaderGLES3' SHA256: 036391ba061fc8e199f190b256f0fe4f4b0ebef4289132c4fe791e67e3f02d4c
+Shader 'GlowShaderGLES3' SHA256: bc551def1ac36e4387fedb8e220831c7443ed0f14eeebbfa9c0b76ce76412498
+Shader 'PostShaderGLES3' SHA256: 8064511090283a296d928e0382757798d3cbfca170b1f517470de96dc801343f
+Shader 'FeedShaderGLES3' SHA256: b89a9b0d6976915b147c592304280231fd14f12349c0df468fdc0e5297760cfe
+Shader 'CanvasShaderGLES3' SHA256: baaa164a8bcf73b9a8ffaeb404ded8ccae19d082a42b05907c06988685327040
+Shader 'CanvasOcclusionShaderGLES3' SHA256: 3bf2ba2e2bc6e4ddb9622d6e3890d7e31e456f1f3a4f34b0917a64cb23166433
+Shader 'SceneShaderGLES3' SHA256: a5914a175d567b444af4bed678fce79c7fd195b9054efed894cee3c74a7c1d40
+Shader 'SkyShaderGLES3' SHA256: be8ea72403c47fb32407d01e53879125c9bfa3bfaf9186f3ae9d58c9cdb1773a
+Shader 'TexBlitShaderGLES3' SHA256: 9816a9d48df11db9c428f7638d184f93a7a1aad54bf1f482189cf5cdf1abf3fb
+OpenGL API OpenGL ES 3.0 (ANGLE 2.1.1 git hash: aaebda1c5a40) - Compatibility - Using Device: Google Inc. (Intel) - ANGLE (Intel, Intel(R) HD Graphics 620 (0x00005916) Direct3D11 vs_5_0 ps_5_0, D3D11-21.20.16.4551)
+WASAPI: Activated output_device using IAudioClient3 interface
+WASAPI: wFormatTag = 65534
+WASAPI: nChannels = 2
+WASAPI: nSamplesPerSec = 48000
+WASAPI: nAvgBytesPerSec = 384000
+WASAPI: nBlockAlign = 8
+WASAPI: wBitsPerSample = 32
+WASAPI: cbSize = 22
+WASAPI: mix_rate = 48000
+WASAPI: fundamental_period_frames = 480
+WASAPI: min_period_frames = 480
+WASAPI: max_period_frames = 480
+WASAPI: selected a period frame size of 480
+WASAPI: detected 2 channels
+WASAPI: audio buffer frames: 480 calculated latency: 10ms
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: res://PerfProbe.gd remapped: res://PerfProbe.gd
+Completed load for: 'res://PerfProbe.gd' remapped 'res://PerfProbe.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+MbedTLS: Some X509 certificates could not be parsed (1 certificates skipped).
+Loaded system CA certificates
+Loading resource: res://main.tscn remapped: res://main.tscn
+Loading resource: res://player.tscn remapped: res://player.tscn
+Loading resource: res://Player.gd remapped: res://Player.gd
+Completed load for: 'res://Player.gd' remapped 'res://Player.gd' at thread -1
+Loading resource: res://PlayerCharacter.tscn remapped: res://PlayerCharacter.tscn
+Loading resource: res://Map58_PlayerCharacter.glb remapped: res://Map58_PlayerCharacter.glb
+Loading resource: res://.godot/imported/Map58_PlayerCharacter.glb-5d17a248fe931d4823ecca3cfba0d125.scn remapped: res://.godot/imported/Map58_PlayerCharacter.glb-5d17a248fe931d4823ecca3cfba0d125.scn
+Completed load for: 'res://Map58_PlayerCharacter.glb' remapped 'res://Map58_PlayerCharacter.glb' at thread -1
+Completed load for: 'res://PlayerCharacter.tscn' remapped 'res://PlayerCharacter.tscn' at thread -1
+Loading resource: res://FirstPersonLocalHeadCulling.gd remapped: res://FirstPersonLocalHeadCulling.gd
+Completed load for: 'res://FirstPersonLocalHeadCulling.gd' remapped 'res://FirstPersonLocalHeadCulling.gd' at thread -1
+Loading resource: res://PlayerAnimation.gd remapped: res://PlayerAnimation.gd
+Completed load for: 'res://PlayerAnimation.gd' remapped 'res://PlayerAnimation.gd' at thread -1
+Loading resource: res://PlayerInteractionInput.gd remapped: res://PlayerInteractionInput.gd
+Completed load for: 'res://PlayerInteractionInput.gd' remapped 'res://PlayerInteractionInput.gd' at thread -1
+Loading resource: res://items/ItemInventory.gd remapped: res://items/ItemInventory.gd
+Completed load for: 'res://items/ItemInventory.gd' remapped 'res://items/ItemInventory.gd' at thread -1
+Completed load for: 'res://player.tscn' remapped 'res://player.tscn' at thread -1
+Loading resource: res://lantai.tscn remapped: res://lantai.tscn
+Completed load for: 'res://lantai.tscn' remapped 'res://lantai.tscn' at thread -1
+Loading resource: res://map58/Map58.tscn remapped: res://map58/Map58.tscn
+Loading resource: res://map58/Map58.glb remapped: res://map58/Map58.glb
+Loading resource: res://.godot/imported/Map58.glb-ab15ebf591a9f7fa15866fd48ccfe13b.scn remapped: res://.godot/imported/Map58.glb-ab15ebf591a9f7fa15866fd48ccfe13b.scn
+Loading resource: res://map58/Map58_0.png remapped: res://map58/Map58_0.png
+Loading resource: res://.godot/imported/Map58_0.png-fda6c604537fe3adf9658449cc88cb57.s3tc.ctex remapped: res://.godot/imported/Map58_0.png-fda6c604537fe3adf9658449cc88cb57.s3tc.ctex
+Completed load for: 'res://map58/Map58_0.png' remapped 'res://map58/Map58_0.png' at thread -1
+Completed load for: 'res://map58/Map58.glb' remapped 'res://map58/Map58.glb' at thread -1
+Loading resource: res://map58/Map58_FloorCollision.gd remapped: res://map58/Map58_FloorCollision.gd
+Completed load for: 'res://map58/Map58_FloorCollision.gd' remapped 'res://map58/Map58_FloorCollision.gd' at thread -1
+Loading resource: res://map58/Map58_AppearanceController.gd remapped: res://map58/Map58_AppearanceController.gd
+Loading resource: res://textures/floor_wood.png remapped: res://textures/floor_wood.png
+Loading resource: res://.godot/imported/floor_wood.png-8c6767630387123e8029d45a2efc53d1.s3tc.ctex remapped: res://.godot/imported/floor_wood.png-8c6767630387123e8029d45a2efc53d1.s3tc.ctex
+Completed load for: 'res://textures/floor_wood.png' remapped 'res://textures/floor_wood.png' at thread -1
+Loading resource: res://textures/wall_brick.png remapped: res://textures/wall_brick.png
+Loading resource: res://.godot/imported/wall_brick.png-fef5c26af2d74551fc412dc97ab73e7e.s3tc.ctex remapped: res://.godot/imported/wall_brick.png-fef5c26af2d74551fc412dc97ab73e7e.s3tc.ctex
+Completed load for: 'res://textures/wall_brick.png' remapped 'res://textures/wall_brick.png' at thread -1
+Completed load for: 'res://map58/Map58_AppearanceController.gd' remapped 'res://map58/Map58_AppearanceController.gd' at thread -1
+Completed load for: 'res://map58/Map58.tscn' remapped 'res://map58/Map58.tscn' at thread -1
+Loading resource: res://Map58_SpawnManager.gd remapped: res://Map58_SpawnManager.gd
+Completed load for: 'res://Map58_SpawnManager.gd' remapped 'res://Map58_SpawnManager.gd' at thread -1
+Loading resource: res://Teacher.tscn remapped: res://Teacher.tscn
+Loading resource: res://TeacherModel.tscn remapped: res://TeacherModel.tscn
+Completed load for: 'res://TeacherModel.tscn' remapped 'res://TeacherModel.tscn' at thread -1
+Loading resource: res://TeacherAnimation.gd remapped: res://TeacherAnimation.gd
+Completed load for: 'res://TeacherAnimation.gd' remapped 'res://TeacherAnimation.gd' at thread -1
+Loading resource: res://TeacherAI.gd remapped: res://TeacherAI.gd
+Completed load for: 'res://TeacherAI.gd' remapped 'res://TeacherAI.gd' at thread -1
+Completed load for: 'res://Teacher.tscn' remapped 'res://Teacher.tscn' at thread -1
+Loading resource: res://Map58_Furniture.tscn remapped: res://Map58_Furniture.tscn
+Loading resource: res://Map58_Furniture.gd remapped: res://Map58_Furniture.gd
+Completed load for: 'res://Map58_Furniture.gd' remapped 'res://Map58_Furniture.gd' at thread -1
+Loading resource: res://UKS_Furniture.tscn remapped: res://UKS_Furniture.tscn
+Completed load for: 'res://UKS_Furniture.tscn' remapped 'res://UKS_Furniture.tscn' at thread -1
+Loading resource: res://Library_Furniture.tscn remapped: res://Library_Furniture.tscn
+Completed load for: 'res://Library_Furniture.tscn' remapped 'res://Library_Furniture.tscn' at thread -1
+Loading resource: res://GuestRoom_Furniture.tscn remapped: res://GuestRoom_Furniture.tscn
+Completed load for: 'res://GuestRoom_Furniture.tscn' remapped 'res://GuestRoom_Furniture.tscn' at thread -1
+Loading resource: res://Administration_Furniture.tscn remapped: res://Administration_Furniture.tscn
+Completed load for: 'res://Administration_Furniture.tscn' remapped 'res://Administration_Furniture.tscn' at thread -1
+Loading resource: res://PrincipalOffice_Furniture.tscn remapped: res://PrincipalOffice_Furniture.tscn
+Completed load for: 'res://PrincipalOffice_Furniture.tscn' remapped 'res://PrincipalOffice_Furniture.tscn' at thread -1
+Loading resource: res://TeacherRoom_Furniture.tscn remapped: res://TeacherRoom_Furniture.tscn
+Completed load for: 'res://TeacherRoom_Furniture.tscn' remapped 'res://TeacherRoom_Furniture.tscn' at thread -1
+Loading resource: res://Warehouse_Furniture.tscn remapped: res://Warehouse_Furniture.tscn
+Completed load for: 'res://Warehouse_Furniture.tscn' remapped 'res://Warehouse_Furniture.tscn' at thread -1
+Loading resource: res://MaleToilet_Furniture.tscn remapped: res://MaleToilet_Furniture.tscn
+Completed load for: 'res://MaleToilet_Furniture.tscn' remapped 'res://MaleToilet_Furniture.tscn' at thread -1
+Loading resource: res://FemaleToilet_Furniture.tscn remapped: res://FemaleToilet_Furniture.tscn
+Completed load for: 'res://FemaleToilet_Furniture.tscn' remapped 'res://FemaleToilet_Furniture.tscn' at thread -1
+Loading resource: res://ToiletSketsel_Furniture.tscn remapped: res://ToiletSketsel_Furniture.tscn
+Completed load for: 'res://ToiletSketsel_Furniture.tscn' remapped 'res://ToiletSketsel_Furniture.tscn' at thread -1
+Loading resource: res://Kantin_Furniture.tscn remapped: res://Kantin_Furniture.tscn
+Completed load for: 'res://Kantin_Furniture.tscn' remapped 'res://Kantin_Furniture.tscn' at thread -1
+Loading resource: res://Kelas_10_A_Furniture.tscn remapped: res://Kelas_10_A_Furniture.tscn
+Completed load for: 'res://Kelas_10_A_Furniture.tscn' remapped 'res://Kelas_10_A_Furniture.tscn' at thread -1
+Loading resource: res://BangkuLorong_Single.tscn remapped: res://BangkuLorong_Single.tscn
+Completed load for: 'res://BangkuLorong_Single.tscn' remapped 'res://BangkuLorong_Single.tscn' at thread -1
+Loading resource: res://PintuKelas.tscn remapped: res://PintuKelas.tscn
+Loading resource: res://PintuKelas.gd remapped: res://PintuKelas.gd
+Completed load for: 'res://PintuKelas.gd' remapped 'res://PintuKelas.gd' at thread -1
+Completed load for: 'res://PintuKelas.tscn' remapped 'res://PintuKelas.tscn' at thread -1
+Loading resource: res://PintuTengahKepsekGuru.tscn remapped: res://PintuTengahKepsekGuru.tscn
+Loading resource: res://PintuTengahKepsekGuru.gd remapped: res://PintuTengahKepsekGuru.gd
+Completed load for: 'res://PintuTengahKepsekGuru.gd' remapped 'res://PintuTengahKepsekGuru.gd' at thread -1
+Completed load for: 'res://PintuTengahKepsekGuru.tscn' remapped 'res://PintuTengahKepsekGuru.tscn' at thread -1
+Loading resource: res://PintuKayu.tscn remapped: res://PintuKayu.tscn
+Loading resource: res://PintuKayu.gd remapped: res://PintuKayu.gd
+Completed load for: 'res://PintuKayu.gd' remapped 'res://PintuKayu.gd' at thread -1
+Completed load for: 'res://PintuKayu.tscn' remapped 'res://PintuKayu.tscn' at thread -1
+Loading resource: res://PintuSekolah.tscn remapped: res://PintuSekolah.tscn
+Loading resource: res://PintuSekolah.gd remapped: res://PintuSekolah.gd
+Completed load for: 'res://PintuSekolah.gd' remapped 'res://PintuSekolah.gd' at thread -1
+Completed load for: 'res://PintuSekolah.tscn' remapped 'res://PintuSekolah.tscn' at thread -1
+Loading resource: res://Map58_ItemsTest.tscn remapped: res://Map58_ItemsTest.tscn
+Loading resource: res://items/KertasSoal.tscn remapped: res://items/KertasSoal.tscn
+Loading resource: res://items/PickupItem.gd remapped: res://items/PickupItem.gd
+Completed load for: 'res://items/PickupItem.gd' remapped 'res://items/PickupItem.gd' at thread -1
+Completed load for: 'res://items/KertasSoal.tscn' remapped 'res://items/KertasSoal.tscn' at thread -1
+Loading resource: res://items/Kapur.tscn remapped: res://items/Kapur.tscn
+Completed load for: 'res://items/Kapur.tscn' remapped 'res://items/Kapur.tscn' at thread -1
+Loading resource: res://items/KunciKelas.tscn remapped: res://items/KunciKelas.tscn
+Completed load for: 'res://items/KunciKelas.tscn' remapped 'res://items/KunciKelas.tscn' at thread -1
+Loading resource: res://items/KunciMerah.tscn remapped: res://items/KunciMerah.tscn
+Completed load for: 'res://items/KunciMerah.tscn' remapped 'res://items/KunciMerah.tscn' at thread -1
+Loading resource: res://items/KunciBiru.tscn remapped: res://items/KunciBiru.tscn
+Completed load for: 'res://items/KunciBiru.tscn' remapped 'res://items/KunciBiru.tscn' at thread -1
+Loading resource: res://items/KunciKuning.tscn remapped: res://items/KunciKuning.tscn
+Completed load for: 'res://items/KunciKuning.tscn' remapped 'res://items/KunciKuning.tscn' at thread -1
+Loading resource: res://items/Medkit.tscn remapped: res://items/Medkit.tscn
+Completed load for: 'res://items/Medkit.tscn' remapped 'res://items/Medkit.tscn' at thread -1
+Completed load for: 'res://Map58_ItemsTest.tscn' remapped 'res://Map58_ItemsTest.tscn' at thread -1
+Completed load for: 'res://Map58_Furniture.tscn' remapped 'res://Map58_Furniture.tscn' at thread -1
+Loading resource: res://BasketballCourt.tscn remapped: res://BasketballCourt.tscn
+Completed load for: 'res://BasketballCourt.tscn' remapped 'res://BasketballCourt.tscn' at thread -1
+Loading resource: res://BasketballBleachers.tscn remapped: res://BasketballBleachers.tscn
+Completed load for: 'res://BasketballBleachers.tscn' remapped 'res://BasketballBleachers.tscn' at thread -1
+Loading resource: res://Map58_WallAboveOpenings.tscn remapped: res://Map58_WallAboveOpenings.tscn
+Completed load for: 'res://Map58_WallAboveOpenings.tscn' remapped 'res://Map58_WallAboveOpenings.tscn' at thread -1
+Loading resource: res://Map58_Roof.tscn remapped: res://Map58_Roof.tscn
+Loading resource: res://textures/wall_plaster.png remapped: res://textures/wall_plaster.png
+Loading resource: res://.godot/imported/wall_plaster.png-2c871ee65f278702a7f52b6e1420ae4f.s3tc.ctex remapped: res://.godot/imported/wall_plaster.png-2c871ee65f278702a7f52b6e1420ae4f.s3tc.ctex
+Completed load for: 'res://textures/wall_plaster.png' remapped 'res://textures/wall_plaster.png' at thread -1
+Completed load for: 'res://Map58_Roof.tscn' remapped 'res://Map58_Roof.tscn' at thread -1
+Loading resource: res://Map58_Lighting.tscn remapped: res://Map58_Lighting.tscn
+Loading resource: res://Map58_Lighting.gd remapped: res://Map58_Lighting.gd
+Completed load for: 'res://Map58_Lighting.gd' remapped 'res://Map58_Lighting.gd' at thread -1
+Completed load for: 'res://Map58_Lighting.tscn' remapped 'res://Map58_Lighting.tscn' at thread -1
+Loading resource: res://Map58Game.gd remapped: res://Map58Game.gd
+Completed load for: 'res://Map58Game.gd' remapped 'res://Map58Game.gd' at thread -1
+Loading resource: res://Map58Whiteboard.gd remapped: res://Map58Whiteboard.gd
+Completed load for: 'res://Map58Whiteboard.gd' remapped 'res://Map58Whiteboard.gd' at thread -1
+Loading resource: res://Map58ItemSpawner.gd remapped: res://Map58ItemSpawner.gd
+Completed load for: 'res://Map58ItemSpawner.gd' remapped 'res://Map58ItemSpawner.gd' at thread -1
+Loading resource: res://Map58FurnitureGameplay.gd remapped: res://Map58FurnitureGameplay.gd
+Completed load for: 'res://Map58FurnitureGameplay.gd' remapped 'res://Map58FurnitureGameplay.gd' at thread -1
+Loading resource: res://Map58EditorPerformance.gd remapped: res://Map58EditorPerformance.gd
+Completed load for: 'res://Map58EditorPerformance.gd' remapped 'res://Map58EditorPerformance.gd' at thread -1
+Completed load for: 'res://main.tscn' remapped 'res://main.tscn' at thread -1
+WARNING: FirstPersonLocalHeadCulling: node PlayerVisual tidak ditemukan.
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://FirstPersonLocalHeadCulling.gd:36)
+Loading resource: res://QuestionDatabase.gd remapped: res://QuestionDatabase.gd
+Completed load for: 'res://QuestionDatabase.gd' remapped 'res://QuestionDatabase.gd' at thread -1
+Map58 materials applied | floor: 22 | building meshes: 123
+Map58 floor texture: true
+Map58 wall texture: true
+Map58 collision dibuat | floor: 22 | walls: 123
+Map58 student spawn | Kelas_11_A | (-3.646515, 0.819987, -45.841)
+Map58 teacher spawn | Ruang Guru | (-28.43625, -0.180013, -41.5864)
+Loading resource: res://DigitRecognizer.gd remapped: res://DigitRecognizer.gd
+Completed load for: 'res://DigitRecognizer.gd' remapped 'res://DigitRecognizer.gd' at thread -1
+Map58ItemSpawner: titik spawn furniture=910 | paper=5 | chalk=5 | medkit=5
+GPU PROFILE (total 0.0ms): 
+Project FPS: 40 (25.00 mspf)
+Project FPS: 1 (1000.00 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 50 (20.00 mspf)
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.001195,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.01786166666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.03452833333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.051195,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.06852433333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.08657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.10324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.11991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.13657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.15324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.16991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.18657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.20324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.21991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.23657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.25324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.26991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.28657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.30324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9987.0,"physics_ms":2.794,"t":3.31991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":2.794,"t":3.33657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":2.794,"t":3.35324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":2.794,"t":3.36991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":2.794,"t":3.38657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":2.794,"t":3.40324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":50.0,"frame_ms":26.652,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.794,"t":3.41991322222222,"video_mem_mb":26.1764726638794}
+Project FPS: 59 (16.94 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.43657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.45324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.46991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.48657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.50324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.51991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.53657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.55324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.56991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.58657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.60324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.61991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.63657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.65324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.66991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":2.851,"t":3.68657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.70324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.71991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.73657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.75324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.76991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.78657988888888,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.80324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.81991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.83657988888888,"video_mem_mb":26.1764726638794}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.85324655555555,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":3.86991322222222,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":59.0,"frame_ms":18.287,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":2.851,"t":4.00916499999999,"video_mem_mb":26.1764726638794}
+GPU PROFILE (total 0.0ms): 
+Project FPS: 28 (35.71 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9991.0,"physics_ms":2.865,"t":4.13333333333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.14999999999999,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.16666666666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.18333333333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.19999999999999,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.21666666666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.23333333333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.24999999999999,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.26782099999999,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.28633951851851,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.30704866666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":28.0,"frame_ms":726.239,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":2.865,"t":4.33333333333333,"video_mem_mb":26.1764726638794}
+Project FPS: 12 (83.33 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.35166666666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.37141466666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.39558166666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.41958266666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.44526966666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.46996966666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.49684666666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.52815666666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.55908766666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.63002499999999,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.66666666666666,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":4.7111111111111,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9991.0,"physics_ms":1.323,"t":4.74531533333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.77608733333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.81118933333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.84546633333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.87020633333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.89714533333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.92784333333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.95092733333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.97590633333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":4.99692433333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":5.02192433333332,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":5.04692433333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":5.07192433333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9989.0,"physics_ms":1.323,"t":5.09692433333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.12192433333333,"video_mem_mb":26.1764726638794}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.14692433333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.17192433333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.19014933333333,"video_mem_mb":26.1764726638794}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.20745233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.22523933333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.24999999999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.27222222222222,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.29150033333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.30894233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.33333333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":12.0,"frame_ms":26.521,"nav_ms":0.008,"nodes":6440.0,"objects":9988.0,"physics_ms":1.323,"t":5.35416666666666,"video_mem_mb":30.2394914627075}
+Project FPS: 38 (26.31 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.37435933333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.39457633333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.41457933333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9991.0,"physics_ms":4.193,"t":5.4349497037037,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.45532007407407,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.47569044444444,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.49652377777777,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.51689414814814,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.53726451851851,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.55641333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.57240733333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.58999233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.60747033333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.62651795238095,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.64526795238095,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.66666666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.68571428571428,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.7047619047619,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.72380952380952,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.74285714285714,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.76190476190476,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.78065476190476,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":5.79970238095237,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.81845238095237,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.83749999999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.86650966666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.89066366666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.91499566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.94134166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":5.97538166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":6.00413766666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":6.03572666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":6.06572666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":6.09572666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":4.193,"t":6.12489333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9991.0,"physics_ms":4.193,"t":6.14707533333333,"video_mem_mb":30.2394914627075}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.16527033333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.18334633333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.19875433333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.21538833333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.232055,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.24872166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.26538833333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.282055,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.29872166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.31538833333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.332055,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":38.0,"frame_ms":59.975,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":4.193,"t":6.34872166666666,"video_mem_mb":30.2394914627075}
+Project FPS: 48 (20.83 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.36538833333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.38205499999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.39872166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.41538833333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.43205499999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.44872166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.46399944444444,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.48057099999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.49723766666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.51390433333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.53057099999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.54723766666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.56390433333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.58057099999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.59723766666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.61390433333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.63057099999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.64759566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.67179166666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.68984722222222,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.71593866666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.73333333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.74999999999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.77015766666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.78960211111111,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.80904655555555,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":6.828491,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9993.0,"physics_ms":3.45,"t":6.84793544444444,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9991.0,"physics_ms":3.45,"t":6.86666666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9991.0,"physics_ms":3.45,"t":6.88525633333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9991.0,"physics_ms":3.45,"t":6.90233233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9991.0,"physics_ms":3.45,"t":6.91825933333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.93492033333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.95207133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.96926333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":6.98453133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.00280333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.01854533333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.03524833333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.05121133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.06845333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.08493133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.10159799999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.11778233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.13444899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.15111566666666,"video_mem_mb":30.2394914627075}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.16778233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.18444899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9989.0,"physics_ms":3.45,"t":7.20111566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.21778233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.23444899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.25111566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.26778233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.28444899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.30111566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.31778233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.33444899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":48.0,"frame_ms":29.673,"nav_ms":0.013,"nodes":6440.0,"objects":9988.0,"physics_ms":3.45,"t":7.35111566666666,"video_mem_mb":30.2394914627075}
+Project FPS: 58 (17.24 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.36770433333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.38437099999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.40103766666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.41770233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.43436899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.45103566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.46770233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.48436899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.50103566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.51761133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":3.078,"t":7.53427799999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.55094466666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.56761133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.58427799999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.60094466666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.61761133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.63427799999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.65094466666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.66761133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.68427799999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.70094466666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.71761133333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.73415233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.75081899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.76748566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.78415233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.80220788888888,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.82026344444444,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.83831899999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.85712666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.88334666666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":7.90220566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.92989366666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.94794922222222,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.96794922222221,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":7.98794922222221,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.00794922222221,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.02794922222221,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.04794922222221,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.06711833333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.08506933333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.10238533333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.11948933333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.13648233333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.15139833333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.16815933333332,"video_mem_mb":30.2394914627075}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.18611633333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.20134733333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9988.0,"physics_ms":3.078,"t":8.21763333333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9991.0,"physics_ms":3.078,"t":8.23366333333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.25137633333332,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.26804299999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.28470966666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.30137633333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.31795333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.33461999999999,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":58.0,"frame_ms":25.348,"nav_ms":0.016,"nodes":6440.0,"objects":9989.0,"physics_ms":3.078,"t":8.35128666666666,"video_mem_mb":30.2394914627075}
+Project FPS: 57 (17.54 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.36795333333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.38462,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.40063633333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.41694233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.433609,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.45027566666666,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.46694233333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.483609,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.50027566666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.51555344444444,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.53083122222222,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.546109,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.56138677777778,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.57666455555555,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.592906,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.609392,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.625443,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.64210966666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.658162,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.67482866666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.69149533333333,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.708162,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.72482866666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.74149533333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.757948,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.77461466666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.79128133333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.80794800000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.82461466666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.84128133333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.85794800000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.87461466666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.89128133333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.90781600000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":8.92448266666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9991.0,"physics_ms":2.951,"t":8.94114933333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.95781600000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.97448266666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":8.99114933333335,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.00781600000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.02448266666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.04114933333335,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.05781600000002,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.07448266666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.09114933333335,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.10781600000002,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.12448266666669,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.14114933333335,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.15781600000002,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.17448266666669,"video_mem_mb":30.2394914627075}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.19114933333336,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.20781600000002,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.22448266666669,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.24114933333336,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.25765100000003,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.27431766666669,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.29098433333336,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9989.0,"physics_ms":2.951,"t":9.30744800000003,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":9.3241146666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":57.0,"frame_ms":25.246,"nav_ms":0.012,"nodes":6440.0,"objects":9988.0,"physics_ms":2.951,"t":9.34078133333336,"video_mem_mb":30.2394914627075}
+Project FPS: 60 (16.66 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.35744800000003,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.3741146666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.39078133333337,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.40744800000003,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.4241146666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.44078133333337,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.45744800000003,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.4741146666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.49078133333337,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.50744800000004,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.5241146666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.54078133333337,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.55744800000004,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.57411466666671,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.59078133333337,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.60733900000004,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":9.62400566666671,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9991.0,"physics_ms":2.739,"t":9.64067233333338,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.65733900000004,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.67400566666671,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.69067233333338,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.70733900000005,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.72400566666671,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.74067233333338,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.75733900000005,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.77400566666672,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.79067233333338,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.80733900000005,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.82400566666672,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.84067233333339,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.85733900000005,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.87400566666672,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.89067233333339,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.90733900000006,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.92400566666672,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.94067233333339,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.95707600000006,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.97374266666673,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":9.99040800000006,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9989.0,"physics_ms":2.739,"t":10.0070746666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.0237413333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.0404080000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.0570746666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.0737413333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.0904080000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.1070746666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.1237413333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.1404080000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.1570746666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.1736380000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.1903046666667,"video_mem_mb":30.2394914627075}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.2069713333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.2236380000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.2403046666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.2569713333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.2736380000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.2903046666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.3068160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9988.0,"physics_ms":2.739,"t":10.3234826666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":18.065,"nav_ms":0.044,"nodes":6440.0,"objects":9991.0,"physics_ms":2.739,"t":10.3401493333334,"video_mem_mb":30.2394914627075}
+Project FPS: 60 (16.66 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.3568160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.3734826666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.3901493333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.4068160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.4234826666667,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.4401493333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.4568160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.4734826666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.4901493333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.5068160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.5234826666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.5401493333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.5568160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.5734826666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.5901493333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.6068160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.6234826666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":10.6401493333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.6568160000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.6734826666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":10.6904536666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.7071203333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.7252286666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.7434226666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.7662516666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.7859596666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.8083276666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.8281856666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.8503936666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.8717776666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.8926110000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.9134443333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.9342776666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.9551110000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.9759443333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":10.9967776666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9988.0,"physics_ms":3.202,"t":11.0176110000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9991.0,"physics_ms":3.202,"t":11.0384443333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.0592776666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.0801110000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1009443333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1178393333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1336513333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1486593333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1653260000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1819926666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.1986593333334,"video_mem_mb":30.2394914627075}
+GPU PROFILE (total 0.0ms): 
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.2153260000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.2319926666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.2486593333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.2673096666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.2851646666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.3032202222223,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":60.0,"frame_ms":17.523,"nav_ms":0.054,"nodes":6440.0,"objects":9989.0,"physics_ms":3.202,"t":11.3233916666668,"video_mem_mb":30.2394914627075}
+Project FPS: 54 (18.51 mspf)
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.3414472222223,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.3595027777779,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.3775583333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.395613888889,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.4136694444446,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.4317250000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.4497805555557,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.4679623737375,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.4873996666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.5055814848486,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.5237633030304,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.5430516666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.5666376666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.5833333333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.6000000000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.6166666666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.6333333333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.6500000000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.6681818181819,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.6863636363637,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.7045454545456,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9988.0,"physics_ms":3.465,"t":11.7226010101011,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9991.0,"physics_ms":3.465,"t":11.7406565656567,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.7587121212122,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.7767676767678,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.7948232323233,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.8128787878789,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.8309343434345,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.8473703333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.8641483333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.8808150000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.8974643333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.9141310000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.9307976666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.9471953333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.9638620000001,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.9805286666668,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":11.9971953333334,"video_mem_mb":30.2394914627075}
+PERF_PROBE {"draw_calls":384.0,"fps":54.0,"frame_ms":22.942,"nav_ms":0.011,"nodes":6440.0,"objects":9989.0,"physics_ms":3.465,"t":12.0136313333334,"video_mem_mb":30.2394914627075}

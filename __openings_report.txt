@@ -1,0 +1,43 @@
+HORIZONTAL
+gap=3.465 center=299.982 plane=243.24 | Ruang_Tamu_S_L | Ruang_Tamu_S_R
+gap=3.632 center=262.998 plane=268.19 | Gudang_S | Kepsek_S
+gap=4.5 center=307.322 plane=268.19 | Kelas_10_A_S_R | Kelas_10_B_S_R
+gap=4.5 center=324.76 plane=268.19 | Kelas_10_B_S_R | Kelas_10_C_S_R
+gap=4.5 center=342.197 plane=268.19 | Kelas_10_C_S_R | Kelas_10_D_S_R
+gap=4.5 center=247.682 plane=303.65 | Toilet_Pria_N_L | Toilet_Pria_N_R
+gap=4.5 center=256.682 plane=303.65 | Toilet_Wanita_N_L | Toilet_Wanita_N_R
+gap=3.632 center=262.998 plane=303.65 | Toilet_Wanita_N_R | Ruang_Guru_N
+gap=4.5 center=307.322 plane=283.94 | Kelas_10_A_N | Kelas_10_B_N
+gap=4.5 center=324.76 plane=283.94 | Kelas_10_B_N | Kelas_10_C_N
+gap=4.5 center=342.197 plane=283.94 | Kelas_10_C_N | Kelas_10_D_N
+gap=4.5 center=307.322 plane=287.57 | Kelas_11_A_S_R | Kelas_11_B_S_R
+gap=4.5 center=324.76 plane=287.57 | Kelas_11_B_S_R | Kelas_11_C_S_R
+gap=4.5 center=342.197 plane=287.57 | Kelas_11_C_S_R | Kelas_11_D_S_R
+gap=4.5 center=307.322 plane=303.32 | Kelas_11_A_N_R | Kelas_11_B_N_R
+gap=4.5 center=324.76 plane=303.32 | Kelas_11_B_N_R | Kelas_11_C_N_R
+gap=4.5 center=342.197 plane=303.32 | Kelas_11_C_N_R | Kelas_11_D_N_R
+gap=4.5 center=307.322 plane=306.95 | Kelas_12_A_S_R | Kelas_12_B_S_R
+gap=4.5 center=324.76 plane=306.95 | Kelas_12_B_S_R | Kelas_12_C_S_R
+gap=4.5 center=342.197 plane=306.95 | Kelas_12_C_S_R | Kelas_12_D_S_R
+gap=4.5 center=307.322 plane=322.7 | Kelas_12_A_N | Kelas_12_B_N
+gap=4.5 center=324.76 plane=322.7 | Kelas_12_B_N | Kelas_12_C_N
+gap=4.5 center=342.197 plane=322.7 | Kelas_12_C_N | Kelas_12_D_N
+gap=4.5 center=271.564 plane=278.98 | Staff_Connect_Wall_Left | Staff_Connect_Wall_Right
+
+VERTICAL
+gap=2.8 center=241.632 plane=271.44 | Perpustakaan_E_Lower | Perpustakaan_E_Upper
+gap=3.632 center=286.15 plane=287.24 | Kelas_10_A_W | Kelas_11_A_W
+gap=3.627 center=305.53 plane=287.24 | Kelas_11_A_W | Kelas_12_A_W
+gap=3.632 center=286.15 plane=304.68 | Kelas_10_A_E | Kelas_11_A_E
+gap=3.627 center=305.53 plane=304.68 | Kelas_11_A_E | Kelas_12_A_E
+gap=3.632 center=286.15 plane=322.12 | Kelas_10_B_E | Kelas_11_B_E
+gap=3.627 center=305.53 plane=322.12 | Kelas_11_B_E | Kelas_12_B_E
+gap=3.632 center=286.15 plane=339.55 | Kelas_10_C_E | Kelas_11_C_E
+gap=3.627 center=305.53 plane=339.55 | Kelas_11_C_E | Kelas_12_C_E
+gap=3.632 center=286.15 plane=356.99 | Kelas_10_D_E | Kelas_11_D_E
+gap=3.627 center=305.53 plane=356.99 | Kelas_11_D_E | Kelas_12_D_E
+gap=2.8 center=241.939 plane=321.07 | Lapangan_Basket_W_Lower | Lapangan_Basket_W_Upper
+gap=3.083 center=277.711 plane=264.42 | Kepsek_W_Middle_Fill | Ruang_Guru_W_Lower
+gap=4.111 center=284.905 plane=264.42 | Ruang_Guru_W_Lower | Ruang_Guru_W_Upper
+gap=3.083 center=277.711 plane=277.92 | Kepsek_E_Middle_Fill | Ruang_Guru_E_Lower
+gap=4.111 center=284.905 plane=277.92 | Ruang_Guru_E_Lower | Ruang_Guru_E_Upper

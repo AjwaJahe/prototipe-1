@@ -1,0 +1,19 @@
+extends StaticBody3D
+
+@export var item_type: String = "item"
+@export var display_name: String = "Item"
+
+
+func _ready() -> void:
+	set_meta("interaction_type", "item")
+	set_meta("item_type", item_type)
+	set_meta("display_name", display_name)
+
+
+func interact(player: Node = null) -> void:
+	if player == null:
+		return
+
+	var inventory := player.get_node_or_null("ItemInventory")
+	if inventory != null and inventory.has_method("try_pickup"):
+		inventory.try_pickup(self)

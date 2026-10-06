@@ -1,0 +1,32 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://items/KertasSoal.tscn" id="1_paper"]
+[ext_resource type="PackedScene" path="res://items/Kapur.tscn" id="2_chalk"]
+[ext_resource type="PackedScene" path="res://items/KunciKelas.tscn" id="3_classkey"]
+[ext_resource type="PackedScene" path="res://items/KunciMerah.tscn" id="4_redkey"]
+[ext_resource type="PackedScene" path="res://items/KunciBiru.tscn" id="5_bluekey"]
+[ext_resource type="PackedScene" path="res://items/KunciKuning.tscn" id="6_yellowkey"]
+[ext_resource type="PackedScene" path="res://items/Medkit.tscn" id="7_medkit"]
+
+[node name="Map58_ItemsTest" type="Node3D"]
+
+[node name="KertasSoal_Test" parent="." instance=ExtResource("1_paper")]
+position = Vector3(-1.8, 0.02, 0)
+
+[node name="Kapur_Test" parent="." instance=ExtResource("2_chalk")]
+position = Vector3(-1.1, 0.02, 0)
+
+[node name="KunciKelas_Test" parent="." instance=ExtResource("3_classkey")]
+position = Vector3(-0.35, 0.0, 0)
+
+[node name="KunciMerah_Test" parent="." instance=ExtResource("4_redkey")]
+position = Vector3(0.35, 0.0, 0)
+
+[node name="KunciBiru_Test" parent="." instance=ExtResource("5_bluekey")]
+position = Vector3(1.05, 0.0, 0)
+
+[node name="KunciKuning_Test" parent="." instance=ExtResource("6_yellowkey")]
+position = Vector3(1.75, 0.0, 0)
+
+[node name="Medkit_Test" parent="." instance=ExtResource("7_medkit")]
+position = Vector3(0, 0.0, 0.75)

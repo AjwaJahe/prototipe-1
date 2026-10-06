@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b7l75jdi3ly3p"]
+
+[ext_resource type="Script" uid="uid://c6bk2pc8l5m8x" path="res://Map58_Furniture.gd" id="1_furn"]
+[ext_resource type="PackedScene" uid="uid://c7uqx36awyich" path="res://UKS_Furniture.tscn" id="2_uks"]
+[ext_resource type="PackedScene" uid="uid://cpr6bgptq6smi" path="res://Library_Furniture.tscn" id="3_library"]
+[ext_resource type="PackedScene" path="res://GuestRoom_Furniture.tscn" id="4_guest"]
+[ext_resource type="PackedScene" uid="uid://b6suvmuv2fij4" path="res://Administration_Furniture.tscn" id="5_admin"]
+[ext_resource type="PackedScene" uid="uid://cu6bnj75g81cn" path="res://PrincipalOffice_Furniture.tscn" id="6_principal"]
+[ext_resource type="PackedScene" uid="uid://bthxk54apl0y6" path="res://TeacherRoom_Furniture.tscn" id="7_teacher"]
+[ext_resource type="PackedScene" uid="uid://doquvbopv5ecj" path="res://Warehouse_Furniture.tscn" id="8_warehouse"]
+[ext_resource type="PackedScene" uid="uid://vokmj6ud2crw" path="res://MaleToilet_Furniture.tscn" id="9_toilet"]
+[ext_resource type="PackedScene" uid="uid://cgedwi75yto4i" path="res://FemaleToilet_Furniture.tscn" id="10_female_toilet"]
+[ext_resource type="PackedScene" uid="uid://c2not1ay3gsj4" path="res://ToiletSketsel_Furniture.tscn" id="11_sketsel"]
+[ext_resource type="PackedScene" uid="uid://kantin58v1" path="res://Kantin_Furniture.tscn" id="12_kantin"]
+[ext_resource type="PackedScene" uid="uid://kelas10afresh" path="res://Kelas_10_A_Furniture.tscn" id="13_kelas10a"]
+
+[node name="Map58_Furniture" type="Node3D" unique_id=853351227]
+script = ExtResource("1_furn")
+
+[node name="UKS_Furniture" parent="." unique_id=1035280562 instance=ExtResource("2_uks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1547, 0, -3.4886)
+
+[node name="Library_Furniture" parent="." unique_id=697282656 instance=ExtResource("3_library")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.1873, 0, -15.1915)
+
+[node name="GuestRoom_Furniture" parent="." unique_id=1686174315 instance=ExtResource("4_guest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 0.9745)
+
+[node name="Administration_Furniture" parent="." unique_id=1520132580 instance=ExtResource("5_admin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 1.5377)
+
+[node name="PrincipalOffice_Furniture" parent="." unique_id=1426075525 instance=ExtResource("6_principal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.004, 0, -25)
+
+[node name="TeacherRoom_Furniture" parent="." unique_id=1319420906 instance=ExtResource("7_teacher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, 0, -41.586395)
+
+[node name="Warehouse_Furniture" parent="." unique_id=1525724732 instance=ExtResource("8_warehouse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.818245, 0, -30.794098)
+
+[node name="MaleToilet_Furniture" parent="." unique_id=149740161 instance=ExtResource("9_toilet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.318253, 0, -48.524292)
+
+[node name="FemaleToilet_Furniture" parent="." unique_id=1978026689 instance=ExtResource("10_female_toilet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.318253, 0, -48.524292)
+
+[node name="ToiletSketsel_Furniture" parent="." unique_id=2104945660 instance=ExtResource("11_sketsel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.318253, 0, -55.2)
+
+[node name="Kantin_Furniture" parent="." unique_id=1229348995 instance=ExtResource("12_kantin")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -44.187126, 0, -74.51033)
+
+[node name="Kelas_10_A_Furniture" parent="." instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465125, 0, -26.459015)
+

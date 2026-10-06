@@ -1,0 +1,3013 @@
+[gd_scene format=3 uid="uid://syv0u3a3f1qf"]
+
+[sub_resource type="StandardMaterial3D" id="MatStep"]
+albedo_color = Color(0.09, 0.1, 0.11, 1)
+roughness = 0.82
+
+[sub_resource type="BoxMesh" id="PlatformMesh"]
+material = SubResource("MatStep")
+size = Vector3(0.92, 0.18, 8.2)
+
+[sub_resource type="StandardMaterial3D" id="MatFrame"]
+albedo_color = Color(0.035, 0.04, 0.045, 1)
+metallic = 0.55
+roughness = 0.62
+
+[sub_resource type="BoxMesh" id="FrontBeamMesh"]
+material = SubResource("MatFrame")
+size = Vector3(0.12, 0.3, 8.2)
+
+[sub_resource type="BoxShape3D" id="PlatformShape"]
+size = Vector3(0.92, 0.18, 8.2)
+
+[sub_resource type="StandardMaterial3D" id="MatBlue"]
+albedo_color = Color(0.035, 0.3, 0.82, 1)
+roughness = 0.68
+
+[sub_resource type="BoxMesh" id="SeatMesh"]
+material = SubResource("MatBlue")
+size = Vector3(0.68, 0.14, 0.68)
+
+[sub_resource type="StandardMaterial3D" id="MatBlueDark"]
+albedo_color = Color(0.018, 0.12, 0.38, 1)
+roughness = 0.76
+
+[sub_resource type="BoxMesh" id="BackMesh"]
+material = SubResource("MatBlueDark")
+size = Vector3(0.14, 0.48, 0.68)
+
+[sub_resource type="BoxMesh" id="SupportMesh"]
+material = SubResource("MatFrame")
+size = Vector3(0.07, 0.34, 0.07)
+
+[sub_resource type="CylinderMesh" id="RailPostMesh"]
+material = SubResource("MatFrame")
+top_radius = 0.035
+bottom_radius = 0.045
+height = 1.1
+radial_segments = 10
+
+[sub_resource type="BoxMesh" id="RailMesh"]
+material = SubResource("MatFrame")
+size = Vector3(0.07, 0.07, 1.9800904)
+
+[node name="BasketballBleachers" type="Node3D" unique_id=268748400]
+
+[node name="Model" type="Node3D" parent="." unique_id=1650682900]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 11.303591, 0, 10.599238)
+
+[node name="Platforms" type="Node3D" parent="Model" unique_id=1089049528]
+
+[node name="Row_01" type="StaticBody3D" parent="Model/Platforms" unique_id=1744859343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_01" unique_id=1450678062]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_01" unique_id=533274896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_01" unique_id=1129573601]
+shape = SubResource("PlatformShape")
+
+[node name="Row_02" type="StaticBody3D" parent="Model/Platforms" unique_id=306745844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.47, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_02" unique_id=1571213951]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_02" unique_id=1365059551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_02" unique_id=1785756428]
+shape = SubResource("PlatformShape")
+
+[node name="Row_03" type="StaticBody3D" parent="Model/Platforms" unique_id=1022434295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84, 0.85, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_03" unique_id=2086689102]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_03" unique_id=2037295231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_03" unique_id=573167467]
+shape = SubResource("PlatformShape")
+
+[node name="Row_04" type="StaticBody3D" parent="Model/Platforms" unique_id=1120935284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76, 1.23, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_04" unique_id=2068534466]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_04" unique_id=819859465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_04" unique_id=666373890]
+shape = SubResource("PlatformShape")
+
+[node name="Row_05" type="StaticBody3D" parent="Model/Platforms" unique_id=758130216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68, 1.61, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_05" unique_id=191054111]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_05" unique_id=1105287656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_05" unique_id=600387972]
+shape = SubResource("PlatformShape")
+
+[node name="Row_06" type="StaticBody3D" parent="Model/Platforms" unique_id=28236636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 1.99, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_06" unique_id=1878781141]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_06" unique_id=183792724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_06" unique_id=785991937]
+shape = SubResource("PlatformShape")
+
+[node name="Row_07" type="StaticBody3D" parent="Model/Platforms" unique_id=1730319126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52, 2.37, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_07" unique_id=2061859975]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_07" unique_id=791956828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_07" unique_id=731576381]
+shape = SubResource("PlatformShape")
+
+[node name="Row_08" type="StaticBody3D" parent="Model/Platforms" unique_id=156665246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44, 2.75, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model/Platforms/Row_08" unique_id=829880467]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model/Platforms/Row_08" unique_id=1903322207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model/Platforms/Row_08" unique_id=1163321551]
+shape = SubResource("PlatformShape")
+
+[node name="Seats" type="Node3D" parent="Model" unique_id=1874722833]
+
+[node name="R01_S01" type="Node3D" parent="Model/Seats" unique_id=364794168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S01" unique_id=2060491028]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S01" unique_id=2042360621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S01" unique_id=2019711823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S01" unique_id=521102049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S02" type="Node3D" parent="Model/Seats" unique_id=1265394972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S02" unique_id=942952165]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S02" unique_id=1093546720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S02" unique_id=300187080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S02" unique_id=1216091526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S03" type="Node3D" parent="Model/Seats" unique_id=156526139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S03" unique_id=1796443718]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S03" unique_id=518281472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S03" unique_id=679366359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S03" unique_id=982451163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S04" type="Node3D" parent="Model/Seats" unique_id=26340736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S04" unique_id=513772016]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S04" unique_id=727661833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S04" unique_id=1363208603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S04" unique_id=396555681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S05" type="Node3D" parent="Model/Seats" unique_id=420863704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S05" unique_id=1110032846]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S05" unique_id=1003940598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S05" unique_id=1143356519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S05" unique_id=174213171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S06" type="Node3D" parent="Model/Seats" unique_id=510646640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S06" unique_id=2143152262]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S06" unique_id=217370021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S06" unique_id=1067865426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S06" unique_id=162078144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S07" type="Node3D" parent="Model/Seats" unique_id=542231409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S07" unique_id=1062918649]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S07" unique_id=1140538260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S07" unique_id=115594731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S07" unique_id=732076584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S08" type="Node3D" parent="Model/Seats" unique_id=1227579782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S08" unique_id=1676117919]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S08" unique_id=1629113674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S08" unique_id=1751394758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S08" unique_id=57683742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S09" type="Node3D" parent="Model/Seats" unique_id=524157474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R01_S09" unique_id=708765464]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R01_S09" unique_id=511526495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R01_S09" unique_id=128528562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R01_S09" unique_id=631856867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S01" type="Node3D" parent="Model/Seats" unique_id=1755006869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S01" unique_id=1433992993]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S01" unique_id=564214915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S01" unique_id=1930547511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S01" unique_id=1088578294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S02" type="Node3D" parent="Model/Seats" unique_id=1662282864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S02" unique_id=1760729982]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S02" unique_id=216111954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S02" unique_id=1233967322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S02" unique_id=34815237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S03" type="Node3D" parent="Model/Seats" unique_id=465401496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S03" unique_id=1538718017]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S03" unique_id=1949571843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S03" unique_id=831012066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S03" unique_id=709693413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S04" type="Node3D" parent="Model/Seats" unique_id=336409590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S04" unique_id=1543810401]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S04" unique_id=1537127108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S04" unique_id=466281765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S04" unique_id=2061841428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S05" type="Node3D" parent="Model/Seats" unique_id=500108709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S05" unique_id=1075105702]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S05" unique_id=1818532270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S05" unique_id=1512654143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S05" unique_id=382613346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S06" type="Node3D" parent="Model/Seats" unique_id=1685222422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S06" unique_id=1333692150]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S06" unique_id=1609999374]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S06" unique_id=59379593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S06" unique_id=1335735568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S07" type="Node3D" parent="Model/Seats" unique_id=2022492563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S07" unique_id=1861174138]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S07" unique_id=1105665491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S07" unique_id=486155796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S07" unique_id=397034949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S08" type="Node3D" parent="Model/Seats" unique_id=1306801989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S08" unique_id=6711283]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S08" unique_id=811303406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S08" unique_id=1259102385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S08" unique_id=305949510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S09" type="Node3D" parent="Model/Seats" unique_id=1091455300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R02_S09" unique_id=1072784043]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R02_S09" unique_id=793267875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R02_S09" unique_id=1813261553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R02_S09" unique_id=1790524956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S01" type="Node3D" parent="Model/Seats" unique_id=497214004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S01" unique_id=360755144]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S01" unique_id=1930646886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S01" unique_id=2022167275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S01" unique_id=1931083776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S02" type="Node3D" parent="Model/Seats" unique_id=963370330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S02" unique_id=2012673793]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S02" unique_id=1911738689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S02" unique_id=1109826568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S02" unique_id=2074008577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S03" type="Node3D" parent="Model/Seats" unique_id=265294676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S03" unique_id=1590348781]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S03" unique_id=1923430280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S03" unique_id=1334377880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S03" unique_id=787716654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S04" type="Node3D" parent="Model/Seats" unique_id=1379888718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S04" unique_id=309093100]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S04" unique_id=404726337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S04" unique_id=2144338927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S04" unique_id=2142888012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S05" type="Node3D" parent="Model/Seats" unique_id=1569987732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S05" unique_id=521132134]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S05" unique_id=516620796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S05" unique_id=344946834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S05" unique_id=612672660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S06" type="Node3D" parent="Model/Seats" unique_id=902095195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S06" unique_id=918671620]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S06" unique_id=1964123357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S06" unique_id=1732214134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S06" unique_id=226698211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S07" type="Node3D" parent="Model/Seats" unique_id=533126010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S07" unique_id=297807796]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S07" unique_id=1542519004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S07" unique_id=990329286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S07" unique_id=1338787393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S08" type="Node3D" parent="Model/Seats" unique_id=1145263003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S08" unique_id=406215052]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S08" unique_id=665099652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S08" unique_id=1395130816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S08" unique_id=267835820]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S09" type="Node3D" parent="Model/Seats" unique_id=1876058162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R03_S09" unique_id=559245490]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R03_S09" unique_id=862099559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R03_S09" unique_id=1282712690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R03_S09" unique_id=1882406916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S01" type="Node3D" parent="Model/Seats" unique_id=2119156522]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S01" unique_id=330350006]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S01" unique_id=1830671840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S01" unique_id=1468362827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S01" unique_id=582455431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S02" type="Node3D" parent="Model/Seats" unique_id=146453290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S02" unique_id=543457321]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S02" unique_id=1857481439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S02" unique_id=1274405150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S02" unique_id=1342633640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S03" type="Node3D" parent="Model/Seats" unique_id=1006913823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S03" unique_id=1361154849]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S03" unique_id=447952027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S03" unique_id=1579959979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S03" unique_id=1507849096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S04" type="Node3D" parent="Model/Seats" unique_id=614520021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S04" unique_id=1538894353]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S04" unique_id=1109538677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S04" unique_id=723741034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S04" unique_id=433705115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S05" type="Node3D" parent="Model/Seats" unique_id=163355672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S05" unique_id=311364777]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S05" unique_id=236639325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S05" unique_id=2111704219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S05" unique_id=593216965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S06" type="Node3D" parent="Model/Seats" unique_id=1130934095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S06" unique_id=918676730]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S06" unique_id=1551667719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S06" unique_id=831867541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S06" unique_id=1888513621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S07" type="Node3D" parent="Model/Seats" unique_id=2077603457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S07" unique_id=650481468]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S07" unique_id=2019558115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S07" unique_id=145806593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S07" unique_id=1556482053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S08" type="Node3D" parent="Model/Seats" unique_id=1756327098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S08" unique_id=1860070326]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S08" unique_id=830632854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S08" unique_id=1169416954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S08" unique_id=106179134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S09" type="Node3D" parent="Model/Seats" unique_id=1264853202]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R04_S09" unique_id=690566100]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R04_S09" unique_id=124264470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R04_S09" unique_id=1652589477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R04_S09" unique_id=1028392428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S01" type="Node3D" parent="Model/Seats" unique_id=2108584717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S01" unique_id=721559609]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S01" unique_id=1743929539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S01" unique_id=540038078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S01" unique_id=1274185489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S02" type="Node3D" parent="Model/Seats" unique_id=1318564950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S02" unique_id=1710325213]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S02" unique_id=1556873370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S02" unique_id=598798002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S02" unique_id=1622055312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S03" type="Node3D" parent="Model/Seats" unique_id=2124202142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S03" unique_id=778112515]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S03" unique_id=679001476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S03" unique_id=1068343114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S03" unique_id=1594163726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S04" type="Node3D" parent="Model/Seats" unique_id=1414778590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S04" unique_id=591509618]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S04" unique_id=589280848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S04" unique_id=998830192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S04" unique_id=2138244778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S05" type="Node3D" parent="Model/Seats" unique_id=1260805856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S05" unique_id=453654983]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S05" unique_id=689017196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S05" unique_id=2088206409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S05" unique_id=1137065608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S06" type="Node3D" parent="Model/Seats" unique_id=358697152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S06" unique_id=1180324613]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S06" unique_id=1388757442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S06" unique_id=843253785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S06" unique_id=221901481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S07" type="Node3D" parent="Model/Seats" unique_id=226369859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S07" unique_id=62947463]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S07" unique_id=455502048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S07" unique_id=870146828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S07" unique_id=709060743]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S08" type="Node3D" parent="Model/Seats" unique_id=478728070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S08" unique_id=963722163]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S08" unique_id=1255403731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S08" unique_id=1644022644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S08" unique_id=296689268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S09" type="Node3D" parent="Model/Seats" unique_id=1113105635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R05_S09" unique_id=143996750]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R05_S09" unique_id=918021764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R05_S09" unique_id=378643268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R05_S09" unique_id=869108139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S01" type="Node3D" parent="Model/Seats" unique_id=2035176604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S01" unique_id=47520812]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S01" unique_id=640613189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S01" unique_id=1449150794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S01" unique_id=155462819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S02" type="Node3D" parent="Model/Seats" unique_id=698251576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S02" unique_id=2064861491]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S02" unique_id=3451233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S02" unique_id=670256741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S02" unique_id=1189472418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S03" type="Node3D" parent="Model/Seats" unique_id=208855605]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S03" unique_id=1732901105]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S03" unique_id=744541336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S03" unique_id=901644850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S03" unique_id=697513786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S04" type="Node3D" parent="Model/Seats" unique_id=2060844109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S04" unique_id=1626518197]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S04" unique_id=836949171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S04" unique_id=1395794045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S04" unique_id=833568944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S05" type="Node3D" parent="Model/Seats" unique_id=1716175421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S05" unique_id=411430978]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S05" unique_id=1977368154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S05" unique_id=678610070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S05" unique_id=85203751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S06" type="Node3D" parent="Model/Seats" unique_id=76353500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S06" unique_id=1902900765]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S06" unique_id=1208079278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S06" unique_id=2032809346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S06" unique_id=1771407431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S07" type="Node3D" parent="Model/Seats" unique_id=2041708854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S07" unique_id=590013004]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S07" unique_id=256245842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S07" unique_id=1775690553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S07" unique_id=36604712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S08" type="Node3D" parent="Model/Seats" unique_id=1811599795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S08" unique_id=401329714]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S08" unique_id=460435607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S08" unique_id=154744795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S08" unique_id=2140829538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S09" type="Node3D" parent="Model/Seats" unique_id=1842731270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R06_S09" unique_id=325260123]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R06_S09" unique_id=2081270562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R06_S09" unique_id=300929751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R06_S09" unique_id=595560673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S01" type="Node3D" parent="Model/Seats" unique_id=2117588882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S01" unique_id=1690252116]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S01" unique_id=1517519014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S01" unique_id=1852815115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S01" unique_id=1441362791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S02" type="Node3D" parent="Model/Seats" unique_id=360398520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S02" unique_id=1711576879]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S02" unique_id=1486731784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S02" unique_id=54597384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S02" unique_id=957211306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S03" type="Node3D" parent="Model/Seats" unique_id=1111746424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S03" unique_id=867561047]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S03" unique_id=1614507922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S03" unique_id=1198355596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S03" unique_id=3588064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S04" type="Node3D" parent="Model/Seats" unique_id=1335666664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S04" unique_id=838030058]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S04" unique_id=1509949046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S04" unique_id=857310130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S04" unique_id=911533491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S05" type="Node3D" parent="Model/Seats" unique_id=1908530653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S05" unique_id=76148618]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S05" unique_id=1876278052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S05" unique_id=682502117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S05" unique_id=185811524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S06" type="Node3D" parent="Model/Seats" unique_id=190770328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S06" unique_id=1352281816]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S06" unique_id=895881193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S06" unique_id=2102078756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S06" unique_id=2025679552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S07" type="Node3D" parent="Model/Seats" unique_id=1582386395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S07" unique_id=72210293]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S07" unique_id=509183559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S07" unique_id=1029019627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S07" unique_id=1853379834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S08" type="Node3D" parent="Model/Seats" unique_id=1137331372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S08" unique_id=615130054]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S08" unique_id=1001715063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S08" unique_id=1204098084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S08" unique_id=889324037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S09" type="Node3D" parent="Model/Seats" unique_id=149155024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R07_S09" unique_id=111063089]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R07_S09" unique_id=1958018360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R07_S09" unique_id=1405551778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R07_S09" unique_id=351653255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S01" type="Node3D" parent="Model/Seats" unique_id=390302701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S01" unique_id=952688785]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S01" unique_id=996271623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S01" unique_id=630950952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S01" unique_id=692857124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S02" type="Node3D" parent="Model/Seats" unique_id=921432433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S02" unique_id=102553968]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S02" unique_id=120727371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S02" unique_id=556955216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S02" unique_id=1928666499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S03" type="Node3D" parent="Model/Seats" unique_id=1062425239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S03" unique_id=2062403678]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S03" unique_id=1409056345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S03" unique_id=1962131261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S03" unique_id=681705759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S04" type="Node3D" parent="Model/Seats" unique_id=1488491914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S04" unique_id=528701878]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S04" unique_id=1553959651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S04" unique_id=1782837969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S04" unique_id=1693837718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S05" type="Node3D" parent="Model/Seats" unique_id=1707835474]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S05" unique_id=225573108]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S05" unique_id=210435163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S05" unique_id=1833971482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S05" unique_id=1153133664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S06" type="Node3D" parent="Model/Seats" unique_id=789547438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S06" unique_id=1524973111]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S06" unique_id=2061873646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S06" unique_id=1820073817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S06" unique_id=421537290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S07" type="Node3D" parent="Model/Seats" unique_id=2053034153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S07" unique_id=481226120]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S07" unique_id=1271836187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S07" unique_id=1303918556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S07" unique_id=113891960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S08" type="Node3D" parent="Model/Seats" unique_id=1306231802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S08" unique_id=1576948838]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S08" unique_id=1240659409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S08" unique_id=1560126692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S08" unique_id=22607185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S09" type="Node3D" parent="Model/Seats" unique_id=1569999972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model/Seats/R08_S09" unique_id=1813007281]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model/Seats/R08_S09" unique_id=445241984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model/Seats/R08_S09" unique_id=482936585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model/Seats/R08_S09" unique_id=667468895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="Model_Railings#Post_L_01" type="MeshInstance3D" parent="Model" unique_id=405542895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_02" type="MeshInstance3D" parent="Model" unique_id=595066433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.78, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_03" type="MeshInstance3D" parent="Model" unique_id=408219288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84, 1.16, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_04" type="MeshInstance3D" parent="Model" unique_id=1677418464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76, 1.54, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_05" type="MeshInstance3D" parent="Model" unique_id=69235933]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68, 1.92, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_06" type="MeshInstance3D" parent="Model" unique_id=1255825191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 2.3, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_07" type="MeshInstance3D" parent="Model" unique_id=1469832239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52, 2.68, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_L_08" type="MeshInstance3D" parent="Model" unique_id=1111440752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44, 3.06, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#TopRail_L" type="MeshInstance3D" parent="Model" unique_id=1617456958]
+transform = Transform3D(0, 0, -3.25237676, -0.38176015, 0.92426145, 0, 0.92426145, 0.38176015, 0, 3.22, 2.28, -4.28)
+mesh = SubResource("RailMesh")
+
+[node name="Model_Railings#Post_R_01" type="MeshInstance3D" parent="Model" unique_id=751080091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_02" type="MeshInstance3D" parent="Model" unique_id=615747290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.78, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_03" type="MeshInstance3D" parent="Model" unique_id=716217695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84, 1.16, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_04" type="MeshInstance3D" parent="Model" unique_id=2089114498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76, 1.54, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_05" type="MeshInstance3D" parent="Model" unique_id=1473209913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68, 1.92, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_06" type="MeshInstance3D" parent="Model" unique_id=203931684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 2.3, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_07" type="MeshInstance3D" parent="Model" unique_id=1501463665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52, 2.68, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#Post_R_08" type="MeshInstance3D" parent="Model" unique_id=1866205019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44, 3.06, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_Railings#TopRail_R" type="MeshInstance3D" parent="Model" unique_id=1399180838]
+transform = Transform3D(0, 0, -3.25237676, -0.38176015, 0.92426145, 0, 0.92426145, 0.38176015, 0, 3.22, 2.28, 4.28)
+mesh = SubResource("RailMesh")
+
+[node name="Model_02" type="Node3D" parent="." unique_id=736371043]
+transform = Transform3D(1.15, 0, 0, 0, 1.15, 0, 0, 0, 1.15, 11.303591, 0, 21.656162)
+
+[node name="Platforms" type="Node3D" parent="Model_02" unique_id=87665785]
+
+[node name="Row_01" type="StaticBody3D" parent="Model_02/Platforms" unique_id=1384055437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_01" unique_id=1332363083]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_01" unique_id=1231569190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_01" unique_id=363442510]
+shape = SubResource("PlatformShape")
+
+[node name="Row_02" type="StaticBody3D" parent="Model_02/Platforms" unique_id=845855628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.47, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_02" unique_id=133460858]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_02" unique_id=199855392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_02" unique_id=2052248693]
+shape = SubResource("PlatformShape")
+
+[node name="Row_03" type="StaticBody3D" parent="Model_02/Platforms" unique_id=375784319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84, 0.85, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_03" unique_id=977790222]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_03" unique_id=1171464054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_03" unique_id=1794317724]
+shape = SubResource("PlatformShape")
+
+[node name="Row_04" type="StaticBody3D" parent="Model_02/Platforms" unique_id=1055270055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76, 1.23, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_04" unique_id=1079833346]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_04" unique_id=453734690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_04" unique_id=1754059699]
+shape = SubResource("PlatformShape")
+
+[node name="Row_05" type="StaticBody3D" parent="Model_02/Platforms" unique_id=1762594452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68, 1.61, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_05" unique_id=1398155264]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_05" unique_id=562872073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_05" unique_id=89168743]
+shape = SubResource("PlatformShape")
+
+[node name="Row_06" type="StaticBody3D" parent="Model_02/Platforms" unique_id=1659598859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 1.99, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_06" unique_id=1888519975]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_06" unique_id=1151777134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_06" unique_id=647509177]
+shape = SubResource("PlatformShape")
+
+[node name="Row_07" type="StaticBody3D" parent="Model_02/Platforms" unique_id=1963699442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52, 2.37, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_07" unique_id=115572819]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_07" unique_id=847249341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_07" unique_id=87425974]
+shape = SubResource("PlatformShape")
+
+[node name="Row_08" type="StaticBody3D" parent="Model_02/Platforms" unique_id=1763890135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44, 2.75, 0)
+
+[node name="Platform" type="MeshInstance3D" parent="Model_02/Platforms/Row_08" unique_id=1353533815]
+mesh = SubResource("PlatformMesh")
+
+[node name="FrontBeam" type="MeshInstance3D" parent="Model_02/Platforms/Row_08" unique_id=22613974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.04, 0)
+mesh = SubResource("FrontBeamMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="Model_02/Platforms/Row_08" unique_id=2037238349]
+shape = SubResource("PlatformShape")
+
+[node name="Seats" type="Node3D" parent="Model_02" unique_id=1749177421]
+
+[node name="R01_S01" type="Node3D" parent="Model_02/Seats" unique_id=857043567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S01" unique_id=2100617402]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S01" unique_id=1285060027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S01" unique_id=979097309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S01" unique_id=2048907964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S02" type="Node3D" parent="Model_02/Seats" unique_id=38321726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S02" unique_id=686933629]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.0035715103, -0.0023234785, -0.00085544586)
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S02" unique_id=1580358758]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, 0.1964941, 0.25762078, -0.0025644302)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S02" unique_id=1894351236]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.20473385, -0.17298275, -0.2394104)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S02" unique_id=1931272250]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.20248985, -0.17155357, 0.24058151)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S03" type="Node3D" parent="Model_02/Seats" unique_id=1783838521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S03" unique_id=1628612033]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S03" unique_id=1023817866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S03" unique_id=1590863979]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.19994259, -0.16993083, -0.23942566)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S03" unique_id=274771525]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.1976986, -0.16850165, 0.24056435)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S04" type="Node3D" parent="Model_02/Seats" unique_id=765523495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S04" unique_id=461241952]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S04" unique_id=1343482885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S04" unique_id=1088458929]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.19515038, -0.16687891, -0.23944092)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S04" unique_id=1743223038]
+transform = Transform3D(0.99998903, 0.00025894892, 0.004675266, -0.0002728539, 0.9999955, 0.0029774858, -0.004674475, -0.0029787272, 0.9999847, -0.19290638, -0.16544971, 0.240551)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S05" type="Node3D" parent="Model_02/Seats" unique_id=1073445212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S05" unique_id=1768118601]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S05" unique_id=1481480057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S05" unique_id=1049058026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S05" unique_id=1281995619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S06" type="Node3D" parent="Model_02/Seats" unique_id=1569398105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S06" unique_id=420085880]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S06" unique_id=1717945103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S06" unique_id=713807229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S06" unique_id=987567161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S07" type="Node3D" parent="Model_02/Seats" unique_id=1320308060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S07" unique_id=562599691]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S07" unique_id=982132725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S07" unique_id=97103965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S07" unique_id=1901864719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S08" type="Node3D" parent="Model_02/Seats" unique_id=28030550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S08" unique_id=609924084]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S08" unique_id=372018419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S08" unique_id=147722627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S08" unique_id=196881055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R01_S09" type="Node3D" parent="Model_02/Seats" unique_id=1755582259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.24, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R01_S09" unique_id=54571520]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R01_S09" unique_id=640712744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R01_S09" unique_id=943665052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R01_S09" unique_id=1105287451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S01" type="Node3D" parent="Model_02/Seats" unique_id=1732323180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S01" unique_id=101678143]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S01" unique_id=265085744]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S01" unique_id=1750307721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S01" unique_id=843174448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S02" type="Node3D" parent="Model_02/Seats" unique_id=1956140253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S02" unique_id=1324908343]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S02" unique_id=559336981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S02" unique_id=17819754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S02" unique_id=547098320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S03" type="Node3D" parent="Model_02/Seats" unique_id=1702134530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S03" unique_id=183579531]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S03" unique_id=1534065871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S03" unique_id=1424028054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S03" unique_id=1678790877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S04" type="Node3D" parent="Model_02/Seats" unique_id=765607928]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S04" unique_id=1683204862]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S04" unique_id=1739940670]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S04" unique_id=1316638106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S04" unique_id=675590527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S05" type="Node3D" parent="Model_02/Seats" unique_id=2051071033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S05" unique_id=1585314167]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S05" unique_id=1892255234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S05" unique_id=612270422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S05" unique_id=1476213077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S06" type="Node3D" parent="Model_02/Seats" unique_id=1879874155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S06" unique_id=253799482]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S06" unique_id=794504620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S06" unique_id=809868801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S06" unique_id=277799061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S07" type="Node3D" parent="Model_02/Seats" unique_id=82369519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S07" unique_id=1714990818]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S07" unique_id=417733034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S07" unique_id=1053322301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S07" unique_id=805123590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S08" type="Node3D" parent="Model_02/Seats" unique_id=1480207650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S08" unique_id=61557950]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S08" unique_id=1362767344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S08" unique_id=1133746325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S08" unique_id=833813500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R02_S09" type="Node3D" parent="Model_02/Seats" unique_id=393125699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, 0.62, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R02_S09" unique_id=574914544]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R02_S09" unique_id=187412395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R02_S09" unique_id=1319601183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R02_S09" unique_id=507422272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S01" type="Node3D" parent="Model_02/Seats" unique_id=1462817145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S01" unique_id=1630305384]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S01" unique_id=1138632182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S01" unique_id=1208182855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S01" unique_id=726081331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S02" type="Node3D" parent="Model_02/Seats" unique_id=826333843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S02" unique_id=628247166]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S02" unique_id=1500495835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S02" unique_id=1017062858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S02" unique_id=156608141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S03" type="Node3D" parent="Model_02/Seats" unique_id=63059375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S03" unique_id=282961120]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S03" unique_id=1587591801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S03" unique_id=276701753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S03" unique_id=514738980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S04" type="Node3D" parent="Model_02/Seats" unique_id=669577752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S04" unique_id=1188609030]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S04" unique_id=906714835]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S04" unique_id=1639965861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S04" unique_id=1731714863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S05" type="Node3D" parent="Model_02/Seats" unique_id=852879006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S05" unique_id=46907371]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S05" unique_id=1672863836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S05" unique_id=549351545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S05" unique_id=242628476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S06" type="Node3D" parent="Model_02/Seats" unique_id=965446752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S06" unique_id=527938967]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S06" unique_id=1349438343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S06" unique_id=505793508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S06" unique_id=783293685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S07" type="Node3D" parent="Model_02/Seats" unique_id=20148529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S07" unique_id=613842638]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S07" unique_id=1939433808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S07" unique_id=80816077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S07" unique_id=1608769481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S08" type="Node3D" parent="Model_02/Seats" unique_id=2027238243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S08" unique_id=1697965556]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S08" unique_id=46631761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S08" unique_id=552225683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S08" unique_id=2135072985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R03_S09" type="Node3D" parent="Model_02/Seats" unique_id=1133227107]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86, 1, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R03_S09" unique_id=80239671]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R03_S09" unique_id=1297120700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R03_S09" unique_id=964578872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R03_S09" unique_id=1380387312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S01" type="Node3D" parent="Model_02/Seats" unique_id=1960621922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S01" unique_id=406715815]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S01" unique_id=400492976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S01" unique_id=367168006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S01" unique_id=758305338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S02" type="Node3D" parent="Model_02/Seats" unique_id=101818903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S02" unique_id=1594730857]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S02" unique_id=1723974121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S02" unique_id=1216715975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S02" unique_id=1425629026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S03" type="Node3D" parent="Model_02/Seats" unique_id=436342655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S03" unique_id=1304892286]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S03" unique_id=238141004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S03" unique_id=1277281429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S03" unique_id=1428251675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S04" type="Node3D" parent="Model_02/Seats" unique_id=231634271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S04" unique_id=1709416728]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S04" unique_id=1396522868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S04" unique_id=1173275777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S04" unique_id=1575274467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S05" type="Node3D" parent="Model_02/Seats" unique_id=262255147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S05" unique_id=2023515708]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S05" unique_id=87896069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S05" unique_id=1149244507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S05" unique_id=1313978585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S06" type="Node3D" parent="Model_02/Seats" unique_id=1437735991]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S06" unique_id=1918441946]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S06" unique_id=1579970974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S06" unique_id=888927660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S06" unique_id=1886335477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S07" type="Node3D" parent="Model_02/Seats" unique_id=692705132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S07" unique_id=142766217]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S07" unique_id=1398137635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S07" unique_id=1982528781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S07" unique_id=727684070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.17000008, 0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S08" type="Node3D" parent="Model_02/Seats" unique_id=535829828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S08" unique_id=755824930]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S08" unique_id=308587770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S08" unique_id=1900200697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.17000008, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S08" unique_id=619372355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.17000008, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R04_S09" type="Node3D" parent="Model_02/Seats" unique_id=1996547324]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78, 1.38, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R04_S09" unique_id=1906093304]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R04_S09" unique_id=1731560864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R04_S09" unique_id=1641249746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.17000008, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R04_S09" unique_id=1918096311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.17000008, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S01" type="Node3D" parent="Model_02/Seats" unique_id=1456082223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S01" unique_id=1477626351]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S01" unique_id=2025810625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S01" unique_id=931164729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S01" unique_id=406975657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S02" type="Node3D" parent="Model_02/Seats" unique_id=31900824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S02" unique_id=219287194]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S02" unique_id=1064498627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S02" unique_id=1035692052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S02" unique_id=297656543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S03" type="Node3D" parent="Model_02/Seats" unique_id=35402891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S03" unique_id=654571574]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S03" unique_id=674996912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S03" unique_id=1684857571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S03" unique_id=1508513343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S04" type="Node3D" parent="Model_02/Seats" unique_id=1919632943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S04" unique_id=1222256126]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S04" unique_id=855284827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S04" unique_id=1320536940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S04" unique_id=1501206533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S05" type="Node3D" parent="Model_02/Seats" unique_id=1426356060]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S05" unique_id=156906443]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S05" unique_id=571621770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S05" unique_id=1514557376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S05" unique_id=1935006548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S06" type="Node3D" parent="Model_02/Seats" unique_id=1001677970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S06" unique_id=1808857797]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S06" unique_id=981403687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S06" unique_id=1381876692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S06" unique_id=1097789536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S07" type="Node3D" parent="Model_02/Seats" unique_id=2026357889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S07" unique_id=1731253476]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S07" unique_id=2126300723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S07" unique_id=1057083632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S07" unique_id=788027507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, 0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S08" type="Node3D" parent="Model_02/Seats" unique_id=1639220992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S08" unique_id=1445934891]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S08" unique_id=1258712665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S08" unique_id=617712497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S08" unique_id=338234104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R05_S09" type="Node3D" parent="Model_02/Seats" unique_id=194402344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7, 1.76, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R05_S09" unique_id=1670404988]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R05_S09" unique_id=296252215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999981, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R05_S09" unique_id=1677571381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R05_S09" unique_id=527720563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999981, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S01" type="Node3D" parent="Model_02/Seats" unique_id=1065812460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S01" unique_id=1400763909]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S01" unique_id=491437346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S01" unique_id=1239166591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S01" unique_id=830319863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S02" type="Node3D" parent="Model_02/Seats" unique_id=998445378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S02" unique_id=1812626046]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S02" unique_id=398655615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S02" unique_id=782323258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S02" unique_id=1493988460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S03" type="Node3D" parent="Model_02/Seats" unique_id=153558264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S03" unique_id=1881415917]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S03" unique_id=223828155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S03" unique_id=661969471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S03" unique_id=96726251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S04" type="Node3D" parent="Model_02/Seats" unique_id=1087552255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S04" unique_id=647845908]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S04" unique_id=529045763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S04" unique_id=1676768964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S04" unique_id=376920381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S05" type="Node3D" parent="Model_02/Seats" unique_id=1001453926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S05" unique_id=1263642762]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S05" unique_id=884819721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S05" unique_id=2122759443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S05" unique_id=1398146053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S06" type="Node3D" parent="Model_02/Seats" unique_id=1782156084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S06" unique_id=1922903853]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S06" unique_id=1937038485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S06" unique_id=1498675167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S06" unique_id=1277371868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S07" type="Node3D" parent="Model_02/Seats" unique_id=1752816998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S07" unique_id=16320067]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S07" unique_id=855922801]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S07" unique_id=2062530756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S07" unique_id=1886641387]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, 0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S08" type="Node3D" parent="Model_02/Seats" unique_id=2125022675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S08" unique_id=1804288636]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S08" unique_id=1411643659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S08" unique_id=689763944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, -0.23999786)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S08" unique_id=1668045700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, 0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="R06_S09" type="Node3D" parent="Model_02/Seats" unique_id=1974966880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.62, 2.14, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R06_S09" unique_id=228991736]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R06_S09" unique_id=508410469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R06_S09" unique_id=956767210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19999886, -0.16999996, -0.23999977)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R06_S09" unique_id=507670493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S01" type="Node3D" parent="Model_02/Seats" unique_id=7641332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S01" unique_id=663822372]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S01" unique_id=592972976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S01" unique_id=726270797]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S01" unique_id=846898646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S02" type="Node3D" parent="Model_02/Seats" unique_id=44702686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S02" unique_id=2075079701]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S02" unique_id=1864318050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S02" unique_id=27238503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S02" unique_id=287790842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S03" type="Node3D" parent="Model_02/Seats" unique_id=1836561999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S03" unique_id=385362461]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S03" unique_id=1873653426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S03" unique_id=417870472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S03" unique_id=585268601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S04" type="Node3D" parent="Model_02/Seats" unique_id=1244092693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S04" unique_id=273647002]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S04" unique_id=616323274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S04" unique_id=358976562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S04" unique_id=1194823530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S05" type="Node3D" parent="Model_02/Seats" unique_id=288955367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S05" unique_id=1492248005]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S05" unique_id=2086560064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S05" unique_id=251409037]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S05" unique_id=736197449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S06" type="Node3D" parent="Model_02/Seats" unique_id=1694958971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S06" unique_id=2016244314]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S06" unique_id=982645914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S06" unique_id=169531647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S06" unique_id=1773265487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S07" type="Node3D" parent="Model_02/Seats" unique_id=250434247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S07" unique_id=196740792]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S07" unique_id=1604188049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S07" unique_id=1616645414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S07" unique_id=1726297575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S08" type="Node3D" parent="Model_02/Seats" unique_id=1389889345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S08" unique_id=559785879]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S08" unique_id=345234302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S08" unique_id=1047231003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S08" unique_id=2140211606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R07_S09" type="Node3D" parent="Model_02/Seats" unique_id=368121915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.54, 2.52, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R07_S09" unique_id=1617261338]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R07_S09" unique_id=1803343977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R07_S09" unique_id=1127592785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R07_S09" unique_id=1758294295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S01" type="Node3D" parent="Model_02/Seats" unique_id=1978294446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S01" unique_id=1572377508]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S01" unique_id=2144930794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S01" unique_id=1054300849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S01" unique_id=444809192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S02" type="Node3D" parent="Model_02/Seats" unique_id=1944022405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S02" unique_id=1252726480]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S02" unique_id=112848944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S02" unique_id=1579178299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S02" unique_id=308447736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S03" type="Node3D" parent="Model_02/Seats" unique_id=2102547019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S03" unique_id=398070248]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S03" unique_id=799314141]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S03" unique_id=1193120331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S03" unique_id=694833308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S04" type="Node3D" parent="Model_02/Seats" unique_id=562775661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, -1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S04" unique_id=981480435]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S04" unique_id=259384498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S04" unique_id=1922548758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S04" unique_id=114931079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S05" type="Node3D" parent="Model_02/Seats" unique_id=1009329635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S05" unique_id=797585407]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S05" unique_id=1087563814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S05" unique_id=800535895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S05" unique_id=326486515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S06" type="Node3D" parent="Model_02/Seats" unique_id=866393071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 1.025)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S06" unique_id=422587695]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S06" unique_id=1500492578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S06" unique_id=1068051007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S06" unique_id=1718202912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S07" type="Node3D" parent="Model_02/Seats" unique_id=1461691981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 2.05)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S07" unique_id=1492291517]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S07" unique_id=855912661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S07" unique_id=310522051]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S07" unique_id=1242968867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S08" type="Node3D" parent="Model_02/Seats" unique_id=2097274419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 3.075)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S08" unique_id=794508888]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S08" unique_id=172559956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S08" unique_id=585315038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S08" unique_id=183788839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="R08_S09" type="Node3D" parent="Model_02/Seats" unique_id=466114679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.46, 2.9, 4.1)
+
+[node name="Seat" type="MeshInstance3D" parent="Model_02/Seats/R08_S09" unique_id=1662159132]
+mesh = SubResource("SeatMesh")
+
+[node name="Back" type="MeshInstance3D" parent="Model_02/Seats/R08_S09" unique_id=1092823704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.26, 0)
+mesh = SubResource("BackMesh")
+
+[node name="SupportL" type="MeshInstance3D" parent="Model_02/Seats/R08_S09" unique_id=1623339742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, -0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="SupportR" type="MeshInstance3D" parent="Model_02/Seats/R08_S09" unique_id=2133141239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.17, 0.24)
+mesh = SubResource("SupportMesh")
+
+[node name="Model_02_Railings#Post_L_01" type="MeshInstance3D" parent="Model_02" unique_id=7088394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_02" type="MeshInstance3D" parent="Model_02" unique_id=1752741360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.78, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_03" type="MeshInstance3D" parent="Model_02" unique_id=1912782681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84, 1.16, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_04" type="MeshInstance3D" parent="Model_02" unique_id=2067655358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76, 1.54, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_05" type="MeshInstance3D" parent="Model_02" unique_id=1342266152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68, 1.92, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_06" type="MeshInstance3D" parent="Model_02" unique_id=1844644100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 2.3, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_07" type="MeshInstance3D" parent="Model_02" unique_id=123008816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52, 2.68, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_L_08" type="MeshInstance3D" parent="Model_02" unique_id=998212964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44, 3.06, -4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#TopRail_L" type="MeshInstance3D" parent="Model_02" unique_id=1865878814]
+transform = Transform3D(0, 0, -3.25237676, -0.38176015, 0.92426145, 0, 0.92426145, 0.38176015, 0, 3.22, 2.28, -4.28)
+mesh = SubResource("RailMesh")
+
+[node name="Model_02_Railings#Post_R_01" type="MeshInstance3D" parent="Model_02" unique_id=1734323556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_02" type="MeshInstance3D" parent="Model_02" unique_id=1225948939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92, 0.78, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_03" type="MeshInstance3D" parent="Model_02" unique_id=146523867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.84, 1.16, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_04" type="MeshInstance3D" parent="Model_02" unique_id=362569858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76, 1.54, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_05" type="MeshInstance3D" parent="Model_02" unique_id=625822205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68, 1.92, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_06" type="MeshInstance3D" parent="Model_02" unique_id=855002851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6, 2.3, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_07" type="MeshInstance3D" parent="Model_02" unique_id=1281548819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52, 2.68, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#Post_R_08" type="MeshInstance3D" parent="Model_02" unique_id=1289603097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44, 3.06, 4.28)
+mesh = SubResource("RailPostMesh")
+
+[node name="Model_02_Railings#TopRail_R" type="MeshInstance3D" parent="Model_02" unique_id=264718389]
+transform = Transform3D(0, 0, -3.25237676, -0.38176015, 0.92426145, 0, 0.92426145, 0.38176015, 0, 3.22, 2.28, 4.28)
+mesh = SubResource("RailMesh")

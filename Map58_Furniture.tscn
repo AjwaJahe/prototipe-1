@@ -1,10 +1,269 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://b7l75jdi3ly3p"]
 
-[ext_resource type="Script" path="res://Map58_Furniture.gd" id="1_furn"]
+[ext_resource type="Script" uid="uid://c6bk2pc8l5m8x" path="res://Map58_Furniture.gd" id="1_furn"]
 [ext_resource type="PackedScene" path="res://UKS_Furniture.tscn" id="2_uks"]
+[ext_resource type="PackedScene" path="res://Library_Furniture.tscn" id="3_library"]
+[ext_resource type="PackedScene" path="res://GuestRoom_Furniture.tscn" id="4_guest"]
+[ext_resource type="PackedScene" path="res://Administration_Furniture.tscn" id="5_admin"]
+[ext_resource type="PackedScene" path="res://PrincipalOffice_Furniture.tscn" id="6_principal"]
+[ext_resource type="PackedScene" path="res://TeacherRoom_Furniture.tscn" id="7_teacher"]
+[ext_resource type="PackedScene" uid="uid://bwnc8f6hj6h5m" path="res://Warehouse_Furniture.tscn" id="8_warehouse"]
+[ext_resource type="PackedScene" path="res://MaleToilet_Furniture.tscn" id="9_toilet"]
+[ext_resource type="PackedScene" path="res://FemaleToilet_Furniture.tscn" id="10_female_toilet"]
+[ext_resource type="PackedScene" path="res://ToiletSketsel_Furniture.tscn" id="11_sketsel"]
+[ext_resource type="PackedScene" path="res://Kantin_Furniture.tscn" id="12_kantin"]
+[ext_resource type="PackedScene" path="res://Kelas_10_A_Furniture.tscn" id="13_kelas10a"]
+[ext_resource type="PackedScene" path="res://BangkuLorong_Single.tscn" id="14_bangku_lorong"]
+[ext_resource type="PackedScene" path="res://PintuKelas.tscn" id="15_door_class"]
+[ext_resource type="PackedScene" path="res://PintuTengahKepsekGuru.tscn" id="16_door_middle"]
+[ext_resource type="PackedScene" path="res://PintuKayu.tscn" id="17_door_wood"]
+[ext_resource type="PackedScene" path="res://PintuSekolah.tscn" id="18_door_school"]
+[ext_resource type="PackedScene" path="res://Map58_ItemsTest.tscn" id="19_items_test"]
 
-[node name="Map58_Furniture" type="Node3D"]
+[node name="Map58_Furniture" type="Node3D" unique_id=853351227]
 script = ExtResource("1_furn")
 
-[node name="UKS_Furniture" parent="." instance=ExtResource("2_uks")]
-position = Vector3(58.1547, 0.0, -3.4886)
+[node name="UKS_Furniture" parent="." unique_id=1035280562 instance=ExtResource("2_uks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1547, 0, -3.4886)
+
+[node name="Library_Furniture" parent="." unique_id=697282656 instance=ExtResource("3_library")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.1873, 0, -15.1915)
+
+[node name="GuestRoom_Furniture" parent="." unique_id=1686174315 instance=ExtResource("4_guest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 0.9745)
+
+[node name="Administration_Furniture" parent="." unique_id=1520132580 instance=ExtResource("5_admin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 1.5377)
+
+[node name="PrincipalOffice_Furniture" parent="." unique_id=1426075525 instance=ExtResource("6_principal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.004, 0, -25)
+
+[node name="TeacherRoom_Furniture" parent="." unique_id=1319420906 instance=ExtResource("7_teacher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, 0, -41.586395)
+
+[node name="Warehouse_Furniture" parent="." unique_id=1525724732 instance=ExtResource("8_warehouse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.818245, 0, -30.794098)
+
+[node name="MaleToilet_Furniture" parent="." unique_id=149740161 instance=ExtResource("9_toilet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.318253, 0, -48.524292)
+
+[node name="FemaleToilet_Furniture" parent="." unique_id=1978026689 instance=ExtResource("10_female_toilet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.318253, 0, -48.524292)
+
+[node name="ToiletSketsel_Furniture" parent="." unique_id=2104945660 instance=ExtResource("11_sketsel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.318253, 0, -55.2)
+
+[node name="Kantin_Furniture" parent="." unique_id=1229348995 instance=ExtResource("12_kantin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.187126, 0, -74.51033)
+
+[node name="BangkuLorong_BlueLines" type="Node3D" parent="." unique_id=1762588405]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.080017, 0, -63.855556)
+
+[node name="BangkuLorong_01" parent="BangkuLorong_BlueLines" unique_id=511715346 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 37.56524, 0, -21.391014)
+
+[node name="BangkuLorong_15" parent="BangkuLorong_BlueLines" unique_id=952919898 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 37.606686, 0, -17.738022)
+
+[node name="BangkuLorong_02" parent="BangkuLorong_BlueLines" unique_id=1545625746 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 30.269611, 0, -21.2)
+
+[node name="BangkuLorong_03" parent="BangkuLorong_BlueLines" unique_id=2030767085 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 30.534605, 0, -37.615173)
+
+[node name="BangkuLorong_16" parent="BangkuLorong_BlueLines" unique_id=1167153042 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 30.50739, 0, -41.77984)
+
+[node name="BangkuLorong_04" parent="BangkuLorong_BlueLines" unique_id=1770017686 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.249078, 0, -46.1)
+
+[node name="BangkuLorong_05" parent="BangkuLorong_BlueLines" unique_id=1535115756 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 48.53327, 0, -46.191936)
+
+[node name="BangkuLorong_11" parent="BangkuLorong_BlueLines" unique_id=385724108 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 61.74729, 0, -46.191936)
+
+[node name="BangkuLorong_12" parent="BangkuLorong_BlueLines" unique_id=1975879057 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 68.15391, 0, -46.191936)
+
+[node name="BangkuLorong_13" parent="BangkuLorong_BlueLines" unique_id=215026085 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.15391, 0, -55.604374)
+
+[node name="BangkuLorong_14" parent="BangkuLorong_BlueLines" unique_id=809743377 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.392975, 0, -55.71091)
+
+[node name="BangkuLorong_06" parent="BangkuLorong_BlueLines" unique_id=667321585 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.469999, 0, -54.828087)
+
+[node name="BangkuLorong_07" parent="BangkuLorong_BlueLines" unique_id=1489418283 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -3.021803, 0, -63.42294)
+
+[node name="BangkuLorong_08" parent="BangkuLorong_BlueLines" unique_id=1717014293 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.762623, 0, -63.393307)
+
+[node name="BangkuLorong_09" parent="BangkuLorong_BlueLines" unique_id=919809736 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.185886, 0, -63.21927)
+
+[node name="BangkuLorong_10" parent="BangkuLorong_BlueLines" unique_id=1617469780 instance=ExtResource("14_bangku_lorong")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 23.657976, 0, -62.897217)
+
+[node name="Kelas_10_A_Furniture" parent="." unique_id=1911931222 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465125, 0, -26.459015)
+
+[node name="Kelas_10_B_Furniture" parent="." unique_id=1864301726 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.790988, 0, -26.459015)
+
+[node name="Kelas_10_C_Furniture" parent="." unique_id=460394382 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.228487, 0, -26.459015)
+
+[node name="Kelas_10_D_Furniture" parent="." unique_id=433520645 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, 0, -26.459015)
+
+[node name="Kelas_11_A_Furniture" parent="." unique_id=805217863 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465125, 0, -45.841)
+
+[node name="Kelas_11_B_Furniture" parent="." unique_id=2031001825 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.790988, 0, -45.841)
+
+[node name="Kelas_11_C_Furniture" parent="." unique_id=2124125763 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.228487, 0, -45.841)
+
+[node name="Kelas_11_D_Furniture" parent="." unique_id=1248518784 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, 0, -45.841)
+
+[node name="Kelas_12_A_Furniture" parent="." unique_id=776774986 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465125, 0, -65.21802)
+
+[node name="Kelas_12_B_Furniture" parent="." unique_id=1802299322 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.790988, 0, -65.21802)
+
+[node name="Kelas_12_C_Furniture" parent="." unique_id=496785580 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.228487, 0, -65.21802)
+
+[node name="Kelas_12_D_Furniture" parent="." unique_id=1737094377 instance=ExtResource("13_kelas10a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, 0, -65.21802)
+
+[node name="PintuKelas_10_A_South" parent="." unique_id=286373356 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -18.583954)
+
+[node name="PintuKelas_10_A_North" parent="." unique_id=221935498 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -34.334)
+
+[node name="PintuKelas_10_B_South" parent="." unique_id=637846470 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -18.583954)
+
+[node name="PintuKelas_10_B_North" parent="." unique_id=204656864 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -34.334)
+
+[node name="PintuKelas_10_C_South" parent="." unique_id=25223190 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -18.583954)
+
+[node name="PintuKelas_10_C_North" parent="." unique_id=757638069 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -34.334)
+
+[node name="PintuKelas_10_D_South" parent="." unique_id=883622316 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -18.583954)
+
+[node name="PintuKelas_10_D_North" parent="." unique_id=165889581 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -34.334)
+
+[node name="PintuKelas_11_A_South" parent="." unique_id=968452882 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -37.966038)
+
+[node name="PintuKelas_11_A_North" parent="." unique_id=367529459 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -53.716)
+
+[node name="PintuKelas_11_B_South" parent="." unique_id=462780299 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -37.966038)
+
+[node name="PintuKelas_11_B_North" parent="." unique_id=508647245 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -53.716)
+
+[node name="PintuKelas_11_C_South" parent="." unique_id=692537700 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -37.966038)
+
+[node name="PintuKelas_11_C_North" parent="." unique_id=1337918916 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -53.716)
+
+[node name="PintuKelas_11_D_South" parent="." unique_id=1036376799 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -37.966038)
+
+[node name="PintuKelas_11_D_North" parent="." unique_id=1082476628 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -53.716)
+
+[node name="PintuKelas_12_A_South" parent="." unique_id=215421948 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -57.343)
+
+[node name="PintuKelas_12_A_North" parent="." unique_id=2103990090 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -73.093)
+
+[node name="PintuKelas_12_B_South" parent="." unique_id=1542379197 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -57.343)
+
+[node name="PintuKelas_12_B_North" parent="." unique_id=1815252290 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -73.093)
+
+[node name="PintuKelas_12_C_South" parent="." unique_id=1504106585 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -57.343)
+
+[node name="PintuKelas_12_C_North" parent="." unique_id=1490052068 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -73.093)
+
+[node name="PintuKelas_12_D_South" parent="." unique_id=1638276929 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -57.343)
+required_item_type = "class_key"
+
+[node name="PintuKelas_12_D_North" parent="." unique_id=1687073231 instance=ExtResource("15_door_class")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -73.093)
+required_item_type = "class_key"
+
+[node name="PintuPerpustakaan_East" parent="." unique_id=1652608259 instance=ExtResource("15_door_class")]
+transform = Transform3D(4.750426e-08, 0, 1, 0, 1, 0, -0.629213, 0, 7.54979e-08, -28.4218, 0, 8.3676)
+
+[node name="PintuLapanganBasket_West" parent="." unique_id=1727421821 instance=ExtResource("15_door_class")]
+transform = Transform3D(4.750426e-08, 0, 1, 0, 1, 0, -0.629213, 0, 7.54979e-08, 21.40465, 0, 8.0614)
+
+[node name="PintuRuangTamu_South" parent="." unique_id=1402215624 instance=ExtResource("15_door_class")]
+transform = Transform3D(0.778652, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 6.487001)
+open_distance = -3.2
+
+[node name="PintuRuangTamu_North" parent="." unique_id=892503697 instance=ExtResource("15_door_class")]
+transform = Transform3D(0.505326, 0, 0, 0, 1, 0, 0, 0, 1, 3.81875, 0, -4.537995)
+open_distance = -3.2
+
+[node name="PintuKepsek_East" parent="." unique_id=558195847 instance=ExtResource("15_door_class")]
+transform = Transform3D(5.231242e-08, 0, 1, 0, 1, 0, -0.692899, 0, 7.54979e-08, -21.68625, 0, -27.710602)
+
+[node name="PintuKepsek_West" parent="." unique_id=1718945955 instance=ExtResource("15_door_class")]
+transform = Transform3D(5.231242e-08, 0, 1, 0, 1, 0, -0.692899, 0, 7.54979e-08, -35.18625, 0, -27.710602)
+
+[node name="PintuRuangGuru_West" parent="." unique_id=1949991300 instance=ExtResource("15_door_class")]
+transform = Transform3D(6.975161e-08, 0, 1, 0, 1, 0, -0.923888, 0, 7.54979e-08, -35.18625, 0, -34.905457)
+
+[node name="PintuRuangGuru_East" parent="." unique_id=577642188 instance=ExtResource("15_door_class")]
+transform = Transform3D(6.975161e-08, 0, 1, 0, 1, 0, -0.923888, 0, 7.54979e-08, -21.68625, 0, -34.905457)
+
+[node name="PintuTengahKepsekGuru" parent="." unique_id=915363086 instance=ExtResource("16_door_middle")]
+transform = Transform3D(1.011236, 0, 0, 0, 1, 0, 0, 0, 1, -28.436, 0, -29)
+open_angle_degrees = 90.0
+
+[node name="PintuGudang_West" parent="." instance=ExtResource("17_door_wood")]
+position = Vector3(-56.4245, 0, -41.75765)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+open_angle_degrees = 85.0
+
+[node name="PintuUKS_West" parent="." instance=ExtResource("17_door_wood")]
+position = Vector3(52.904663, 0, -3.488635)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+open_angle_degrees = 85.0
+[node name="PintuSekolah_MainEntrance" parent="." instance=ExtResource("18_door_school")]
+position = Vector3(-2.12697, 0, 24.511354)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)
+
+[node name="Map58_ItemsTest" parent="." instance=ExtResource("19_items_test")]
+position = Vector3(-0.0181, 0, 8.25)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(1, 1, 1)

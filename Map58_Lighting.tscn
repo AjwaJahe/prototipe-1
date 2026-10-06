@@ -1,0 +1,316 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Map58_Lighting.gd" id="1_flicker"]
+
+[sub_resource type="BoxMesh" id="Mesh_ceiling_lamp_full"]
+size = Vector3(2.4, 0.08, 0.65)
+
+[sub_resource type="StandardMaterial3D" id="Mat_ceiling_lamp_full"]
+albedo_color = Color(0.95, 0.82, 0.58, 1)
+emission_enabled = true
+emission = Color(1, 0.68, 0.36, 1)
+emission_energy_multiplier = 0.8
+roughness = 0.52
+metallic = 0.0
+shading_mode = 0
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_indicator"]
+albedo_color = Color(0.75, 0.78, 0.75, 1)
+emission_enabled = true
+emission = Color(0.65, 0.72, 0.68, 1)
+emission_energy_multiplier = 0.35
+roughness = 0.5
+shading_mode = 0
+cull_mode = 2
+
+[node name="Map58_Lighting" type="Node3D"]
+script = ExtResource("1_flicker")
+
+[node name="RoomLights" type="Node3D" parent="."]
+
+[node name="RuangTamu" type="Node3D" parent="RoomLights"]
+position = Vector3(1.5, 9.45, 6.0)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/RuangTamu"]
+position = Vector3(1.5, 9.45, 6.0)
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/RuangTamu"]
+position = Vector3(1.5, 9.30, 6.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Perpustakaan" type="Node3D" parent="RoomLights"]
+position = Vector3(-44.1873, 9.45, -15.1915)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/Perpustakaan"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/Perpustakaan"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 11.5
+shadow_enabled = false
+
+[node name="KepalaSekolah" type="Node3D" parent="RoomLights"]
+position = Vector3(-30.0, 9.45, -25.0)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/KepalaSekolah"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/KepalaSekolah"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 11.5
+shadow_enabled = false
+
+[node name="RuangGuru" type="Node3D" parent="RoomLights"]
+position = Vector3(-28.43625, 9.45, -41.586395)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/RuangGuru"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/RuangGuru"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 12.0
+shadow_enabled = false
+
+[node name="Gudang" type="Node3D" parent="RoomLights"]
+position = Vector3(-47.818245, 9.45, -30.794098)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/Gudang"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/Gudang"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 10.0
+shadow_enabled = false
+
+[node name="ToiletPria" type="Node3D" parent="RoomLights"]
+position = Vector3(-52.318253, 9.45, -48.524292)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/ToiletPria"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/ToiletPria"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="ToiletWanita" type="Node3D" parent="RoomLights"]
+position = Vector3(-43.318253, 9.45, -48.524292)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/ToiletWanita"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/ToiletWanita"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="ToiletSketsel" type="Node3D" parent="RoomLights"]
+position = Vector3(-43.318253, 9.45, -55.2)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/ToiletSketsel"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/ToiletSketsel"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 8.5
+shadow_enabled = false
+
+[node name="Kantin" type="Node3D" parent="RoomLights"]
+position = Vector3(-44.187126, 9.45, -74.51033)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/Kantin"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/Kantin"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 11.0
+shadow_enabled = false
+
+[node name="UKS" type="Node3D" parent="RoomLights"]
+position = Vector3(58.1547, 9.45, -3.4886)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/UKS"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/UKS"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 11.5
+shadow_enabled = false
+
+[node name="LapanganBasket" type="Node3D" parent="RoomLights"]
+position = Vector3(42.4047, 9.45, 8.0614)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/LapanganBasket"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/LapanganBasket"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 13.0
+shadow_enabled = false
+
+[node name="GuestAdmin" type="Node3D" parent="RoomLights"]
+position = Vector3(-0.0181, 9.45, 1.25)
+[node name="Fixture" type="MeshInstance3D" parent="RoomLights/GuestAdmin"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+[node name="Light" type="OmniLight3D" parent="RoomLights/GuestAdmin"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 12.5
+shadow_enabled = false
+
+[node name="CorridorLights" type="Node3D" parent="."]
+
+[node name="Corridor_North_01" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(-10.0, 9.25, -12.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 10.0
+shadow_enabled = false
+
+[node name="Corridor_North_02" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(10.0, 9.25, -12.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 10.0
+shadow_enabled = false
+
+[node name="Corridor_North_03" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(30.0, 9.25, -12.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 10.0
+shadow_enabled = false
+
+[node name="Corridor_North_04" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(50.0, 9.25, -12.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 10.0
+shadow_enabled = false
+
+[node name="Corridor_Mid_01" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(-10.0, 9.25, -36.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.5
+shadow_enabled = false
+
+[node name="Corridor_Mid_02" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(10.0, 9.25, -36.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.5
+shadow_enabled = false
+
+[node name="Corridor_Mid_03" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(30.0, 9.25, -36.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.5
+shadow_enabled = false
+
+[node name="Corridor_Mid_04" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(50.0, 9.25, -36.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.5
+shadow_enabled = false
+
+[node name="Corridor_South_01" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(-10.0, 9.25, -55.5)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="Corridor_South_02" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(10.0, 9.25, -55.5)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="Corridor_South_03" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(30.0, 9.25, -55.5)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="Corridor_South_04" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(50.0, 9.25, -55.5)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="LeftWing_01" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(-25.0, 9.25, -10.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.5
+shadow_enabled = false
+
+[node name="LeftWing_02" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(-25.0, 9.25, -50.0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.0
+shadow_enabled = false
+
+[node name="EntranceHall" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(5.0, 9.25, 10.5)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 10.5
+shadow_enabled = false
+
+[node name="BackHall" type="OmniLight3D" parent="CorridorLights"]
+position = Vector3(5.0, 9.25, -70.5)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 9.5
+shadow_enabled = false
+[node name="MainEntranceExterior" type="Node3D" parent="."]
+position = Vector3(-2.12697, 8.0, 26.0)
+
+[node name="Fixture" type="MeshInstance3D" parent="MainEntranceExterior"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+
+[node name="Light" type="OmniLight3D" parent="MainEntranceExterior"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 7.0
+shadow_enabled = false
+
+[node name="Perpustakaan_Inner" type="Node3D" parent="."]
+position = Vector3(-44.1873, 9.45, 8.215)
+
+[node name="Fixture" type="MeshInstance3D" parent="Perpustakaan_Inner"]
+mesh = SubResource("Mesh_ceiling_lamp_full")
+material_override = SubResource("Mat_ceiling_lamp_full")
+
+[node name="Light" type="OmniLight3D" parent="Perpustakaan_Inner"]
+position = Vector3(0, -0.15, 0)
+light_color = Color(1, 0.82, 0.58, 1)
+light_energy = 3.0
+omni_range = 11.5
+shadow_enabled = false

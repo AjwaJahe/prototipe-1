@@ -1,0 +1,269 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://textures/wall_brick.png" id="1_wall"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_wall"]
+albedo_texture = ExtResource("1_wall")
+roughness = 0.9
+shading_mode = 0
+cull_mode = 2
+uv1_scale = Vector3(2.5, 2.5, 1)
+uv1_offset = Vector3(0, 0, 0)
+texture_filter = 5
+
+[sub_resource type="BoxMesh" id="Mesh_0"]
+size = Vector3(15.5, 0.09, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_1"]
+size = Vector3(4.45, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_2"]
+size = Vector3(3.465, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_3"]
+size = Vector3(2.2487, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_4"]
+size = Vector3(2.8, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_5"]
+size = Vector3(3.632, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_6"]
+size = Vector3(4.5, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_7"]
+size = Vector3(3.083, 4.525, 0.6)
+
+[sub_resource type="BoxMesh" id="Mesh_8"]
+size = Vector3(4.111, 4.525, 0.6)
+
+[node name="Map58_WallAboveOpenings" type="Node3D"]
+
+[node name="WallAbove_PintuKelas_10_A_South" type="MeshInstance3D" parent="."]
+position = Vector3(-10.1153, 7.3375, -18.583954)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_A_North" type="MeshInstance3D" parent="."]
+position = Vector3(-10.1153, 7.3375, -34.334)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_B_South" type="MeshInstance3D" parent="."]
+position = Vector3(7.3222, 7.3375, -18.583954)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_B_North" type="MeshInstance3D" parent="."]
+position = Vector3(7.3222, 7.3375, -34.334)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_C_South" type="MeshInstance3D" parent="."]
+position = Vector3(24.7597, 7.3375, -18.583954)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_C_North" type="MeshInstance3D" parent="."]
+position = Vector3(24.7597, 7.3375, -34.334)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_D_South" type="MeshInstance3D" parent="."]
+position = Vector3(42.1972, 7.3375, -18.583954)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_10_D_North" type="MeshInstance3D" parent="."]
+position = Vector3(42.1972, 7.3375, -34.334)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_A_South" type="MeshInstance3D" parent="."]
+position = Vector3(-10.1153, 7.3375, -37.966038)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_A_North" type="MeshInstance3D" parent="."]
+position = Vector3(-10.1153, 7.3375, -53.716)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_B_South" type="MeshInstance3D" parent="."]
+position = Vector3(7.3222, 7.3375, -37.966038)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_B_North" type="MeshInstance3D" parent="."]
+position = Vector3(7.3222, 7.3375, -53.716)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_C_South" type="MeshInstance3D" parent="."]
+position = Vector3(24.7597, 7.3375, -37.966038)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_C_North" type="MeshInstance3D" parent="."]
+position = Vector3(24.7597, 7.3375, -53.716)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_D_South" type="MeshInstance3D" parent="."]
+position = Vector3(42.1972, 7.3375, -37.966038)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_11_D_North" type="MeshInstance3D" parent="."]
+position = Vector3(42.1972, 7.3375, -53.716)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_A_South" type="MeshInstance3D" parent="."]
+position = Vector3(-10.1153, 7.3375, -57.343)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_A_North" type="MeshInstance3D" parent="."]
+position = Vector3(-10.1153, 7.3375, -73.093)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_B_South" type="MeshInstance3D" parent="."]
+position = Vector3(7.3222, 7.3375, -57.343)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_B_North" type="MeshInstance3D" parent="."]
+position = Vector3(7.3222, 7.3375, -73.093)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_C_South" type="MeshInstance3D" parent="."]
+position = Vector3(24.7597, 7.3375, -57.343)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_C_North" type="MeshInstance3D" parent="."]
+position = Vector3(24.7597, 7.3375, -73.093)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_D_South" type="MeshInstance3D" parent="."]
+position = Vector3(42.1972, 7.3375, -57.343)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKelas_12_D_North" type="MeshInstance3D" parent="."]
+position = Vector3(42.1972, 7.3375, -73.093)
+
+mesh = SubResource("Mesh_1")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuRuangTamu_South" type="MeshInstance3D" parent="."]
+position = Vector3(-0.0181, 7.3375, 6.487001)
+
+mesh = SubResource("Mesh_2")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuRuangTamu_North" type="MeshInstance3D" parent="."]
+position = Vector3(3.81875, 7.3375, -4.537995)
+
+mesh = SubResource("Mesh_3")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuPerpustakaan_East" type="MeshInstance3D" parent="."]
+position = Vector3(-28.4218, 7.3375, 8.3676)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_4")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuLapanganBasket_West" type="MeshInstance3D" parent="."]
+position = Vector3(21.40465, 7.3375, 8.0614)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_4")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuGudang_West" type="MeshInstance3D" parent="."]
+position = Vector3(-56.4245, 7.3375, -41.75765)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_5")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuToiletPria_North" type="MeshInstance3D" parent="."]
+position = Vector3(-52.3183, 7.3375, -53.9204)
+
+mesh = SubResource("Mesh_6")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuToiletWanita_North" type="MeshInstance3D" parent="."]
+position = Vector3(-43.31825, 7.3375, -53.9204)
+
+mesh = SubResource("Mesh_6")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKepsek_East" type="MeshInstance3D" parent="."]
+position = Vector3(-21.68625, 7.3375, -27.710602)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_7")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuKepsek_West" type="MeshInstance3D" parent="."]
+position = Vector3(-35.18625, 7.3375, -27.710602)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_7")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuRuangGuru_East" type="MeshInstance3D" parent="."]
+position = Vector3(-21.68625, 7.3375, -34.905457)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_8")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuRuangGuru_West" type="MeshInstance3D" parent="."]
+position = Vector3(-35.18625, 7.3375, -34.905457)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_8")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuTengahKepsekGuru" type="MeshInstance3D" parent="."]
+position = Vector3(-28.436, 7.3375, -29)
+
+mesh = SubResource("Mesh_6")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuSekolah" type="MeshInstance3D" parent="."]
+position = Vector3(-2.12697, 9.555, 24.511354)
+
+mesh = SubResource("Mesh_0")
+material_override = SubResource("Mat_wall")
+
+[node name="WallAbove_PintuUKS_West" type="MeshInstance3D" parent="."]
+position = Vector3(52.904663, 7.3375, -3.488635)
+rotation = Vector3(0, 1.5707963, 0)
+mesh = SubResource("Mesh_4")
+material_override = SubResource("Mat_wall")

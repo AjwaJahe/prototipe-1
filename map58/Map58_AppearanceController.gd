@@ -67,6 +67,7 @@ func _ready() -> void:
 func _apply_materials() -> void:
 
 	var visual := get_parent().get_node_or_null("Visual")
+	var door_walls := get_parent().get_node_or_null("DoorWalls")
 
 	if visual == null:
 		push_warning(
@@ -81,6 +82,12 @@ func _apply_materials() -> void:
 		visual,
 		meshes
 	)
+
+	if door_walls != null:
+		_collect_meshes(
+			door_walls,
+			meshes
+		)
 
 
 	var floor_count := 0
@@ -188,7 +195,7 @@ func _make_floor_material() -> StandardMaterial3D:
 
 	# Tidak bergantung pada DirectionalLight3D.
 	material.shading_mode = (
-		BaseMaterial3D.SHADING_MODE_UNSHADED
+		BaseMaterial3D.SHADING_MODE_PER_PIXEL
 	)
 
 
@@ -229,7 +236,7 @@ func _make_wall_material() -> StandardMaterial3D:
 
 	# Tidak bergantung pada DirectionalLight3D.
 	material.shading_mode = (
-		BaseMaterial3D.SHADING_MODE_UNSHADED
+		BaseMaterial3D.SHADING_MODE_PER_PIXEL
 	)
 
 

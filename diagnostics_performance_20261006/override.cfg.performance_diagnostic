@@ -1,0 +1,7 @@
+[debug]
+settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
+settings/stdout/verbose_stdout=true
+
+[application]
+run/flush_stdout_on_print=true

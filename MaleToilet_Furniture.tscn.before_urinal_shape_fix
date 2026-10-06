@@ -1,0 +1,302 @@
+[gd_scene format=3 uid="uid://vokmj6ud2crw"]
+
+[sub_resource type="StandardMaterial3D" id="Material_Ceramic"]
+albedo_color = Color(0.92, 0.93, 0.91, 1)
+roughness = 0.28
+
+[sub_resource type="BoxMesh" id="Mesh_Base"]
+size = Vector3(1.15, 0.12, 1.5)
+
+[sub_resource type="BoxMesh" id="Mesh_Foot"]
+size = Vector3(0.28, 0.1, 0.95)
+
+[sub_resource type="BoxMesh" id="Mesh_Lip"]
+size = Vector3(0.86, 0.1, 0.16)
+
+[sub_resource type="StandardMaterial3D" id="Material_Dark"]
+albedo_color = Color(0.06, 0.06, 0.055, 1)
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="Mesh_Hole"]
+size = Vector3(0.34, 0.05, 0.66)
+
+[sub_resource type="StandardMaterial3D" id="Material_Partition"]
+albedo_color = Color(0.78, 0.8, 0.8, 1)
+roughness = 0.62
+
+[sub_resource type="BoxMesh" id="Mesh_Divider"]
+size = Vector3(0.08, 5.591504, 3)
+
+[sub_resource type="BoxMesh" id="Mesh_UrinalBack"]
+size = Vector3(0.42, 0.72, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_UrinalBowl"]
+size = Vector3(0.5, 0.72, 0.38)
+
+[sub_resource type="BoxMesh" id="Mesh_Counter"]
+size = Vector3(1.35, 0.78, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_Sink"]
+size = Vector3(1.15, 0.14, 0.58)
+
+[sub_resource type="BoxMesh" id="Mesh_Mirror"]
+size = Vector3(1.3, 1, 0.05)
+
+[sub_resource type="BoxMesh" id="Mesh_Soap"]
+size = Vector3(0.18, 0.28, 0.12)
+
+[sub_resource type="BoxMesh" id="Mesh_Bin"]
+size = Vector3(0.5, 0.7, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="Material_Metal"]
+albedo_color = Color(0.55, 0.58, 0.6, 1)
+metallic = 0.72
+roughness = 0.28
+
+[sub_resource type="CylinderMesh" id="Mesh_Drain"]
+top_radius = 0.09
+bottom_radius = 0.09
+height = 0.03
+radial_segments = 16
+
+[node name="MaleToilet_Furniture" type="Node3D" unique_id=1505739028]
+
+[node name="FurnitureRoot" type="Node3D" parent="." unique_id=1631054195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3750823)
+
+[node name="ToiletStall_01" type="Node3D" parent="FurnitureRoot" unique_id=1074162919]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.7, 0, 4)
+
+[node name="CeramicBase" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_01" unique_id=1976717267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Base")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_01" unique_id=1769128356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31, 0.15, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_01" unique_id=402142752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31, 0.15, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FrontLip" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_01" unique_id=301168011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0.61)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Lip")
+
+[node name="RearLip" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_01" unique_id=2030988995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, -0.61)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Lip")
+
+[node name="Opening" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_01" unique_id=1465332889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145, 0.02)
+material_override = SubResource("Material_Dark")
+mesh = SubResource("Mesh_Hole")
+
+[node name="ToiletStall_02" type="Node3D" parent="FurnitureRoot" unique_id=1394221223]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.7, 0, 0.802)
+
+[node name="CeramicBase" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_02" unique_id=1417150123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Base")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_02" unique_id=874527650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31, 0.15, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_02" unique_id=2067482385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31, 0.15, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FrontLip" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_02" unique_id=1976688952]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0.61)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Lip")
+
+[node name="RearLip" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_02" unique_id=192595499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, -0.61)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Lip")
+
+[node name="Opening" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_02" unique_id=842060019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145, 0.02)
+material_override = SubResource("Material_Dark")
+mesh = SubResource("Mesh_Hole")
+
+[node name="ToiletStall_03" type="Node3D" parent="FurnitureRoot" unique_id=488516440]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.7, 0, -2.15)
+
+[node name="CeramicBase" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_03" unique_id=740965323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Base")
+
+[node name="FootLeft" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_03" unique_id=983798077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31, 0.15, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FootRight" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_03" unique_id=489082811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31, 0.15, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Foot")
+
+[node name="FrontLip" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_03" unique_id=2142633451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0.61)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Lip")
+
+[node name="RearLip" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_03" unique_id=608401341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, -0.61)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Lip")
+
+[node name="Opening" type="MeshInstance3D" parent="FurnitureRoot/ToiletStall_03" unique_id=1496979299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145, 0.02)
+material_override = SubResource("Material_Dark")
+mesh = SubResource("Mesh_Hole")
+
+[node name="Partition_01" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1703392101]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 2.796, -0.672)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Divider")
+
+[node name="Partition_04" type="MeshInstance3D" parent="FurnitureRoot" unique_id=2000798008]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 2.795752, -3.6709397)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Divider")
+
+[node name="Partition_02" type="MeshInstance3D" parent="FurnitureRoot" unique_id=2140497587]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 2.796, 2.064)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Divider")
+
+[node name="Partition_03" type="MeshInstance3D" parent="FurnitureRoot" unique_id=669578378]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 2.796, 5.027)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Divider")
+
+[node name="UrinalArea" type="Node3D" parent="FurnitureRoot" unique_id=1541499824]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.47764158, 0, 2.3457623)
+
+[node name="Urinal_01" type="Node3D" parent="FurnitureRoot/UrinalArea" unique_id=1373408247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82, 0, 0.85)
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_01" unique_id=767867309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBack")
+
+[node name="Bowl" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_01" unique_id=962546247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.14)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBowl")
+
+[node name="Urinal_02" type="Node3D" parent="FurnitureRoot/UrinalArea" unique_id=264640642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82, 0, -0.45)
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_02" unique_id=1756644088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBack")
+
+[node name="Bowl" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_02" unique_id=1405497432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.14)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBowl")
+
+[node name="Urinal_03" type="Node3D" parent="FurnitureRoot/UrinalArea" unique_id=2143500765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82, 0, -1.75)
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_03" unique_id=1384422921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBack")
+
+[node name="Bowl" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_03" unique_id=380501720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.14)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBowl")
+
+[node name="Urinal_04" type="Node3D" parent="FurnitureRoot/UrinalArea" unique_id=763224039]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82, 0, -3.05)
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_04" unique_id=2124662548]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBack")
+
+[node name="Bowl" type="MeshInstance3D" parent="FurnitureRoot/UrinalArea/Urinal_04" unique_id=985774448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -0.14)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_UrinalBowl")
+
+[node name="SinkArea" type="Node3D" parent="FurnitureRoot" unique_id=727759740]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.024, 1, 0.878)
+
+[node name="Counter_Left" type="MeshInstance3D" parent="FurnitureRoot/SinkArea" unique_id=207273649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73406434, 0, 3.195)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Counter")
+
+[node name="Sink_Left" type="MeshInstance3D" parent="FurnitureRoot/SinkArea/Counter_Left" unique_id=1205927906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Sink")
+
+[node name="Mirror_Left" type="MeshInstance3D" parent="FurnitureRoot/SinkArea/Counter_Left" unique_id=113581566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33, -0.25)
+material_override = SubResource("Material_Dark")
+mesh = SubResource("Mesh_Mirror")
+
+[node name="Soap_Left" type="MeshInstance3D" parent="FurnitureRoot/SinkArea/Counter_Left" unique_id=1826212889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28188998, 0.6325133, 0.055000067)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Soap")
+
+[node name="Sink_Right" type="MeshInstance3D" parent="FurnitureRoot/SinkArea" unique_id=1606203028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8681102, 0.44, 3.1949997)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Sink")
+
+[node name="Counter_Right" type="MeshInstance3D" parent="FurnitureRoot/SinkArea/Sink_Right" unique_id=403189029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44, 0)
+material_override = SubResource("Material_Ceramic")
+mesh = SubResource("Mesh_Counter")
+
+[node name="Mirror_Right" type="MeshInstance3D" parent="FurnitureRoot/SinkArea/Sink_Right" unique_id=961024240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8572977, -0.2689867)
+material_override = SubResource("Material_Dark")
+mesh = SubResource("Mesh_Mirror")
+
+[node name="Soap_Right" type="MeshInstance3D" parent="FurnitureRoot/SinkArea/Sink_Right" unique_id=682565569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4181105, 0.20202547, 0.055000305)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Soap")
+
+[node name="TrashBin" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1779771372]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.924, 0.5, -2.372)
+material_override = SubResource("Material_Partition")
+mesh = SubResource("Mesh_Bin")
+
+[node name="FloorDrain_01" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1917677569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0649614, 0.025, -1.2559972)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Drain")
+
+[node name="FloorDrain_02" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1747430777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1206937, 0.025, -0.21026802)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Drain")
+
+[node name="FloorDrain_03" type="MeshInstance3D" parent="FurnitureRoot" unique_id=1110979677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 0.025, 2.8604898)
+material_override = SubResource("Material_Metal")
+mesh = SubResource("Mesh_Drain")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_roof"]
+albedo_color = Color(0.22, 0.23, 0.22, 1)
+roughness = 0.82
+metallic = 0.05
+shading_mode = 0
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="Mesh_roof_flat"]
+size = Vector3(127.404, 0.30, 103.233)
+
+[node name="Map58_Roof" type="Node3D"]
+
+[node name="RoofFlat" type="MeshInstance3D" parent="."]
+position = Vector3(0, 9.75, 0)
+mesh = SubResource("Mesh_roof_flat")
+material_override = SubResource("Mat_roof")

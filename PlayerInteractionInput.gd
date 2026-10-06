@@ -78,6 +78,13 @@ func _handle_left_release() -> void:
 		target.stop_drawing(player)
 
 func _handle_right_press() -> void:
+	if bool(player.get_meta("is_hidden", false)):
+		var hidden_spot := player.get_meta("hide_spot", null) as Node
+		if hidden_spot != null and is_instance_valid(hidden_spot):
+			if hidden_spot.has_method("toggle_hide"):
+				hidden_spot.toggle_hide(player)
+		return
+
 	var target := _get_look_target()
 	if target != null and target.has_method("toggle_hide"):
 		target.toggle_hide(player)

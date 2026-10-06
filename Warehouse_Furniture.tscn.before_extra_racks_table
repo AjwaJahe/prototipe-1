@@ -1,0 +1,954 @@
+[gd_scene format=3 uid="uid://doquvbopv5ecj"]
+
+[sub_resource type="StandardMaterial3D" id="MatFrame"]
+albedo_color = Color(0.2, 0.12, 0.055, 1)
+roughness = 0.94
+
+[sub_resource type="BoxMesh" id="post"]
+material = SubResource("MatFrame")
+size = Vector3(0.14, 4.2, 0.14)
+
+[sub_resource type="StandardMaterial3D" id="MatShelf"]
+albedo_color = Color(0.38, 0.23, 0.1, 1)
+roughness = 0.88
+
+[sub_resource type="BoxMesh" id="shelf"]
+material = SubResource("MatShelf")
+size = Vector3(2.85, 0.12, 1.05)
+
+[sub_resource type="StandardMaterial3D" id="MatBox1"]
+albedo_color = Color(0.62, 0.44, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="box"]
+material = SubResource("MatBox1")
+size = Vector3(0.5, 0.5, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="MatBox2"]
+albedo_color = Color(0.48, 0.34, 0.19, 1)
+
+[sub_resource type="BoxMesh" id="box2"]
+material = SubResource("MatBox2")
+size = Vector3(0.5, 0.5, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="MatBox3"]
+albedo_color = Color(0.7, 0.53, 0.31, 1)
+
+[sub_resource type="BoxMesh" id="box3"]
+material = SubResource("MatBox3")
+size = Vector3(0.5, 0.5, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="MatBox4"]
+albedo_color = Color(0.42, 0.3, 0.18, 1)
+
+[sub_resource type="BoxMesh" id="box4"]
+material = SubResource("MatBox4")
+size = Vector3(0.5, 0.5, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="MatCrate"]
+albedo_color = Color(0.5, 0.29, 0.11, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="crate_body"]
+material = SubResource("MatCrate")
+size = Vector3(3.2, 1.9, 1.6)
+
+[sub_resource type="StandardMaterial3D" id="MatCrateDark"]
+albedo_color = Color(0.2, 0.11, 0.045, 1)
+roughness = 0.96
+
+[sub_resource type="BoxMesh" id="crate_band_v"]
+material = SubResource("MatCrateDark")
+size = Vector3(0.14, 2, 1.68)
+
+[sub_resource type="BoxMesh" id="crate_band_h"]
+material = SubResource("MatCrateDark")
+size = Vector3(3.2, 0.14, 1.68)
+
+[sub_resource type="StandardMaterial3D" id="MatLabel"]
+albedo_color = Color(0.86, 0.76, 0.54, 1)
+
+[sub_resource type="BoxMesh" id="crate_label"]
+material = SubResource("MatLabel")
+size = Vector3(1.05, 0.56, 0.05)
+
+[node name="Warehouse_Furniture" type="Node3D" unique_id=1817555379]
+
+[node name="FurnitureRoot" type="Node3D" parent="." unique_id=36955682]
+
+[node name="Rack_Right_01" type="Node3D" parent="FurnitureRoot" unique_id=193196573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=57598559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1649412872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1681886566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1760501696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=71403840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1335957076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=427928383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1384636602]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=100008154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1704009526]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=521177334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=471699990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=2000942523]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=412676004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=215838873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=424372567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1404847129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=194713752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1051663253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=428183143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=665261394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=1024661184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_01" unique_id=899030838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Right_02" type="Node3D" parent="FurnitureRoot" unique_id=1281652799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=188263783]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=328988097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=69811792]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=820773942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=1642244948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=544960812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=933425104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=743626666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=137223911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=424762542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=1658737599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=2063884033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=21342199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=77778798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=298638023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=659658641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=1270816005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=199207908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=836410375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=628112900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=52596830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=1879464873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_02" unique_id=1541771939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Right_03" type="Node3D" parent="FurnitureRoot" unique_id=1336573914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=81062736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1818865832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1910528864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=956988511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=707873697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=244243093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=670289430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=607553445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1401415138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1539690452]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=70383267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=223288246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=754759439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1518084987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1295774855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=501303325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1944041355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1741357263]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=901744866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1043766610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1284181142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1425294350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_03" unique_id=1026008556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Right_04" type="Node3D" parent="FurnitureRoot" unique_id=82244197]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 4, 0, 7)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1813492901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=430942072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1975315972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=340111808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=471892313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=480091705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=147637979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=931982813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=728747119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1661837532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=349931480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=521054464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=866462645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1066635663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=610200772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1465861173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1098713500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1272329916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=573413412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1227056618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1556044980]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1220000490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Right_04" unique_id=1732274748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Back_01" type="Node3D" parent="FurnitureRoot" unique_id=1035355987]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 7)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=821516581]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=431637587]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=977227087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=830821595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=407954711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1604356123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=853444055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=843533629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1072909648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1730057033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=20964941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=2039083365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=812634104]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1103695098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1790546429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=2139839535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=2090953085]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=607151795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=2000283331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=2130895381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1024805081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=777547563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_01" unique_id=1026020127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Back_02" type="Node3D" parent="FurnitureRoot" unique_id=951530401]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.5, 0, 7)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=372841425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1095541825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=261948467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=151982070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1637607164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1005037981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1892441315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1847449410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1751822380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1191376542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=477124663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=192989092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1244358411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1943051990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=94212774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1282098492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=970937651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=638991038]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1442872635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1691783985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1655280677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=896427081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_02" unique_id=1885165467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Back_03" type="Node3D" parent="FurnitureRoot" unique_id=1107324466]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0, 7)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=428105720]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=2115374976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=240068788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=16150940]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1445861786]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1985553900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=2036376512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1517107942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=2097479710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=817247914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1490759351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=404937340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=2128137833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=54923547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1463221380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=379418608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=943704982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=129100449]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=410408100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1005246673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1342425487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1478198501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Back_03" unique_id=1544432428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Left_Lower" type="Node3D" parent="FurnitureRoot" unique_id=1860360559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=2031404185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=317693590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1776554174]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=188619192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=863860189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=182423158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=2107540918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1147462427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1215027336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1656267075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1302815586]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=687050488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=439437122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=485598285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1375324843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=896846979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=444987278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=82709696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1800159904]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=643265947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=834057547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=1287497574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower" unique_id=946978968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="Rack_Left_Lower2" type="Node3D" parent="FurnitureRoot" unique_id=1988311133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="PostL" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1337464596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="PostR" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=2007121965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28, 2.1, 0)
+mesh = SubResource("post")
+
+[node name="Shelf_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=26608317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_0_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=703146970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.83, 0)
+mesh = SubResource("box")
+
+[node name="Box_0_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1709371681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 0.83, 0)
+mesh = SubResource("box2")
+
+[node name="Box_0_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=174486658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 0.83, 0)
+mesh = SubResource("box3")
+
+[node name="Box_0_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1271573064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 0.83, 0)
+mesh = SubResource("box4")
+
+[node name="Shelf_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1221715154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_1_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1365170149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 1.68, 0)
+mesh = SubResource("box2")
+
+[node name="Box_1_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1800974083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 1.68, 0)
+mesh = SubResource("box3")
+
+[node name="Box_1_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=61267614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 1.68, 0)
+mesh = SubResource("box4")
+
+[node name="Box_1_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1037397398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 1.68, 0)
+mesh = SubResource("box")
+
+[node name="Shelf_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1981210947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_2_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=472166027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 2.53, 0)
+mesh = SubResource("box3")
+
+[node name="Box_2_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=144498362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 2.53, 0)
+mesh = SubResource("box4")
+
+[node name="Box_2_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1378444734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 2.53, 0)
+mesh = SubResource("box")
+
+[node name="Box_2_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=645067035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 2.53, 0)
+mesh = SubResource("box2")
+
+[node name="Shelf_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=563262828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95, 0)
+mesh = SubResource("shelf")
+
+[node name="Box_3_0" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1929448654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 3.38, 0)
+mesh = SubResource("box4")
+
+[node name="Box_3_1" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=536881590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28, 3.38, 0)
+mesh = SubResource("box")
+
+[node name="Box_3_2" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=1335135069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29, 3.38, 0)
+mesh = SubResource("box2")
+
+[node name="Box_3_3" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=2090603212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.86, 3.38, 0)
+mesh = SubResource("box3")
+
+[node name="Shelf_4" type="MeshInstance3D" parent="FurnitureRoot/Rack_Left_Lower2" unique_id=573562778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.72, 0)
+mesh = SubResource("shelf")
+
+[node name="LargeStorageCrate" type="Node3D" parent="FurnitureRoot" unique_id=1414160753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034770012, 0, -11)
+
+[node name="Body" type="MeshInstance3D" parent="FurnitureRoot/LargeStorageCrate" unique_id=1252152273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+mesh = SubResource("crate_body")
+
+[node name="BandLeft" type="MeshInstance3D" parent="FurnitureRoot/LargeStorageCrate" unique_id=1703436957]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.95, 0)
+mesh = SubResource("crate_band_v")
+
+[node name="BandRight" type="MeshInstance3D" parent="FurnitureRoot/LargeStorageCrate" unique_id=525538988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.95, 0)
+mesh = SubResource("crate_band_v")
+
+[node name="BandTop" type="MeshInstance3D" parent="FurnitureRoot/LargeStorageCrate" unique_id=4573639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78, 0)
+mesh = SubResource("crate_band_h")
+
+[node name="Label" type="MeshInstance3D" parent="FurnitureRoot/LargeStorageCrate" unique_id=685960475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.82)
+mesh = SubResource("crate_label")

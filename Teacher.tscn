@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" path="res://TeacherModel.tscn" id="1_model"]
 [ext_resource type="Script" path="res://TeacherAnimation.gd" id="2_anim"]
+[ext_resource type="Script" path="res://TeacherAI.gd" id="3_ai"]
 
 [sub_resource type="CapsuleShape3D" id="TeacherCollision"]
 radius = 0.42
 height = 2.15
 
 [node name="Teacher" type="CharacterBody3D"]
+script = ExtResource("3_ai")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 position = Vector3(0, 1.08, 0)

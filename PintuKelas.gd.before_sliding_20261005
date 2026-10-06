@@ -1,0 +1,25 @@
+extends Node3D
+
+@export var open_angle_degrees: float = 95.0
+@export var animation_duration: float = 0.35
+
+@onready var door_pivot: AnimatableBody3D = $DoorPivot
+
+var _is_open := false
+var _tween: Tween
+
+func interact(_player: Node = null) -> void:
+	if door_pivot == null:
+		return
+
+	if _tween != null:
+		_tween.kill()
+
+	var target_angle := 0.0 if _is_open else deg_to_rad(open_angle_degrees)
+
+	_tween = create_tween()
+	_tween.set_trans(Tween.TRANS_SINE)
+	_tween.set_ease(Tween.EASE_OUT)
+	_tween.tween_property(door_pivot, "rotation:y", target_angle, animation_duration)
+
+	_is_open = not _is_open

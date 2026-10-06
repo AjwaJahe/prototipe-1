@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://items/PickupItem.gd" id="1_pickup"]
+
+[sub_resource type="StandardMaterial3D" id="MatPaper"]
+albedo_color = Color(0.92, 0.89, 0.78, 1)
+roughness = 0.92
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="MeshPaper"]
+size = Vector3(0.42, 0.018, 0.60)
+
+[sub_resource type="BoxShape3D" id="ShapePaper"]
+size = Vector3(0.42, 0.018, 0.60)
+
+[sub_resource type="StandardMaterial3D" id="MatInk"]
+albedo_color = Color(0.08, 0.08, 0.07, 1)
+roughness = 0.95
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="MeshInk"]
+size = Vector3(0.25, 0.004, 0.014)
+
+[node name="KertasSoal" type="StaticBody3D"]
+script = ExtResource("1_pickup")
+item_type = "paper"
+display_name = "Kertas Soal"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.009, 0)
+mesh = SubResource("MeshPaper")
+material_override = SubResource("MatPaper")
+
+[node name="Print_01" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.020, -0.17)
+mesh = SubResource("MeshInk")
+material_override = SubResource("MatInk")
+
+[node name="Print_02" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.020, -0.11)
+mesh = SubResource("MeshInk")
+material_override = SubResource("MatInk")
+scale = Vector3(0.78, 1, 1)
+
+[node name="Print_03" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.020, -0.05)
+mesh = SubResource("MeshInk")
+material_override = SubResource("MatInk")
+scale = Vector3(0.64, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.009, 0)
+shape = SubResource("ShapePaper")

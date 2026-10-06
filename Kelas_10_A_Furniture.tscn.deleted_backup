@@ -1,0 +1,549 @@
+[gd_scene format=3 uid="uid://lydjyg0lrrgy"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_Wood"]
+albedo_color = Color(0.52, 0.28, 0.10, 1)
+roughness = 0.68
+
+[sub_resource type="StandardMaterial3D" id="Mat_WoodDark"]
+albedo_color = Color(0.30, 0.14, 0.055, 1)
+roughness = 0.72
+
+[sub_resource type="StandardMaterial3D" id="Mat_Green"]
+albedo_color = Color(0.10, 0.28, 0.16, 1)
+roughness = 0.75
+
+[sub_resource type="StandardMaterial3D" id="Mat_White"]
+albedo_color = Color(0.88, 0.88, 0.84, 1)
+roughness = 0.82
+
+[sub_resource type="StandardMaterial3D" id="Mat_Metal"]
+albedo_color = Color(0.18, 0.18, 0.17, 1)
+metallic = 0.62
+roughness = 0.34
+
+[sub_resource type="BoxMesh" id="Mesh_DeskTop"]
+size = Vector3(1.65, 0.12, 1.05)
+
+[sub_resource type="BoxMesh" id="Mesh_DeskSide"]
+size = Vector3(0.10, 0.72, 1.05)
+
+[sub_resource type="BoxMesh" id="Mesh_DeskLeg"]
+size = Vector3(0.10, 0.70, 0.10)
+
+[sub_resource type="BoxMesh" id="Mesh_Board"]
+size = Vector3(0.16, 2.45, 9.60)
+
+[sub_resource type="BoxMesh" id="Mesh_BoardFrameTop"]
+size = Vector3(0.22, 0.12, 9.90)
+
+[sub_resource type="BoxMesh" id="Mesh_BoardFrameSide"]
+size = Vector3(0.22, 2.70, 0.12)
+
+[sub_resource type="BoxMesh" id="Mesh_Cupboard"]
+size = Vector3(1.05, 1.85, 3.60)
+
+[sub_resource type="BoxMesh" id="Mesh_CupboardShelf"]
+size = Vector3(0.16, 0.08, 3.25)
+
+[sub_resource type="BoxMesh" id="Mesh_TeacherDesk"]
+size = Vector3(1.80, 0.76, 1.05)
+
+[sub_resource type="BoxMesh" id="Mesh_ChairSeat"]
+size = Vector3(0.62, 0.12, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_ChairBack"]
+size = Vector3(0.10, 0.72, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_ChairLeg"]
+size = Vector3(0.08, 0.62, 0.08)
+
+[node name="Kelas_10_A_Furniture" type="Node3D"]
+
+[node name="FurnitureRoot" type="Node3D" parent="."]
+
+[node name="Whiteboard" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(7.85, 2.05, 0)
+
+[node name="Board" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard"]
+material_override = SubResource("Mat_Green")
+mesh = SubResource("Mesh_Board")
+
+[node name="FrameTop" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard"]
+position = Vector3(-0.04, 1.29, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameTop")
+
+[node name="FrameBottom" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard"]
+position = Vector3(-0.04, -1.41, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameTop")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard"]
+position = Vector3(-0.04, -0.06, -4.89)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameSide")
+
+[node name="FrameRight" type="MeshInstance3D" parent="FurnitureRoot/Whiteboard"]
+position = Vector3(-0.04, -0.06, 4.89)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_BoardFrameSide")
+
+[node name="TeacherDesk" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(5.45, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/TeacherDesk"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_TeacherDesk")
+
+[node name="SideLeft" type="MeshInstance3D" parent="FurnitureRoot/TeacherDesk"]
+position = Vector3(0, 0.51, -0.43)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_DeskSide")
+
+[node name="SideRight" type="MeshInstance3D" parent="FurnitureRoot/TeacherDesk"]
+position = Vector3(0, 0.51, 0.43)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_DeskSide")
+
+[node name="StudentDesks" type="Node3D" parent="FurnitureRoot"]
+
+[node name="Desk_01" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(-6.8, 0, -4.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_02" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(-6.8, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_03" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(-6.8, 0, 4.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_04" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(-3, 0, -4.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_05" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(-3, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_06" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(-3, 0, 4.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_07" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(0.8, 0, -4.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_08" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(0.8, 0, 0)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Desk_09" type="Node3D" parent="FurnitureRoot/StudentDesks"]
+position = Vector3(0.8, 0, 4.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09"]
+position = Vector3(0, 1.02, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_DeskTop")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09"]
+position = Vector3(-0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09"]
+position = Vector3(0.67, 0.51, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="BagHook" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09"]
+position = Vector3(0.0, 0.62, -0.58)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_DeskLeg")
+
+[node name="Cupboard" type="Node3D" parent="FurnitureRoot"]
+position = Vector3(-7.85, 0, 3.6)
+
+[node name="Body" type="MeshInstance3D" parent="FurnitureRoot/Cupboard"]
+position = Vector3(0, 0.925, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Cupboard")
+
+[node name="Shelf_01" type="MeshInstance3D" parent="FurnitureRoot/Cupboard"]
+position = Vector3(0, 0.64, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_CupboardShelf")
+
+[node name="Shelf_02" type="MeshInstance3D" parent="FurnitureRoot/Cupboard"]
+position = Vector3(0, 1.18, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_CupboardShelf")
+
+[node name="Shelf_03" type="MeshInstance3D" parent="FurnitureRoot/Cupboard"]
+position = Vector3(0, 1.62, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_CupboardShelf")
+
+[node name="Chair_01" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_01"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01/Chair_01"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01/Chair_01"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01/Chair_01"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_01/Chair_01"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_02" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_02"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02/Chair_02"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02/Chair_02"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02/Chair_02"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_02/Chair_02"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_03" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_03"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03/Chair_03"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03/Chair_03"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03/Chair_03"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_03/Chair_03"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_04" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_04"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04/Chair_04"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04/Chair_04"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04/Chair_04"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_04/Chair_04"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_05" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_05"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05/Chair_05"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05/Chair_05"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05/Chair_05"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_05/Chair_05"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_06" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_06"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06/Chair_06"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06/Chair_06"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06/Chair_06"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_06/Chair_06"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_07" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_07"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07/Chair_07"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07/Chair_07"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07/Chair_07"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_07/Chair_07"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_08" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_08"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08/Chair_08"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08/Chair_08"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08/Chair_08"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_08/Chair_08"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Chair_09" type="Node3D" parent="FurnitureRoot/StudentDesks/Desk_09"]
+position = Vector3(-1.42, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09/Chair_09"]
+position = Vector3(0, 0.46, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_ChairSeat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09/Chair_09"]
+position = Vector3(-0.27, 0.82, 0)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_ChairBack")
+
+[node name="Leg_Left" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09/Chair_09"]
+position = Vector3(-0.22, 0.23, -0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+[node name="Leg_Right" type="MeshInstance3D" parent="FurnitureRoot/StudentDesks/Desk_09/Chair_09"]
+position = Vector3(-0.22, 0.23, 0.22)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_ChairLeg")
+
+
+

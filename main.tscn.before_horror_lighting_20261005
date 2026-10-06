@@ -1,0 +1,274 @@
+[gd_scene format=3 uid="uid://ch72vqv4gjqlt"]
+
+[ext_resource type="PackedScene" uid="uid://de85urc7xvr18" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bng7o3tab5iml" path="res://lantai.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bas2emljo8uk1" path="res://map58/Map58.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://drkunxer5dfrv" path="res://Map58_SpawnManager.gd" id="4_spawn"]
+[ext_resource type="PackedScene" path="res://Teacher.tscn" id="5_teacher"]
+[ext_resource type="PackedScene" uid="uid://b7l75jdi3ly3p" path="res://Map58_Furniture.tscn" id="6_furniture"]
+[ext_resource type="PackedScene" uid="uid://ses6lko2vaa5" path="res://BasketballCourt.tscn" id="7_basket"]
+[ext_resource type="PackedScene" uid="uid://syv0u3a3f1qf" path="res://BasketballBleachers.tscn" id="8_bleachers"]
+[ext_resource type="PackedScene" path="res://Map58_WallAboveOpenings.tscn" id="9_wall_caps"]
+[ext_resource type="PackedScene" path="res://Map58_Roof.tscn" id="10_roof"]
+[ext_resource type="PackedScene" path="res://Map58_Lighting.tscn" id="11_lighting"]
+
+[sub_resource type="Environment" id="Env_horror"]
+background_mode = 1
+background_color = Color(0.015, 0.018, 0.022, 1)
+background_energy_multiplier = 0.2
+ambient_light_source = 3
+ambient_light_color = Color(0.42, 0.45, 0.5, 1)
+ambient_light_energy = 0.22
+reflected_light_source = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_ceiling_lamp"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 0.96, 0.82, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_ceiling_lamp"]
+size = Vector3(2.4, 0.08, 0.65)
+
+[node name="Main" type="Node3D" unique_id=1437950529]
+
+[node name="Player" parent="." unique_id=387136255 instance=ExtResource("1_0xm2m")]
+
+[node name="Lantai" parent="." unique_id=857479751 instance=ExtResource("2_h2yge")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1376549331]
+environment = SubResource("Env_horror")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1291981908]
+transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 45, 0)
+light_energy = 4.84
+
+[node name="Map58" parent="." unique_id=1373125441 instance=ExtResource("3_h2yge")]
+
+[node name="SpawnManager" type="Node3D" parent="." unique_id=1884000001]
+script = ExtResource("4_spawn")
+
+[node name="StudentSpawns" type="Node3D" parent="SpawnManager" unique_id=1884000002]
+
+[node name="Kelas_10_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, -0.180012, -26.45901)
+
+[node name="Kelas_10_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, -0.180012, -26.45901)
+
+[node name="Kelas_10_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000012]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180012, -26.45901)
+
+[node name="Kelas_10_D" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, -0.180012, -26.45901)
+
+[node name="Kelas_11_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, -0.180013, -45.841)
+
+[node name="Kelas_11_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, -0.180013, -45.841)
+
+[node name="Kelas_11_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180013, -45.841)
+
+[node name="Kelas_11_D" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, -0.180013, -45.841)
+
+[node name="Kelas_12_A" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, -0.180014, -65.21802)
+
+[node name="Kelas_12_B" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, -0.180014, -65.21802)
+
+[node name="Kelas_12_C" type="Marker3D" parent="SpawnManager/StudentSpawns" unique_id=1884000020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180014, -65.21802)
+
+[node name="TeacherSpawn" type="Marker3D" parent="SpawnManager" unique_id=1884000021]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, -0.180013, -41.5864)
+
+[node name="Teacher" parent="." unique_id=1037771686 instance=ExtResource("5_teacher")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, 0.819987, -41.5864)
+
+[node name="Furniture" parent="." unique_id=1821440065 instance=ExtResource("6_furniture")]
+
+[node name="BasketballCourt" parent="." unique_id=1740109745 instance=ExtResource("7_basket")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4047, -0.18, 8.0614)
+
+[node name="BasketballBleachers" parent="." unique_id=472992913 instance=ExtResource("8_bleachers")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -0.18, -3.49)
+
+[node name="Map58_WallAboveOpenings" parent="." unique_id=848082908 instance=ExtResource("9_wall_caps")]
+
+[node name="Map58_Roof" parent="." unique_id=221038334 instance=ExtResource("10_roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82425, 0, -26.4991)
+
+[node name="Map58_AdditionalLighting" parent="." unique_id=753648456 instance=ExtResource("11_lighting")]
+
+[node name="Map58_Lighting" type="Node3D" parent="." unique_id=1531758293]
+
+[node name="Lampu_10_A" type="Node3D" parent="Map58_Lighting" unique_id=2116312080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, 9.45, -26.45901)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_10_A" unique_id=1032959384]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_10_A" unique_id=682656384]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_10_B" type="Node3D" parent="Map58_Lighting" unique_id=64619779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, 9.45, -26.45901)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_10_B" unique_id=192377308]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_10_B" unique_id=107942692]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_10_C" type="Node3D" parent="Map58_Lighting" unique_id=604986615]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, 9.45, -26.45901)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_10_C" unique_id=963655164]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_10_C" unique_id=1110349754]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_10_D" type="Node3D" parent="Map58_Lighting" unique_id=988058193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, 9.45, -26.45901)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_10_D" unique_id=261358202]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_10_D" unique_id=647561355]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_11_A" type="Node3D" parent="Map58_Lighting" unique_id=1878774451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, 9.45, -45.841)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_11_A" unique_id=1095540720]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_11_A" unique_id=1245874435]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_11_B" type="Node3D" parent="Map58_Lighting" unique_id=1790396932]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, 9.45, -45.841)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_11_B" unique_id=903514883]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_11_B" unique_id=563385219]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_11_C" type="Node3D" parent="Map58_Lighting" unique_id=1320799853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, 9.45, -45.841)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_11_C" unique_id=1418845872]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_11_C" unique_id=209106463]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_11_D" type="Node3D" parent="Map58_Lighting" unique_id=328950986]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, 9.45, -45.841)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_11_D" unique_id=369454038]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_11_D" unique_id=753789111]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_12_A" type="Node3D" parent="Map58_Lighting" unique_id=541002902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, 9.45, -65.21802)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_12_A" unique_id=1760957136]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_12_A" unique_id=1093474297]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_12_B" type="Node3D" parent="Map58_Lighting" unique_id=2038504378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.79099, 9.45, -65.21802)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_12_B" unique_id=1351510259]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_12_B" unique_id=202774843]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_12_C" type="Node3D" parent="Map58_Lighting" unique_id=677686519]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, 9.45, -65.21802)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_12_C" unique_id=1356166582]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_12_C" unique_id=887546219]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0
+
+[node name="Lampu_12_D" type="Node3D" parent="Map58_Lighting" unique_id=1896971759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.66599, 9.45, -65.21802)
+
+[node name="Fixture" type="MeshInstance3D" parent="Map58_Lighting/Lampu_12_D" unique_id=1985364848]
+material_override = SubResource("Mat_ceiling_lamp")
+mesh = SubResource("Mesh_ceiling_lamp")
+
+[node name="Light" type="SpotLight3D" parent="Map58_Lighting/Lampu_12_D" unique_id=899265022]
+transform = Transform3D(1, 0, 0, 0, -3.6199901e-06, 1, 0, -1, -3.6199901e-06, 0, -0.08, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 0.48
+spot_range = 13.0
+spot_angle = 105.0

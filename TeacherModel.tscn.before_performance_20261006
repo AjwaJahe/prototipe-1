@@ -1,0 +1,142 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="MatSkin"]
+albedo_color = Color(0.72, 0.48, 0.32, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="MatShirt"]
+albedo_color = Color(0.78, 0.86, 0.90, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="MatPants"]
+albedo_color = Color(0.08, 0.10, 0.14, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="MatShoes"]
+albedo_color = Color(0.025, 0.025, 0.03, 1)
+roughness = 0.75
+
+[sub_resource type="StandardMaterial3D" id="MatHair"]
+albedo_color = Color(0.035, 0.025, 0.02, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="MatTie"]
+albedo_color = Color(0.38, 0.05, 0.045, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="MatRuler"]
+albedo_color = Color(0.66, 0.44, 0.18, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="MeshTorso"]
+size = Vector3(0.95, 1.15, 0.52)
+material = SubResource("MatShirt")
+
+[sub_resource type="SphereMesh" id="MeshHead"]
+radius = 0.38
+height = 0.76
+radial_segments = 12
+rings = 8
+material = SubResource("MatSkin")
+
+[sub_resource type="BoxMesh" id="MeshHair"]
+size = Vector3(0.66, 0.22, 0.66)
+material = SubResource("MatHair")
+
+[sub_resource type="BoxMesh" id="MeshTie"]
+size = Vector3(0.12, 0.58, 0.055)
+material = SubResource("MatTie")
+
+[sub_resource type="CylinderMesh" id="MeshArm"]
+top_radius = 0.14
+bottom_radius = 0.16
+height = 0.92
+radial_segments = 8
+rings = 1
+material = SubResource("MatShirt")
+
+[sub_resource type="SphereMesh" id="MeshHand"]
+radius = 0.16
+height = 0.32
+radial_segments = 10
+rings = 6
+material = SubResource("MatSkin")
+
+[sub_resource type="BoxMesh" id="MeshLeg"]
+size = Vector3(0.32, 0.95, 0.36)
+material = SubResource("MatPants")
+
+[sub_resource type="BoxMesh" id="MeshShoe"]
+size = Vector3(0.38, 0.20, 0.62)
+material = SubResource("MatShoes")
+
+[sub_resource type="BoxMesh" id="MeshRuler"]
+size = Vector3(0.055, 0.92, 0.07)
+material = SubResource("MatRuler")
+
+[sub_resource type="BoxMesh" id="MeshGlasses"]
+size = Vector3(0.54, 0.08, 0.06)
+material = SubResource("MatHair")
+
+[node name="TeacherModel" type="Node3D"]
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Torso" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 1.48, 0)
+mesh = SubResource("MeshTorso")
+
+[node name="Head" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 2.30, 0)
+mesh = SubResource("MeshHead")
+
+[node name="Hair" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 2.61, 0)
+mesh = SubResource("MeshHair")
+
+[node name="Tie" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 1.58, -0.285)
+mesh = SubResource("MeshTie")
+
+[node name="LeftArm" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.61, 1.44, 0)
+rotation = Vector3(0, 0, -0.10)
+mesh = SubResource("MeshArm")
+
+[node name="RightArm" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.61, 1.44, 0)
+rotation = Vector3(0, 0, 0.10)
+mesh = SubResource("MeshArm")
+
+[node name="LeftHand" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.67, 0.96, 0)
+mesh = SubResource("MeshHand")
+
+[node name="RightHand" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.67, 0.96, 0)
+mesh = SubResource("MeshHand")
+
+[node name="LeftLeg" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.22, 0.58, 0)
+mesh = SubResource("MeshLeg")
+
+[node name="RightLeg" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.22, 0.58, 0)
+mesh = SubResource("MeshLeg")
+
+[node name="LeftShoe" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.22, 0.12, -0.09)
+mesh = SubResource("MeshShoe")
+
+[node name="RightShoe" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.22, 0.12, -0.09)
+mesh = SubResource("MeshShoe")
+
+[node name="Glasses" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 2.30, -0.355)
+mesh = SubResource("MeshGlasses")
+
+[node name="Ruler" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.88, 1.14, -0.05)
+rotation = Vector3(0.0, 0.0, -0.20)
+mesh = SubResource("MeshRuler")

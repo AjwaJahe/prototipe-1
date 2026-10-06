@@ -1,0 +1,143 @@
+extends Node
+
+## Spawner pickup Map58.
+## Untuk sementara memakai posisi child Map58_ItemsTest sebagai titik spawn.
+## Bila nanti node Map58_ItemSpawnPoints/Marker3D dibuat, titik tersebut
+## otomatis diprioritaskan tanpa mengubah item test yang sudah ada.
+
+const TEST_POINTS_PATH := NodePath("../Furniture/Map58_ItemsTest")
+const MARKER_ROOT_PATH := NodePath("../Map58_ItemSpawnPoints")
+
+@export var randomize_respawn: bool = true
+@export var minimum_spawn_separation: float = 0.75
+
+var _game: Node
+var _rng := RandomNumberGenerator.new()
+var _spawn_points: Array[Vector3] = []
+
+
+func _ready() -> void:
+	_rng.randomize()
+	call_deferred("_initialize")
+
+
+func _initialize() -> void:
+	_game = get_node_or_null("../GameManager")
+	_collect_spawn_points()
+
+	if _game != null and _game.has_signal("paper_respawn_requested"):
+		_game.paper_respawn_requested.connect(_on_paper_respawn_requested)
+
+	if _spawn_points.is_empty():
+		push_warning("Map58ItemSpawner: belum ada titik spawn item.")
+	else:
+		print("Map58ItemSpawner: ", _spawn_points.size(), " titik spawn tersedia.")
+
+
+func _collect_spawn_points() -> void:
+	_spawn_points.clear()
+
+	var marker_root := get_node_or_null(MARKER_ROOT_PATH)
+	if marker_root != null:
+		for child in marker_root.get_children():
+			if child is Marker3D:
+				_spawn_points.append((child as Marker3D).global_position)
+
+	if not _spawn_points.is_empty():
+		return
+
+	var test_root := get_node_or_null(TEST_POINTS_PATH)
+	if test_root == null:
+		return
+
+	for child in test_root.get_children():
+		if child is Node3D:
+			_spawn_points.append((child as Node3D).global_position)
+
+
+func _on_paper_respawn_requested() -> void:
+	call_deferred("_respawn_used_items")
+
+
+func _respawn_used_items() -> void:
+	var paper := _find_hidden_item("paper")
+	var chalk := _find_hidden_item("chalk")
+
+	if paper != null:
+		_place_item(paper)
+
+	if chalk != null:
+		_place_item(chalk)
+
+	if paper != null and _game != null:
+		_game.call_deferred("register_spawned_paper")
+
+
+func _find_hidden_item(item_type: String) -> Node3D:
+	var test_root := get_node_or_null(TEST_POINTS_PATH)
+	if test_root == null:
+		return null
+
+	for child in test_root.get_children():
+		if not child is Node3D:
+			continue
+
+		var item := child as Node3D
+		if String(item.get_meta("item_type", "")) != item_type:
+			continue
+
+		if not item.visible:
+			return item
+
+	return null
+
+
+func _place_item(item: Node3D) -> void:
+	if _spawn_points.is_empty():
+		return
+
+	var index := _choose_spawn_index(item)
+	item.global_position = _spawn_points[index]
+	item.visible = true
+
+	var collision := item.get_node_or_null("CollisionShape3D") as CollisionShape3D
+	if collision != null:
+		collision.disabled = false
+
+	if item.has_method("set_highlighted"):
+		item.set_highlighted(false)
+
+
+func _choose_spawn_index(item: Node3D) -> int:
+	if not randomize_respawn or _spawn_points.size() == 1:
+		return 0
+
+	var candidates: Array[int] = []
+
+	for i in range(_spawn_points.size()):
+		if _is_spawn_position_clear(_spawn_points[i], item):
+			candidates.append(i)
+
+	if candidates.is_empty():
+		return _rng.randi_range(0, _spawn_points.size() - 1)
+
+	return candidates[_rng.randi_range(0, candidates.size() - 1)]
+
+
+func _is_spawn_position_clear(position_value: Vector3, item_to_ignore: Node3D) -> bool:
+	var test_root := get_node_or_null(TEST_POINTS_PATH)
+	if test_root == null:
+		return true
+
+	for child in test_root.get_children():
+		if not child is Node3D:
+			continue
+
+		var other := child as Node3D
+		if other == item_to_ignore or not other.visible:
+			continue
+
+		if position_value.distance_to(other.global_position) < minimum_spawn_separation:
+			return false
+
+	return true

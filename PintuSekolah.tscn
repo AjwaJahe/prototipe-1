@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://PintuSekolah.gd" id="1_script"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_frame"]
+albedo_color = Color(0.045, 0.05, 0.05, 1)
+metallic = 0.55
+roughness = 0.3
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_glass"]
+transparency = 1
+albedo_color = Color(0.18, 0.28, 0.32, 0.32)
+metallic = 0.05
+roughness = 0.12
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_handle"]
+albedo_color = Color(0.48, 0.48, 0.45, 1)
+metallic = 0.8
+roughness = 0.22
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="Mesh_side"]
+size = Vector3(0.22, 9.5, 0.32)
+
+[sub_resource type="BoxMesh" id="Mesh_top"]
+size = Vector3(15.5, 0.22, 0.32)
+
+[sub_resource type="BoxMesh" id="Mesh_glass"]
+size = Vector3(7.45, 9.2, 0.12)
+
+[sub_resource type="BoxMesh" id="Mesh_bar_v"]
+size = Vector3(0.12, 9.2, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_bar_h"]
+size = Vector3(7.45, 0.12, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_handle"]
+size = Vector3(0.1, 1.0, 0.1)
+
+[sub_resource type="BoxShape3D" id="Shape_leaf"]
+size = Vector3(7.45, 9.2, 0.12)
+
+[node name="PintuSekolah" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-7.65, 4.75, 0)
+mesh = SubResource("Mesh_side")
+material_override = SubResource("Mat_frame")
+
+[node name="FrameRight" type="MeshInstance3D" parent="."]
+position = Vector3(7.65, 4.75, 0)
+mesh = SubResource("Mesh_side")
+material_override = SubResource("Mat_frame")
+
+[node name="FrameTop" type="MeshInstance3D" parent="."]
+position = Vector3(0, 9.51, 0)
+mesh = SubResource("Mesh_top")
+material_override = SubResource("Mat_frame")
+
+[node name="LeftDoorPivot" type="AnimatableBody3D" parent="."]
+position = Vector3(-7.55, 0, 0)
+
+[node name="Glass" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(3.725, 4.6, 0)
+mesh = SubResource("Mesh_glass")
+material_override = SubResource("Mat_glass")
+
+[node name="OuterBar" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(7.4, 4.6, 0.08)
+mesh = SubResource("Mesh_bar_v")
+material_override = SubResource("Mat_frame")
+
+[node name="CenterBar" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(3.725, 4.6, 0.08)
+mesh = SubResource("Mesh_bar_v")
+material_override = SubResource("Mat_frame")
+
+[node name="BottomBar" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(3.725, 0.1, 0.08)
+mesh = SubResource("Mesh_bar_h")
+material_override = SubResource("Mat_frame")
+
+[node name="MiddleBar" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(3.725, 4.6, 0.08)
+mesh = SubResource("Mesh_bar_h")
+material_override = SubResource("Mat_frame")
+
+[node name="TopBar" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(3.725, 9.1, 0.08)
+mesh = SubResource("Mesh_bar_h")
+material_override = SubResource("Mat_frame")
+
+[node name="Handle" type="MeshInstance3D" parent="LeftDoorPivot"]
+position = Vector3(6.95, 4.65, 0.18)
+mesh = SubResource("Mesh_handle")
+material_override = SubResource("Mat_handle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftDoorPivot"]
+position = Vector3(3.725, 4.6, 0)
+shape = SubResource("Shape_leaf")
+
+[node name="RightDoorPivot" type="AnimatableBody3D" parent="."]
+position = Vector3(7.55, 0, 0)
+
+[node name="Glass" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-3.725, 4.6, 0)
+mesh = SubResource("Mesh_glass")
+material_override = SubResource("Mat_glass")
+
+[node name="OuterBar" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-7.4, 4.6, 0.08)
+mesh = SubResource("Mesh_bar_v")
+material_override = SubResource("Mat_frame")
+
+[node name="CenterBar" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-3.725, 4.6, 0.08)
+mesh = SubResource("Mesh_bar_v")
+material_override = SubResource("Mat_frame")
+
+[node name="BottomBar" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-3.725, 0.1, 0.08)
+mesh = SubResource("Mesh_bar_h")
+material_override = SubResource("Mat_frame")
+
+[node name="MiddleBar" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-3.725, 4.6, 0.08)
+mesh = SubResource("Mesh_bar_h")
+material_override = SubResource("Mat_frame")
+
+[node name="TopBar" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-3.725, 9.1, 0.08)
+mesh = SubResource("Mesh_bar_h")
+material_override = SubResource("Mat_frame")
+
+[node name="Handle" type="MeshInstance3D" parent="RightDoorPivot"]
+position = Vector3(-6.95, 4.65, 0.18)
+mesh = SubResource("Mesh_handle")
+material_override = SubResource("Mat_handle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightDoorPivot"]
+position = Vector3(-3.725, 4.6, 0)
+shape = SubResource("Shape_leaf")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://xry3a5qwiagw"]
+
+[ext_resource type="PackedScene" uid="uid://2uxj8fgvb3hw" path="res://map58/Map58.glb" id="1_rvsr3"]
+
+[node name="Map58" unique_id=568315548 instance=ExtResource("1_rvsr3")]
+
+[node name="DoorFill_Kelas_10_B_S" parent="world" parent_id_path=PackedInt32Array(1979787241) index="14" unique_id=764182093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 29.970804)

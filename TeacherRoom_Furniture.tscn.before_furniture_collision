@@ -1,0 +1,799 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="MatWood"]
+albedo_color = Color(0.55, 0.35, 0.16, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="desk_top"]
+material = SubResource("MatWood")
+size = Vector3(3.15, 0.18, 1.55)
+
+[sub_resource type="StandardMaterial3D" id="MatMetal"]
+albedo_color = Color(0.25, 0.27, 0.3, 1)
+metallic = 0.35
+roughness = 0.64
+
+[sub_resource type="BoxMesh" id="desk_leg"]
+material = SubResource("MatMetal")
+size = Vector3(0.11, 0.78, 0.11)
+
+[sub_resource type="StandardMaterial3D" id="MatGreen"]
+albedo_color = Color(0.18, 0.34, 0.24, 1)
+roughness = 0.95
+
+[sub_resource type="BoxMesh" id="panel"]
+material = SubResource("MatGreen")
+size = Vector3(3, 0.95, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="MatBlack"]
+albedo_color = Color(0.025, 0.035, 0.045, 1)
+roughness = 0.82
+
+[sub_resource type="BoxMesh" id="monitor"]
+material = SubResource("MatBlack")
+size = Vector3(1.25, 0.78, 0.1)
+
+[sub_resource type="BoxMesh" id="stand"]
+material = SubResource("MatMetal")
+size = Vector3(0.12, 0.45, 0.12)
+
+[sub_resource type="BoxMesh" id="keyboard"]
+material = SubResource("MatMetal")
+size = Vector3(0.9, 0.06, 0.34)
+
+[sub_resource type="BoxMesh" id="mouse"]
+material = SubResource("MatMetal")
+size = Vector3(0.17, 0.06, 0.21)
+
+[sub_resource type="StandardMaterial3D" id="MatChair"]
+albedo_color = Color(0.32, 0.34, 0.36, 1)
+roughness = 0.96
+
+[sub_resource type="BoxMesh" id="chair_seat"]
+material = SubResource("MatChair")
+size = Vector3(1, 0.16, 0.92)
+
+[sub_resource type="BoxMesh" id="chair_back"]
+material = SubResource("MatChair")
+size = Vector3(1, 0.86, 0.15)
+
+[sub_resource type="BoxMesh" id="chair_leg"]
+material = SubResource("MatMetal")
+size = Vector3(0.09, 0.5, 0.09)
+
+[sub_resource type="BoxMesh" id="cabinet_body"]
+material = SubResource("MatWood")
+size = Vector3(1.45, 2.15, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="MatDark"]
+albedo_color = Color(0.18, 0.1, 0.045, 1)
+roughness = 0.92
+
+[sub_resource type="BoxMesh" id="drawer"]
+material = SubResource("MatDark")
+size = Vector3(1.28, 0.4, 0.05)
+
+[sub_resource type="BoxMesh" id="handle"]
+material = SubResource("MatMetal")
+size = Vector3(0.2, 0.06, 0.05)
+
+[sub_resource type="BoxMesh" id="printer_cab"]
+material = SubResource("MatWood")
+size = Vector3(2.25, 1.05, 0.8)
+
+[sub_resource type="BoxMesh" id="printer_top"]
+material = SubResource("MatDark")
+size = Vector3(2.35, 0.12, 0.88)
+
+[sub_resource type="BoxMesh" id="printer"]
+material = SubResource("MatBlack")
+size = Vector3(1.45, 0.58, 0.92)
+
+[sub_resource type="BoxMesh" id="paper_tray"]
+material = SubResource("MatMetal")
+size = Vector3(1.1, 0.05, 0.55)
+
+[sub_resource type="StandardMaterial3D" id="MatLightWood"]
+albedo_color = Color(0.7, 0.49, 0.24, 1)
+roughness = 0.76
+
+[sub_resource type="BoxMesh" id="meeting_top"]
+material = SubResource("MatLightWood")
+size = Vector3(4.2, 0.18, 2.2)
+
+[sub_resource type="BoxMesh" id="meeting_leg"]
+material = SubResource("MatDark")
+size = Vector3(0.12, 0.78, 0.12)
+
+[sub_resource type="BoxMesh" id="shelf_body"]
+material = SubResource("MatWood")
+size = Vector3(2, 1.55, 0.55)
+
+[sub_resource type="BoxMesh" id="shelf_top"]
+material = SubResource("MatLightWood")
+size = Vector3(2.12, 0.14, 0.62)
+
+[sub_resource type="StandardMaterial3D" id="MatPaper"]
+albedo_color = Color(0.9, 0.9, 0.86, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="binder"]
+material = SubResource("MatPaper")
+size = Vector3(0.42, 0.72, 0.42)
+
+[node name="TeacherRoom_Furniture" type="Node3D" unique_id=1034259756]
+
+[node name="FurnitureRoot" type="Node3D" parent="." unique_id=182450478]
+
+[node name="Workstation_Left_1" type="Node3D" parent="FurnitureRoot" unique_id=1003531995]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -8.2)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=1932755420]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("desk_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=839272889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=1489788645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=98704965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=730338184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="PrivacyPanel" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=896466974]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, -0.35)
+mesh = SubResource("panel")
+
+[node name="Computer" type="Node3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=1332804056]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Monitor" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Computer" unique_id=472224760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 0)
+mesh = SubResource("monitor")
+
+[node name="Stand" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Computer" unique_id=547353528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+mesh = SubResource("stand")
+
+[node name="Keyboard" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Computer" unique_id=2061028731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0.28)
+mesh = SubResource("keyboard")
+
+[node name="Mouse" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Computer" unique_id=1361431145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.04, 0.28)
+mesh = SubResource("mouse")
+
+[node name="Chair" type="Node3D" parent="FurnitureRoot/Workstation_Left_1" unique_id=1062378266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Chair" unique_id=1426179700]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Chair" unique_id=1053161227]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.02, 0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Chair" unique_id=523997830]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.38000003, 0.25, 0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Chair" unique_id=618028729]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.37999997, 0.25, -0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Chair" unique_id=383312480]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.37999997, 0.25, 0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_1/Chair" unique_id=985779485]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.38000003, 0.25, -0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Workstation_Right_1" type="Node3D" parent="FurnitureRoot" unique_id=502802979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -8.2)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=576064760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("desk_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=35260227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=1322394066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=526931339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=849394281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="PrivacyPanel" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=2132341103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, 0.35)
+mesh = SubResource("panel")
+
+[node name="Computer" type="Node3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=978945106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+
+[node name="Monitor" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Computer" unique_id=1931644309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 0)
+mesh = SubResource("monitor")
+
+[node name="Stand" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Computer" unique_id=116111985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+mesh = SubResource("stand")
+
+[node name="Keyboard" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Computer" unique_id=882313095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0.28)
+mesh = SubResource("keyboard")
+
+[node name="Mouse" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Computer" unique_id=105074508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.04, 0.28)
+mesh = SubResource("mouse")
+
+[node name="Chair" type="Node3D" parent="FurnitureRoot/Workstation_Right_1" unique_id=235854406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.15)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Chair" unique_id=1042053276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Chair" unique_id=505365977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02, -0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Chair" unique_id=366149840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Chair" unique_id=701910193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Chair" unique_id=432695703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_1/Chair" unique_id=441231165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Workstation_Left_2" type="Node3D" parent="FurnitureRoot" unique_id=1882011063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=54575271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("desk_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=24558402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=1536818925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=1520183794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=45090457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="PrivacyPanel" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=539622875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, -0.35)
+mesh = SubResource("panel")
+
+[node name="Computer" type="Node3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=2136809400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Monitor" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Computer" unique_id=1612783353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 0)
+mesh = SubResource("monitor")
+
+[node name="Stand" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Computer" unique_id=228774341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+mesh = SubResource("stand")
+
+[node name="Keyboard" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Computer" unique_id=582451984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0.28)
+mesh = SubResource("keyboard")
+
+[node name="Mouse" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Computer" unique_id=184374044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.04, 0.28)
+mesh = SubResource("mouse")
+
+[node name="Chair" type="Node3D" parent="FurnitureRoot/Workstation_Left_2" unique_id=715371439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Chair" unique_id=616113749]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Chair" unique_id=1464070791]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.02, 0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Chair" unique_id=1263363704]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.38000003, 0.25, 0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Chair" unique_id=168267805]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.37999997, 0.25, -0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Chair" unique_id=2055234312]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.37999997, 0.25, 0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_2/Chair" unique_id=1588098380]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.38000003, 0.25, -0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Workstation_Right_2" type="Node3D" parent="FurnitureRoot" unique_id=444109455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3.7)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=85769668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("desk_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=129161338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=121929250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=1637340097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=676093542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="PrivacyPanel" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=462741669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, 0.35)
+mesh = SubResource("panel")
+
+[node name="Computer" type="Node3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=867817908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+
+[node name="Monitor" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Computer" unique_id=791535041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 0)
+mesh = SubResource("monitor")
+
+[node name="Stand" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Computer" unique_id=1312468994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+mesh = SubResource("stand")
+
+[node name="Keyboard" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Computer" unique_id=1503404153]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0.28)
+mesh = SubResource("keyboard")
+
+[node name="Mouse" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Computer" unique_id=42780736]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.04, 0.28)
+mesh = SubResource("mouse")
+
+[node name="Chair" type="Node3D" parent="FurnitureRoot/Workstation_Right_2" unique_id=1050667440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.15)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Chair" unique_id=1843426651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Chair" unique_id=401779134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02, -0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Chair" unique_id=580443533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Chair" unique_id=550231564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Chair" unique_id=147515296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_2/Chair" unique_id=1411622958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Workstation_Left_3" type="Node3D" parent="FurnitureRoot" unique_id=299904687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0.8)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=833457236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("desk_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=610275825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=1806635788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=1369734618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=333266225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="PrivacyPanel" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=1850016175]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, -0.35)
+mesh = SubResource("panel")
+
+[node name="Computer" type="Node3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=1967845846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+
+[node name="Monitor" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Computer" unique_id=843291757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 0)
+mesh = SubResource("monitor")
+
+[node name="Stand" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Computer" unique_id=1695582796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+mesh = SubResource("stand")
+
+[node name="Keyboard" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Computer" unique_id=1064542088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0.28)
+mesh = SubResource("keyboard")
+
+[node name="Mouse" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Computer" unique_id=171963859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.04, 0.28)
+mesh = SubResource("mouse")
+
+[node name="Chair" type="Node3D" parent="FurnitureRoot/Workstation_Left_3" unique_id=1418787088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.15)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Chair" unique_id=962947139]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Chair" unique_id=1904352294]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.02, 0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Chair" unique_id=1176756459]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.38000003, 0.25, 0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Chair" unique_id=2075161322]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.37999997, 0.25, -0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Chair" unique_id=1746930000]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.37999997, 0.25, 0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Left_3/Chair" unique_id=1310410909]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.38000003, 0.25, -0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Workstation_Right_3" type="Node3D" parent="FurnitureRoot" unique_id=1732209857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0.8)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=1302552016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("desk_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=1176497699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=1657967503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=1984314865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, -0.55)
+mesh = SubResource("desk_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=16325755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18, 0.46, 0.55)
+mesh = SubResource("desk_leg")
+
+[node name="PrivacyPanel" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=499241168]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38, 0.35)
+mesh = SubResource("panel")
+
+[node name="Computer" type="Node3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=677755339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+
+[node name="Monitor" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Computer" unique_id=439907221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64, 0)
+mesh = SubResource("monitor")
+
+[node name="Stand" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Computer" unique_id=1265282693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22, 0)
+mesh = SubResource("stand")
+
+[node name="Keyboard" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Computer" unique_id=291019580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04, 0.28)
+mesh = SubResource("keyboard")
+
+[node name="Mouse" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Computer" unique_id=447713446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 1.04, 0.28)
+mesh = SubResource("mouse")
+
+[node name="Chair" type="Node3D" parent="FurnitureRoot/Workstation_Right_3" unique_id=1397353539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.15)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Chair" unique_id=1190782212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Chair" unique_id=747726682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02, -0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Chair" unique_id=52199317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Chair" unique_id=65864388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Chair" unique_id=674678834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/Workstation_Right_3/Chair" unique_id=411773669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Filing_Left" type="Node3D" parent="FurnitureRoot" unique_id=407326468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4453487, 0, -11.1)
+
+[node name="Body" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=1187812506]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.08, 0)
+mesh = SubResource("cabinet_body")
+
+[node name="Drawer_0" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=366821689]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 0.5, 0.38)
+mesh = SubResource("drawer")
+
+[node name="Handle_0" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=2108679081]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.6717566e-08, 0.5, 0.42)
+mesh = SubResource("handle")
+
+[node name="Drawer_1" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=265005659]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.08, 0.38)
+mesh = SubResource("drawer")
+
+[node name="Handle_1" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=422507940]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.6717566e-08, 1.08, 0.42)
+mesh = SubResource("handle")
+
+[node name="Drawer_2" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=779287694]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.66, 0.38)
+mesh = SubResource("drawer")
+
+[node name="Handle_2" type="MeshInstance3D" parent="FurnitureRoot/Filing_Left" unique_id=720518954]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.6717566e-08, 1.66, 0.42)
+mesh = SubResource("handle")
+
+[node name="Filing_Right" type="Node3D" parent="FurnitureRoot" unique_id=2140443222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.353691, 0, -11.1)
+
+[node name="Body" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=533957147]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.08, 0)
+mesh = SubResource("cabinet_body")
+
+[node name="Drawer_0" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=1303880783]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 0.5, 0.38)
+mesh = SubResource("drawer")
+
+[node name="Handle_0" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=1876191874]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.6717566e-08, 0.5, 0.42)
+mesh = SubResource("handle")
+
+[node name="Drawer_1" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=354956779]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.08, 0.38)
+mesh = SubResource("drawer")
+
+[node name="Handle_1" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=1011396223]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.6717566e-08, 1.08, 0.42)
+mesh = SubResource("handle")
+
+[node name="Drawer_2" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=354734904]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.66, 0.38)
+mesh = SubResource("drawer")
+
+[node name="Handle_2" type="MeshInstance3D" parent="FurnitureRoot/Filing_Right" unique_id=2033383588]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.6717566e-08, 1.66, 0.42)
+mesh = SubResource("handle")
+
+[node name="PrinterStation" type="Node3D" parent="FurnitureRoot" unique_id=394533837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108296156, 0, -11.1)
+
+[node name="Cabinet" type="MeshInstance3D" parent="FurnitureRoot/PrinterStation" unique_id=1735513360]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.53, 0)
+mesh = SubResource("printer_cab")
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/PrinterStation" unique_id=517526818]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.12, 0)
+mesh = SubResource("printer_top")
+
+[node name="Printer" type="MeshInstance3D" parent="FurnitureRoot/PrinterStation" unique_id=425529986]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.45, 0)
+mesh = SubResource("printer")
+
+[node name="PaperTray" type="MeshInstance3D" parent="FurnitureRoot/PrinterStation" unique_id=1353466380]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.57361e-08, 1.75, -0.18)
+mesh = SubResource("paper_tray")
+
+[node name="MeetingTable" type="Node3D" parent="FurnitureRoot" unique_id=1176899225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.80715)
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable" unique_id=418247209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92, 0)
+mesh = SubResource("meeting_top")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable" unique_id=373043693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0.46, -0.72)
+mesh = SubResource("meeting_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable" unique_id=235833361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0.46, 0.72)
+mesh = SubResource("meeting_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable" unique_id=1726693796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0.46, -0.72)
+mesh = SubResource("meeting_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable" unique_id=663540943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65, 0.46, 0.72)
+mesh = SubResource("meeting_leg")
+
+[node name="Chair_North" type="Node3D" parent="FurnitureRoot/MeetingTable" unique_id=2026199754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.72)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_North" unique_id=578276607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_North" unique_id=503517267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02, -0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_North" unique_id=1889861516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_North" unique_id=1458203140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_North" unique_id=306608595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, -0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_North" unique_id=90814719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.25, 0.31)
+mesh = SubResource("chair_leg")
+
+[node name="Chair_South" type="Node3D" parent="FurnitureRoot/MeetingTable" unique_id=1875437371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.72)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_South" unique_id=1326498164]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_South" unique_id=708256738]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3.3220655e-08, 1.02, 0.38)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_South" unique_id=1201145971]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.38000003, 0.25, 0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_South" unique_id=530964946]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.37999997, 0.25, -0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_South" unique_id=1467982282]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.37999997, 0.25, 0.31000003)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_South" unique_id=150990500]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.38000003, 0.25, -0.30999997)
+mesh = SubResource("chair_leg")
+
+[node name="Chair_West" type="Node3D" parent="FurnitureRoot/MeetingTable" unique_id=221890186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_West" unique_id=300418458]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_West" unique_id=284949273]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.38, 1.02, 1.6610327e-08)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_West" unique_id=42769266]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.30999997, 0.25, 0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_West" unique_id=1949012064]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.31000003, 0.25, 0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_West" unique_id=1124556818]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.31000003, 0.25, -0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_West" unique_id=1068114670]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.30999997, 0.25, -0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Chair_East" type="Node3D" parent="FurnitureRoot/MeetingTable" unique_id=563331998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62, 0, 0)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_East" unique_id=549196626]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.57, 0)
+mesh = SubResource("chair_seat")
+
+[node name="Back" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_East" unique_id=320372264]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.38, 1.02, 1.6610327e-08)
+mesh = SubResource("chair_back")
+
+[node name="Leg_0" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_East" unique_id=522285063]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.31000003, 0.25, -0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_1" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_East" unique_id=785814297]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.30999997, 0.25, -0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_2" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_East" unique_id=2046441630]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.30999997, 0.25, 0.38)
+mesh = SubResource("chair_leg")
+
+[node name="Leg_3" type="MeshInstance3D" parent="FurnitureRoot/MeetingTable/Chair_East" unique_id=476408217]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.31000003, 0.25, 0.38)
+mesh = SubResource("chair_leg")
+
+[node name="DocumentShelf" type="Node3D" parent="FurnitureRoot" unique_id=2080398059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 10.777641)
+
+[node name="Body" type="MeshInstance3D" parent="FurnitureRoot/DocumentShelf" unique_id=229978195]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.78, 0)
+mesh = SubResource("shelf_body")
+
+[node name="Top" type="MeshInstance3D" parent="FurnitureRoot/DocumentShelf" unique_id=938248951]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.6, 0)
+mesh = SubResource("shelf_top")
+
+[node name="Binder_0" type="MeshInstance3D" parent="FurnitureRoot/DocumentShelf" unique_id=215519089]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.060000025, 1.12, -0.6)
+mesh = SubResource("binder")
+
+[node name="Binder_1" type="MeshInstance3D" parent="FurnitureRoot/DocumentShelf" unique_id=325181348]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.06, 1.12, 2.6226832e-09)
+mesh = SubResource("binder")
+
+[node name="Binder_2" type="MeshInstance3D" parent="FurnitureRoot/DocumentShelf" unique_id=862874583]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.059999973, 1.12, 0.6)
+mesh = SubResource("binder")

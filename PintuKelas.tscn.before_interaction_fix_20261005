@@ -1,0 +1,92 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://PintuKelas.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://textures/wall_brick.png" id="2_wall"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_door"]
+albedo_color = Color(0.93, 0.93, 0.91, 1)
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="Mat_frame"]
+albedo_color = Color(0.68, 0.68, 0.66, 1)
+roughness = 0.55
+
+[sub_resource type="StandardMaterial3D" id="Mat_panel"]
+albedo_color = Color(0.82, 0.82, 0.8, 1)
+roughness = 0.58
+
+[sub_resource type="StandardMaterial3D" id="Mat_handle"]
+albedo_color = Color(0.22, 0.22, 0.2, 1)
+metallic = 0.65
+roughness = 0.28
+
+[sub_resource type="StandardMaterial3D" id="Mat_wall"]
+albedo_color = Color(0.86, 0.86, 0.84, 1)
+roughness = 0.78
+albedo_texture = ExtResource("2_wall")
+
+[sub_resource type="BoxMesh" id="Mesh_leaf"]
+size = Vector3(4.15, 4.875, 0.18)
+
+[sub_resource type="BoxMesh" id="Mesh_side"]
+size = Vector3(0.15, 5.075, 0.28)
+
+[sub_resource type="BoxMesh" id="Mesh_top"]
+size = Vector3(4.45, 0.18, 0.28)
+
+[sub_resource type="BoxMesh" id="Mesh_panel"]
+size = Vector3(3.0, 2.2, 0.06)
+
+[sub_resource type="BoxMesh" id="Mesh_handle"]
+size = Vector3(0.38, 0.08, 0.08)
+
+[sub_resource type="BoxMesh" id="Mesh_wall_above"]
+size = Vector3(4.45, 3.0, 0.3)
+
+[sub_resource type="BoxShape3D" id="Shape_leaf"]
+size = Vector3(4.15, 4.875, 0.18)
+
+[node name="PintuKelas" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="FrameLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-2.225, 2.5375, 0)
+mesh = SubResource("Mesh_side")
+material_override = SubResource("Mat_frame")
+
+[node name="FrameRight" type="MeshInstance3D" parent="."]
+position = Vector3(2.225, 2.5375, 0)
+mesh = SubResource("Mesh_side")
+material_override = SubResource("Mat_frame")
+
+[node name="FrameTop" type="MeshInstance3D" parent="."]
+position = Vector3(0, 5.075, 0)
+mesh = SubResource("Mesh_top")
+material_override = SubResource("Mat_frame")
+
+[node name="DoorPivot" type="AnimatableBody3D" parent="."]
+position = Vector3(-2.075, 0, 0)
+
+[node name="DoorLeaf" type="MeshInstance3D" parent="DoorPivot"]
+position = Vector3(2.075, 2.4375, 0)
+mesh = SubResource("Mesh_leaf")
+material_override = SubResource("Mat_door")
+
+[node name="DoorPanel" type="MeshInstance3D" parent="DoorPivot"]
+position = Vector3(2.075, 2.25, 0.105)
+mesh = SubResource("Mesh_panel")
+material_override = SubResource("Mat_panel")
+
+[node name="Handle" type="MeshInstance3D" parent="DoorPivot"]
+position = Vector3(3.72, 2.46, 0.15)
+mesh = SubResource("Mesh_handle")
+material_override = SubResource("Mat_handle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPivot"]
+position = Vector3(2.075, 2.4375, 0)
+shape = SubResource("Shape_leaf")
+
+[node name="WallAboveDoor" type="MeshInstance3D" parent="."]
+position = Vector3(0, 6.575, 0)
+mesh = SubResource("Mesh_wall_above")
+material_override = SubResource("Mat_wall")

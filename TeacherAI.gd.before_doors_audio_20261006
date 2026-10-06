@@ -1,0 +1,267 @@
+extends CharacterBody3D
+
+## AI dasar guru/hantu Map58.
+## Mode berasal dari GameManager:
+## teacher   = berpatroli, tidak mengejar
+## ghost     = mengejar murid yang terlihat/terdengar
+## berserk   = fokus mengejar target selama 15 detik
+## responding = menuju murid yang sedang mengerjakan papan
+
+@export var teacher_speed: float = 3.5
+@export var ghost_speed: float = 10.0
+@export var detection_distance: float = 22.0
+@export var hearing_distance: float = 8.0
+@export var capture_distance: float = 1.25
+@export var waypoint_reach_distance: float = 1.5
+@export var waypoint_wait_time: float = 1.5
+
+var _game: Node
+var _current_target: Node3D
+var _waypoints: Array[Node3D] = []
+var _waypoint_index: int = -1
+var _wait_remaining: float = 0.0
+var _rng := RandomNumberGenerator.new()
+
+
+func _ready() -> void:
+	_rng.randomize()
+	call_deferred("_initialize")
+
+
+func _initialize() -> void:
+	_game = get_node_or_null("../GameManager")
+	_collect_waypoints()
+	_choose_next_waypoint()
+
+
+func _physics_process(delta: float) -> void:
+	if _game == null:
+		return
+
+	var phase := String(_game.get("phase"))
+	if phase == "INTRO_EXAM" or phase == "TRANSITION" or phase == "PENALTY_EXAM" or phase == "KO" or phase == "FINISHED":
+		_stop()
+		return
+
+	var mode := String(_game.get("teacher_mode"))
+	var target := _get_mode_target(mode)
+
+	if target != null and is_instance_valid(target):
+		_chase_target(target, mode)
+	else:
+		_patrol(delta, mode)
+
+	_try_open_door()
+	move_and_slide()
+
+
+func _get_mode_target(mode: String) -> Node3D:
+	if mode == "berserk" or mode == "responding":
+		var forced: Variant = _game.get_meta("teacher_target", null)
+		return forced as Node3D
+
+	if mode != "ghost":
+		_current_target = null
+		return null
+
+	if _current_target != null and is_instance_valid(_current_target):
+		if _should_detect(_current_target):
+			return _current_target
+		_current_target = null
+
+	for value in get_tree().get_nodes_in_group("players"):
+		if not value is CharacterBody3D:
+			continue
+
+		var candidate := value as CharacterBody3D
+		if bool(candidate.get_meta("knocked_out", false)):
+			continue
+
+		if _should_detect(candidate):
+			_current_target = candidate
+			return _current_target
+
+	return null
+
+
+func _should_detect(player: Node3D) -> bool:
+	if player == null or not is_instance_valid(player):
+		return false
+
+	var distance := global_position.distance_to(player.global_position)
+	if distance <= hearing_distance:
+		return true
+
+	if distance > detection_distance:
+		return false
+
+	return _has_line_of_sight(player)
+
+
+func _has_line_of_sight(target: Node3D) -> bool:
+	var origin := global_position + Vector3.UP * 1.0
+	var destination := target.global_position + Vector3.UP * 1.0
+
+	var query := PhysicsRayQueryParameters3D.create(origin, destination)
+	query.collision_mask = 1
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+	query.exclude = [get_rid()]
+
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	if hit.is_empty():
+		return true
+
+	var collider := hit.get("collider") as Node
+	if collider == null:
+		return false
+
+	var current: Node = collider
+	while current != null:
+		if current == target:
+			return true
+		current = current.get_parent()
+
+	return false
+
+
+func _chase_target(target: Node3D, mode: String) -> void:
+	if global_position.distance_to(target.global_position) <= capture_distance:
+		if mode == "berserk" or mode == "ghost":
+			_capture_target(target)
+		return
+
+	var target_position := target.global_position
+	var flat_direction := target_position - global_position
+	flat_direction.y = 0.0
+
+	if flat_direction.length() <= 0.05:
+		_stop()
+		return
+
+	var direction := flat_direction.normalized()
+	var current_speed := ghost_speed
+	if mode == "responding":
+		current_speed = ghost_speed
+	elif mode == "teacher":
+		current_speed = teacher_speed
+
+	velocity.x = direction.x * current_speed
+	velocity.z = direction.z * current_speed
+	velocity.y = 0.0
+	_face_direction(direction)
+
+
+func _patrol(delta: float, mode: String) -> void:
+	if mode != "teacher" and mode != "ghost":
+		_stop()
+		return
+
+	if _waypoints.is_empty():
+		_stop()
+		return
+
+	var target := _waypoints[_waypoint_index]
+	if not is_instance_valid(target):
+		_choose_next_waypoint()
+		return
+
+	var flat := target.global_position - global_position
+	flat.y = 0.0
+
+	if flat.length() <= waypoint_reach_distance:
+		_stop()
+		_wait_remaining -= delta
+		if _wait_remaining <= 0.0:
+			_choose_next_waypoint()
+		return
+
+	var direction := flat.normalized()
+	velocity.x = direction.x * teacher_speed
+	velocity.z = direction.z * teacher_speed
+	velocity.y = 0.0
+	_face_direction(direction)
+
+
+func _choose_next_waypoint() -> void:
+	if _waypoints.is_empty():
+		_waypoint_index = -1
+		return
+
+	if _waypoints.size() == 1:
+		_waypoint_index = 0
+	else:
+		var next_index := _rng.randi_range(0, _waypoints.size() - 1)
+		while next_index == _waypoint_index:
+			next_index = _rng.randi_range(0, _waypoints.size() - 1)
+		_waypoint_index = next_index
+
+	_wait_remaining = waypoint_wait_time
+
+
+func _collect_waypoints() -> void:
+	_waypoints.clear()
+
+	var spawn_manager := get_node_or_null("../SpawnManager")
+	if spawn_manager == null:
+		return
+
+	var student_spawns := spawn_manager.get_node_or_null("StudentSpawns")
+	if student_spawns != null:
+		for child in student_spawns.get_children():
+			if child is Marker3D:
+				_waypoints.append(child as Marker3D)
+
+	var teacher_spawn := spawn_manager.get_node_or_null("TeacherSpawn") as Marker3D
+	if teacher_spawn != null:
+		_waypoints.append(teacher_spawn)
+
+
+func _try_open_door() -> void:
+	var direction := -global_transform.basis.z
+	var from := global_position + Vector3.UP * 1.0
+	var to := from + direction * 1.5
+
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.collision_mask = 1
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+	query.exclude = [get_rid()]
+
+	var hit := get_world_3d().direct_space_state.intersect_ray(query)
+	if hit.is_empty():
+		return
+
+	var collider := hit.get("collider") as Node
+	if collider == null:
+		return
+
+	var current: Node = collider
+	while current != null:
+		var node_name := String(current.name)
+		if node_name.begins_with("Pintu") and current.has_method("interact"):
+			current.interact(self)
+			return
+		current = current.get_parent()
+
+
+func _capture_target(target: Node3D) -> void:
+	if _game != null and _game.has_method("player_caught"):
+		_game.player_caught(target)
+
+	_stop()
+	_current_target = null
+
+
+func _face_direction(direction: Vector3) -> void:
+	if direction.length_squared() <= 0.0001:
+		return
+
+	var look_position := global_position + direction
+	look_at(look_position, Vector3.UP)
+
+
+func _stop() -> void:
+	velocity.x = 0.0
+	velocity.z = 0.0
+	velocity.y = 0.0

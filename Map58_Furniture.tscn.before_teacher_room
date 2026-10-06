@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b7l75jdi3ly3p"]
+
+[ext_resource type="Script" uid="uid://c6bk2pc8l5m8x" path="res://Map58_Furniture.gd" id="1_furn"]
+[ext_resource type="PackedScene" uid="uid://c7uqx36awyich" path="res://UKS_Furniture.tscn" id="2_uks"]
+[ext_resource type="PackedScene" uid="uid://cpr6bgptq6smi" path="res://Library_Furniture.tscn" id="3_library"]
+[ext_resource type="PackedScene" path="res://GuestRoom_Furniture.tscn" id="4_guest"]
+[ext_resource type="PackedScene" uid="uid://b6suvmuv2fij4" path="res://Administration_Furniture.tscn" id="5_admin"]
+[ext_resource type="PackedScene" path="res://PrincipalOffice_Furniture.tscn" id="6_principal"]
+
+[node name="Map58_Furniture" type="Node3D" unique_id=853351227]
+script = ExtResource("1_furn")
+
+[node name="UKS_Furniture" parent="." unique_id=1035280562 instance=ExtResource("2_uks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.1547, 0, -3.4886)
+
+[node name="Library_Furniture" parent="." unique_id=697282656 instance=ExtResource("3_library")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.1873, 0, -15.1915)
+
+[node name="GuestRoom_Furniture" parent="." unique_id=1686174315 instance=ExtResource("4_guest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 0.9745)
+
+[node name="Administration_Furniture" parent="." unique_id=1520132580 instance=ExtResource("5_admin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 1.5377)
+
+[node name="PrincipalOffice_Furniture" parent="." unique_id=1426075525 instance=ExtResource("6_principal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.004, 0, -25)

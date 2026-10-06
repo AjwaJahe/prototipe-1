@@ -1,0 +1,7 @@
+﻿C:\Users\LENOVO\Documents\prototipe-1\items\ItemInventory.gd:3:## Kapasitas tetap 2 slot, mengikuti WhiteboardTest.
+C:\Users\LENOVO\Documents\prototipe-1\AI_Council.gd:3:const BUS_PATH := "user://kelas_malam_ai_council.json"
+C:\Users\LENOVO\Documents\prototipe-1\AI_Council.tscn:3:[ext_resource path="res://AI_Council.gd" type="Script" id="1"]
+C:\Users\LENOVO\Documents\prototipe-1\TestInteraction.tscn:4:[ext_resource type="Script" path="res://TestInteraction.gd" id="2_script"]
+C:\Users\LENOVO\Documents\prototipe-1\TestInteraction.tscn:80:[node name="TestInteraction" type="Node3D"]
+C:\Users\LENOVO\Documents\prototipe-1\WhiteboardTest.tscn:4:[ext_resource type="Script" uid="uid://b45dkdath602f" path="res://WhiteboardTest.gd" id="2_script"]
+C:\Users\LENOVO\Documents\prototipe-1\WhiteboardTest.tscn:64:[node name="WhiteboardTest" type="Node3D" unique_id=1065761807]

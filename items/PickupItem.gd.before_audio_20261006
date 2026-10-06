@@ -1,0 +1,73 @@
+extends StaticBody3D
+
+@export var item_type: String = "item"
+@export var display_name: String = "Item"
+@export var drop_surface_offset: float = 0.0
+
+var _outline_material: ShaderMaterial
+var _highlighted := false
+
+
+func _ready() -> void:
+	set_meta("interaction_type", "item")
+	set_meta("item_type", item_type)
+	set_meta("display_name", display_name)
+	_create_outline_material()
+
+
+func interact(player: Node = null) -> void:
+	if player == null:
+		return
+
+	var inventory := player.get_node_or_null("ItemInventory")
+	if inventory != null and inventory.has_method("try_pickup"):
+		inventory.try_pickup(self)
+
+
+func set_highlighted(enabled: bool) -> void:
+	if _highlighted == enabled:
+		return
+
+	_highlighted = enabled
+
+	for child in get_children():
+		_apply_outline_recursive(child, enabled)
+
+
+func get_drop_surface_offset() -> float:
+	return drop_surface_offset
+
+
+func _create_outline_material() -> void:
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, cull_front, depth_draw_opaque;
+
+uniform vec4 outline_color : source_color = vec4(1.0, 0.82, 0.25, 1.0);
+uniform float outline_size = 0.025;
+
+void vertex() {
+	VERTEX += NORMAL * outline_size;
+}
+
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	EMISSION = outline_color.rgb * 0.85;
+	ROUGHNESS = 1.0;
+}
+"""
+	_outline_material = ShaderMaterial.new()
+	_outline_material.shader = shader
+
+
+func _apply_outline_recursive(node: Node, enabled: bool) -> void:
+	if node is MeshInstance3D:
+		var mesh_instance := node as MeshInstance3D
+		if enabled:
+			mesh_instance.material_overlay = _outline_material
+		else:
+			mesh_instance.material_overlay = null
+
+	for child in node.get_children():
+		_apply_outline_recursive(child, enabled)

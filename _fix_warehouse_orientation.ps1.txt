@@ -1,0 +1,30 @@
+$path = 'C:\Users\LENOVO\Documents\prototipe-1\Warehouse_Furniture.tscn'
+$lines = [System.IO.File]::ReadAllLines($path)
+$targetGroups = @(
+  'Rack_Right_04',
+  'Rack_Back_01','Rack_Back_02','Rack_Back_03',
+  'Rack_East_01','Rack_East_02','Rack_East_03','Rack_East_04','Rack_East_05',
+  'Rack_West_01','Rack_West_02','Rack_West_03','Rack_West_04','Rack_West_05','Rack_West_06',
+  'PackingTable','PackingTable2'
+)
+$pending = $false
+$changed = 0
+$groups = @()
+for ($i = 0; $i -lt $lines.Count; $i++) {
+  $line = $lines[$i]
+  if ($line -match '^\[node name="CollisionShape3D".*parent="FurnitureRoot/(.+)/FurnitureCollision"') {
+    $group = $Matches[1]
+    $pending = $targetGroups -contains $group
+    if ($pending) { $groups += $group }
+    continue
+  }
+  if ($pending -and $line -match '^transform = Transform3D\(1, 0, 0, 0, 1, 0, 0, 0, 1, (.+)\)$') {
+    $translation = $Matches[1]
+    $lines[$i] = "transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, $translation)"
+    $changed++
+    $pending = $false
+  }
+}
+[System.IO.File]::WriteAllLines($path, $lines)
+$status = "CHANGED=" + $changed + [Environment]::NewLine + "GROUPS=" + (($groups | Sort-Object -Unique) -join ',')
+Set-Content -Path 'C:\Users\LENOVO\Documents\prototipe-1\_warehouse_fix_status.txt' -Value $status

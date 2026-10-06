@@ -1,0 +1,51 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://items/PickupItem.gd" id="1_pickup"]
+
+[sub_resource type="StandardMaterial3D" id="MatBox"]
+albedo_color = Color(0.86, 0.85, 0.79, 1)
+roughness = 0.88
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="MatRed"]
+albedo_color = Color(0.72, 0.035, 0.035, 1)
+roughness = 0.38
+shading_mode = 1
+cull_mode = 2
+
+[sub_resource type="BoxMesh" id="MeshBox"]
+size = Vector3(0.42, 0.16, 0.30)
+
+[sub_resource type="BoxMesh" id="MeshCrossH"]
+size = Vector3(0.16, 0.018, 0.06)
+
+[sub_resource type="BoxMesh" id="MeshCrossV"]
+size = Vector3(0.06, 0.018, 0.16)
+
+[sub_resource type="BoxShape3D" id="Shape"]
+size = Vector3(0.42, 0.16, 0.30)
+
+[node name="Medkit" type="StaticBody3D"]
+script = ExtResource("1_pickup")
+item_type = "medkit"
+display_name = "Medkit"
+
+[node name="Box" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.12, 0)
+mesh = SubResource("MeshBox")
+material_override = SubResource("MatBox")
+
+[node name="CrossHorizontal" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.205, 0)
+mesh = SubResource("MeshCrossH")
+material_override = SubResource("MatRed")
+
+[node name="CrossVertical" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.206, 0)
+mesh = SubResource("MeshCrossV")
+material_override = SubResource("MatRed")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.12, 0)
+shape = SubResource("Shape")

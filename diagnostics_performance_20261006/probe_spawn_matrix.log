@@ -1,0 +1,261 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: Intel - Intel(R) HD Graphics 620
+WARNING: Your video card drivers are known to have low quality OpenGL 3.3 support, switching to ANGLE.
+   at: DisplayServerWindows (platform/windows/display_server_windows.cpp:8229)
+Accessibility: window 0 adapter created.
+EGL: EGL_ANGLE_surface_orientation is supported.
+EGL: Using optimal surface orientation: Invert Y
+SDL: Init OK!
+Accessibility: window 0 adapter activated.
+Requested V-Sync mode: Enabled - FPS will likely be capped to the monitor refresh rate.
+Using "winink" pen tablet driver...
+godot: ENABLING GL DEBUG
+Shader 'CanvasSdfShaderGLES3' SHA256: 97771411eda219d1e22bbb109cc47dc3ae86692ed32cc042c2bbe88e9202774c
+Shader 'SkeletonShaderGLES3' SHA256: 2fae9c29133d9be5970c7205d8e640794d9a6c9bb8bfb57137c9f39aaaead985
+Shader 'ParticlesShaderGLES3' SHA256: c0c7f9e0e2c8f414f1a0c83853ebff756adc81e80f19b522cb91614a6aa0aede
+Shader 'ParticlesCopyShaderGLES3' SHA256: 43b80ff0efaf87f59447451c004cf2fdcf89201579fd908ffb50a4ce475597d5
+Shader 'CopyShaderGLES3' SHA256: df968353f6cb82f0210fdbccd2349a1e06dced7735eb2257dec6f9fa63dccc42
+Shader 'CubemapFilterShaderGLES3' SHA256: 036391ba061fc8e199f190b256f0fe4f4b0ebef4289132c4fe791e67e3f02d4c
+Shader 'GlowShaderGLES3' SHA256: bc551def1ac36e4387fedb8e220831c7443ed0f14eeebbfa9c0b76ce76412498
+Shader 'PostShaderGLES3' SHA256: 8064511090283a296d928e0382757798d3cbfca170b1f517470de96dc801343f
+Shader 'FeedShaderGLES3' SHA256: b89a9b0d6976915b147c592304280231fd14f12349c0df468fdc0e5297760cfe
+Shader 'CanvasShaderGLES3' SHA256: baaa164a8bcf73b9a8ffaeb404ded8ccae19d082a42b05907c06988685327040
+Shader 'CanvasOcclusionShaderGLES3' SHA256: 3bf2ba2e2bc6e4ddb9622d6e3890d7e31e456f1f3a4f34b0917a64cb23166433
+Shader 'SceneShaderGLES3' SHA256: a5914a175d567b444af4bed678fce79c7fd195b9054efed894cee3c74a7c1d40
+Shader 'SkyShaderGLES3' SHA256: be8ea72403c47fb32407d01e53879125c9bfa3bfaf9186f3ae9d58c9cdb1773a
+Shader 'TexBlitShaderGLES3' SHA256: 9816a9d48df11db9c428f7638d184f93a7a1aad54bf1f482189cf5cdf1abf3fb
+OpenGL API OpenGL ES 3.0 (ANGLE 2.1.1 git hash: aaebda1c5a40) - Compatibility - Using Device: Google Inc. (Intel) - ANGLE (Intel, Intel(R) HD Graphics 620 (0x00005916) Direct3D11 vs_5_0 ps_5_0, D3D11-21.20.16.4551)
+WASAPI: Activated output_device using IAudioClient3 interface
+WASAPI: wFormatTag = 65534
+WASAPI: nChannels = 2
+WASAPI: nSamplesPerSec = 48000
+WASAPI: nAvgBytesPerSec = 384000
+WASAPI: nBlockAlign = 8
+WASAPI: wBitsPerSample = 32
+WASAPI: cbSize = 22
+WASAPI: mix_rate = 48000
+WASAPI: fundamental_period_frames = 480
+WASAPI: min_period_frames = 480
+WASAPI: max_period_frames = 480
+WASAPI: selected a period frame size of 480
+WASAPI: detected 2 channels
+WASAPI: audio buffer frames: 480 calculated latency: 10ms
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: res://PerfProbe.gd remapped: res://PerfProbe.gd
+Completed load for: 'res://PerfProbe.gd' remapped 'res://PerfProbe.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+MbedTLS: Some X509 certificates could not be parsed (1 certificates skipped).
+Loaded system CA certificates
+Loading resource: res://main.tscn remapped: res://main.tscn
+Loading resource: res://player.tscn remapped: res://player.tscn
+Loading resource: res://Player.gd remapped: res://Player.gd
+Completed load for: 'res://Player.gd' remapped 'res://Player.gd' at thread -1
+Loading resource: res://PlayerCharacter.tscn remapped: res://PlayerCharacter.tscn
+Loading resource: res://Map58_PlayerCharacter.glb remapped: res://Map58_PlayerCharacter.glb
+Loading resource: res://.godot/imported/Map58_PlayerCharacter.glb-5d17a248fe931d4823ecca3cfba0d125.scn remapped: res://.godot/imported/Map58_PlayerCharacter.glb-5d17a248fe931d4823ecca3cfba0d125.scn
+Completed load for: 'res://Map58_PlayerCharacter.glb' remapped 'res://Map58_PlayerCharacter.glb' at thread -1
+Completed load for: 'res://PlayerCharacter.tscn' remapped 'res://PlayerCharacter.tscn' at thread -1
+Loading resource: res://FirstPersonLocalHeadCulling.gd remapped: res://FirstPersonLocalHeadCulling.gd
+Completed load for: 'res://FirstPersonLocalHeadCulling.gd' remapped 'res://FirstPersonLocalHeadCulling.gd' at thread -1
+Loading resource: res://PlayerAnimation.gd remapped: res://PlayerAnimation.gd
+Completed load for: 'res://PlayerAnimation.gd' remapped 'res://PlayerAnimation.gd' at thread -1
+Loading resource: res://PlayerInteractionInput.gd remapped: res://PlayerInteractionInput.gd
+Completed load for: 'res://PlayerInteractionInput.gd' remapped 'res://PlayerInteractionInput.gd' at thread -1
+Loading resource: res://items/ItemInventory.gd remapped: res://items/ItemInventory.gd
+Completed load for: 'res://items/ItemInventory.gd' remapped 'res://items/ItemInventory.gd' at thread -1
+Completed load for: 'res://player.tscn' remapped 'res://player.tscn' at thread -1
+Loading resource: res://lantai.tscn remapped: res://lantai.tscn
+Completed load for: 'res://lantai.tscn' remapped 'res://lantai.tscn' at thread -1
+Loading resource: res://map58/Map58.tscn remapped: res://map58/Map58.tscn
+Loading resource: res://map58/Map58.glb remapped: res://map58/Map58.glb
+Loading resource: res://.godot/imported/Map58.glb-ab15ebf591a9f7fa15866fd48ccfe13b.scn remapped: res://.godot/imported/Map58.glb-ab15ebf591a9f7fa15866fd48ccfe13b.scn
+Loading resource: res://map58/Map58_0.png remapped: res://map58/Map58_0.png
+Loading resource: res://.godot/imported/Map58_0.png-fda6c604537fe3adf9658449cc88cb57.s3tc.ctex remapped: res://.godot/imported/Map58_0.png-fda6c604537fe3adf9658449cc88cb57.s3tc.ctex
+Completed load for: 'res://map58/Map58_0.png' remapped 'res://map58/Map58_0.png' at thread -1
+Completed load for: 'res://map58/Map58.glb' remapped 'res://map58/Map58.glb' at thread -1
+Loading resource: res://map58/Map58_FloorCollision.gd remapped: res://map58/Map58_FloorCollision.gd
+Completed load for: 'res://map58/Map58_FloorCollision.gd' remapped 'res://map58/Map58_FloorCollision.gd' at thread -1
+Loading resource: res://map58/Map58_AppearanceController.gd remapped: res://map58/Map58_AppearanceController.gd
+Loading resource: res://textures/floor_wood.png remapped: res://textures/floor_wood.png
+Loading resource: res://.godot/imported/floor_wood.png-8c6767630387123e8029d45a2efc53d1.s3tc.ctex remapped: res://.godot/imported/floor_wood.png-8c6767630387123e8029d45a2efc53d1.s3tc.ctex
+Completed load for: 'res://textures/floor_wood.png' remapped 'res://textures/floor_wood.png' at thread -1
+Loading resource: res://textures/wall_brick.png remapped: res://textures/wall_brick.png
+Loading resource: res://.godot/imported/wall_brick.png-fef5c26af2d74551fc412dc97ab73e7e.s3tc.ctex remapped: res://.godot/imported/wall_brick.png-fef5c26af2d74551fc412dc97ab73e7e.s3tc.ctex
+Completed load for: 'res://textures/wall_brick.png' remapped 'res://textures/wall_brick.png' at thread -1
+Completed load for: 'res://map58/Map58_AppearanceController.gd' remapped 'res://map58/Map58_AppearanceController.gd' at thread -1
+Completed load for: 'res://map58/Map58.tscn' remapped 'res://map58/Map58.tscn' at thread -1
+Loading resource: res://Map58_SpawnManager.gd remapped: res://Map58_SpawnManager.gd
+Completed load for: 'res://Map58_SpawnManager.gd' remapped 'res://Map58_SpawnManager.gd' at thread -1
+Loading resource: res://Teacher.tscn remapped: res://Teacher.tscn
+Loading resource: res://TeacherModel.tscn remapped: res://TeacherModel.tscn
+Completed load for: 'res://TeacherModel.tscn' remapped 'res://TeacherModel.tscn' at thread -1
+Loading resource: res://TeacherAnimation.gd remapped: res://TeacherAnimation.gd
+Completed load for: 'res://TeacherAnimation.gd' remapped 'res://TeacherAnimation.gd' at thread -1
+Loading resource: res://TeacherAI.gd remapped: res://TeacherAI.gd
+Completed load for: 'res://TeacherAI.gd' remapped 'res://TeacherAI.gd' at thread -1
+Completed load for: 'res://Teacher.tscn' remapped 'res://Teacher.tscn' at thread -1
+Loading resource: res://Map58_Furniture.tscn remapped: res://Map58_Furniture.tscn
+Loading resource: res://Map58_Furniture.gd remapped: res://Map58_Furniture.gd
+Completed load for: 'res://Map58_Furniture.gd' remapped 'res://Map58_Furniture.gd' at thread -1
+Loading resource: res://UKS_Furniture.tscn remapped: res://UKS_Furniture.tscn
+Completed load for: 'res://UKS_Furniture.tscn' remapped 'res://UKS_Furniture.tscn' at thread -1
+Loading resource: res://Library_Furniture.tscn remapped: res://Library_Furniture.tscn
+Completed load for: 'res://Library_Furniture.tscn' remapped 'res://Library_Furniture.tscn' at thread -1
+Loading resource: res://GuestRoom_Furniture.tscn remapped: res://GuestRoom_Furniture.tscn
+Completed load for: 'res://GuestRoom_Furniture.tscn' remapped 'res://GuestRoom_Furniture.tscn' at thread -1
+Loading resource: res://Administration_Furniture.tscn remapped: res://Administration_Furniture.tscn
+Completed load for: 'res://Administration_Furniture.tscn' remapped 'res://Administration_Furniture.tscn' at thread -1
+Loading resource: res://PrincipalOffice_Furniture.tscn remapped: res://PrincipalOffice_Furniture.tscn
+Completed load for: 'res://PrincipalOffice_Furniture.tscn' remapped 'res://PrincipalOffice_Furniture.tscn' at thread -1
+Loading resource: res://TeacherRoom_Furniture.tscn remapped: res://TeacherRoom_Furniture.tscn
+Completed load for: 'res://TeacherRoom_Furniture.tscn' remapped 'res://TeacherRoom_Furniture.tscn' at thread -1
+Loading resource: res://Warehouse_Furniture.tscn remapped: res://Warehouse_Furniture.tscn
+Completed load for: 'res://Warehouse_Furniture.tscn' remapped 'res://Warehouse_Furniture.tscn' at thread -1
+Loading resource: res://MaleToilet_Furniture.tscn remapped: res://MaleToilet_Furniture.tscn
+Completed load for: 'res://MaleToilet_Furniture.tscn' remapped 'res://MaleToilet_Furniture.tscn' at thread -1
+Loading resource: res://FemaleToilet_Furniture.tscn remapped: res://FemaleToilet_Furniture.tscn
+Completed load for: 'res://FemaleToilet_Furniture.tscn' remapped 'res://FemaleToilet_Furniture.tscn' at thread -1
+Loading resource: res://ToiletSketsel_Furniture.tscn remapped: res://ToiletSketsel_Furniture.tscn
+Completed load for: 'res://ToiletSketsel_Furniture.tscn' remapped 'res://ToiletSketsel_Furniture.tscn' at thread -1
+Loading resource: res://Kantin_Furniture.tscn remapped: res://Kantin_Furniture.tscn
+Completed load for: 'res://Kantin_Furniture.tscn' remapped 'res://Kantin_Furniture.tscn' at thread -1
+Loading resource: res://Kelas_10_A_Furniture.tscn remapped: res://Kelas_10_A_Furniture.tscn
+Completed load for: 'res://Kelas_10_A_Furniture.tscn' remapped 'res://Kelas_10_A_Furniture.tscn' at thread -1
+Loading resource: res://BangkuLorong_Single.tscn remapped: res://BangkuLorong_Single.tscn
+Completed load for: 'res://BangkuLorong_Single.tscn' remapped 'res://BangkuLorong_Single.tscn' at thread -1
+Loading resource: res://PintuKelas.tscn remapped: res://PintuKelas.tscn
+Loading resource: res://PintuKelas.gd remapped: res://PintuKelas.gd
+Completed load for: 'res://PintuKelas.gd' remapped 'res://PintuKelas.gd' at thread -1
+Completed load for: 'res://PintuKelas.tscn' remapped 'res://PintuKelas.tscn' at thread -1
+Loading resource: res://PintuTengahKepsekGuru.tscn remapped: res://PintuTengahKepsekGuru.tscn
+Loading resource: res://PintuTengahKepsekGuru.gd remapped: res://PintuTengahKepsekGuru.gd
+Completed load for: 'res://PintuTengahKepsekGuru.gd' remapped 'res://PintuTengahKepsekGuru.gd' at thread -1
+Completed load for: 'res://PintuTengahKepsekGuru.tscn' remapped 'res://PintuTengahKepsekGuru.tscn' at thread -1
+Loading resource: res://PintuKayu.tscn remapped: res://PintuKayu.tscn
+Loading resource: res://PintuKayu.gd remapped: res://PintuKayu.gd
+Completed load for: 'res://PintuKayu.gd' remapped 'res://PintuKayu.gd' at thread -1
+Completed load for: 'res://PintuKayu.tscn' remapped 'res://PintuKayu.tscn' at thread -1
+Loading resource: res://PintuSekolah.tscn remapped: res://PintuSekolah.tscn
+Loading resource: res://PintuSekolah.gd remapped: res://PintuSekolah.gd
+Completed load for: 'res://PintuSekolah.gd' remapped 'res://PintuSekolah.gd' at thread -1
+Completed load for: 'res://PintuSekolah.tscn' remapped 'res://PintuSekolah.tscn' at thread -1
+Loading resource: res://Map58_ItemsTest.tscn remapped: res://Map58_ItemsTest.tscn
+Loading resource: res://items/KertasSoal.tscn remapped: res://items/KertasSoal.tscn
+Loading resource: res://items/PickupItem.gd remapped: res://items/PickupItem.gd
+Completed load for: 'res://items/PickupItem.gd' remapped 'res://items/PickupItem.gd' at thread -1
+Completed load for: 'res://items/KertasSoal.tscn' remapped 'res://items/KertasSoal.tscn' at thread -1
+Loading resource: res://items/Kapur.tscn remapped: res://items/Kapur.tscn
+Completed load for: 'res://items/Kapur.tscn' remapped 'res://items/Kapur.tscn' at thread -1
+Loading resource: res://items/KunciKelas.tscn remapped: res://items/KunciKelas.tscn
+Completed load for: 'res://items/KunciKelas.tscn' remapped 'res://items/KunciKelas.tscn' at thread -1
+Loading resource: res://items/KunciMerah.tscn remapped: res://items/KunciMerah.tscn
+Completed load for: 'res://items/KunciMerah.tscn' remapped 'res://items/KunciMerah.tscn' at thread -1
+Loading resource: res://items/KunciBiru.tscn remapped: res://items/KunciBiru.tscn
+Completed load for: 'res://items/KunciBiru.tscn' remapped 'res://items/KunciBiru.tscn' at thread -1
+Loading resource: res://items/KunciKuning.tscn remapped: res://items/KunciKuning.tscn
+Completed load for: 'res://items/KunciKuning.tscn' remapped 'res://items/KunciKuning.tscn' at thread -1
+Loading resource: res://items/Medkit.tscn remapped: res://items/Medkit.tscn
+Completed load for: 'res://items/Medkit.tscn' remapped 'res://items/Medkit.tscn' at thread -1
+Completed load for: 'res://Map58_ItemsTest.tscn' remapped 'res://Map58_ItemsTest.tscn' at thread -1
+Completed load for: 'res://Map58_Furniture.tscn' remapped 'res://Map58_Furniture.tscn' at thread -1
+Loading resource: res://BasketballCourt.tscn remapped: res://BasketballCourt.tscn
+Completed load for: 'res://BasketballCourt.tscn' remapped 'res://BasketballCourt.tscn' at thread -1
+Loading resource: res://BasketballBleachers.tscn remapped: res://BasketballBleachers.tscn
+Completed load for: 'res://BasketballBleachers.tscn' remapped 'res://BasketballBleachers.tscn' at thread -1
+Loading resource: res://Map58_WallAboveOpenings.tscn remapped: res://Map58_WallAboveOpenings.tscn
+Completed load for: 'res://Map58_WallAboveOpenings.tscn' remapped 'res://Map58_WallAboveOpenings.tscn' at thread -1
+Loading resource: res://Map58_Roof.tscn remapped: res://Map58_Roof.tscn
+Loading resource: res://textures/wall_plaster.png remapped: res://textures/wall_plaster.png
+Loading resource: res://.godot/imported/wall_plaster.png-2c871ee65f278702a7f52b6e1420ae4f.s3tc.ctex remapped: res://.godot/imported/wall_plaster.png-2c871ee65f278702a7f52b6e1420ae4f.s3tc.ctex
+Completed load for: 'res://textures/wall_plaster.png' remapped 'res://textures/wall_plaster.png' at thread -1
+Completed load for: 'res://Map58_Roof.tscn' remapped 'res://Map58_Roof.tscn' at thread -1
+Loading resource: res://Map58_Lighting.tscn remapped: res://Map58_Lighting.tscn
+Loading resource: res://Map58_Lighting.gd remapped: res://Map58_Lighting.gd
+Completed load for: 'res://Map58_Lighting.gd' remapped 'res://Map58_Lighting.gd' at thread -1
+Completed load for: 'res://Map58_Lighting.tscn' remapped 'res://Map58_Lighting.tscn' at thread -1
+Loading resource: res://Map58Game.gd remapped: res://Map58Game.gd
+Completed load for: 'res://Map58Game.gd' remapped 'res://Map58Game.gd' at thread -1
+Loading resource: res://Map58Whiteboard.gd remapped: res://Map58Whiteboard.gd
+Completed load for: 'res://Map58Whiteboard.gd' remapped 'res://Map58Whiteboard.gd' at thread -1
+Loading resource: res://Map58ItemSpawner.gd remapped: res://Map58ItemSpawner.gd
+Completed load for: 'res://Map58ItemSpawner.gd' remapped 'res://Map58ItemSpawner.gd' at thread -1
+Loading resource: res://Map58FurnitureGameplay.gd remapped: res://Map58FurnitureGameplay.gd
+Completed load for: 'res://Map58FurnitureGameplay.gd' remapped 'res://Map58FurnitureGameplay.gd' at thread -1
+Loading resource: res://Map58EditorPerformance.gd remapped: res://Map58EditorPerformance.gd
+Completed load for: 'res://Map58EditorPerformance.gd' remapped 'res://Map58EditorPerformance.gd' at thread -1
+Completed load for: 'res://main.tscn' remapped 'res://main.tscn' at thread -1
+WARNING: FirstPersonLocalHeadCulling: node PlayerVisual tidak ditemukan.
+   at: push_warning (core/variant/variant_utility.cpp:1033)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://FirstPersonLocalHeadCulling.gd:36)
+Loading resource: res://QuestionDatabase.gd remapped: res://QuestionDatabase.gd
+Completed load for: 'res://QuestionDatabase.gd' remapped 'res://QuestionDatabase.gd' at thread -1
+Map58 materials applied | floor: 22 | building meshes: 123
+Map58 floor texture: true
+Map58 wall texture: true
+Map58 collision dibuat | floor: 22 | walls: 123
+Map58 student spawn | Kelas_12_A | (-3.646515, 0.819986, -65.21802)
+Map58 teacher spawn | Ruang Guru | (-28.43625, -0.180013, -41.5864)
+Loading resource: res://DigitRecognizer.gd remapped: res://DigitRecognizer.gd
+Completed load for: 'res://DigitRecognizer.gd' remapped 'res://DigitRecognizer.gd' at thread -1
+Map58ItemSpawner: titik spawn furniture=910 | paper=5 | chalk=5 | medkit=5
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 54 (18.51 mspf)
+SPAWN_STATS Kelas_10_A {"draw_calls":1099.0,"fps_avg":55.0,"fps_max":60.0,"fps_min":54.0,"frame_ms_avg":25.174}
+GPU PROFILE (total 0.0ms): 
+Project FPS: 51 (19.60 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 58 (17.24 mspf)
+SPAWN_STATS Kelas_10_B {"draw_calls":1003.0,"fps_avg":55.5084745762712,"fps_max":58.0,"fps_min":51.0,"frame_ms_avg":35.8102881355932}
+GPU PROFILE (total 0.0ms): 
+Project FPS: 59 (16.94 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+SPAWN_STATS Kelas_10_C {"draw_calls":907.0,"fps_avg":59.4666666666667,"fps_max":60.0,"fps_min":59.0,"frame_ms_avg":21.0718666666666}
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+SPAWN_STATS Kelas_10_D {"draw_calls":699.0,"fps_avg":60.0,"fps_max":60.0,"fps_min":60.0,"frame_ms_avg":20.9794833333333}
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+Project FPS: 59 (16.94 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_11_A {"draw_calls":384.0,"fps_avg":59.8983050847458,"fps_max":60.0,"fps_min":59.0,"frame_ms_avg":20.2604915254237}
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_11_B {"draw_calls":423.0,"fps_avg":59.9016393442623,"fps_max":60.0,"fps_min":59.0,"frame_ms_avg":21.4376885245901}
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_11_C {"draw_calls":413.0,"fps_avg":60.0,"fps_max":60.0,"fps_min":60.0,"frame_ms_avg":17.9920491803279}
+Project FPS: 61 (16.39 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_11_D {"draw_calls":286.0,"fps_avg":60.4754098360656,"fps_max":61.0,"fps_min":60.0,"frame_ms_avg":16.7781475409836}
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 59 (16.94 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_12_A {"draw_calls":66.0,"fps_avg":59.6393442622951,"fps_max":60.0,"fps_min":59.0,"frame_ms_avg":17.8378524590164}
+Project FPS: 61 (16.39 mspf)
+GPU PROFILE (total 0.0ms): 
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_12_B {"draw_calls":68.0,"fps_avg":60.8360655737705,"fps_max":61.0,"fps_min":60.0,"frame_ms_avg":18.5057540983607}
+Project FPS: 60 (16.66 mspf)
+GPU PROFILE (total 0.0ms): 
+SPAWN_STATS Kelas_12_C {"draw_calls":68.0,"fps_avg":60.0,"fps_max":60.0,"fps_min":60.0,"frame_ms_avg":16.4734918032787}
+Project FPS: 60 (16.66 mspf)

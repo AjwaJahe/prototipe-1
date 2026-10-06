@@ -1,0 +1,772 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_Wood"]
+albedo_color = Color(0.4, 0.19, 0.07, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="Mesh_Seat"]
+size = Vector3(3.4, 0.14, 0.62)
+
+[sub_resource type="BoxMesh" id="Mesh_SeatMiddle"]
+size = Vector3(3.18, 0.1, 0.18)
+
+[sub_resource type="StandardMaterial3D" id="Mat_Metal"]
+albedo_color = Color(0.1, 0.1, 0.095, 1)
+metallic = 0.45
+roughness = 0.42
+
+[sub_resource type="BoxMesh" id="Mesh_FrameBar"]
+size = Vector3(0.1, 0.34, 0.72)
+
+[sub_resource type="StandardMaterial3D" id="Mat_WoodDark"]
+albedo_color = Color(0.28, 0.12, 0.04, 1)
+roughness = 0.74
+
+[sub_resource type="BoxMesh" id="Mesh_Back"]
+size = Vector3(3.34, 0.16, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_BackBottom"]
+size = Vector3(3.2, 0.14, 0.14)
+
+[sub_resource type="BoxMesh" id="Mesh_Leg"]
+size = Vector3(0.1, 0.6, 0.1)
+
+[sub_resource type="BoxMesh" id="Mesh_SideBar"]
+size = Vector3(0.1, 0.18, 0.68)
+
+[sub_resource type="BoxMesh" id="Mesh_BackPost"]
+size = Vector3(0.1, 1.18, 0.1)
+
+[node name="BangkuLorong_Furniture" type="Node3D" unique_id=1238726840]
+
+[node name="FurnitureRoot" type="Node3D" parent="." unique_id=45120128]
+
+[node name="Bench_01" type="Node3D" parent="FurnitureRoot" unique_id=1972223291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.06, 0, -21.35)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1008335304]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=531041009]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1119188345]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.775265e-08, 0.54, 1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=398801531]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.775265e-08, 0.54, -1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1518309354]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.43, 1.3113417e-08)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1701858245]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.12, 1.3113417e-08)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=2048970440]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.28000006, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1615226824]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27999994, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1244538362]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27999994, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1201242124]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28000006, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=478268972]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.644131e-08, 0.55, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=481137273]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.644131e-08, 0.55, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1104427437]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26999995, 1, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_01" unique_id=1669377592]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27000007, 1, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_02" type="Node3D" parent="FurnitureRoot" unique_id=159000470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.86, 0, -21.2)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=1196727227]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=91117047]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=478880941]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.775265e-08, 0.54, 1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=1546740003]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.775265e-08, 0.54, -1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=2143221182]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.43, 1.3113417e-08)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=584899362]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.12, 1.3113417e-08)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=40056278]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.28000006, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=1292385685]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27999994, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=352422438]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27999994, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=357508636]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28000006, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=1350329347]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.644131e-08, 0.55, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=44592291]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.644131e-08, 0.55, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=1130774993]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26999995, 1, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_02" unique_id=244627719]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27000007, 1, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_03" type="Node3D" parent="FurnitureRoot" unique_id=1897904661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.24, 0, -42.3)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=759863942]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1830559615]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1833702208]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.775265e-08, 0.54, 1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1121876575]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.775265e-08, 0.54, -1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1714059063]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.43, 1.3113417e-08)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=646660625]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.12, 1.3113417e-08)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=2145760140]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.28000006, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1474958637]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27999994, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1780621798]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27999994, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1770594306]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28000006, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=360167820]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.644131e-08, 0.55, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=1244366190]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.644131e-08, 0.55, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=887718816]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26999995, 1, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_03" unique_id=404274173]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27000007, 1, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_04" type="Node3D" parent="FurnitureRoot" unique_id=1107522707]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.62, 0, -49.57)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=557835180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=539329897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=1038797073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=352038582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=970076087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, -0.3)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=543784209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, -0.3)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=632558984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=1653597271]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=702381218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=1150856741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=910825095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=1925892829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=153131580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_04" unique_id=906475402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_05" type="Node3D" parent="FurnitureRoot" unique_id=885461064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.07, 0, -50.28)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=2135493903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1521463757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=2014724471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=294801406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1548092242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, -0.3)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1944550080]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, -0.3)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1972839924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1167848934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=968540092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=597519238]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1697760826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=369101304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=1297457076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_05" unique_id=632264930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_06" type="Node3D" parent="FurnitureRoot" unique_id=2002139948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.47, 0, -50.43)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=1205423965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=11196549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=1919760891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=640849950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=1741980880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, -0.3)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=29499997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, -0.3)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=2009316819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=116687676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=2121133019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=638315649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=22390204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=295536470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=401666024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_06" unique_id=1877964119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_07" type="Node3D" parent="FurnitureRoot" unique_id=2071795802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.47, 0, -59.55)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=1911592138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=930472130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=1415038403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=419530146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 0.54, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=2095054325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, -0.3)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=139448530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12, -0.3)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=420499706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=2051088144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, 0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=238214755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=1295990909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.3, -0.28)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=142235675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=193577055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 0.55, 0)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=1784881483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_07" unique_id=1902889877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52, 1, -0.27)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_08" type="Node3D" parent="FurnitureRoot" unique_id=1095694473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66, 0, -68.67)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=491557081]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=507809959]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=1846223631]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.775265e-08, 0.54, 1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=239880626]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.775265e-08, 0.54, -1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=1467107757]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.43, 1.3113417e-08)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=582344374]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.12, 1.3113417e-08)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=281424339]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.28000006, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=1539327665]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27999994, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=385933274]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27999994, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=220861702]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28000006, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=2060260367]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.644131e-08, 0.55, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=813207834]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.644131e-08, 0.55, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=540233879]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26999995, 1, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_08" unique_id=517760009]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27000007, 1, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_09" type="Node3D" parent="FurnitureRoot" unique_id=1080054988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.67, 0, -67.96)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=940610552]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=280835718]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=1917770924]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.775265e-08, 0.54, 1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=757085104]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.775265e-08, 0.54, -1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=1802304600]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.43, 1.3113417e-08)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=525955559]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.12, 1.3113417e-08)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=862907999]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.28000006, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=166447808]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27999994, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=1821593720]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27999994, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=1457596723]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28000006, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=1899533926]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.644131e-08, 0.55, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=1033146680]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.644131e-08, 0.55, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=2103630318]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26999995, 1, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_09" unique_id=184916864]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27000007, 1, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="Bench_10" type="Node3D" parent="FurnitureRoot" unique_id=1552494252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.8, 0, -69.53)
+
+[node name="Seat" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=756642443]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_Seat")
+
+[node name="SeatSlat_Middle" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1460123612]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.72, 0)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_SeatMiddle")
+
+[node name="SeatSupport_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1841627321]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.775265e-08, 0.54, 1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="SeatSupport_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=532820583]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.775265e-08, 0.54, -1.55)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_FrameBar")
+
+[node name="BackTop" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1979774003]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.43, 1.3113417e-08)
+material_override = SubResource("Mat_WoodDark")
+mesh = SubResource("Mesh_Back")
+
+[node name="BackBottom" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=291993239]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 1.12, 1.3113417e-08)
+material_override = SubResource("Mat_Wood")
+mesh = SubResource("Mesh_BackBottom")
+
+[node name="Leg_Front_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1040785665]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.28000006, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Front_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=107351292]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.27999994, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=973308996]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27999994, 0.3, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="Leg_Back_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=365918657]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.28000006, 0.3, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_Leg")
+
+[node name="SideBar_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1883475127]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.644131e-08, 0.55, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="SideBar_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1513440295]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.644131e-08, 0.55, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_SideBar")
+
+[node name="BackPost_Left" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=869758966]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26999995, 1, 1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")
+
+[node name="BackPost_Right" type="MeshInstance3D" parent="FurnitureRoot/Bench_10" unique_id=1877168455]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.27000007, 1, -1.52)
+material_override = SubResource("Mat_Metal")
+mesh = SubResource("Mesh_BackPost")

@@ -1,0 +1,263 @@
+@tool
+extends Node3D
+
+@export_category("Floor")
+
+@export var floor_color: Color = Color(
+	0.72,
+	0.52,
+	0.30,
+	1.0
+)
+
+@export var floor_texture: Texture2D = preload(
+	"res://textures/floor_wood.png"
+)
+
+@export_range(
+	0.01,
+	20.0,
+	0.01
+)
+var floor_texture_scale: float = 1.0
+
+@export_range(
+	0.0,
+	1.0,
+	0.01
+)
+var floor_roughness: float = 0.85
+
+
+@export_category("Walls")
+
+@export var wall_color: Color = Color(
+	1.0,
+	1.0,
+	1.0,
+	1.0
+)
+
+@export var wall_texture: Texture2D = preload(
+	"res://textures/wall_brick.png"
+)
+
+@export_range(
+	0.01,
+	20.0,
+	0.01
+)
+var wall_texture_scale: float = 1.0
+
+@export_range(
+	0.0,
+	1.0,
+	0.01
+)
+var wall_roughness: float = 0.90
+
+
+var _applied := false
+
+
+func _ready() -> void:
+	call_deferred("_apply_materials")
+
+
+func _apply_materials() -> void:
+
+	var visual := get_parent().get_node_or_null("Visual")
+
+	if visual == null:
+		push_warning(
+			"Map58 AppearanceController: node Visual tidak ditemukan."
+		)
+		return
+
+
+	var meshes: Array[MeshInstance3D] = []
+
+	_collect_meshes(
+		visual,
+		meshes
+	)
+
+
+	var floor_count := 0
+	var wall_count := 0
+
+
+	for mesh_instance in meshes:
+
+		if mesh_instance == null:
+			continue
+
+		if mesh_instance.mesh == null:
+			continue
+
+
+		var mesh_name := mesh_instance.name.to_lower()
+
+
+		# ====================================================
+		# LANTAI
+		# ====================================================
+
+		if _is_floor(mesh_name):
+
+			mesh_instance.material_override = (
+				_make_floor_material()
+			)
+
+			floor_count += 1
+
+			continue
+
+
+		# ====================================================
+		# SEMUA MESH LAIN DI DALAM VISUAL
+		# DIANGGAP BAGIAN DINDING/BANGUNAN
+		#
+		# Ini sengaja dibuat tanpa filter nama dinding.
+		# Tujuannya agar tidak ada dinding yang tertinggal
+		# dengan material hitam bawaan GLB.
+		# ====================================================
+
+		mesh_instance.material_override = (
+			_make_wall_material()
+		)
+
+		wall_count += 1
+
+
+	_applied = true
+
+
+	print(
+		"Map58 materials applied | floor: ",
+		floor_count,
+		" | building meshes: ",
+		wall_count
+	)
+
+	print(
+		"Map58 floor texture: ",
+		floor_texture != null
+	)
+
+	print(
+		"Map58 wall texture: ",
+		wall_texture != null
+	)
+
+
+func _collect_meshes(
+	node: Node,
+	result: Array[MeshInstance3D]
+) -> void:
+
+	if node is MeshInstance3D:
+		result.append(node)
+
+
+	for child in node.get_children():
+
+		_collect_meshes(
+			child,
+			result
+		)
+
+
+func _is_floor(
+	mesh_name: String
+) -> bool:
+
+	return (
+		"floor" in mesh_name
+		or
+		"ground" in mesh_name
+		or
+		"lantai" in mesh_name
+	)
+
+
+func _make_floor_material() -> StandardMaterial3D:
+
+	var material := StandardMaterial3D.new()
+
+
+	# Tidak bergantung pada DirectionalLight3D.
+	material.shading_mode = (
+		BaseMaterial3D.SHADING_MODE_UNSHADED
+	)
+
+
+	material.albedo_color = floor_color
+	material.albedo_texture = floor_texture
+
+
+	material.uv1_scale = Vector3(
+		floor_texture_scale,
+		floor_texture_scale,
+		1.0
+	)
+
+
+	# Tampilkan kedua sisi mesh.
+	material.cull_mode = (
+		BaseMaterial3D.CULL_DISABLED
+	)
+
+
+	material.roughness = floor_roughness
+	material.metallic = 0.0
+
+
+	material.texture_filter = (
+		BaseMaterial3D
+		.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	)
+
+
+	return material
+
+
+func _make_wall_material() -> StandardMaterial3D:
+
+	var material := StandardMaterial3D.new()
+
+
+	# Tidak bergantung pada DirectionalLight3D.
+	material.shading_mode = (
+		BaseMaterial3D.SHADING_MODE_UNSHADED
+	)
+
+
+	material.albedo_color = wall_color
+	material.albedo_texture = wall_texture
+
+
+	material.uv1_scale = Vector3(
+		wall_texture_scale,
+		wall_texture_scale,
+		1.0
+	)
+
+
+	# Tampilkan kedua sisi mesh.
+	material.cull_mode = (
+		BaseMaterial3D.CULL_DISABLED
+	)
+
+
+	material.roughness = wall_roughness
+	material.metallic = 0.0
+
+
+	material.texture_filter = (
+		BaseMaterial3D
+		.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+	)
+
+
+	return material

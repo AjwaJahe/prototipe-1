@@ -1,0 +1,117 @@
+extends CharacterBody3D
+
+@export var speed := 15.0
+@export var run_speed := 10.0
+@export var crouch_speed := 2.5
+@export var jump_velocity := 4.5
+@export var mouse_sensitivity := 0.003
+
+@export var max_run_stamina: float = 5.0
+@export var stamina_recovery_speed: float = 1.0
+
+var gravity := 9.8
+var is_crouching := false
+var run_stamina: float = 5.0
+var run_exhausted := false
+
+@onready var camera := $Camera3D
+@onready var collision_shape := $CollisionShape3D
+
+var standing_height := 1.6
+var crouching_height := 0.9
+
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	add_to_group("players")
+	run_stamina = max_run_stamina
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		camera.rotate_x(-event.relative.y * mouse_sensitivity)
+		camera.rotation.x = clamp(camera.rotation.x, -1.4, 1.4)
+
+	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func _physics_process(delta: float) -> void:
+	if bool(get_meta("knocked_out", false)):
+		velocity = Vector3.ZERO
+		return
+
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+
+	is_crouching = Input.is_key_pressed(KEY_CTRL)
+
+	if Input.is_key_pressed(KEY_SPACE) and is_on_floor() and not is_crouching:
+		velocity.y = jump_velocity
+
+	var target_cam_y = crouching_height if is_crouching else standing_height
+	camera.position.y = lerp(camera.position.y, target_cam_y, delta * 10.0)
+
+	var input_dir := Vector2.ZERO
+	if Input.is_key_pressed(KEY_W):
+		input_dir.y -= 1
+	if Input.is_key_pressed(KEY_S):
+		input_dir.y += 1
+	if Input.is_key_pressed(KEY_A):
+		input_dir.x -= 1
+	if Input.is_key_pressed(KEY_D):
+		input_dir.x += 1
+	input_dir = input_dir.normalized()
+
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	var wants_run := Input.is_key_pressed(KEY_SHIFT) and not is_crouching and direction.length_squared() > 0.0
+	var running := wants_run and not run_exhausted and run_stamina > 0.0
+
+	var current_speed = speed
+	if is_crouching:
+		current_speed = crouch_speed
+	elif running:
+		current_speed = run_speed
+
+	if running:
+		run_stamina = maxf(0.0, run_stamina - delta)
+		if is_zero_approx(run_stamina):
+			run_stamina = 0.0
+			run_exhausted = true
+	else:
+		run_stamina = minf(max_run_stamina, run_stamina + stamina_recovery_speed * delta)
+
+	if run_exhausted and run_stamina >= max_run_stamina:
+		run_exhausted = false
+
+	if direction:
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.z = move_toward(velocity.z, 0, current_speed)
+
+	move_and_slide()
+
+
+func heal(healer: Node = null) -> void:
+	if healer == null:
+		return
+
+	var game := get_node_or_null("../../GameManager")
+	if game != null and game.has_method("revive_player"):
+		var revived := bool(game.revive_player(self, healer))
+		if not revived:
+			var inventory := healer.get_node_or_null("ItemInventory")
+			if inventory != null and inventory.has_method("_set_status"):
+				inventory.call("_set_status", "Target belum bisa dihidupkan atau Medkit tidak tersedia.")
+
+
+func is_knocked_out() -> bool:
+	return bool(get_meta("knocked_out", false))
+
+
+func get_run_stamina() -> float:
+	return run_stamina

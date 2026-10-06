@@ -1,0 +1,51 @@
+[
+  {
+    "agent": "susanto",
+    "task_id": "lag_f5_audit_direct",
+    "summary": "Audit awal performa F5: project memakai Godot 4.7/GL Compatibility + Jolt. Audit file menunjukkan sekitar 2790 deklarasi MeshInstance3D dan 48 node lampu di seluruh scene project. main.tscn sendiri menginstansikan Map58, Furniture, BasketballCourt, Bleachers, roof, additional lighting, Map58 lighting, Teacher, GameManager, ItemSpawner, dan FurnitureGameplay. Ini membuat rendering/scene complexity menjadi kandidat bottleneck, tetapi belum boleh dinyatakan sebagai penyebab utama tanpa profiler runtime.",
+    "evidence": [
+      "project.godot: config features 4.7 + GL Compatibility; physics Jolt; rendering method gl_compatibility.",
+      "Godot 4.7 docs: profiler dipakai untuk mengetahui apa yang perlu dioptimalkan.",
+      "Godot docs: material reuse, occlusion culling, dan visibility/LOD dapat mengurangi beban rendering 3D."
+    ],
+    "changes": [],
+    "validation": "File project aktual diperiksa. Tidak mengubah gameplay/map. Belum mengklaim FPS improvement karena profiler runtime belum diukur.",
+    "open_issue": "Perlu pengukuran F5 nyata untuk membedakan CPU bottleneck, GPU bottleneck, dan shader stutter."
+  },
+  {
+    "agent": "yanto",
+    "task_id": "lag_f5_audit_independent",
+    "summary": "Audit independen berbasis runtime dan file aktual. Belum ada perubahan gameplay/permanen. Bottleneck utama belum layak disebut sebagai satu script tertentu; bukti terkuat saat ini menunjuk pada beban rendering/SceneTree dan kemungkinan stutter startup, sementara CPU/GPU saturation dan shader pipeline stutter belum terbukti sebagai penyebab permanen.",
+    "evidence": [
+      "Runtime direct project dengan fixed camera di Kelas_11_A setelah warm-up mencapai 59.5 FPS rata-rata, 58-60 FPS, sehingga scene tidak selalu underperform.",
+      "Matrix 11 spawn siswa setelah warm-up menghasilkan sekitar 55.0-60.8 FPS; draw calls bervariasi sekitar 68-1099. Tidak ada satu lokasi spawn yang menunjukkan bottleneck permanen di bawah 55 FPS.",
+      "Performance monitor menunjukkan physics process sekitar 2.9-3.7 ms pada beberapa run fixed/warm runs; ini bukan bukti physics menjadi bottleneck utama.",
+      "Pipeline compilation monitors PIPELINE_COMPILATIONS_CANVAS/MESH/SURFACE/DRAW/SPECIALIZATION terbaca 0 sepanjang probe pipeline. Karena renderer Compatibility/OpenGL memiliki keterbatasan pipeline precompilation, angka 0 ini tidak membuktikan shader stutter tidak pernah terjadi; hanya berarti probe tidak menangkap compilation counters.",
+      "Direct game process CPU sampling sekitar 4.9 CPU-seconds selama 5 detik, kira-kira satu logical core penuh. Ini menunjukkan kerja CPU nyata, tetapi tidak cukup untuk menyatakan seluruh CPU sebagai bottleneck tanpa profiler per-fungsi.",
+      "GPU Engine counter untuk direct game menunjukkan sekitar 6.1% pada engine yang terpantau; tidak terlihat GPU saturation. Ini bukan pengukuran GPU yang lengkap, tetapi tidak mendukung hipotesis GPU jenuh.",
+      "Saat F5 dipicu melalui editor Godot aktif, game berjalan dalam proses editor yang sama/embedded; sampling editor process menunjukkan sekitar 0.266 CPU-seconds selama 5 detik dan GPU engine sekitar 1.8-1.9%. Ini tidak menunjukkan saturation, tetapi F5 embedded belum menghasilkan FPS counter yang dapat dibaca otomatis.",
+      "Audit per-frame menemukan Map58Whiteboard.gd, PlayerInteractionInput.gd, dan items/ItemInventory.gd melakukan pekerjaan/raycast setiap frame. A/B sementara dengan menonaktifkan ketiganya tidak memberi peningkatan yang meyakinkan; perubahan tersebut tidak dipertahankan.",
+      "TeacherAI.gd juga diuji secara sementara, tetapi hasil A/B berubah bersama draw-call/view yang tidak terkendali sehingga eksperimen tersebut ditolak sebagai bukti dan tidak dijadikan dasar perubahan.",
+      "Map58Game.gd meng-update beberapa Label.text setiap frame melalui _update_ui(), termasuk assignment _answer_label.text = _answer_label.text. Ini adalah kandidat optimasi CPU/UI yang valid untuk eksperimen berikutnya, tetapi belum diubah karena belum ada A/B terkontrol pada view yang sama.",
+      "Godot 4.7/official documentation menekankan profiler sebelum optimasi. Dokumentasi CPU optimization menyarankan profiler untuk menemukan bottleneck; dokumentasi GPU optimization menekankan draw calls/API overhead; dokumentasi jitter/stutter membedakan CPU/GPU bottleneck dari shader compilation; dokumentasi Compatibility menyatakan ubershader/pipeline precompilation modern tidak tersedia pada Compatibility renderer."
+    ],
+    "changes": [
+      "Tidak ada script gameplay, map, koordinat, collision, lighting quality, LOD, occlusion, renderer, atau project setting permanen yang diubah.",
+      "Dibuat probe diagnostik sementara PerfProbe.gd dan override.cfg hanya untuk pengukuran; seluruh artefak diagnostik dipindahkan ke diagnostics_performance_20261006 setelah pengujian.",
+      "F5 benar-benar dipicu melalui editor Godot menggunakan F5 dan dihentikan kembali dengan F8. Tidak mengklaim FPS F5 karena counter FPS tidak tersedia secara langsung dari proses embedded."
+    ],
+    "validation": "Validasi runtime dilakukan pada Godot_v4.7.2-stable. Direct probes berjalan terhadap main.tscn. Spawn matrix, fixed-view FPS, pipeline counters, physics timing, CPU sampling, dan GPU Engine sampling diperiksa. Tidak ada perubahan permanen yang dipertahankan.",
+    "risk": "medium",
+    "decision": "Jangan menerapkan LOD, occlusion culling, shadow reduction, renderer change, atau pengurangan kualitas hanya berdasarkan dugaan. Kandidat berikutnya yang paling aman untuk diuji adalah optimasi update UI Map58Game.gd dengan perubahan hanya jika A/B fixed-view membuktikan penurunan frame time.",
+    "open_issue": [
+      "Profiler GDScript bawaan Godot belum dapat direkam secara interaktif melalui akses remote saat ini; ini membatasi atribusi per-fungsi.",
+      "F5 embedded belum memiliki FPS counter yang dapat diambil otomatis; perlu pengujian editor profiler/monitor secara langsung bila akses UI memungkinkan.",
+      "Shader/pipeline stutter belum terbukti atau disangkal sepenuhnya. Compatibility + ANGLE tetap merupakan faktor yang harus diperhatikan.",
+      "Perlu eksperimen A/B fixed-view untuk Map58Game._process/_update_ui() sebelum melakukan perubahan permanen.",
+      "Perlu mengukur startup/load stutter secara terpisah dari steady-state FPS."
+    ]
+  }
+]
+{"agent":"susanto","task_id":"intro_exam_proposal_fix_20261006","summary":"Menyelaraskan pembukaan 5 soal dengan proposal: 5 soal sekaligus di kertas, batas 20 detik, pemain terkunci, setelah timeout pintu kelas ditutup dan lampu kelas dipadamkan lalu transisi ke gameplay utama.","changes":["Map58Game.gd","Player.gd","PintuKelas.gd","AI_COUNCIL.md"],"validation":"Godot 4.7.2 headless editor check exit code 0; visual F5 belum diklaim teruji.","open_issue":"Visual kertas fisik dan animasi guru melayang perlu verifikasi visual."}
+
+{"agent":"susanto","task_id":"fix_intro_runtime_errors_20261006","summary":"Menemukan dan memperbaiki error setelah perubahan pembukaan: Map58Game gagal parse karena inferensi tipe Dictionary dan masih memiliki referensi fungsi intro lama; TeacherAI memanggil String() secara invalid.","fixes":["Map58Game.gd: tipe soal dibuat eksplisit Dictionary","Map58Game.gd: referensi _prepare_next_intro_question lama dihapus","TeacherAI.gd: String(_game.get(...)) diganti str(_game.get(...))"],"validation":"Godot 4.7.2 headless menjalankan project 5 detik dengan exit code 0 tanpa error baru."}

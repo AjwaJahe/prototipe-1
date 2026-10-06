@@ -1,0 +1,8 @@
+main_loaded=true
+door_count=28
+door_walls_loaded=true
+door_walls_count=27
+sample_wall_loaded=true
+sample_wall_material=():<StandardMaterial3D#-9223371884718972550>
+north_door_loaded=true
+north_door_cull=2
