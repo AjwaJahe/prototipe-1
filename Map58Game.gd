@@ -727,7 +727,7 @@ func submit_board_answer(player: Node, answer_text: String) -> bool:
 
 		return true
 
-score -= 5
+	score -= 5
 	active_paper_count = max(0, active_paper_count - 1)
 	berserk_target = player
 	berserk_remaining = BERSERK_TIME
