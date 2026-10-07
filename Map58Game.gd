@@ -97,6 +97,8 @@ var _phase_label: Label
 var _intro_paper_canvas: CanvasLayer
 var _intro_paper_panel: PanelContainer
 var _intro_paper_open := false
+var _intro_answers_submitted := false
+var game_result: String = ""
 
 
 func _ready() -> void:
@@ -181,6 +183,10 @@ func _start_game() -> void:
 	penalty_player = null
 	intro_questions.clear()
 	intro_answers.clear()
+	_intro_answers_submitted = false
+	game_result = ""
+	if question_database != null:
+		question_database.reset_session()
 	intro_remaining = INTRO_TIME
 
 	_set_phase(PHASE_INTRO_EXAM)
@@ -453,6 +459,9 @@ func _hide_intro_paper() -> void:
 
 
 func _submit_intro_paper_answers() -> void:
+	if _intro_answers_submitted:
+		return
+	_intro_answers_submitted = true
 	initial_exam_correct = 0
 	for i in range(intro_questions.size()):
 		var supplied := ""
@@ -464,6 +473,8 @@ func _submit_intro_paper_answers() -> void:
 		if not supplied.is_empty() and supplied == expected:
 			initial_exam_correct += 1
 			score += 10
+		else:
+			score -= 5
 
 
 func _finish_intro_paper_early() -> void:
@@ -524,7 +535,7 @@ func _prepare_next_penalty_question() -> bool:
 	if question_database == null:
 		return false
 
-	current_question = question_database.get_random_question("SD", 2)
+	current_question = question_database.get_penalty_question(penalty_question_index)
 
 	if current_question.is_empty():
 		push_error("Map58Game: bank soal untuk penalti tidak tersedia.")
@@ -538,9 +549,7 @@ func _prepare_next_board_question(player: Node) -> bool:
 	if question_database == null:
 		return false
 
-	var base_difficulty: int = _get_level_base_difficulty(board_level)
-	var max_difficulty: int = mini(5, base_difficulty + int(solved_papers / 2))
-	current_question = question_database.get_random_question(board_level, max_difficulty)
+	current_question = question_database.get_board_question(solved_papers + 1)
 
 	if current_question.is_empty():
 		_set_status("Bank soal untuk tahap ini tidak tersedia.")
@@ -718,7 +727,7 @@ func submit_board_answer(player: Node, answer_text: String) -> bool:
 
 		return true
 
-	score -= 5
+score -= 5
 	active_paper_count = max(0, active_paper_count - 1)
 	berserk_target = player
 	berserk_remaining = BERSERK_TIME
@@ -747,6 +756,7 @@ func _board_timeout() -> void:
 		_consume_used_board_items(inventory)
 
 	active_paper_count = max(0, active_paper_count - 1)
+	score -= 5
 	paper_respawn_requested.emit()
 
 	berserk_target = player
@@ -836,7 +846,6 @@ func player_caught(player: Node) -> void:
 
 
 func _exit_penalty_and_knockout() -> void:
-	score -= 2
 	if penalty_player != null and is_instance_valid(penalty_player):
 		_set_player_knocked_out(penalty_player)
 	elif board_player != null and is_instance_valid(board_player):
@@ -861,6 +870,20 @@ func _set_player_knocked_out(player: Node) -> void:
 
 	player_knocked_out.emit(player)
 
+	var players := get_tree().get_nodes_in_group("players")
+	if not players.is_empty():
+		var all_knocked_out := true
+		for candidate in players:
+			if not bool(candidate.get_meta("knocked_out", false)):
+				all_knocked_out = false
+				break
+		if all_knocked_out:
+			game_result = "LOSE"
+			_set_phase(PHASE_FINISHED)
+			_set_teacher_mode(TEACHER, null)
+			_set_status("SEMUA MURID KO. PERMAINAN BERAKHIR.")
+			game_finished.emit()
+
 
 func revive_player(target: Node, healer: Node) -> bool:
 	if target == null or healer == null:
@@ -876,7 +899,7 @@ func revive_player(target: Node, healer: Node) -> bool:
 	inventory.consume_item_type("medkit")
 	target.set_meta("knocked_out", false)
 	knockout_players.erase(target)
-	score += 5
+	score -= 2
 	player_revived.emit(target)
 
 	if knockout_players.is_empty():
