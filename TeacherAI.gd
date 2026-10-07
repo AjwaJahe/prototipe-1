@@ -356,11 +356,22 @@ func _follow_route(mode: String) -> void:
 				_route_index += 1
 				continue
 
+			if _door_is_locked(door):
+				# Guru tidak boleh membuka pintu yang terkunci.
+				# Lewati titik pintu dan minta route baru tanpa pintu ini.
+				_route_index += 1
+				_route_built = false
+				continue
+
 			if not _door_is_open(door):
 				if distance <= door_use_distance:
 					_open_door(door)
-					_stop()
-					return
+					if _door_is_open(door):
+						_stop()
+						return
+					# Jika gagal membuka (mis. terkunci), jangan berhenti.
+					_route_index += 1
+					continue
 
 		if distance <= 0.9:
 			_route_index += 1
@@ -384,10 +395,11 @@ func _follow_route(mode: String) -> void:
 			_route_collision_check_remaining = 0.12
 
 		if not _cached_route_segment_clear:
-			if door != null and not _door_is_open(door):
+			if door != null and not _door_is_locked(door) and not _door_is_open(door):
 				_open_door(door)
-				_stop()
-				return
+				if _door_is_open(door):
+					_stop()
+					return
 
 			if _route_rebuild_cooldown <= 0.0:
 				var goal := _route_goal
@@ -914,6 +926,9 @@ func _open_door(door: Node3D) -> void:
 	if door == null or not is_instance_valid(door):
 		return
 
+	if _door_is_locked(door):
+		return
+
 	if _door_cooldown_remaining > 0.0:
 		return
 
@@ -926,6 +941,21 @@ func _open_door(door: Node3D) -> void:
 		_last_door = door
 		_door_cooldown_remaining = door_cooldown
 		_door_wait_remaining = door_open_wait_time
+
+
+func _door_is_locked(door: Node3D) -> bool:
+	if door == null or not is_instance_valid(door):
+		return true
+
+	if door.has_method("is_locked"):
+		return bool(door.is_locked())
+
+	var required_item: Variant = door.get("required_item_type")
+	if required_item != null:
+		return not String(required_item).is_empty()
+
+	var meta_required: Variant = door.get_meta("required_item_type", "")
+	return not String(meta_required).is_empty()
 
 
 func _door_is_open(door: Node3D) -> bool:
