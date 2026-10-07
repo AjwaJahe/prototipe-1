@@ -69,6 +69,9 @@ func interact(player: Node = null) -> void:
 func is_open() -> bool:
     return _is_open
 
+func is_locked() -> bool:
+    return not required_item_type.is_empty()
+
 
 func _is_teacher_actor(player: Node) -> bool:
     return player != null and player.is_in_group("teacher")
