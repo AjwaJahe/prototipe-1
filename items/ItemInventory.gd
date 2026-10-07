@@ -1,14 +1,17 @@
 extends Node
 ## Inventory pemain untuk pickup Map58.
-## Kapasitas tetap 2 slot, mengikuti WhiteboardTest.
+## Kapasitas 5 slot untuk kebutuhan gameplay Map58.
 ## Item dunia tetap editable sebagai scene sendiri; tampilan tangan memakai
 ## instance visual terpisah di FirstPersonViewModel.
 
-const MAX_SLOTS: int = 2
+const MAX_SLOTS: int = 5
 const INTERACTION_DISTANCE: float = 3.0
 const DROP_FORWARD_DISTANCE: float = 1.5
 const DROP_RAY_START_HEIGHT: float = 2.5
 const DROP_RAY_LENGTH: float = 6.0
+
+signal inventory_changed(items: Array)
+signal inventory_full()
 
 var items: Array[Node3D] = []
 var selected_slot: int = -1
@@ -49,6 +52,12 @@ func _unhandled_input(event: InputEvent) -> void:
                 _select_slot(0)
             KEY_2:
                 _select_slot(1)
+            KEY_3:
+                _select_slot(2)
+            KEY_4:
+                _select_slot(3)
+            KEY_5:
+                _select_slot(4)
             KEY_P:
                 _drop_selected()
 
@@ -58,7 +67,8 @@ func try_pickup(target: Node3D) -> bool:
         return false
 
     if items.size() >= MAX_SLOTS:
-        _set_status("Inventory penuh. Gunakan 1/2 lalu P untuk membuang item.")
+        inventory_full.emit()
+        _set_status("Inventory penuh (5/5). Gunakan 1-5 lalu P untuk membuang item.")
         return false
 
     if items.has(target):
@@ -80,6 +90,7 @@ func try_pickup(target: Node3D) -> bool:
 
     _update_held_item()
     _update_ui()
+    inventory_changed.emit(get_inventory())
     _set_status("Mengambil " + _display_name(target) + ".")
 
     if String(target.get_meta("item_type", "")) == "paper":
@@ -114,7 +125,49 @@ func consume_item_type(item_type: String) -> bool:
 
     _update_held_item()
     _update_ui()
+    inventory_changed.emit(get_inventory())
     return true
+
+
+func remove_item(item_type: String) -> bool:
+    return consume_item_type(item_type)
+
+
+func add_item(item_type: String) -> bool:
+    if items.size() >= MAX_SLOTS:
+        inventory_full.emit()
+        return false
+    var node := Node3D.new()
+    node.name = "Inventory_" + item_type
+    node.set_meta("item_type", item_type)
+    node.set_meta("display_name", item_type.capitalize())
+    node.set_meta("in_inventory", true)
+    items.append(node)
+    if selected_slot < 0:
+        selected_slot = 0
+    _update_held_item()
+    _update_ui()
+    inventory_changed.emit(get_inventory())
+    return true
+
+
+func get_inventory() -> Array:
+    var result: Array = []
+    for item in items:
+        if is_instance_valid(item):
+            result.append(String(item.get_meta("item_type", "")))
+    return result
+
+
+func clear_inventory() -> void:
+    for item in items:
+        if is_instance_valid(item):
+            item.queue_free()
+    items.clear()
+    selected_slot = -1
+    _clear_held_display()
+    _update_ui()
+    inventory_changed.emit(get_inventory())
 
 
 func _drop_selected() -> void:
@@ -146,6 +199,7 @@ func _drop_selected() -> void:
     _select_valid_slot()
     _update_held_item()
     _update_ui()
+    inventory_changed.emit(get_inventory())
     _set_status("Membuang " + _display_name(target) + ".")
 
 

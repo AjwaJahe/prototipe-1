@@ -11,6 +11,13 @@ const MARKER_ROOT_PATH := NodePath("../Map58_ItemSpawnPoints")
 @export var randomize_respawn: bool = true
 @export var minimum_spawn_separation: float = 0.75
 @export var initial_surface_offset: float = 0.04
+@export var ground_despawn_seconds: float = 60.0
+@export var paper_quantity: int = 10
+@export var chalk_quantity: int = 10
+@export var key_quantity_min: int = 1
+@export var key_quantity_max: int = 2
+@export var medkit_quantity_min: int = 3
+@export var medkit_quantity_max: int = 5
 
 var _game: Node
 var _rng := RandomNumberGenerator.new()
@@ -22,10 +29,14 @@ func _ready() -> void:
     call_deferred("_initialize")
 
 
+func _process(_delta: float) -> void:
+    _despawn_expired_ground_items()
+
+
 func _initialize() -> void:
     _game = get_node_or_null("../GameManager")
     _collect_spawn_points()
-    _scatter_initial_items()
+    spawn_initial_items()
 
     if _game != null and _game.has_signal("paper_respawn_requested"):
         _game.paper_respawn_requested.connect(_on_paper_respawn_requested)
@@ -167,7 +178,8 @@ func _add_surface_points(mesh_instance: MeshInstance3D) -> void:
         _spawn_points.append(mesh_instance.global_transform * point)
 
 
-func _scatter_initial_items() -> void:
+func spawn_initial_items() -> void:
+    _scatter_initial_items()
     var test_root := get_node_or_null(TEST_POINTS_PATH)
     if test_root == null or _spawn_points.is_empty():
         return
@@ -228,9 +240,13 @@ func _find_spread_point_index(points: Array, occupied: Array[Vector3]) -> int:
     return best_index
 
 
+func request_item_respawn(item_type: String) -> void:
+    call_deferred("_respawn_one", item_type)
+
+
 func _on_paper_respawn_requested() -> void:
-    call_deferred("_respawn_one", "paper")
-    call_deferred("_respawn_one", "chalk")
+    request_item_respawn("paper")
+    request_item_respawn("chalk")
 
 
 func _respawn_one(item_type: String) -> void:
@@ -286,8 +302,69 @@ func _place_item_at_surface(item: Node3D, surface_point: Vector3) -> void:
 
     _set_item_collision_enabled(item, true)
 
+    item.set_meta("spawned_at", Time.get_ticks_msec() / 1000.0)
+
     if item.has_method("set_highlighted"):
         item.set_highlighted(false)
+
+
+
+func spawn_item_at_location(item_type: String, location: Vector3) -> bool:
+    var item := _find_hidden_world_item(item_type)
+    if item == null:
+        return false
+    _place_item_at_surface(item, location)
+    return true
+
+
+func on_item_picked_up(item: Node3D) -> void:
+    if item != null:
+        item.set_meta("spawned_at", 0.0)
+
+
+func get_spawn_location_for(item_type: String) -> Vector3:
+    if _spawn_points.is_empty():
+        return Vector3.ZERO
+    var candidates: Array[Vector3] = []
+    for point in _spawn_points:
+        if _is_spawn_position_clear(point, null):
+            candidates.append(point)
+    if candidates.is_empty():
+        return _spawn_points[_rng.randi_range(0, _spawn_points.size() - 1)]
+    return candidates[_rng.randi_range(0, candidates.size() - 1)]
+
+
+func clear_all_items() -> void:
+    var test_root := get_node_or_null(TEST_POINTS_PATH)
+    if test_root == null:
+        return
+    for child in test_root.get_children():
+        if child is Node3D and String((child as Node3D).get_meta("item_type", "")) != "":
+            var item := child as Node3D
+            item.visible = false
+            item.set_meta("in_inventory", false)
+            _set_item_collision_enabled(item, false)
+
+
+func _despawn_expired_ground_items() -> void:
+    if ground_despawn_seconds <= 0.0:
+        return
+    var test_root := get_node_or_null(TEST_POINTS_PATH)
+    if test_root == null:
+        return
+    var now := Time.get_ticks_msec() / 1000.0
+    for child in test_root.get_children():
+        if not child is Node3D:
+            continue
+        var item := child as Node3D
+        if not item.visible or bool(item.get_meta("in_inventory", false)):
+            continue
+        var spawned_at := float(item.get_meta("spawned_at", 0.0))
+        if spawned_at > 0.0 and now - spawned_at >= ground_despawn_seconds:
+            item.visible = false
+            _set_item_collision_enabled(item, false)
+            if String(item.get_meta("item_type", "")) == "paper" and _game != null:
+                _game.call_deferred("unregister_spawned_paper")
 
 
 func _get_lowest_mesh_y_in_root(item: Node3D) -> float:

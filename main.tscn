@@ -16,6 +16,9 @@
 [ext_resource type="Script" path="res://Map58ItemSpawner.gd" id="14_item_spawner"]
 [ext_resource type="Script" path="res://Map58FurnitureGameplay.gd" id="17_furniture_gameplay"]
 [ext_resource type="Script" path="res://Map58EditorPerformance.gd" id="18_editor_perf"]
+[ext_resource type="Script" path="res://AudioManager.gd" id="19_audio"]
+[ext_resource type="Script" path="res://GameAudioManager.gd" id="20_game_audio"]
+[ext_resource type="Script" path="res://UIManager.gd" id="21_ui_manager"]
 
 [sub_resource type="Environment" id="Env_horror"]
 background_mode = 1
@@ -108,6 +111,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -0.18, -3.49)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82425, 0, -26.4991)
 
 [node name="Map58_AdditionalLighting" parent="." unique_id=753648456 instance=ExtResource("11_lighting")]
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("19_audio")
+
+[node name="GameAudioManager" type="Node" parent="."]
+script = ExtResource("20_game_audio")
+
+[node name="UIManager" type="CanvasLayer" parent="."]
+script = ExtResource("21_ui_manager")
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("12_game")

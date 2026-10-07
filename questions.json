@@ -845,6 +845,406 @@
       "answer": "7",
       "type": "numeric",
       "image": null
+    },
+    {
+      "id": "smp_extra_001",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "2x + 6 = 20, x = ?",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_002",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "3x - 9 = 12, x = ?",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_003",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "5x + 10 = 35, x = ?",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_004",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "4x - 8 = 24, x = ?",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_005",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "7x + 14 = 56, x = ?",
+      "answer": "6",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_006",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "9x - 18 = 45, x = ?",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_007",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "6x + 12 = 48, x = ?",
+      "answer": "6",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_008",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "8x - 16 = 40, x = ?",
+      "answer": "7",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_009",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "3(x + 4) = 27, x = ?",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_010",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "2(x - 5) = 18, x = ?",
+      "answer": "14",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_011",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "5(x + 2) = 35, x = ?",
+      "answer": "5",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_012",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "4(x - 3) = 28, x = ?",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_013",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "x/3 + 4 = 10, x = ?",
+      "answer": "18",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_014",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "x/5 - 2 = 6, x = ?",
+      "answer": "40",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_015",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "2x/3 = 14, x = ?",
+      "answer": "21",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_016",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "3x/4 = 18, x = ?",
+      "answer": "24",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_017",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "Jika 3 buku berharga 24, harga 5 buku = ?",
+      "answer": "40",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_018",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "Perbandingan 2:5. Jika bagian pertama 14, bagian kedua = ?",
+      "answer": "35",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_019",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "Luas persegi panjang 72 dan panjang 9. Lebar = ?",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "smp_extra_020",
+      "level": "SMP",
+      "difficulty": 3,
+      "category": "Aljabar dan Logika",
+      "question": "Rata-rata 6, 8, 10, dan x adalah 9. x = ?",
+      "answer": "12",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_001",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "2^5 + 3^3 = ?",
+      "answer": "59",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_002",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "7^2 - 3^3 = ?",
+      "answer": "22",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_003",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "(18 × 7) - 5^2 = ?",
+      "answer": "101",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_004",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "√196 + 4^2 = ?",
+      "answer": "30",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_005",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "3^4 - 2^5 = ?",
+      "answer": "49",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_006",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "(25 + 15) / 5 = ?",
+      "answer": "8",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_007",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "√225 - 3^2 = ?",
+      "answer": "6",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_008",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "5^3 - 4^2 = ?",
+      "answer": "109",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_009",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "12^2 / 6 = ?",
+      "answer": "24",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_010",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "(8^2 + 6^2) / 10 = ?",
+      "answer": "10",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_011",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "2^6 - 5^2 = ?",
+      "answer": "39",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_012",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "√256 + 3^3 = ?",
+      "answer": "43",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_013",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "9^2 + 12^2 = ?",
+      "answer": "225",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_014",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "(15 × 8) + 7^2 = ?",
+      "answer": "169",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_015",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "4^5 / 4^2 = ?",
+      "answer": "64",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_016",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "√361 - 5^2 = ?",
+      "answer": "14",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_017",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "(7^3 + 5^3) / 8 = ?",
+      "answer": "57",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_018",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "11^2 - 6^2 = ?",
+      "answer": "85",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_019",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "(14 × 9) - 8^2 = ?",
+      "answer": "62",
+      "type": "numeric",
+      "image": null
+    },
+    {
+      "id": "sma_extra_020",
+      "level": "SMA",
+      "difficulty": 5,
+      "category": "Matematika Lanjutan",
+      "question": "√400 + 6^2 = ?",
+      "answer": "56",
+      "type": "numeric",
+      "image": null
     }
   ]
 }
