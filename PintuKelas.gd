@@ -31,7 +31,10 @@ func interact(player: Node = null) -> void:
     if door_slide == null:
         return
 
-    if not required_item_type.is_empty() and not _is_teacher_actor(player):
+    if not required_item_type.is_empty():
+        # Pintu berkunci benar-benar menolak semua aktor, termasuk guru.
+        if _is_teacher_actor(player):
+            return
         if player == null:
             return
 
