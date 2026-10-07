@@ -8,6 +8,7 @@ extends Node3D
 @onready var door_slide: AnimatableBody3D = $DoorPivot
 
 var _is_open := false
+var _closed_x := 0.0
 var _tween: Tween
 
 
@@ -23,6 +24,7 @@ func _ready() -> void:
 
     set_meta("locked", not required_item_type.is_empty())
     set_meta("required_item_type", required_item_type)
+    _closed_x = door_slide.position.x
 
 
 func interact(player: Node = null) -> void:
@@ -41,10 +43,10 @@ func interact(player: Node = null) -> void:
     if _tween != null:
         _tween.kill()
 
-    var target_x := (
-        door_slide.position.x + open_distance
+    var target_x := _closed_x + (
+        open_distance
         if not _is_open
-        else door_slide.position.x - open_distance
+        else 0.0
     )
 
     _tween = create_tween()
@@ -66,6 +68,9 @@ func interact(player: Node = null) -> void:
 
 func is_open() -> bool:
     return _is_open
+
+func is_locked() -> bool:
+    return not required_item_type.is_empty()
 
 
 func _is_teacher_actor(player: Node) -> bool:
