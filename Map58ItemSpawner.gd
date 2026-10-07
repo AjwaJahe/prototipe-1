@@ -359,7 +359,7 @@ func _despawn_expired_ground_items() -> void:
         var item := child as Node3D
         if not item.visible or bool(item.get_meta("in_inventory", false)):
             continue
-        var spawned_at := float(item.get_meta("spawned_at", 0.0))
+        var spawned_at: float = item.get_meta("spawned_at", 0.0)
         if spawned_at > 0.0 and now - spawned_at >= ground_despawn_seconds:
             item.visible = false
             _set_item_collision_enabled(item, false)
