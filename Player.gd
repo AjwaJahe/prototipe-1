@@ -21,6 +21,8 @@ var _footstep_timer := 0.0
 var standing_height := 1.6
 var crouching_height := 0.9
 
+signal stamina_changed(current: float, maximum: float)
+
 var _stamina_bar: ProgressBar
 var _stamina_text: Label
 
@@ -35,6 +37,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
     _update_stamina_ui()
+    stamina_changed.emit(run_stamina, max_run_stamina)
 
 
 func _unhandled_input(event: InputEvent) -> void:
