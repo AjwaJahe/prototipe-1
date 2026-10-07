@@ -71,6 +71,10 @@ var _cached_detection_result := false
 var _route_collision_check_remaining := 0.0
 var _cached_route_segment_clear := true
 
+var _stuck_timer := 0.0
+var _stuck_last_pos := Vector3.ZERO
+var _unreachable: Array[Node3D] = []
+
 const MAX_NEAREST_DOORS := 6
 
 
@@ -261,6 +265,8 @@ func _has_line_of_sight(target: Node3D) -> bool:
 
 
 func _move_toward_target(target: Node3D, mode: String) -> void:
+	_check_stuck(target)
+
 	if target == null:
 		_stop()
 		return
@@ -378,14 +384,24 @@ func _follow_route(mode: String) -> void:
 			_route_collision_check_remaining = 0.12
 
 		if not _cached_route_segment_clear:
-			if door != null:
+			if door != null and not _door_is_open(door):
 				_open_door(door)
 				_stop()
 				return
 
-			_build_route(_route_goal)
+			if _route_rebuild_cooldown <= 0.0:
+				var goal := _route_goal
+				if goal != null and is_instance_valid(goal):
+					_build_route(goal)
+					_route_rebuild_cooldown = 0.45
+
 			if _route_points.is_empty():
-				_stop()
+				velocity.x = 0.0
+				velocity.z = 0.0
+				velocity.y = 0.0
+				return
+
+			_follow_route(mode)
 			return
 
 		_apply_movement(direction, mode)
@@ -485,7 +501,6 @@ func _build_route(target: Node3D) -> void:
 		_route_built = true
 		_route_goal = target
 		_route_goal_position = goal
-		_move_to_nearest_escape_door()
 		return
 
 	for point in path:
@@ -790,21 +805,48 @@ func _choose_next_waypoint() -> void:
 	if _waypoints.size() == 1:
 		_waypoint_index = 0
 	else:
-		var next_index := _rng.randi_range(
-			0,
-			_waypoints.size() - 1
-		)
+		var available: Array[int] = []
+		for i in range(_waypoints.size()):
+			if i != _waypoint_index and not _unreachable.has(_waypoints[i]):
+				available.append(i)
 
-		while next_index == _waypoint_index:
-			next_index = _rng.randi_range(
-				0,
-				_waypoints.size() - 1
-			)
+		if available.is_empty():
+			_unreachable.clear()
+			for i in range(_waypoints.size()):
+				if i != _waypoint_index:
+					available.append(i)
 
-		_waypoint_index = next_index
+		if available.is_empty():
+			_waypoint_index = 0
+		else:
+			_waypoint_index = available[_rng.randi_range(0, available.size() - 1)]
 
 	_wait_remaining = waypoint_wait_time
+	_stuck_timer = 0.0
 	_clear_route()
+
+
+func _check_stuck(target: Node3D) -> void:
+	_stuck_timer += get_physics_process_delta_time()
+	if _stuck_timer < 2.0:
+		return
+
+	var moved := global_position.distance_to(_stuck_last_pos)
+	_stuck_timer = 0.0
+	_stuck_last_pos = global_position
+
+	if moved >= 0.4 or _door_wait_remaining > 0.0:
+		return
+
+	if _waypoints.has(target):
+		if not _unreachable.has(target):
+			_unreachable.append(target)
+		if _unreachable.size() >= maxi(1, _waypoints.size() - 1):
+			_unreachable.clear()
+		_choose_next_waypoint()
+	else:
+		_clear_route()
+		_route_rebuild_cooldown = 1.0
 
 
 func _collect_waypoints() -> void:
@@ -838,6 +880,10 @@ func _try_close_last_door() -> void:
 	if not _door_is_open(_last_door):
 		_last_door = null
 		return
+
+	for i in range(_route_index, _route_doors.size()):
+		if _route_doors[i] == _last_door:
+			return
 
 	if global_position.distance_to(_last_door.global_position) >= door_close_distance:
 		_last_door.interact(self)
