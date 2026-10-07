@@ -154,21 +154,21 @@ func _refresh_all() -> void:
 
     var timer := 0.0
     if phase == "INTRO_EXAM":
-        timer = float(_game.get("intro_remaining"))
+        timer = _as_float(_game.get("intro_remaining"))
     elif phase == "TRANSITION":
-        timer = float(_game.get("transition_remaining"))
+        timer = _as_float(_game.get("transition_remaining"))
     elif phase == "HUNT":
         timer = maxf(
-            float(_game.get("hunt_remaining")),
-            maxf(float(_game.get("calm_remaining")), float(_game.get("berserk_remaining")))
+            _as_float(_game.get("hunt_remaining")),
+            maxf(_as_float(_game.get("calm_remaining")), _as_float(_game.get("berserk_remaining")))
         )
     elif phase == "BOARD_SOLVING":
-        timer = float(_game.get("board_remaining"))
+        timer = _as_float(_game.get("board_remaining"))
     timer_label.text = "WAKTU: " + _format_time(timer)
 
     if _player != null:
-        var stamina := float(_player.get("run_stamina"))
-        var max_stamina := maxf(float(_player.get("max_run_stamina")), 0.001)
+        var stamina := _as_float(_player.get("run_stamina"))
+        var max_stamina := maxf(_as_float(_player.get("max_run_stamina")), 0.001)
         stamina_bar.value = stamina
         stamina_bar.max_value = max_stamina
         stamina_label.text = "STAMINA: %d%%" % roundi(stamina / max_stamina * 100.0)
@@ -242,6 +242,18 @@ SOAL TERJAWAB: %d/10" % [
         int(_game.get("solved_papers"))
     ]
     results_panel.visible = true
+
+
+func _as_float(value: Variant, fallback: float = 0.0) -> float:
+    if value == null:
+        return fallback
+    if value is float:
+        return value
+    if value is int:
+        return value * 1.0
+    if value is String:
+        return value.to_float()
+    return fallback
 
 
 func _format_time(seconds_value: float) -> String:
