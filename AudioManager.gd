@@ -167,14 +167,19 @@ func _play_pooled(
     if source == null:
         return
 
-    source.stream = stream
-    source.volume_db = master_volume_db + effects_volume_db + volume_db
-    source.pitch_scale = pitch
-
     if source is AudioStreamPlayer3D:
-        (source as AudioStreamPlayer3D).global_position = world_position
-
-    source.play()
+        var spatial := source as AudioStreamPlayer3D
+        spatial.stream = stream
+        spatial.volume_db = master_volume_db + effects_volume_db + volume_db
+        spatial.pitch_scale = pitch
+        spatial.global_position = world_position
+        spatial.play()
+    elif source is AudioStreamPlayer:
+        var flat := source as AudioStreamPlayer
+        flat.stream = stream
+        flat.volume_db = master_volume_db + effects_volume_db + volume_db
+        flat.pitch_scale = pitch
+        flat.play()
 
 
 func set_ambience(ambience_type: String) -> void:
