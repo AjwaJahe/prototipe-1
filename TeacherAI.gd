@@ -317,10 +317,9 @@ func _move_toward_target(target: Node3D, mode: String) -> void:
 			_stop()
 		return
 
-		_follow_route(mode)
+		# Route baru dipakai pada physics tick berikutnya.
+		# Hindari rekursi _follow_route() yang dapat memicu stack overflow.
 		return
-
-	_follow_route(mode)
 
 
 func _move_direct_with_collision_check(
