@@ -420,8 +420,10 @@ func _follow_route(mode: String) -> void:
 				velocity.y = 0.0
 				return
 
-			_follow_route(mode)
-			return
+			# Jangan memanggil _follow_route() secara rekursif.
+			# Route yang terus terhalang dapat memicu rebuild berulang dan
+			# akhirnya stack overflow. Ulangi loop dengan route baru.
+			continue
 
 		_apply_movement(direction, mode)
 		return
