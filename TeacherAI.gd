@@ -81,6 +81,8 @@ const MAX_NEAREST_DOORS := 3
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	set_physics_process(true)
 	add_to_group("teacher")
 	_rng.randomize()
 	call_deferred("_initialize")
@@ -752,11 +754,12 @@ func _cache_collision_rids() -> void:
 	_cached_self_exclude_rids.clear()
 	_cached_self_exclude_rids.append(get_rid())
 
+	# Jangan memasukkan seluruh collider pintu ke exclude list setiap raycast.
+	# Map58 memiliki banyak collider pintu; daftar besar ini membuat setiap
+	# intersect_ray sangat mahal dan dapat membuat game terasa freeze.
+	# Raycast dengan ignore_doors akan mengenali collider pintu lewat parent
+	# (_is_part_of_known_door) sehingga daftar RID pintu tidak diperlukan.
 	_cached_door_exclude_rids.clear()
-	for door in _doors:
-		if door == null or not is_instance_valid(door):
-			continue
-		_collect_collision_rids(door, _cached_door_exclude_rids)
 
 
 func _get_self_exclude_rids() -> Array[RID]:

@@ -102,6 +102,8 @@ var game_result: String = ""
 
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	set_process(true)
 	_load_question_database()
 	_build_ui()
 	_refresh_active_paper_count()
