@@ -75,7 +75,9 @@ var _stuck_timer := 0.0
 var _stuck_last_pos := Vector3.ZERO
 var _unreachable: Array[Node3D] = []
 
-const MAX_NEAREST_DOORS := 6
+# Graph pintu harus ringan: ribuan raycast saat spawn membuat Godot
+# tampak freeze. Tiga tetangga terdekat cukup untuk koneksi lokal.
+const MAX_NEAREST_DOORS := 3
 
 
 func _ready() -> void:
