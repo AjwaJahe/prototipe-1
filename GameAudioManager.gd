@@ -46,11 +46,20 @@ func _process(_delta: float) -> void:
             (_teacher as Node3D).global_position
         )
 
-    if distance < 10.0:
-        # Proximity audio hanya dimainkan lewat HUD/audio layer bila asset tersedia.
-        # Tidak diputar setiap frame agar tidak menumpuk.
-        if Engine.get_process_frames() % 45 == 0:
-            _audio.play_ui_sound("teacher_detection_alarm")
+    if distance < 10.0 and Engine.get_process_frames() % 45 == 0:
+        _audio.play_ui_sound("teacher_detection_alarm")
+
+
+## API audio yang dipakai TeacherAI.
+## Jika asset loop belum tersedia, pemanggilan ini aman dan tidak error.
+func play_loop(sound_name: String, volume_db: float = 0.0) -> void:
+    if _audio != null and _audio.has_method("play_loop"):
+        _audio.play_loop(sound_name, volume_db)
+
+
+func stop_loop(sound_name: String) -> void:
+    if _audio != null and _audio.has_method("stop_loop"):
+        _audio.stop_loop(sound_name)
 
 
 func _on_phase_changed(phase: String) -> void:
