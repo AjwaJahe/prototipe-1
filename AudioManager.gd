@@ -11,6 +11,7 @@ extends Node
 var _pools: Dictionary = {}
 var _library: Dictionary = {}
 var _current_ambience: AudioStreamPlayer
+var _loops: Dictionary = {}
 
 
 func _ready() -> void:
@@ -58,6 +59,19 @@ func _load_sound_library() -> void:
         ],
         "teacher_footstep": [
             "res://assets/audio/teacher/walk_heavy_1.ogg"
+        ],
+        "teacher_ghost_loop": [
+            "res://assets/audio/teacher/ghost_loop.ogg",
+            "res://assets/audio/teacher/ghost_breathing_special.ogg"
+        ],
+        "teacher_alert": [
+            "res://assets/audio/teacher/alert.ogg"
+        ],
+        "teacher_ruler": [
+            "res://assets/audio/teacher/ruler_hit.ogg"
+        ],
+        "teacher_detection_alarm": [
+            "res://assets/audio/ui/teacher_detection_alarm.ogg"
         ],
         "door_open": [
             "res://assets/audio/doors/open_creaky.ogg"
@@ -150,6 +164,42 @@ func play_sfx(sound_name: String, world_position: Vector3 = Vector3.ZERO) -> voi
 
 func play_ui_sound(sound_name: String) -> void:
     _play_pooled(sound_name, "ui_sounds", 0.0, 1.0, Vector3.ZERO)
+
+
+func play_loop(sound_name: String, volume_db: float = 0.0) -> void:
+    var stream: AudioStream = _library.get(sound_name)
+    if stream == null:
+        return
+
+    var source: AudioStreamPlayer = _loops.get(sound_name)
+    if source != null and is_instance_valid(source):
+        source.volume_db = master_volume_db + effects_volume_db + volume_db
+        if not source.playing:
+            source.play()
+        return
+
+    source = AudioStreamPlayer.new()
+    source.name = "Loop_" + sound_name
+    source.stream = stream
+    source.volume_db = master_volume_db + effects_volume_db + volume_db
+    source.bus = _valid_bus("Effects", "Master")
+    source.autoplay = false
+    source.set_meta("loop_sound", true)
+    if stream is AudioStreamOggVorbis:
+        (stream as AudioStreamOggVorbis).loop = true
+    add_child(source)
+    _loops[sound_name] = source
+    source.play()
+
+
+func stop_loop(sound_name: String) -> void:
+    var source: AudioStreamPlayer = _loops.get(sound_name)
+    if source == null or not is_instance_valid(source):
+        _loops.erase(sound_name)
+        return
+    source.stop()
+    source.queue_free()
+    _loops.erase(sound_name)
 
 
 func _play_pooled(

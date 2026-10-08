@@ -333,7 +333,14 @@ func _move_direct_with_collision_check(
 		return
 
 	var direction := flat.normalized()
-	if not _segment_clear(global_position, target_position):
+
+	# PROMPT 1: jalur langsung juga ditahan 0.12s agar tidak melakukan
+	# raycast setiap physics tick ketika route AStar belum tersedia.
+	if _route_collision_check_remaining <= 0.0:
+		_cached_route_segment_clear = _segment_clear(global_position, target_position)
+		_route_collision_check_remaining = 0.12
+
+	if not _cached_route_segment_clear:
 		var door := _find_nearby_closed_door(door_use_distance + 0.5)
 		if door != null:
 			_open_door(door)
