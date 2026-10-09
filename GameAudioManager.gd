@@ -38,6 +38,9 @@ func _process(_delta: float) -> void:
     if _game == null or _teacher == null or _audio == null:
         return
 
+    if Engine.get_process_frames() % 45 != 0:
+        return
+
     var phase := String(_game.get("phase"))
     if phase != "HUNT" and phase != "BOARD_SOLVING":
         return
@@ -51,8 +54,7 @@ func _process(_delta: float) -> void:
     if distance < 10.0:
         # Proximity audio hanya dimainkan lewat HUD/audio layer bila asset tersedia.
         # Tidak diputar setiap frame agar tidak menumpuk.
-        if Engine.get_process_frames() % 45 == 0:
-            _audio.play_ui_sound("teacher_detection_alarm")
+        _audio.play_ui_sound("teacher_detection_alarm")
 
 
 func _on_phase_changed(phase: String) -> void:

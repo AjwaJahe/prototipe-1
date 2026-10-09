@@ -35,7 +35,13 @@ func _ready() -> void:
     _update_stamina_ui()
 
 
+var _last_emitted_stamina := -1.0
+
+
 func _process(_delta: float) -> void:
+    if is_equal_approx(run_stamina, _last_emitted_stamina):
+        return
+    _last_emitted_stamina = run_stamina
     _update_stamina_ui()
     stamina_changed.emit(run_stamina, max_run_stamina)
 

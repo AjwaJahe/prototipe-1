@@ -48,7 +48,15 @@ func _ready() -> void:
     _refresh_all()
 
 
-func _process(_delta: float) -> void:
+const REFRESH_INTERVAL := 0.1
+var _refresh_remaining := 0.0
+
+
+func _process(delta: float) -> void:
+    _refresh_remaining -= delta
+    if _refresh_remaining > 0.0:
+        return
+    _refresh_remaining = REFRESH_INTERVAL
     _refresh_all()
 
 

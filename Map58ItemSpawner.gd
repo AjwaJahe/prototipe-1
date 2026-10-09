@@ -29,7 +29,15 @@ func _ready() -> void:
     call_deferred("_initialize")
 
 
-func _process(_delta: float) -> void:
+const DESPAWN_CHECK_INTERVAL := 1.0
+var _despawn_check_remaining := 0.0
+
+
+func _process(delta: float) -> void:
+    _despawn_check_remaining -= delta
+    if _despawn_check_remaining > 0.0:
+        return
+    _despawn_check_remaining = DESPAWN_CHECK_INTERVAL
     _despawn_expired_ground_items()
 
 
