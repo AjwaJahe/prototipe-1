@@ -4,6 +4,8 @@ extends SceneTree
 ## Exits with code 1 if any file fails to load.
 
 const SKIP_DIRS := [".godot", ".git", ".github", "addons"]
+## Legacy scenes whose source assets (.glb / script) are not in the repository.
+const SKIP_FILES := ["res://pp32.tscn", "res://map58/Furniture_Administrasi.tscn"]
 const EXTENSIONS := ["gd", "tscn", "scn"]
 
 var _errors := 0
@@ -28,7 +30,7 @@ func _init() -> void:
 
 func _collect(dir_path: String, out: Array[String]) -> void:
 	for f in DirAccess.get_files_at(dir_path):
-		if f.get_extension() in EXTENSIONS:
+		if f.get_extension() in EXTENSIONS and dir_path.path_join(f) not in SKIP_FILES:
 			out.append(dir_path.path_join(f))
 	for d in DirAccess.get_directories_at(dir_path):
 		if d in SKIP_DIRS:
