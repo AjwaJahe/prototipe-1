@@ -179,7 +179,6 @@ func _add_surface_points(mesh_instance: MeshInstance3D) -> void:
 
 
 func spawn_initial_items() -> void:
-    _scatter_initial_items()
     var test_root := get_node_or_null(TEST_POINTS_PATH)
     if test_root == null or _spawn_points.is_empty():
         return
