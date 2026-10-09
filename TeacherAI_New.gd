@@ -70,6 +70,16 @@ var _cached_detection_target: Node3D
 var _cached_detection_result: bool = false
 
 var _last_door_opened: Node3D
+var _intro_departing := false
+var _intro_departure_door: Node3D
+var _intro_departure_door_marker: Node3D
+var _intro_departure_destination: Node3D
+var _intro_departure_stage := 0
+var _intro_departure_wait := 0.0
+var _intro_departure_stall := 0.0
+var _intro_departure_last_position := Vector3.ZERO
+var _intro_departure_outward_direction := Vector3.FORWARD
+var _intro_float_height := 1.8
 
 
 func _ready() -> void:
@@ -104,7 +114,10 @@ func _physics_process(delta: float) -> void:
 	_patrol_timer += delta
 
 	var phase := str(_game.get("phase"))
-	if phase in ["TRANSITION", "PENALTY_EXAM", "KO", "FINISHED"]:
+	if phase == "TRANSITION" and _intro_departing:
+		_process_intro_departure(delta)
+		return
+	if phase in ["INTRO_BRIEFING", "INTRO_EXAM", "TRANSITION", "PENALTY_EXAM", "KO", "FINISHED"]:
 		_stop()
 		_stop_footstep_timer()
 		return
@@ -142,6 +155,149 @@ func _physics_process(delta: float) -> void:
 
 	_update_footsteps(delta, mode)
 	move_and_slide()
+
+
+func begin_intro_departure(class_door: Node3D, destination: Node3D, door_marker: Node3D = null) -> void:
+	# Alur baru: dekati sisi dalam pintu -> buka -> lintasi pintu -> pulang.
+	_intro_departing = true
+	_intro_departure_door = class_door
+	_intro_departure_door_marker = door_marker if door_marker != null else class_door
+	_intro_departure_destination = destination
+	_intro_departure_stage = 0 if class_door != null and _intro_departure_door_marker != null else 2
+	_intro_departure_wait = 0.0
+	_intro_departure_stall = 0.0
+	_intro_departure_last_position = global_position
+	if _intro_departure_door_marker != null and is_instance_valid(_intro_departure_door_marker):
+		var outward := _intro_departure_door_marker.global_position - global_position
+		outward.y = 0.0
+		if outward.length_squared() > 0.001:
+			_intro_departure_outward_direction = outward.normalized()
+	velocity = Vector3.ZERO
+	_set_intro_float_animation(true)
+
+	if _intro_departure_stage == 0:
+		nav_agent.target_position = _intro_departure_approach_point()
+	elif _intro_departure_destination != null and is_instance_valid(_intro_departure_destination):
+		nav_agent.target_position = _intro_departure_destination.global_position
+
+
+func _intro_departure_approach_point() -> Vector3:
+	if _intro_departure_door_marker == null or not is_instance_valid(_intro_departure_door_marker):
+		return global_position
+	return _intro_departure_door_marker.global_position - _intro_departure_outward_direction * 1.25
+
+
+func _intro_departure_exit_point() -> Vector3:
+	if _intro_departure_door_marker == null or not is_instance_valid(_intro_departure_door_marker):
+		return global_position
+	return _intro_departure_door_marker.global_position + _intro_departure_outward_direction * 2.0
+
+
+func _process_intro_departure(delta: float) -> void:
+	if not _intro_departing:
+		return
+
+	_intro_departure_wait += delta
+	if global_position.distance_to(_intro_departure_last_position) < 0.025:
+		_intro_departure_stall += delta
+	else:
+		_intro_departure_stall = 0.0
+		_intro_departure_last_position = global_position
+
+	if _intro_departure_stage == 0:
+		var approach := _intro_departure_approach_point()
+		var near_door := global_position.distance_to(_intro_departure_door_marker.global_position) <= 2.0 if _intro_departure_door_marker != null and is_instance_valid(_intro_departure_door_marker) else false
+		if global_position.distance_to(approach) <= 0.95 or near_door:
+			velocity = Vector3.ZERO
+			if not _door_is_open(_intro_departure_door):
+				if _door_cooldown_remaining <= 0.0:
+					_open_door(_intro_departure_door)
+				if not _door_is_open(_intro_departure_door):
+					return
+			_intro_departure_stage = 1
+			_intro_departure_wait = 0.0
+			nav_agent.target_position = _intro_departure_exit_point()
+			return
+		_move_intro_departure_toward(approach, delta)
+		if _intro_departure_stall > 2.0:
+			# Titik pendekatan bisa berada di luar navmesh; coba target marker pintu.
+			nav_agent.target_position = _intro_departure_door_marker.global_position
+			_intro_departure_stall = 0.0
+		return
+
+	if _intro_departure_stage == 1:
+		var exit_point := _intro_departure_exit_point()
+		if global_position.distance_to(exit_point) <= 0.95:
+			velocity = Vector3.ZERO
+			if _door_is_open(_intro_departure_door):
+				_close_door(_intro_departure_door)
+			_intro_departure_stage = 2
+			_intro_departure_wait = 0.0
+			if _intro_departure_destination != null and is_instance_valid(_intro_departure_destination):
+				nav_agent.target_position = _intro_departure_destination.global_position
+			return
+		_move_intro_departure_toward(exit_point, delta)
+		if _intro_departure_stall > 2.0:
+			# Jika titik seberang tidak terjangkau, teruskan ke tujuan agar AI tidak terkunci di pintu.
+			_intro_departure_stage = 2
+			if _intro_departure_destination != null and is_instance_valid(_intro_departure_destination):
+				nav_agent.target_position = _intro_departure_destination.global_position
+			_intro_departure_stall = 0.0
+		return
+
+	if _intro_departure_destination == null or not is_instance_valid(_intro_departure_destination):
+		_finish_intro_departure()
+		return
+	if global_position.distance_to(_intro_departure_destination.global_position) <= 1.35:
+		velocity = Vector3.ZERO
+		_finish_intro_departure()
+		return
+
+	_move_intro_departure_toward(_intro_departure_destination.global_position, delta)
+	if _intro_departure_stall > 3.0:
+		nav_agent.target_position = _intro_departure_destination.global_position
+		_intro_departure_stall = 0.0
+		if _intro_departure_wait > 25.0:
+			push_warning("TeacherAI: guru tertahan saat pulang; keberangkatan tetap aktif agar masalah terlihat dan tidak dilewati diam-diam.")
+
+
+func _move_intro_departure_toward(target_position: Vector3, delta: float) -> void:
+	if nav_agent.target_position.distance_to(target_position) > 0.5:
+		nav_agent.target_position = target_position
+	var next_position := nav_agent.get_next_path_position()
+	var direction := next_position - global_position
+	direction.y = 0.0
+	if direction.length_squared() < 0.0001:
+		direction = target_position - global_position
+		direction.y = 0.0
+	if direction.length_squared() < 0.0001:
+		velocity = Vector3.ZERO
+		return
+	var flat_direction := direction.normalized()
+	_face_direction(flat_direction)
+	velocity.x = flat_direction.x * teacher_speed
+	velocity.z = flat_direction.z * teacher_speed
+	velocity.y = 0.0
+	move_and_slide()
+	# Jangan mengangkat CharacterBody: collision pintu/dinding harus tetap akurat.
+	velocity = Vector3.ZERO
+
+
+func _finish_intro_departure() -> void:
+	_intro_departing = false
+	velocity = Vector3.ZERO
+	_set_intro_float_animation(false)
+	_stop()
+
+
+func _set_intro_float_animation(active: bool) -> void:
+	var animation_node := get_node_or_null("TeacherAnimation")
+	if animation_node != null and animation_node.has_method("set_intro_floating"):
+		animation_node.call("set_intro_floating", active)
+
+
+func is_intro_departure_complete() -> bool:
+	return not _intro_departing
 
 
 func _set_state(new_state: State) -> void:

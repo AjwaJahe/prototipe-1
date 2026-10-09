@@ -3,8 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2uxj8fgvb3hw" path="res://map58/Map58.glb" id="1_map"]
 [ext_resource type="Script" uid="uid://c27ctg2d1oyv1" path="res://map58/Map58_FloorCollision.gd" id="3_collision"]
 [ext_resource type="Script" uid="uid://cl20wb88mapd3" path="res://map58/Map58_AppearanceController.gd" id="4_style"]
-
-[ext_resource type="Script" path="res://map58/Map58_NavigationBaker.gd" id="5_navbake"]
+[ext_resource type="Script" uid="uid://dym76uyp45jsj" path="res://map58/Map58_NavigationBaker.gd" id="5_navbake"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_map58"]
 geometry_collision_mask = 1
@@ -12,7 +11,6 @@ geometry_source_geometry_mode = 1
 geometry_source_group_name = &"navmesh_source"
 cell_height = 0.1
 agent_height = 2.0
-agent_radius = 0.5
 
 [node name="Map58" type="Node3D" unique_id=1256601147]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -300, 0, 250)
@@ -25,252 +23,252 @@ script = ExtResource("3_collision")
 [node name="AppearanceController" type="Node3D" parent="." unique_id=1299921615]
 script = ExtResource("4_style")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1098803323]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 300, 250, 0)
 navigation_mesh = SubResource("NavigationMesh_map58")
 script = ExtResource("5_navbake")
 
-[node name="Rooms" type="Node3D" parent="."]
+[node name="Rooms" type="Node3D" parent="." unique_id=27032536]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 300, 250, 0)
 
-[node name="Classroom_01" type="Node3D" parent="Rooms"]
+[node name="Classroom_01" type="Node3D" parent="Rooms" unique_id=331235554]
 metadata/door_source = "PintuKelas_10_A_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0.0000, -18.5840)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_01" unique_id=568486228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -18.584)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_01"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_01" unique_id=1913125156]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_01/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -21.7340)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_01/RoomPoints" unique_id=1610177696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -21.734)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_01/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -26.4590)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_01/RoomPoints" unique_id=645274001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -26.459)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_01/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -31.1840)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_01/RoomPoints" unique_id=224747909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -31.184)
 
-[node name="Classroom_02" type="Node3D" parent="Rooms"]
+[node name="Classroom_02" type="Node3D" parent="Rooms" unique_id=327219922]
 metadata/door_source = "PintuKelas_10_B_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_02"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0.0000, -18.5840)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_02" unique_id=1373175282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -18.584)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_02"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_02" unique_id=671181644]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_02/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -21.7340)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_02/RoomPoints" unique_id=56317849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -21.734)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_02/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -26.4590)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_02/RoomPoints" unique_id=855484608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -26.459)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_02/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -31.1840)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_02/RoomPoints" unique_id=210846818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -31.184)
 
-[node name="Classroom_03" type="Node3D" parent="Rooms"]
+[node name="Classroom_03" type="Node3D" parent="Rooms" unique_id=78319308]
 metadata/door_source = "PintuKelas_10_C_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_03"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0.0000, -18.5840)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_03" unique_id=375562379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -18.584)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_03"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_03" unique_id=190578693]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_03/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -21.7340)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_03/RoomPoints" unique_id=1339297524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -21.734)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_03/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -26.4590)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_03/RoomPoints" unique_id=55555286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -26.459)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_03/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -31.1840)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_03/RoomPoints" unique_id=1745386159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -31.184)
 
-[node name="Classroom_04" type="Node3D" parent="Rooms"]
+[node name="Classroom_04" type="Node3D" parent="Rooms" unique_id=1719981631]
 metadata/door_source = "PintuKelas_10_D_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_04"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0.0000, -18.5840)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_04" unique_id=1430305182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -18.584)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_04"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_04" unique_id=315217269]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_04/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -21.7340)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_04/RoomPoints" unique_id=805027136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -21.734)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_04/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -26.4590)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_04/RoomPoints" unique_id=1479772097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -26.459)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_04/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -31.1840)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_04/RoomPoints" unique_id=1692648112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -31.184)
 
-[node name="Classroom_05" type="Node3D" parent="Rooms"]
+[node name="Classroom_05" type="Node3D" parent="Rooms" unique_id=1058146445]
 metadata/door_source = "PintuKelas_11_A_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_05"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0.0000, -37.9660)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_05" unique_id=1961366969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -37.966)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_05"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_05" unique_id=1480738915]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_05/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -41.1160)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_05/RoomPoints" unique_id=142141445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -41.116)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_05/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -45.8410)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_05/RoomPoints" unique_id=1828112366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -45.841)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_05/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -50.5660)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_05/RoomPoints" unique_id=1395862336]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -50.566)
 
-[node name="Classroom_06" type="Node3D" parent="Rooms"]
+[node name="Classroom_06" type="Node3D" parent="Rooms" unique_id=1366104031]
 metadata/door_source = "PintuKelas_11_B_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_06"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0.0000, -37.9660)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_06" unique_id=853032190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -37.966)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_06"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_06" unique_id=1990859141]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_06/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -41.1160)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_06/RoomPoints" unique_id=1327331383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -41.116)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_06/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -45.8410)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_06/RoomPoints" unique_id=1764002066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -45.841)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_06/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -50.5660)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_06/RoomPoints" unique_id=533601713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -50.566)
 
-[node name="Classroom_07" type="Node3D" parent="Rooms"]
+[node name="Classroom_07" type="Node3D" parent="Rooms" unique_id=1143540056]
 metadata/door_source = "PintuKelas_11_C_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_07"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0.0000, -37.9660)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_07" unique_id=1256158228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -37.966)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_07"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_07" unique_id=1971147835]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_07/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -41.1160)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_07/RoomPoints" unique_id=1282688766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -41.116)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_07/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -45.8410)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_07/RoomPoints" unique_id=2062108625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -45.841)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_07/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -50.5660)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_07/RoomPoints" unique_id=1924129536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -50.566)
 
-[node name="Classroom_08" type="Node3D" parent="Rooms"]
+[node name="Classroom_08" type="Node3D" parent="Rooms" unique_id=1417627996]
 metadata/door_source = "PintuKelas_11_D_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_08"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0.0000, -37.9660)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_08" unique_id=1158072836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -37.966)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_08"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_08" unique_id=64182737]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_08/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -41.1160)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_08/RoomPoints" unique_id=604887652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -41.116)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_08/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -45.8410)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_08/RoomPoints" unique_id=1596971220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -45.841)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_08/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -50.5660)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_08/RoomPoints" unique_id=343967516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -50.566)
 
-[node name="Classroom_09" type="Node3D" parent="Rooms"]
+[node name="Classroom_09" type="Node3D" parent="Rooms" unique_id=439710285]
 metadata/door_source = "PintuKelas_12_A_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_09"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0.0000, -57.3430)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_09" unique_id=1020799396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1153, 0, -57.343)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_09"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_09" unique_id=1847175026]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_09/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -60.4930)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_09/RoomPoints" unique_id=949124812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -60.493)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_09/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -65.2180)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_09/RoomPoints" unique_id=2060944190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -65.218)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_09/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.1800, -69.9430)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_09/RoomPoints" unique_id=124831748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6465, -0.18, -69.943)
 
-[node name="Classroom_10" type="Node3D" parent="Rooms"]
+[node name="Classroom_10" type="Node3D" parent="Rooms" unique_id=1432202357]
 metadata/door_source = "PintuKelas_12_B_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0.0000, -57.3430)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_10" unique_id=940660608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3222, 0, -57.343)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_10"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_10" unique_id=1257853663]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_10/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -60.4930)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_10/RoomPoints" unique_id=427518863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -60.493)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_10/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -65.2180)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_10/RoomPoints" unique_id=412134971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -65.218)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_10/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7910, -0.1800, -69.9430)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_10/RoomPoints" unique_id=53900623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.791, -0.18, -69.943)
 
-[node name="Classroom_11" type="Node3D" parent="Rooms"]
+[node name="Classroom_11" type="Node3D" parent="Rooms" unique_id=194183823]
 metadata/door_source = "PintuKelas_12_C_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0.0000, -57.3430)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_11" unique_id=418798934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7597, 0, -57.343)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_11"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_11" unique_id=307761791]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_11/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -60.4930)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_11/RoomPoints" unique_id=1119814746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -60.493)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_11/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -65.2180)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_11/RoomPoints" unique_id=998711900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -65.218)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_11/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.1800, -69.9430)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_11/RoomPoints" unique_id=289516580]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.2285, -0.18, -69.943)
 
-[node name="Classroom_12" type="Node3D" parent="Rooms"]
+[node name="Classroom_12" type="Node3D" parent="Rooms" unique_id=360645947]
 metadata/door_source = "PintuKelas_12_D_South"
 
-[node name="Door" type="Marker3D" parent="Rooms/Classroom_12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0.0000, -57.3430)
+[node name="Door" type="Marker3D" parent="Rooms/Classroom_12" unique_id=1849511159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.1972, 0, -57.343)
 
-[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_12"]
+[node name="RoomPoints" type="Node3D" parent="Rooms/Classroom_12" unique_id=1114230246]
 
-[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_12/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -60.4930)
+[node name="Point_01" type="Marker3D" parent="Rooms/Classroom_12/RoomPoints" unique_id=640250370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -60.493)
 
-[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_12/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -65.2180)
+[node name="Point_02" type="Marker3D" parent="Rooms/Classroom_12/RoomPoints" unique_id=1878567906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -65.218)
 
-[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_12/RoomPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6660, -0.1800, -69.9430)
+[node name="Point_03" type="Marker3D" parent="Rooms/Classroom_12/RoomPoints" unique_id=513725828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.666, -0.18, -69.943)
 
-[node name="Corridor" type="Node3D" parent="Rooms"]
+[node name="Corridor" type="Node3D" parent="Rooms" unique_id=184788262]
 
-[node name="WayPoint_01" type="Marker3D" parent="Rooms/Corridor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0000, -0.1800, -36.1000)
+[node name="WayPoint_01" type="Marker3D" parent="Rooms/Corridor" unique_id=781200018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -0.18, -36.1)
 
-[node name="WayPoint_02" type="Marker3D" parent="Rooms/Corridor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0000, -0.1800, -55.5000)
+[node name="WayPoint_02" type="Marker3D" parent="Rooms/Corridor" unique_id=195955196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -0.18, -55.5)
 
-[node name="WayPoint_03" type="Marker3D" parent="Rooms/Corridor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0000, -0.1800, -17.0000)
+[node name="WayPoint_03" type="Marker3D" parent="Rooms/Corridor" unique_id=1039773745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, -0.18, -17)
 
-[node name="WayPoint_04" type="Marker3D" parent="Rooms/Corridor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.0000, -0.1800, -36.1000)
+[node name="WayPoint_04" type="Marker3D" parent="Rooms/Corridor" unique_id=770859930]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -0.18, -36.1)
 
-[node name="WayPoint_05" type="Marker3D" parent="Rooms/Corridor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0000, -0.1800, -36.1000)
+[node name="WayPoint_05" type="Marker3D" parent="Rooms/Corridor" unique_id=1990828905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -0.18, -36.1)
 
-[node name="Doors" type="Node3D" parent="."]
+[node name="Doors" type="Node3D" parent="." unique_id=780820618]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 300, 250, 0)
 
-[node name="Door_RuangTamu" type="Marker3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0.0000, 6.4870)
+[node name="Door_RuangTamu" type="Marker3D" parent="Doors" unique_id=814058486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 6.487)
 
-[node name="Door_Perpustakaan" type="Marker3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4218, 0.0000, 8.3676)
+[node name="Door_Perpustakaan" type="Marker3D" parent="Doors" unique_id=1409709511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4218, 0, 8.3676)
 
-[node name="Door_ToiletPria" type="Marker3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.3180, 0.0000, -48.5240)
+[node name="Door_ToiletPria" type="Marker3D" parent="Doors" unique_id=239063264]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.318, 0, -48.524)
 
-[node name="Door_ToiletWanita" type="Marker3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.3180, 0.0000, -48.5240)
+[node name="Door_ToiletWanita" type="Marker3D" parent="Doors" unique_id=445527779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.318, 0, -48.524)
 
-[node name="Door_Kepsek" type="Marker3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6860, 0.0000, -27.7106)
+[node name="Door_Kepsek" type="Marker3D" parent="Doors" unique_id=122462208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.686, 0, -27.7106)
 
-[node name="Door_RuangGuru" type="Marker3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6860, 0.0000, -34.9055)
+[node name="Door_RuangGuru" type="Marker3D" parent="Doors" unique_id=514023307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.686, 0, -34.9055)

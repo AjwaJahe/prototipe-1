@@ -50,6 +50,15 @@ var left_shoe_base_position := Vector3.ZERO
 var right_shoe_base_position := Vector3.ZERO
 
 var ready_for_animation := false
+var intro_floating := false
+var visual_base_position := Vector3.ZERO
+
+
+func set_intro_floating(active: bool) -> void:
+    intro_floating = active
+    if not active:
+        if visual != null:
+            visual.position = visual_base_position
 
 
 func _ready() -> void:
@@ -123,11 +132,17 @@ func _ready() -> void:
     if ruler:
         ruler_base_rotation = ruler.rotation
 
+    visual_base_position = visual.position
     ready_for_animation = true
 
 
 func _process(delta: float) -> void:
     if not ready_for_animation or body == null or visual == null:
+        return
+
+    if intro_floating:
+        # Pose melayang: hentikan siklus kaki/tangan dan beri gerak hover halus.
+        visual.position = visual_base_position + Vector3(0.0, 0.045 + sin(Time.get_ticks_msec() * 0.0018) * 0.035, 0.0)
         return
 
     var horizontal_speed := Vector2(

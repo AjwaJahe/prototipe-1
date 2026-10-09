@@ -29,6 +29,7 @@ signal player_revived(player: Node)
 signal game_finished()
 
 
+const PHASE_INTRO_BRIEFING := "INTRO_BRIEFING"
 const PHASE_INTRO_EXAM := "INTRO_EXAM"
 const PHASE_TRANSITION := "TRANSITION"
 const PHASE_HUNT := "HUNT"
@@ -48,8 +49,10 @@ const MAX_ACTIVE_PAPERS := 5
 const BOARD_TIME_LIMIT := 120.0
 const BERSERK_TIME := 15.0
 const CALM_TIME := 180.0
+const INTRO_BRIEFING_TIME := 5.0
 const INTRO_TIME := 20.0
-const TRANSITION_TIME := 2.5
+const TRANSITION_TIME := 5.0
+const INTRO_BLACKOUT_DELAY := 1.5
 const PENALTY_QUESTIONS := 5
 const INTRO_QUESTIONS := 5
 
@@ -72,7 +75,13 @@ var intro_answers: Array[String] = []
 var intro_remaining: float = 0.0
 var question_database: RefCounted
 
+var intro_briefing_remaining: float = 0.0
 var transition_remaining: float = 0.0
+var intro_blackout_remaining: float = -1.0
+var intro_departure_active := false
+var _intro_teacher_tween: Tween
+var _intro_teacher_start_position := Vector3.ZERO
+var _intro_teacher_start_rotation := Vector3.ZERO
 var hunt_remaining: float = 0.0
 var _ui_refresh_remaining: float = 0.0
 var board_remaining: float = 0.0
@@ -114,14 +123,22 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	match phase:
+		PHASE_INTRO_BRIEFING:
+			intro_briefing_remaining -= delta
+			if intro_briefing_remaining <= 0.0:
+				_begin_intro_exam()
 		PHASE_INTRO_EXAM:
 			intro_remaining -= delta
 			if intro_remaining <= 0.0:
 				_finish_intro_exam()
 		PHASE_TRANSITION:
-			transition_remaining -= delta
-			if transition_remaining <= 0.0:
-				_start_hunt()
+			if intro_blackout_remaining >= 0.0:
+				intro_blackout_remaining -= delta
+				if intro_blackout_remaining <= 0.0:
+					intro_blackout_remaining = -1.0
+					_blackout_nearest_class_lights()
+			# Cutscene mengatur sendiri akhir transisi; timer lama tidak boleh
+			# memulai fase berburu sebelum animasi guru selesai.
 		PHASE_HUNT:
 			if berserk_remaining > 0.0:
 				berserk_remaining -= delta
@@ -189,15 +206,27 @@ func _start_game() -> void:
 	game_result = ""
 	if question_database != null:
 		question_database.reset_session()
+	intro_briefing_remaining = INTRO_BRIEFING_TIME
 	intro_remaining = INTRO_TIME
 
-	_set_phase(PHASE_INTRO_EXAM)
+	_set_phase(PHASE_INTRO_BRIEFING)
 	_set_teacher_mode(TEACHER, null)
 	_set_intro_locked(true)
 	_prepare_intro_desk()
+	_position_teacher_for_intro()
 	_prepare_intro_paper()
-	_set_status("Kertas soal dibagikan. Kamu punya 20 detik untuk mengisi 5 soal.")
+	_hide_intro_paper()
+	_set_status("Perhatikan instruksi ujian...")
 	_update_objective()
+
+
+func _begin_intro_exam() -> void:
+	if phase != PHASE_INTRO_BRIEFING:
+		return
+	intro_remaining = INTRO_TIME
+	_set_phase(PHASE_INTRO_EXAM)
+	_set_status("Ujian dimulai! Isi 5 soal di kertas pada meja. Waktu tersisa 20 detik.")
+	open_intro_paper()
 
 
 func _load_question_database() -> void:
@@ -207,6 +236,22 @@ func _load_question_database() -> void:
 		return
 
 	question_database = database_script.new() as RefCounted
+
+
+func _position_teacher_for_intro() -> void:
+	var player := get_tree().get_first_node_in_group("players") as Node3D
+	var teacher := get_node_or_null("../Teacher") as CharacterBody3D
+	if player == null or teacher == null:
+		return
+	var forward := -player.global_basis.z
+	forward.y = 0.0
+	if forward.length_squared() < 0.001:
+		forward = Vector3.FORWARD
+	forward = forward.normalized()
+	teacher.global_position = player.global_position + forward * 2.6 + Vector3(0.0, -0.35, 0.0)
+	teacher.look_at(Vector3(player.global_position.x, teacher.global_position.y, player.global_position.z), Vector3.UP)
+	_intro_teacher_start_position = teacher.global_position
+	_intro_teacher_start_rotation = teacher.global_rotation
 
 
 func _prepare_intro_desk() -> void:
@@ -256,35 +301,86 @@ func _prepare_intro_desk() -> void:
 	paper.set_meta("display_name", "Kertas Soal")
 	paper.set_meta("in_inventory", false)
 
+	# Kertas fisik sederhana di atas meja. Soal dibaca melalui UI ujian,
+	# bukan tekstur SubViewport 3D yang sebelumnya menghasilkan bidang ungu.
 	var paper_mesh := MeshInstance3D.new()
 	paper_mesh.name = "PaperMesh"
 	var box := BoxMesh.new()
-	box.size = Vector3(0.52, 0.018, 0.68)
+	box.size = Vector3(0.52, 0.012, 0.68)
 	var material := StandardMaterial3D.new()
-	material.albedo_color = Color(0.96, 0.94, 0.84, 1.0)
-	material.roughness = 0.92
+	material.albedo_color = Color(0.96, 0.945, 0.88, 1.0)
+	material.roughness = 0.94
 	box.material = material
 	paper_mesh.mesh = box
-	paper_mesh.position.y = 0.009
+	paper_mesh.position.y = 0.006
 	paper.add_child(paper_mesh)
 
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
-	shape.size = Vector3(0.52, 0.018, 0.68)
+	shape.size = Vector3(0.52, 0.012, 0.68)
 	collision.shape = shape
-	collision.position.y = 0.009
+	collision.position.y = 0.006
 	paper.add_child(collision)
 
-	var label := Label3D.new()
-	label.name = "IntroQuestions"
-	label.position = Vector3(0.0, 0.018, 0.0)
-	label.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
-	label.font_size = 22
-	label.pixel_size = 0.0014
-	label.width = 280.0
-	label.modulate = Color(0.08, 0.08, 0.07, 1.0)
-	label.text = "KERTAS SOAL"
-	paper.add_child(label)
+	var question_viewport := SubViewport.new()
+	question_viewport.name = "QuestionPaperViewport"
+	question_viewport.size = Vector2i(512, 680)
+	question_viewport.transparent_bg = false
+	question_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	paper.add_child(question_viewport)
+
+	var page := Control.new()
+	page.name = "QuestionPaperPage"
+	page.set_anchors_preset(Control.PRESET_FULL_RECT)
+	question_viewport.add_child(page)
+
+	var page_background := ColorRect.new()
+	page_background.set_anchors_preset(Control.PRESET_FULL_RECT)
+	page_background.color = Color(0.96, 0.945, 0.88, 1.0)
+	page.add_child(page_background)
+
+	var page_margin := MarginContainer.new()
+	page_margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	page_margin.add_theme_constant_override("margin_left", 28)
+	page_margin.add_theme_constant_override("margin_right", 24)
+	page_margin.add_theme_constant_override("margin_top", 24)
+	page_margin.add_theme_constant_override("margin_bottom", 20)
+	page.add_child(page_margin)
+
+	var page_content := VBoxContainer.new()
+	page_content.add_theme_constant_override("separation", 12)
+	page_margin.add_child(page_content)
+
+	var page_title := Label.new()
+	page_title.name = "PaperTitle"
+	page_title.text = "UJIAN PEMBUKA"
+	page_title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	page_title.add_theme_font_size_override("font_size", 27)
+	page_content.add_child(page_title)
+
+	var page_subtitle := Label.new()
+	page_subtitle.text = "Nama: __________________\nKelas: __________   Waktu: 20 detik"
+	page_subtitle.add_theme_font_size_override("font_size", 14)
+	page_content.add_child(page_subtitle)
+
+	var separator := HSeparator.new()
+	page_content.add_child(separator)
+
+	var questions_label := Label.new()
+	questions_label.name = "IntroQuestions"
+	questions_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	questions_label.add_theme_font_size_override("font_size", 17)
+	questions_label.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	questions_label.text = "Memuat soal..."
+	page_content.add_child(questions_label)
+
+	var page_footer := Label.new()
+	page_footer.text = "Jawaban diisi melalui kolom jawaban pada layar."
+	page_footer.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	page_footer.add_theme_font_size_override("font_size", 12)
+	page_content.add_child(page_footer)
+
+
 
 
 func _find_player_spawn_class(player: Node3D) -> Node3D:
@@ -405,32 +501,195 @@ func _update_intro_paper_visuals() -> void:
 	var paper := _find_first_node_named(get_tree().current_scene, "IntroQuestionPaper") as Node3D
 	if paper == null:
 		return
-	var label := paper.get_node_or_null("IntroQuestions") as Label3D
+	var label := paper.get_node_or_null("QuestionPaperViewport/QuestionPaperPage/MarginContainer/VBoxContainer/IntroQuestions") as Label
 	if label == null:
 		return
-	var text_value := "KERTAS SOAL\n"
+	var text_value := ""
 	for i in range(intro_questions.size()):
-		text_value += "%d. %s\n" % [i + 1, String(intro_questions[i].get("question", ""))]
+		text_value += "%d. %s\n\nJawaban: ____________________\n\n" % [i + 1, String(intro_questions[i].get("question", ""))]
 	label.text = text_value
 
 
 func _finish_intro_exam() -> void:
-	if phase != PHASE_INTRO_EXAM:
+	if phase != PHASE_INTRO_EXAM or intro_departure_active:
 		return
 
 	_submit_intro_paper_answers()
-	_set_intro_locked(false)
 	_hide_intro_paper()
-	var player := get_tree().get_first_node_in_group("players") as CharacterBody3D
-	if player != null:
-		player.set_meta("intro_sitting", false)
-	_close_nearest_class_door()
-	_blackout_nearest_class_lights()
 	_set_phase(PHASE_TRANSITION)
-	transition_remaining = TRANSITION_TIME
-	_set_teacher_mode(GHOST, null)
-	_set_status("20 detik habis. Guru meninggalkan kelas dan melayang. Pintu tertutup, lampu padam...")
+	transition_remaining = 0.0
+	intro_blackout_remaining = INTRO_BLACKOUT_DELAY
+	intro_departure_active = true
+	_set_teacher_mode(TEACHER, null)
+	_set_status("Ujian selesai. Guru mulai melayang meninggalkan kelas...")
 	_update_objective()
+	_run_intro_departure_cutscene()
+
+
+func _run_intro_departure_cutscene() -> void:
+	var teacher := get_node_or_null("../Teacher") as CharacterBody3D
+	var destination := get_node_or_null("../SpawnManager/TeacherSpawn") as Node3D
+	var player := get_tree().get_first_node_in_group("players") as CharacterBody3D
+	var rooms_node := get_tree().current_scene.get_node_or_null("Map58/Rooms")
+	var exit_marker: Node3D = null
+	var door: Node3D = null
+	var best_distance := INF
+	var spawn_name := String(player.get_meta("intro_spawn_marker_name", "")) if player != null else ""
+
+	if teacher == null or player == null:
+		intro_departure_active = false
+		_start_hunt()
+		return
+
+	# Pilih pintu kelas berdasarkan metadata spawn, lalu fallback ke marker terdekat.
+	if rooms_node != null:
+		for room in rooms_node.get_children():
+			if not room is Node3D:
+				continue
+			var marker := room.get_node_or_null("Door") as Node3D
+			if marker == null:
+				continue
+			var source_name := String(room.get_meta("door_source", ""))
+			var distance := player.global_position.distance_to(marker.global_position)
+			if not spawn_name.is_empty() and source_name.contains(spawn_name):
+				distance = -1.0
+			if distance < best_distance:
+				best_distance = distance
+				exit_marker = marker
+				var found_door := _find_first_node_named(get_tree().current_scene, source_name) as Node3D
+				if found_door != null and found_door.has_method("interact"):
+					door = found_door
+
+	if door == null and exit_marker != null:
+		var nearest := INF
+		for candidate in get_tree().get_nodes_in_group("doors"):
+			if candidate is Node3D and candidate.has_method("interact"):
+				var d := exit_marker.global_position.distance_to((candidate as Node3D).global_position)
+				if d < nearest:
+					nearest = d
+					door = candidate as Node3D
+
+	player.set_meta("intro_locked", true)
+	player.set_process_unhandled_input(false)
+	var camera := player.get_node_or_null("Camera3D") as Camera3D
+	var teacher_anim := teacher.get_node_or_null("TeacherAnimation")
+	if teacher_anim != null and teacher_anim.has_method("set_intro_floating"):
+		teacher_anim.call("set_intro_floating", true)
+
+	var start_pos := teacher.global_position
+	var door_pos := door.global_position if door != null else (exit_marker.global_position if exit_marker != null else start_pos + Vector3.FORWARD * 2.0)
+
+	# Cari arah tegak lurus dinding dari sisi pintu yang ditempati pemain.
+	# Ini membuat guru mendekati ambang dari dalam kelas, bukan memotong dinding secara diagonal.
+	var door_to_player := player.global_position - door_pos
+	door_to_player.y = 0.0
+	var inward := Vector3(0.0, 0.0, -1.0)
+	if absf(door_to_player.x) > absf(door_to_player.z):
+		inward = Vector3(signf(door_to_player.x), 0.0, 0.0)
+	else:
+		inward = Vector3(0.0, 0.0, signf(door_to_player.z))
+	if inward.length_squared() < 0.001:
+		inward = Vector3(0.0, 0.0, -1.0)
+
+	var floating_height := 1.0
+	var approach_point := door_pos + inward * 2.2 + Vector3.UP * floating_height
+	var threshold_point := door_pos + Vector3.UP * floating_height
+	var outside_point := door_pos - inward * 2.4 + Vector3.UP * floating_height
+
+	# A. Guru perlahan terangkat; beri jeda agar momen terasa ganjil.
+	var rise := create_tween()
+	rise.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	rise.tween_property(teacher, "global_position", start_pos + Vector3.UP * 1.35, 2.4)
+	await rise.finished
+	await get_tree().create_timer(0.8).timeout
+
+	# B. POV benar-benar diarahkan ke pintu yang akan dipakai guru.
+	if exit_marker != null:
+		var look_dir := door_pos - (camera.global_position if camera != null else player.global_position)
+		look_dir.y = 0.0
+		if look_dir.length_squared() > 0.001:
+			var target_yaw := atan2(-look_dir.x, -look_dir.z)
+			var turn := create_tween()
+			turn.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+			turn.tween_property(player, "rotation:y", target_yaw, 1.8)
+			await turn.finished
+
+	# C. Guru melayang menyusuri bagian dalam kelas sampai tepat di depan ambang.
+	var approach := create_tween()
+	approach.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	approach.tween_property(teacher, "global_position", approach_point, 3.2)
+	await approach.finished
+	await get_tree().create_timer(0.7).timeout
+
+	# D. Buka pintu fisik yang sama dengan marker, tunggu daun pintu selesai bergerak.
+	if door != null:
+		if not (door.has_method("is_open") and bool(door.call("is_open"))):
+			door.call("interact", teacher)
+		await get_tree().create_timer(0.9).timeout
+
+	# E. Lintasi ambang lurus tegak lurus dinding, bukan bergerak diagonal menembus tembok.
+	var reach_threshold := create_tween()
+	reach_threshold.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	reach_threshold.tween_property(teacher, "global_position", threshold_point, 1.8)
+	await reach_threshold.finished
+	var cross := create_tween()
+	cross.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	cross.tween_property(teacher, "global_position", outside_point, 2.8)
+	await cross.finished
+	await get_tree().create_timer(0.6).timeout
+
+	# F. Guru menghilang menuju ruang guru setelah benar-benar keluar dari pintu.
+	if destination != null:
+		var settle := create_tween()
+		settle.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		settle.tween_property(teacher, "global_position", destination.global_position + Vector3.UP * 0.8, 2.5)
+		await settle.finished
+	if door != null and door.has_method("is_open") and bool(door.call("is_open")):
+		door.call("interact", teacher)
+		await get_tree().create_timer(0.8).timeout
+	if teacher_anim != null and teacher_anim.has_method("set_intro_floating"):
+		teacher_anim.call("set_intro_floating", false)
+	teacher.velocity = Vector3.ZERO
+	player.set_meta("intro_locked", false)
+	player.set_process_unhandled_input(true)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	intro_departure_active = false
+	_start_hunt()
+
+
+func _start_intro_teacher_departure() -> void:
+	# Kept as a compatibility wrapper; departure is now a scripted cutscene.
+	_run_intro_departure_cutscene()
+
+
+func _is_intro_departure_complete() -> bool:
+	var teacher := get_node_or_null("../Teacher")
+	if teacher == null:
+		return true
+	if teacher.has_method("is_intro_departure_complete"):
+		return bool(teacher.is_intro_departure_complete())
+	return false
+
+
+func _start_intro_teacher_floating() -> void:
+	var teacher := get_node_or_null("../Teacher") as Node3D
+	if teacher == null:
+		return
+	_intro_teacher_start_position = teacher.global_position
+	_intro_teacher_start_rotation = teacher.global_rotation
+	_intro_teacher_tween = create_tween()
+	_intro_teacher_tween.set_parallel(true)
+	_intro_teacher_tween.tween_property(teacher, "global_position:y", teacher.global_position.y + 2.2, 2.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_intro_teacher_tween.tween_property(teacher, "rotation_degrees:x", teacher.rotation_degrees.x + 8.0, 1.8).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+func _restore_intro_teacher_transform() -> void:
+	if _intro_teacher_tween != null and _intro_teacher_tween.is_running():
+		_intro_teacher_tween.kill()
+	var teacher := get_node_or_null("../Teacher") as Node3D
+	if teacher != null:
+		teacher.global_position = _intro_teacher_start_position
+		teacher.global_rotation = _intro_teacher_start_rotation
 
 
 func get_intro_paper_text() -> String:
@@ -482,9 +741,17 @@ func _submit_intro_paper_answers() -> void:
 func _finish_intro_paper_early() -> void:
 	if phase != PHASE_INTRO_EXAM:
 		return
+	var all_answered := not _intro_answer_edits.is_empty()
+	for answer_edit in _intro_answer_edits:
+		if answer_edit.text.strip_edges().is_empty():
+			all_answered = false
+			break
+	if all_answered:
+		_finish_intro_exam()
+		return
 	_submit_intro_paper_answers()
 	_hide_intro_paper()
-	_set_status("Jawaban kertas disimpan. Tunggu sampai 20 detik habis.")
+	_set_status("Jawaban disimpan. Isi semua jawaban untuk mengakhiri ujian lebih awal, atau tunggu waktu habis.")
 
 
 func _set_intro_locked(locked: bool) -> void:
@@ -650,6 +917,15 @@ func _begin_transition() -> void:
 
 
 func _start_hunt() -> void:
+	var ending_transition := phase == PHASE_TRANSITION
+	if ending_transition:
+		intro_blackout_remaining = -1.0
+		intro_departure_active = false
+		_set_intro_locked(false)
+		_hide_intro_paper()
+		var player := get_tree().get_first_node_in_group("players") as CharacterBody3D
+		if player != null:
+			player.set_meta("intro_sitting", false)
 	_set_phase(PHASE_HUNT)
 	berserking_end()
 	calm_remaining = 0.0
@@ -1034,14 +1310,17 @@ func _build_ui() -> void:
 	_answer_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_answer_label)
 
-	_intro_paper_canvas = canvas
+	_intro_paper_canvas = CanvasLayer.new()
+	_intro_paper_canvas.name = "IntroPaperUI"
+	_intro_paper_canvas.layer = 40
+	add_child(_intro_paper_canvas)
 	_intro_paper_canvas.visible = false
 
 	var overlay := ColorRect.new()
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
 	overlay.color = Color(0.02, 0.02, 0.018, 0.72)
 	overlay.mouse_filter = Control.MOUSE_FILTER_STOP
-	canvas.add_child(overlay)
+	_intro_paper_canvas.add_child(overlay)
 
 	_intro_paper_panel = PanelContainer.new()
 	_intro_paper_panel.set_anchors_preset(Control.PRESET_CENTER)
@@ -1049,7 +1328,7 @@ func _build_ui() -> void:
 	_intro_paper_panel.offset_top = -285.0
 	_intro_paper_panel.offset_right = 360.0
 	_intro_paper_panel.offset_bottom = 285.0
-	canvas.add_child(_intro_paper_panel)
+	_intro_paper_canvas.add_child(_intro_paper_panel)
 
 	var paper_box := VBoxContainer.new()
 	paper_box.add_theme_constant_override("separation", 12)
@@ -1119,7 +1398,9 @@ func _update_ui() -> void:
 	_objective_label.text = "SOAL SELESAI: " + str(solved_papers) + "/" + str(TOTAL_PAPERS_TO_ESCAPE) + " | KERTAS AKTIF: " + str(active_paper_count) + "/" + str(MAX_ACTIVE_PAPERS)
 
 	var active_timer := 0.0
-	if phase == PHASE_INTRO_EXAM:
+	if phase == PHASE_INTRO_BRIEFING:
+		active_timer = max(0.0, intro_briefing_remaining)
+	elif phase == PHASE_INTRO_EXAM:
 		active_timer = max(0.0, intro_remaining)
 	elif phase == PHASE_TRANSITION:
 		active_timer = max(0.0, transition_remaining)
@@ -1130,7 +1411,10 @@ func _update_ui() -> void:
 
 	_timer_label.text = "WAKTU: " + _format_time(active_timer)
 
-	if phase == PHASE_INTRO_EXAM:
+	if phase == PHASE_INTRO_BRIEFING:
+		_quiz_label.text = "UJIAN AKAN DIMULAI\n\nKamu duduk di bangku ujian.\nSaat kertas muncul, isi jawaban untuk 5 soal.\nKamu memiliki waktu 20 detik.\n\nBersiaplah... " + str(maxi(0, int(ceil(intro_briefing_remaining))))
+		_answer_label.text = ""
+	elif phase == PHASE_INTRO_EXAM:
 		_quiz_label.text = ""
 		_answer_label.text = ""
 		_refresh_intro_paper_ui()

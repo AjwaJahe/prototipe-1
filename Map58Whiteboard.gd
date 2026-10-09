@@ -64,10 +64,21 @@ func _initialize() -> void:
 	_create_writing_surface()
 	_create_question_label()
 	_create_status_ui()
+	if _game != null and _game.has_signal("phase_changed"):
+		_game.phase_changed.connect(_on_game_phase_changed)
 
 
 func _input(event: InputEvent) -> void:
 	if _camera == null or _board_collision == null:
+		return
+
+	if event is InputEventKey:
+		var key_event := event as InputEventKey
+		if key_event.pressed and not key_event.echo and _question_active and key_event.keycode == KEY_BACKSPACE:
+			_stop_drawing()
+			_clear_answer()
+			_set_status("Jawaban dihapus. Tahan klik kiri untuk menulis ulang.")
+			get_viewport().set_input_as_handled()
 		return
 
 	if event is InputEventMouseMotion:
@@ -93,7 +104,13 @@ func _input(event: InputEvent) -> void:
 		return
 
 	if mouse_event.button_index == MOUSE_BUTTON_RIGHT and mouse_event.pressed:
-		if _handle_right_press():
+		# Saat soal aktif, kirim jawaban walau ray kamera sedikit bergeser
+		# dari collider papan; mouse tetap tertangkap dalam mode FPS.
+		if _question_active:
+			_stop_drawing()
+			_submit_written_answer()
+			get_viewport().set_input_as_handled()
+		elif _handle_right_press():
 			get_viewport().set_input_as_handled()
 
 
@@ -198,7 +215,7 @@ func _submit_written_answer() -> void:
 	var readable := bool(result.get("ok", false))
 
 	if not readable or recognized.is_empty():
-		_set_status("Jawaban tidak terbaca. Hapus dengan klik kiri papan lalu coba lagi.")
+		_set_status("Jawaban tidak terbaca. Tekan BACKSPACE untuk menghapus, lalu tulis ulang.")
 		return
 
 	var correct := recognized == expected
@@ -213,6 +230,8 @@ func _submit_written_answer() -> void:
 	_question_active = false
 	_question_label.visible = false
 	_clear_answer()
+	_drawing = false
+	_draw_motion_pending = false
 
 
 func _ray_hits_xiid_board() -> bool:
@@ -384,14 +403,28 @@ func _create_status_ui() -> void:
 	canvas.add_child(_status_label)
 
 
+func _on_game_phase_changed(new_phase: String) -> void:
+	if new_phase == "BOARD_SOLVING" or not _question_active:
+		return
+
+	# Timeout / perubahan fase menutup soal dan membersihkan tulisan di papan.
+	_question_active = false
+	_question_label.visible = false
+	_drawing = false
+	_draw_motion_pending = false
+	_clear_answer()
+	if new_phase == "HUNT":
+		_set_status("Soal ditutup. Waktu habis atau jawaban sudah dikirim.")
+
+
 func _update_prompt() -> void:
 	if _status_label == null:
 		return
 
 	if _question_active:
-		_status_label.text = "PAPAN XII D: tahan klik kiri = menulis | klik kanan = koreksi"
+		_status_label.text = "PAPAN XII D: tahan klik kiri = menulis | klik kanan = kirim | BACKSPACE = hapus"
 	elif _ray_hits_xiid_board():
-		_status_label.text = "KLIK KIRI — mulai mengerjakan soal di papan XII D"
+		_status_label.text = "ARAHKAN KE PAPAN XII D, lalu KLIK KIRI untuk mulai soal"
 	else:
 		_status_label.text = ""
 
