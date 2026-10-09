@@ -447,7 +447,7 @@ func _has_line_of_sight(target: Node3D) -> bool:
 func _collect_corridor_waypoints() -> void:
 	_corridor_waypoints.clear()
 
-	var corridor_node := get_tree().current_scene.get_node_or_null("Map58/Rooms/Corridor")
+	var corridor_node := get_node_or_null("../Map58/Rooms/Corridor")
 	if corridor_node == null:
 		push_warning("TeacherAI_New: Corridor node not found")
 		return
@@ -477,7 +477,7 @@ func _choose_next_corridor_waypoint() -> void:
 
 func _get_all_classrooms() -> Array[Node3D]:
 	var result: Array[Node3D] = []
-	var rooms_node := get_tree().current_scene.get_node_or_null("Map58/Rooms")
+	var rooms_node := get_node_or_null("../Map58/Rooms")
 
 	if rooms_node == null:
 		return result
