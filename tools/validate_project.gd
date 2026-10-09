@@ -21,7 +21,7 @@ func _init() -> void:
 		_check(path)
 
 	if _errors > 0:
-		printerr("VALIDATION_FAILED: %d problem(s)" % _errors)
+		printerr("VALIDATION_FAILED: " + str(_errors) + " problem(s)")
 		quit(1)
 	else:
 		print("VALIDATION_OK")
@@ -39,8 +39,8 @@ func _collect(dir_path: String, out: Array[String]) -> void:
 
 
 func _check(path: String) -> void:
-	var res := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
-	if res == null:
+	var res: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+	if not is_instance_valid(res):
 		_fail(path, "failed to load (parse error or missing resource)")
 		return
 	if res is Script:
