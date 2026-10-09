@@ -27,6 +27,7 @@ signal teacher_mode_changed(mode: String, target: Node)
 signal player_knocked_out(player: Node)
 signal player_revived(player: Node)
 signal game_finished()
+signal board_answer_result(correct: bool, message: String)
 
 
 const PHASE_INTRO_EXAM := "INTRO_EXAM"
@@ -716,6 +717,8 @@ func submit_board_answer(player: Node, answer_text: String) -> bool:
 		active_paper_count = max(0, active_paper_count - 1)
 
 		_set_status("Jawaban benar. Soal berikutnya akan muncul di lokasi baru.")
+		board_answer_result.emit(true, "BENAR! +10 poin")
+		_clear_board_state()
 		_set_teacher_mode(TEACHER, null)
 
 		if solved_papers >= TOTAL_PAPERS_TO_ESCAPE:
@@ -731,13 +734,21 @@ func submit_board_answer(player: Node, answer_text: String) -> bool:
 	active_paper_count = max(0, active_paper_count - 1)
 	berserk_target = player
 	berserk_remaining = BERSERK_TIME
+	_clear_board_state()
 
 	_set_phase(PHASE_HUNT)
 	_set_teacher_mode(BERSERK, player)
 	_set_status("SALAH. Guru masuk mode BERSEK selama 15 detik.")
+	board_answer_result.emit(false, "SALAH! -5 poin. Guru mengamuk!")
 	paper_respawn_requested.emit()
 	_update_objective()
 	return false
+
+
+func _clear_board_state() -> void:
+	board_player = null
+	board_node = null
+	board_remaining = 0.0
 
 
 func _consume_used_board_items(inventory: Node) -> void:
@@ -760,9 +771,11 @@ func _board_timeout() -> void:
 	paper_respawn_requested.emit()
 
 	berserk_target = player
+	_clear_board_state()
 	_set_phase(PHASE_HUNT)
 	_set_teacher_mode(GHOST, null)
 	_set_status("Waktu habis. Guru mengejarmu lagi.")
+	board_answer_result.emit(false, "Waktu habis! -5 poin")
 	_update_objective()
 
 
