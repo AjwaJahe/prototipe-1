@@ -97,6 +97,10 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 
+const PROMPT_UPDATE_INTERVAL := 0.1
+var _prompt_remaining := 0.0
+
+
 func _process(_delta: float) -> void:
 	if _player == null or _camera == null or _board_collision == null:
 		return
@@ -105,7 +109,10 @@ func _process(_delta: float) -> void:
 		_draw_motion_pending = false
 		_add_board_point_from_center()
 
-	_update_prompt()
+	_prompt_remaining -= _delta
+	if _prompt_remaining <= 0.0:
+		_prompt_remaining = PROMPT_UPDATE_INTERVAL
+		_update_prompt()
 
 
 func _handle_left_press() -> bool:
