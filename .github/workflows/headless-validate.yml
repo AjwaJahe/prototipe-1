@@ -1,0 +1,69 @@
+name: Headless Godot Validation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: godot-validate-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GODOT_VERSION: 4.7.2
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: ${{ env.GODOT_VERSION }}
+          use-dotnet: false
+
+      - name: Cache Godot import data
+        uses: actions/cache@v4
+        with:
+          path: .godot
+          key: godot-import-${{ env.GODOT_VERSION }}-${{ hashFiles('project.godot', '**/*.import') }}
+          restore-keys: |
+            godot-import-${{ env.GODOT_VERSION }}-
+
+      - name: Import resources (headless)
+        run: godot --headless --path . --import 2>&1 | tee import.log || true
+
+      - name: Validate all scripts and scenes
+        run: godot --headless --path . --script res://tools/validate_project.gd 2>&1 | tee validate.log
+
+      - name: Smoke test legacy validation scripts
+        run: |
+          for s in __validate_ui_door.gd __final_door_check.gd; do
+            if [ -f "$s" ]; then
+              timeout 120 godot --headless --path . --script "res://$s" 2>&1 | tee -a smoke.log || true
+            fi
+          done
+
+      - name: Check logs for parse/load errors
+        run: |
+          touch import.log validate.log smoke.log
+          if grep -E "SCRIPT ERROR|Parse Error|Failed loading resource|Cannot open file|VALIDATION_FAILED" validate.log import.log smoke.log; then
+            echo "::error::Godot script/scene parse or load errors found in logs"
+            exit 1
+          fi
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-logs
+          path: "*.log"
+          if-no-files-found: ignore
