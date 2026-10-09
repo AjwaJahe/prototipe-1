@@ -39,14 +39,19 @@ func _collect(dir_path: String, out: Array[String]) -> void:
 
 
 func _check(path: String) -> void:
-	var res := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
-	if res == null:
+	print("CHECK %s" % path)
+	var res: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+	if not is_instance_valid(res):
 		_fail(path, "failed to load (parse error or missing resource)")
 		return
-	if res is GDScript and not (res as GDScript).can_instantiate():
-		_fail(path, "script cannot be compiled")
-	elif res is PackedScene and not (res as PackedScene).can_instantiate():
-		_fail(path, "scene is not valid")
+	if res is Script:
+		var script: Script = res
+		if not script.can_instantiate():
+			_fail(path, "script cannot be compiled")
+	elif res is PackedScene:
+		var scene: PackedScene = res
+		if not scene.can_instantiate():
+			_fail(path, "scene is not valid")
 
 
 func _fail(path: String, msg: String) -> void:
