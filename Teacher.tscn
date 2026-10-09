@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://TeacherModel.tscn" id="1_model"]
 [ext_resource type="Script" path="res://TeacherAnimation.gd" id="2_anim"]
-[ext_resource type="Script" path="res://TeacherAI.gd" id="3_ai"]
+[ext_resource type="Script" path="res://TeacherAI_New.gd" id="3_ai"]
 
 [sub_resource type="CapsuleShape3D" id="TeacherCollision"]
 radius = 0.42
@@ -19,3 +19,10 @@ shape = SubResource("TeacherCollision")
 
 [node name="TeacherAnimation" type="Node" parent="."]
 script = ExtResource("2_anim")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 1.0
+target_desired_distance = 0.5
+radius = 0.5
+height = 2.0
+max_speed = 15.0
