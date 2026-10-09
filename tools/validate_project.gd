@@ -39,8 +39,9 @@ func _collect(dir_path: String, out: Array[String]) -> void:
 
 
 func _check(path: String) -> void:
-	var res := ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
-	if res == null:
+	print("CHECK %s" % path)
+	var res: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
+	if not is_instance_valid(res):
 		_fail(path, "failed to load (parse error or missing resource)")
 		return
 	if res is Script:
