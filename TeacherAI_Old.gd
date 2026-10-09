@@ -63,6 +63,8 @@ var _door_wait_remaining := 0.0
 
 var _footstep_remaining := 0.0
 var _last_mode := ""
+var _audio: Node
+var _target_search_remaining := 0.0
 
 # Performance cache.
 var _detection_check_remaining := 0.0
@@ -75,14 +77,14 @@ var _stuck_timer := 0.0
 var _stuck_last_pos := Vector3.ZERO
 var _unreachable: Array[Node3D] = []
 
-# Graph pintu harus ringan: ribuan raycast saat spawn membuat Godot
-# tampak freeze. Tiga tetangga terdekat cukup untuk koneksi lokal.
-const MAX_NEAREST_DOORS := 3
+const MAX_NEAREST_DOORS := 6
+const DETECTION_CHECK_INTERVAL := 0.12
+const TARGET_SEARCH_INTERVAL := 0.2
+const ROUTE_REBUILD_INTERVAL := 0.45
+const ROUTE_TARGET_MOVE_THRESHOLD := 4.0
 
 
 func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
-	set_physics_process(true)
 	add_to_group("teacher")
 	_rng.randomize()
 	call_deferred("_initialize")
@@ -121,6 +123,7 @@ func _physics_process(delta: float) -> void:
 		0.0,
 		_route_collision_check_remaining - delta
 	)
+	_target_search_remaining = maxf(0.0, _target_search_remaining - delta)
 
 	var phase := str(_game.get("phase"))
 	if (
@@ -162,8 +165,15 @@ func _handle_mode_change(mode: String) -> void:
 
 	_last_mode = mode
 
-	var audio := get_tree().get_first_node_in_group("game_audio")
-	if audio == null:
+	if _audio == null or not is_instance_valid(_audio):
+		_audio = get_tree().get_first_node_in_group("game_audio")
+	var audio := _audio
+	if (
+		audio == null
+		or not audio.has_method("play_sfx")
+		or not audio.has_method("play_loop")
+		or not audio.has_method("stop_loop")
+	):
 		return
 
 	if mode == "ghost":
@@ -197,6 +207,10 @@ func _get_mode_target(mode: String) -> Node3D:
 		if _should_detect(_current_target):
 			return _current_target
 		_current_target = null
+
+	if _target_search_remaining > 0.0:
+		return null
+	_target_search_remaining = TARGET_SEARCH_INTERVAL
 
 	for value in get_tree().get_nodes_in_group("players"):
 		if not value is CharacterBody3D:
@@ -233,7 +247,7 @@ func _should_detect(player: Node3D) -> bool:
 	):
 		_cached_detection_target = player
 		_cached_detection_result = _has_line_of_sight(player)
-		_detection_check_remaining = 0.12
+		_detection_check_remaining = DETECTION_CHECK_INTERVAL
 
 	return _cached_detection_result
 
@@ -280,12 +294,12 @@ func _move_toward_target(target: Node3D, mode: String) -> void:
 	if (
 		not _route_built
 		or _route_goal != target
-		or _route_goal_position.distance_to(target_position) > 4.0
+		or _route_goal_position.distance_to(target_position) > ROUTE_TARGET_MOVE_THRESHOLD
 		or _route_is_invalid()
 	):
 		if _route_rebuild_cooldown <= 0.0:
 			_build_route(target)
-			_route_rebuild_cooldown = 0.45
+			_route_rebuild_cooldown = ROUTE_REBUILD_INTERVAL
 
 	if _route_points.is_empty():
 		_move_direct_with_collision_check(target_position, mode)
@@ -301,7 +315,7 @@ func _move_toward_target(target: Node3D, mode: String) -> void:
 				target_position,
 				true
 			)
-			_route_collision_check_remaining = 0.12
+			_route_collision_check_remaining = DETECTION_CHECK_INTERVAL
 
 		if _cached_route_segment_clear:
 			_apply_movement(
@@ -313,15 +327,13 @@ func _move_toward_target(target: Node3D, mode: String) -> void:
 		_route_built = false
 		if _route_rebuild_cooldown <= 0.0:
 			_build_route(target)
-			_route_rebuild_cooldown = 0.45
+			_route_rebuild_cooldown = ROUTE_REBUILD_INTERVAL
 
 		if _route_points.is_empty():
 			_stop()
 		return
 
-		# Route baru dipakai pada physics tick berikutnya.
-		# Hindari rekursi _follow_route() yang dapat memicu stack overflow.
-		return
+	_follow_route(mode)
 
 
 func _move_direct_with_collision_check(
@@ -336,14 +348,7 @@ func _move_direct_with_collision_check(
 		return
 
 	var direction := flat.normalized()
-
-	# PROMPT 1: jalur langsung juga ditahan 0.12s agar tidak melakukan
-	# raycast setiap physics tick ketika route AStar belum tersedia.
-	if _route_collision_check_remaining <= 0.0:
-		_cached_route_segment_clear = _segment_clear(global_position, target_position)
-		_route_collision_check_remaining = 0.12
-
-	if not _cached_route_segment_clear:
+	if not _segment_clear(global_position, target_position):
 		var door := _find_nearby_closed_door(door_use_distance + 0.5)
 		if door != null:
 			_open_door(door)
@@ -402,7 +407,7 @@ func _follow_route(mode: String) -> void:
 				point,
 				true
 			)
-			_route_collision_check_remaining = 0.12
+			_route_collision_check_remaining = DETECTION_CHECK_INTERVAL
 
 		if not _cached_route_segment_clear:
 			if door != null and not _door_is_locked(door) and not _door_is_open(door):
@@ -415,7 +420,7 @@ func _follow_route(mode: String) -> void:
 				var goal := _route_goal
 				if goal != null and is_instance_valid(goal):
 					_build_route(goal)
-					_route_rebuild_cooldown = 0.45
+					_route_rebuild_cooldown = ROUTE_REBUILD_INTERVAL
 
 			if _route_points.is_empty():
 				velocity.x = 0.0
@@ -423,10 +428,8 @@ func _follow_route(mode: String) -> void:
 				velocity.y = 0.0
 				return
 
-			# Jangan memanggil _follow_route() secara rekursif.
-			# Route yang terus terhalang dapat memicu rebuild berulang dan
-			# akhirnya stack overflow. Ulangi loop dengan route baru.
-			continue
+			_stop()
+			return
 
 		_apply_movement(direction, mode)
 		return
@@ -754,12 +757,11 @@ func _cache_collision_rids() -> void:
 	_cached_self_exclude_rids.clear()
 	_cached_self_exclude_rids.append(get_rid())
 
-	# Jangan memasukkan seluruh collider pintu ke exclude list setiap raycast.
-	# Map58 memiliki banyak collider pintu; daftar besar ini membuat setiap
-	# intersect_ray sangat mahal dan dapat membuat game terasa freeze.
-	# Raycast dengan ignore_doors akan mengenali collider pintu lewat parent
-	# (_is_part_of_known_door) sehingga daftar RID pintu tidak diperlukan.
 	_cached_door_exclude_rids.clear()
+	for door in _doors:
+		if door == null or not is_instance_valid(door):
+			continue
+		_collect_collision_rids(door, _cached_door_exclude_rids)
 
 
 func _get_self_exclude_rids() -> Array[RID]:

@@ -12,7 +12,9 @@ var _audio: Node
 func _ready() -> void:
     add_to_group("game_audio")
     _game = get_node_or_null("../GameManager")
-    _player = get_node_or_null("../Player")
+    _player = get_node_or_null("../Player/CharacterBody3D")
+    if _player == null:
+        _player = get_node_or_null("../Player")
     _teacher = get_node_or_null("../Teacher")
     _audio = get_node_or_null("../AudioManager")
 
@@ -36,6 +38,9 @@ func _process(_delta: float) -> void:
     if _game == null or _teacher == null or _audio == null:
         return
 
+    if Engine.get_process_frames() % 45 != 0:
+        return
+
     var phase := String(_game.get("phase"))
     if phase != "HUNT" and phase != "BOARD_SOLVING":
         return
@@ -46,36 +51,10 @@ func _process(_delta: float) -> void:
             (_teacher as Node3D).global_position
         )
 
-    if distance < 10.0 and Engine.get_process_frames() % 45 == 0:
+    if distance < 10.0:
+        # Proximity audio hanya dimainkan lewat HUD/audio layer bila asset tersedia.
+        # Tidak diputar setiap frame agar tidak menumpuk.
         _audio.play_ui_sound("teacher_detection_alarm")
-
-
-## API audio yang dipakai TeacherAI.
-## Jika asset loop belum tersedia, pemanggilan ini aman dan tidak error.
-func play_loop(sound_name: String, volume_db: float = 0.0) -> void:
-    if _audio != null and _audio.has_method("play_loop"):
-        _audio.play_loop(sound_name, volume_db)
-
-
-func stop_loop(sound_name: String) -> void:
-    if _audio != null and _audio.has_method("stop_loop"):
-        _audio.stop_loop(sound_name)
-
-
-## Proxy audio supaya Player/Teacher tidak perlu mengetahui node AudioManager.
-func play_footstep(volume_db: float = -7.0, pitch: float = 1.0) -> void:
-    if _audio != null and _audio.has_method("play_footstep"):
-        _audio.play_footstep(volume_db, pitch)
-
-
-func play_teacher_footstep(volume_db: float = -2.5, pitch: float = 0.86, teacher_position: Vector3 = Vector3.ZERO) -> void:
-    if _audio != null and _audio.has_method("play_teacher_footstep"):
-        _audio.play_teacher_footstep(volume_db, pitch, teacher_position)
-
-
-func play_sfx(sound_name: String, world_position: Vector3 = Vector3.ZERO) -> void:
-    if _audio != null and _audio.has_method("play_sfx"):
-        _audio.play_sfx(sound_name, world_position)
 
 
 func _on_phase_changed(phase: String) -> void:

@@ -54,7 +54,7 @@ func make_rack(parent: Node3D, name: String, pos: Vector3, rot_y: float, frame_m
         if y < 3.6:
             for i in range(4):
                 var bx := -0.82 + i * 0.55
-                var by := y + 0.42
+                var by: float = y + 0.42
                 var bz := -0.05
                 var box_mat := box_mats[(int(y * 10.0) + i) % box_mats.size()]
                 add_mesh(r, "Box_%s_%02d" % [str(y), i + 1], box_mesh(Vector3(0.46, 0.48, 0.72), box_mat), Vector3(bx, by, bz))

@@ -24,7 +24,9 @@ var results_label: Label
 
 func _ready() -> void:
     _game = get_node_or_null("../GameManager")
-    _player = get_node_or_null("../Player")
+    _player = get_node_or_null("../Player/CharacterBody3D")
+    if _player == null:
+        _player = get_node_or_null("../Player")
     _teacher = get_node_or_null("../Teacher")
     _build_hud()
 
@@ -46,7 +48,15 @@ func _ready() -> void:
     _refresh_all()
 
 
-func _process(_delta: float) -> void:
+const REFRESH_INTERVAL := 0.1
+var _refresh_remaining := 0.0
+
+
+func _process(delta: float) -> void:
+    _refresh_remaining -= delta
+    if _refresh_remaining > 0.0:
+        return
+    _refresh_remaining = REFRESH_INTERVAL
     _refresh_all()
 
 
