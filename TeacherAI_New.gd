@@ -87,7 +87,6 @@ func _initialize() -> void:
 		return
 
 	nav_agent.max_speed = nav_max_speed
-	nav_agent.max_accel = nav_max_accel
 	nav_agent.path_desired_distance = 1.0
 	nav_agent.target_desired_distance = 0.5
 
@@ -343,7 +342,12 @@ func _handle_mode_change(mode: String) -> void:
 	_last_mode = mode
 
 	var audio := get_tree().get_first_node_in_group("game_audio")
-	if audio == null:
+	if (
+		audio == null
+		or not audio.has_method("play_sfx")
+		or not audio.has_method("play_loop")
+		or not audio.has_method("stop_loop")
+	):
 		return
 
 	if mode == "ghost":
@@ -443,7 +447,7 @@ func _has_line_of_sight(target: Node3D) -> bool:
 func _collect_corridor_waypoints() -> void:
 	_corridor_waypoints.clear()
 
-	var corridor_node := get_tree().current_scene.get_node_or_null("Map58/Rooms/Corridor")
+	var corridor_node := get_node_or_null("../Map58/Rooms/Corridor")
 	if corridor_node == null:
 		push_warning("TeacherAI_New: Corridor node not found")
 		return
@@ -473,7 +477,7 @@ func _choose_next_corridor_waypoint() -> void:
 
 func _get_all_classrooms() -> Array[Node3D]:
 	var result: Array[Node3D] = []
-	var rooms_node := get_tree().current_scene.get_node_or_null("Map58/Rooms")
+	var rooms_node := get_node_or_null("../Map58/Rooms")
 
 	if rooms_node == null:
 		return result
