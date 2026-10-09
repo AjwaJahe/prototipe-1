@@ -87,7 +87,6 @@ func _initialize() -> void:
 		return
 
 	nav_agent.max_speed = nav_max_speed
-	nav_agent.max_accel = nav_max_accel
 	nav_agent.path_desired_distance = 1.0
 	nav_agent.target_desired_distance = 0.5
 
@@ -343,7 +342,12 @@ func _handle_mode_change(mode: String) -> void:
 	_last_mode = mode
 
 	var audio := get_tree().get_first_node_in_group("game_audio")
-	if audio == null:
+	if (
+		audio == null
+		or not audio.has_method("play_sfx")
+		or not audio.has_method("play_loop")
+		or not audio.has_method("stop_loop")
+	):
 		return
 
 	if mode == "ghost":
