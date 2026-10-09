@@ -37,6 +37,8 @@ func _ready() -> void:
             _game.objective_changed.connect(_on_objective_changed)
         if _game.has_signal("game_finished"):
             _game.game_finished.connect(_on_game_finished)
+        if _game.has_signal("board_answer_result"):
+            _game.board_answer_result.connect(_on_board_answer_result)
 
     if _player != null:
         if _player.has_signal("stamina_changed"):
@@ -218,6 +220,15 @@ WAKTU: %s" % [
 
     if phase == "FINISHED":
         results_panel.visible = true
+
+
+func _on_board_answer_result(correct: bool, message: String) -> void:
+    status_label.text = message
+    status_label.modulate = Color(0.4, 1.0, 0.4) if correct else Color(1.0, 0.35, 0.35)
+    status_label.visible = true
+    var tween := create_tween()
+    tween.tween_interval(3.0)
+    tween.tween_callback(func(): status_label.text = "")
 
 
 func _on_phase_changed(_phase: String) -> void:

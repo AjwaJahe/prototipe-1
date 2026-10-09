@@ -105,6 +105,10 @@ func _process(_delta: float) -> void:
 	if _player == null or _camera == null or _board_collision == null:
 		return
 
+	if _question_active and _game != null and String(_game.get("phase")) != "BOARD_SOLVING":
+		_stop_drawing()
+		_reset_question_state()
+
 	if _drawing and _draw_motion_pending:
 		_draw_motion_pending = false
 		_add_board_point_from_center()
@@ -201,16 +205,26 @@ func _submit_written_answer() -> void:
 		_set_status("Jawaban tidak terbaca. Hapus dengan klik kiri papan lalu coba lagi.")
 		return
 
-	var correct := recognized == expected
-	if _game.has_method("submit_board_answer"):
-		_game.submit_board_answer(_player, recognized)
+	if _game == null or not _game.has_method("submit_board_answer"):
+		_set_status("Game belum siap menerima jawaban.")
+		return
+
+	var correct: bool = _game.submit_board_answer(_player, recognized)
+	if not correct and String(_game.get("phase")) == "BOARD_SOLVING":
+		_set_status("Jawaban belum diterima game. Coba lagi.")
+		return
 
 	if correct:
 		_set_status("BENAR: " + recognized)
 	else:
 		_set_status("SALAH: " + recognized)
 
+	_reset_question_state()
+
+
+func _reset_question_state() -> void:
 	_question_active = false
+	_current_question = {}
 	_question_label.visible = false
 	_clear_answer()
 
