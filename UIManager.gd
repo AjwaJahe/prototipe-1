@@ -24,7 +24,9 @@ var results_label: Label
 
 func _ready() -> void:
     _game = get_node_or_null("../GameManager")
-    _player = get_node_or_null("../Player")
+    _player = get_node_or_null("../Player/CharacterBody3D")
+    if _player == null:
+        _player = get_node_or_null("../Player")
     _teacher = get_node_or_null("../Teacher")
     _build_hud()
 

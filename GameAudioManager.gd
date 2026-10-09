@@ -12,7 +12,9 @@ var _audio: Node
 func _ready() -> void:
     add_to_group("game_audio")
     _game = get_node_or_null("../GameManager")
-    _player = get_node_or_null("../Player")
+    _player = get_node_or_null("../Player/CharacterBody3D")
+    if _player == null:
+        _player = get_node_or_null("../Player")
     _teacher = get_node_or_null("../Teacher")
     _audio = get_node_or_null("../AudioManager")
 

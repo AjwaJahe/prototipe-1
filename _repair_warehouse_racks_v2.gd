@@ -12,10 +12,10 @@ func _init() -> void:
         quit()
         return
 
-    var scene_root := packed.instantiate()
+    var scene_root: Node = packed.instantiate()
     root.add_child(scene_root)
 
-    var furniture_root := scene_root.get_node_or_null("FurnitureRoot")
+    var furniture_root: Node = scene_root.get_node_or_null("FurnitureRoot")
     if furniture_root == null:
         push_error("FurnitureRoot tidak ditemukan.")
         quit()
@@ -24,7 +24,7 @@ func _init() -> void:
     # Ownership harus dipasang SEBELUM duplicating agar seluruh subtree ikut.
     set_owner_recursive(scene_root, scene_root)
 
-    var base := furniture_root.get_node_or_null("Rack_Right_01")
+    var base: Node = furniture_root.get_node_or_null("Rack_Right_01")
     if base == null:
         push_error("Rack_Right_01 tidak ditemukan.")
         quit()
@@ -35,7 +35,7 @@ func _init() -> void:
         "Rack_East_01", "Rack_East_02", "Rack_East_03", "Rack_East_04", "Rack_East_05",
         "Rack_West_01", "Rack_West_02", "Rack_West_03", "Rack_West_04"
     ]:
-        var old := furniture_root.get_node_or_null(n)
+        var old: Node = furniture_root.get_node_or_null(n)
         if old != null:
             old.queue_free()
 
@@ -57,14 +57,14 @@ func _init() -> void:
     ]
 
     for i in range(east_positions.size()):
-        var r := base.duplicate()
+        var r: Node = base.duplicate()
         r.name = "Rack_East_%02d" % (i + 1)
         r.position = east_positions[i]
         r.rotation = Vector3(0, PI * 0.5, 0)
         furniture_root.add_child(r)
 
     for i in range(west_positions.size()):
-        var r := base.duplicate()
+        var r: Node = base.duplicate()
         r.name = "Rack_West_%02d" % (i + 1)
         r.position = west_positions[i]
         r.rotation = Vector3(0, PI * 0.5, 0)

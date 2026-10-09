@@ -168,7 +168,12 @@ func _handle_mode_change(mode: String) -> void:
 	if _audio == null or not is_instance_valid(_audio):
 		_audio = get_tree().get_first_node_in_group("game_audio")
 	var audio := _audio
-	if audio == null:
+	if (
+		audio == null
+		or not audio.has_method("play_sfx")
+		or not audio.has_method("play_loop")
+		or not audio.has_method("stop_loop")
+	):
 		return
 
 	if mode == "ghost":
@@ -423,7 +428,7 @@ func _follow_route(mode: String) -> void:
 				velocity.y = 0.0
 				return
 
-			_follow_route(mode)
+			_stop()
 			return
 
 		_apply_movement(direction, mode)

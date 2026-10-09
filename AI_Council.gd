@@ -227,7 +227,7 @@ func _on_submit(text_value: String) -> void:
 	var clean := text_value.strip_edges()
 	if clean.is_empty():
 		return
-	var id := ["susanto", "yanto", "tono"][agent_option.selected]
+	var id: String = ["susanto", "yanto", "tono"][agent_option.selected]
 	messages.append({"agent": id, "text": clean})
 	if messages.size() > MAX_MESSAGES:
 		messages = messages.slice(messages.size() - MAX_MESSAGES, messages.size())
