@@ -41,7 +41,6 @@ enum State {
 @export var ghost_step_interval: float = 0.34
 
 @export var nav_max_speed: float = 15.0
-@export var nav_max_accel: float = 20.0
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 
@@ -87,7 +86,6 @@ func _initialize() -> void:
 		return
 
 	nav_agent.max_speed = nav_max_speed
-	nav_agent.max_accel = nav_max_accel
 	nav_agent.path_desired_distance = 1.0
 	nav_agent.target_desired_distance = 0.5
 

@@ -57,6 +57,32 @@ func _process(_delta: float) -> void:
         _audio.play_ui_sound("teacher_detection_alarm")
 
 
+## API proxy untuk TeacherAI_New agar semua efek melewati AudioManager.
+func play_sfx(sound_name: String, world_position: Vector3 = Vector3.ZERO) -> void:
+    if _audio != null and _audio.has_method("play_sfx"):
+        _audio.play_sfx(sound_name, world_position)
+
+
+func play_loop(sound_name: String, volume_db: float = 0.0) -> void:
+    if _audio != null and _audio.has_method("play_loop"):
+        _audio.play_loop(sound_name, volume_db)
+
+
+func stop_loop(sound_name: String) -> void:
+    if _audio != null and _audio.has_method("stop_loop"):
+        _audio.stop_loop(sound_name)
+
+
+func play_footstep(volume_db: float = -7.0, pitch: float = 1.0) -> void:
+    if _audio != null and _audio.has_method("play_footstep"):
+        _audio.play_footstep(volume_db, pitch)
+
+
+func play_teacher_footstep(volume_db: float = -2.5, pitch: float = 0.86, teacher_position: Vector3 = Vector3.ZERO) -> void:
+    if _audio != null and _audio.has_method("play_teacher_footstep"):
+        _audio.play_teacher_footstep(volume_db, pitch, teacher_position)
+
+
 func _on_phase_changed(phase: String) -> void:
     if _audio == null:
         return

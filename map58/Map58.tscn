@@ -26,7 +26,7 @@ script = ExtResource("3_collision")
 script = ExtResource("4_style")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 300, 250, 0)
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 300, 250, 0)
 navigation_mesh = SubResource("NavigationMesh_map58")
 script = ExtResource("5_navbake")
 
