@@ -60,8 +60,8 @@ func _initialize() -> void:
                 var raw := line.trim_prefix("transform = Transform3D(").trim_suffix(")")
                 var p := raw.split(",")
                 if p.size() >= 9:
-                    var a := abs(float(p[0].strip_edges()))
-                    var c := abs(float(p[2].strip_edges()))
+                    var a = abs(float(p[0].strip_edges()))
+                    var c = abs(float(p[2].strip_edges()))
                     if a < 0.01 and c > 0.9:
                         var rg := current_parent.get_slice("/", current_parent.get_slice_count("/") - 1)
                         rotated_groups[rg] = true
