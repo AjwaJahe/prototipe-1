@@ -1,6 +1,6 @@
 extends Node
 ## Inventory pemain untuk pickup Map58.
-## Kapasitas tetap 2 slot, mengikuti WhiteboardTest.
+## Kapasitas inventori pemain dibatasi menjadi 2 slot.
 ## Item dunia tetap editable sebagai scene sendiri; tampilan tangan memakai
 ## instance visual terpisah di FirstPersonViewModel.
 
@@ -9,6 +9,9 @@ const INTERACTION_DISTANCE: float = 3.0
 const DROP_FORWARD_DISTANCE: float = 1.5
 const DROP_RAY_START_HEIGHT: float = 2.5
 const DROP_RAY_LENGTH: float = 6.0
+
+signal inventory_changed(items: Array)
+signal inventory_full()
 
 var items: Array[Node3D] = []
 var selected_slot: int = -1
@@ -26,497 +29,704 @@ var _prompt_label: Label
 
 
 func _ready() -> void:
-    _player = get_parent() as CharacterBody3D
+	_player = get_parent() as CharacterBody3D
 
-    if _player != null:
-        _camera = _player.get_node_or_null("Camera3D") as Camera3D
-        _held_anchor = _player.get_node_or_null(
-            "Camera3D/FirstPersonViewModel/HeldItem"
-        ) as Node3D
+	if _player != null:
+		_camera = _player.get_node_or_null("Camera3D") as Camera3D
+		_held_anchor = _player.get_node_or_null(
+			"Camera3D/FirstPersonViewModel/HeldItem"
+		) as Node3D
 
-    _build_ui()
-    _update_ui()
+	_build_ui()
+	_update_ui()
 
 
 func _process(_delta: float) -> void:
-    _update_hover_target()
+	_update_hover_target()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-    if event is InputEventKey and event.pressed and not event.echo:
-        match event.keycode:
-            KEY_1:
-                _select_slot(0)
-            KEY_2:
-                _select_slot(1)
-            KEY_P:
-                _drop_selected()
+	# Slot 1-5 dan P adalah shortcut desktop; mode HP memakai tombol inventori sentuh.
+	var mobile_controls := _player.get_node_or_null("MobileControls") if is_instance_valid(_player) else null
+	if mobile_controls != null and mobile_controls.has_method("is_mobile") and bool(mobile_controls.call("is_mobile")):
+		return
+	if event is InputEventKey and event.pressed and not event.echo:
+		match event.keycode:
+			KEY_1:
+				_select_slot(0)
+			KEY_2:
+				_select_slot(1)
+			KEY_3:
+				_select_slot(2)
+			KEY_4:
+				_select_slot(3)
+			KEY_5:
+				_select_slot(4)
+			KEY_P:
+				_drop_selected()
 
 
 func try_pickup(target: Node3D) -> bool:
-    if target == null:
-        return false
+	if target == null:
+		return false
 
-    if items.size() >= MAX_SLOTS:
-        _set_status("Inventory penuh. Gunakan 1/2 lalu P untuk membuang item.")
-        return false
+	if items.size() >= MAX_SLOTS:
+		inventory_full.emit()
+		_set_status("Inventori penuh (2/2). Pilih slot 1/2 lalu P untuk membuang item.")
+		return false
 
-    if items.has(target):
-        return false
+	if items.has(target):
+		return false
 
-    if _hover_target == target:
-        _set_hover_target(null)
+	if _hover_target == target:
+		_set_hover_target(null)
 
-    items.append(target)
-    target.visible = false
-    target.set_meta("in_inventory", true)
-    _set_collision_disabled(target, true)
+	items.append(target)
+	target.visible = false
+	target.set_meta("in_inventory", true)
+	_set_collision_disabled(target, true)
 
-    if target.has_method("on_picked_up"):
-        target.on_picked_up()
+	if target.has_method("on_picked_up"):
+		target.on_picked_up()
 
-    if selected_slot < 0:
-        selected_slot = 0
+	if selected_slot < 0:
+		selected_slot = 0
 
-    _update_held_item()
-    _update_ui()
-    _set_status("Mengambil " + _display_name(target) + ".")
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	_set_status("Mengambil " + _display_name(target) + ".")
 
-    if String(target.get_meta("item_type", "")) == "paper":
-        var game := get_node_or_null("../../GameManager")
-        if game != null and game.has_method("open_intro_paper"):
-            game.open_intro_paper()
+	if String(target.get_meta("item_type", "")) == "paper":
+		var game := get_node_or_null("../../GameManager")
+		if game != null and game.has_method("open_intro_paper"):
+			game.open_intro_paper()
 
-    return true
+	return true
+
+
+func network_remove_item_reference(target: Node3D) -> bool:
+	# Host-approved transfer: remove the existing world-item reference without freeing it.
+	var index := items.find(target)
+	if index < 0:
+		return false
+	items.remove_at(index)
+	if selected_slot > index:
+		selected_slot -= 1
+	elif selected_slot >= items.size():
+		selected_slot = items.size() - 1
+	_clear_held_display()
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	return true
+
+
+func network_receive_item(target: Node3D) -> bool:
+	# Host-approved retrieval: avoid on_picked_up so a client cannot spawn duplicates.
+	if target == null or items.has(target):
+		return target != null
+	if items.size() >= MAX_SLOTS:
+		inventory_full.emit()
+		_set_status("Inventori penuh (2/2).")
+		return false
+	items.append(target)
+	target.visible = false
+	target.set_meta("in_inventory", true)
+	target.set_meta("stored_in_rack", false)
+	_set_collision_disabled(target, true)
+	if selected_slot < 0:
+		selected_slot = 0
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	_set_status("Item diambil dari rak.")
+	return true
+
+
+func network_drop_item_reference(target: Node3D) -> bool:
+	var index := items.find(target)
+	if index < 0:
+		return false
+	items.remove_at(index)
+	if selected_slot > index:
+		selected_slot -= 1
+	elif selected_slot >= items.size():
+		selected_slot = items.size() - 1
+	target.set_meta("in_inventory", false)
+	target.visible = true
+	_set_collision_disabled(target, false)
+	_clear_held_display()
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	_set_status("Item dijatuhkan.")
+	return true
+
+
+func network_consume_item_reference(target: Node3D) -> bool:
+	# Host mengonsumsi item peer (misalnya kertas/kapur setelah soal papan).
+	# Item tetap tersembunyi di dunia agar spawner dapat menggunakannya kembali.
+	var index := items.find(target)
+	if index < 0:
+		return false
+	items.remove_at(index)
+	if selected_slot > index:
+		selected_slot -= 1
+	elif selected_slot >= items.size():
+		selected_slot = items.size() - 1
+	target.set_meta("in_inventory", false)
+	_clear_held_display()
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	return true
 
 
 func has_item(item_type: String) -> bool:
-    for item in items:
-        if is_instance_valid(item) and String(
-            item.get_meta("item_type", "")
-        ) == item_type:
-            return true
-    return false
+	for item in items:
+		if is_instance_valid(item) and String(
+			item.get_meta("item_type", "")
+		) == item_type:
+			return true
+	return false
 
 
 func consume_item_type(item_type: String) -> bool:
-    var index := _find_item_index(item_type)
-    if index < 0:
-        return false
+	var index := _find_item_index(item_type)
+	if index < 0:
+		return false
 
-    items[index].set_meta("in_inventory", false)
-    items.remove_at(index)
+	items[index].set_meta("in_inventory", false)
+	items.remove_at(index)
 
-    if selected_slot > index:
-        selected_slot -= 1
-    elif selected_slot >= items.size():
-        selected_slot = items.size() - 1
+	if selected_slot > index:
+		selected_slot -= 1
+	elif selected_slot >= items.size():
+		selected_slot = items.size() - 1
 
-    _update_held_item()
-    _update_ui()
-    return true
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	return true
+
+
+func remove_item(item_type: String) -> bool:
+	return consume_item_type(item_type)
+
+
+func add_item(item_type: String) -> bool:
+	if items.size() >= MAX_SLOTS:
+		inventory_full.emit()
+		return false
+	var node := Node3D.new()
+	node.name = "Inventory_" + item_type
+	node.set_meta("item_type", item_type)
+	node.set_meta("display_name", item_type.capitalize())
+	node.set_meta("in_inventory", true)
+	items.append(node)
+	if selected_slot < 0:
+		selected_slot = 0
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	return true
+
+
+func get_inventory() -> Array:
+	var result: Array = []
+	for item in items:
+		if is_instance_valid(item):
+			result.append(String(item.get_meta("item_type", "")))
+	return result
+
+
+func clear_inventory() -> void:
+	for item in items:
+		if is_instance_valid(item):
+			item.queue_free()
+	items.clear()
+	selected_slot = -1
+	_clear_held_display()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
 
 
 func _drop_selected() -> void:
-    if _player == null:
-        return
+	if _player == null:
+		return
 
-    if selected_slot < 0 or selected_slot >= items.size():
-        _set_status("Tidak ada item yang dipilih.")
-        return
+	if selected_slot < 0 or selected_slot >= items.size():
+		_set_status("Tidak ada item yang dipilih.")
+		return
 
-    var target: Node3D = items[selected_slot]
-    if not is_instance_valid(target):
-        items.remove_at(selected_slot)
-        _select_valid_slot()
-        _update_held_item()
-        _update_ui()
-        return
+	var target: Node3D = items[selected_slot]
+	if not is_instance_valid(target):
+		items.remove_at(selected_slot)
+		_select_valid_slot()
+		_update_held_item()
+		_update_ui()
+		return
 
-    _clear_held_display()
+	if bool(get_tree().get_meta("kelas_malam_multiplayer_active", false)) and multiplayer.multiplayer_peer != null and not multiplayer.is_server():
+		var scene := get_tree().current_scene
+		var network_game := scene.get_node_or_null("MultiplayerGame") if scene != null else null
+		if network_game != null and network_game.has_method("request_drop_item") and scene != null:
+			network_game.rpc_id(1, "request_drop_item", String(scene.get_path_to(target)))
+			return
 
-    items.remove_at(selected_slot)
-    target.set_meta("in_inventory", false)
+	_clear_held_display()
 
-    var drop_position := _get_drop_position(target)
-    target.global_position = drop_position
-    target.visible = true
-    _set_collision_disabled(target, false)
+	items.remove_at(selected_slot)
+	target.set_meta("in_inventory", false)
 
-    _select_valid_slot()
-    _update_held_item()
-    _update_ui()
-    _set_status("Membuang " + _display_name(target) + ".")
+	var drop_position := _get_drop_position(target)
+	target.global_position = drop_position
+	target.visible = true
+	_set_collision_disabled(target, false)
+
+	_select_valid_slot()
+	_update_held_item()
+	_update_ui()
+	inventory_changed.emit(get_inventory())
+	_set_status("Membuang " + _display_name(target) + ".")
 
 
 func _get_drop_position(target: Node3D) -> Vector3:
-    var forward := -_player.global_transform.basis.z
-    var candidate := _player.global_position + forward * DROP_FORWARD_DISTANCE
+	var forward := -_player.global_transform.basis.z
+	var candidate := _player.global_position + forward * DROP_FORWARD_DISTANCE
 
-    var from := candidate + Vector3.UP * DROP_RAY_START_HEIGHT
-    var to := from + Vector3.DOWN * DROP_RAY_LENGTH
+	var from := candidate + Vector3.UP * DROP_RAY_START_HEIGHT
+	var to := from + Vector3.DOWN * DROP_RAY_LENGTH
 
-    var query := PhysicsRayQueryParameters3D.create(from, to)
-    query.collision_mask = 1
-    query.collide_with_bodies = true
-    query.collide_with_areas = false
-    query.exclude = [
-        _player.get_rid(),
-        target.get_rid()
-    ]
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.collision_mask = 1
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+	query.exclude = [
+		_player.get_rid(),
+		target.get_rid()
+	]
 
-    var hit := _player.get_world_3d().direct_space_state.intersect_ray(query)
-    if hit.is_empty():
-        return candidate + Vector3.UP * 0.05
+	var hit := _player.get_world_3d().direct_space_state.intersect_ray(query)
+	if hit.is_empty():
+		return candidate + Vector3.UP * 0.05
 
-    var hit_position: Vector3 = hit.get("position", candidate)
-    var lowest_local_y := _get_lowest_mesh_y_in_root(target)
-    var extra_offset := 0.0
+	var hit_position: Vector3 = hit.get("position", candidate)
+	var lowest_local_y := _get_lowest_mesh_y_in_root(target)
+	var extra_offset := 0.0
 
-    if target.has_method("get_drop_surface_offset"):
-        extra_offset = float(target.get_drop_surface_offset())
+	if target.has_method("get_drop_surface_offset"):
+		extra_offset = float(target.get_drop_surface_offset())
 
-    return Vector3(
-        hit_position.x,
-        hit_position.y - lowest_local_y + extra_offset,
-        hit_position.z
-    )
+	return Vector3(
+		hit_position.x,
+		hit_position.y - lowest_local_y + extra_offset,
+		hit_position.z
+	)
 
 
 func _get_lowest_mesh_y_in_root(target: Node3D) -> float:
-    var inverse_root := target.global_transform.affine_inverse()
-    var lowest := INF
-    var found := false
+	var inverse_root := target.global_transform.affine_inverse()
+	var lowest := INF
+	var found := false
 
-    var meshes: Array[MeshInstance3D] = []
-    _collect_meshes(target, meshes)
+	var meshes: Array[MeshInstance3D] = []
+	_collect_meshes(target, meshes)
 
-    for mesh_instance in meshes:
-        if mesh_instance.mesh == null:
-            continue
+	for mesh_instance in meshes:
+		if mesh_instance.mesh == null:
+			continue
 
-        var local_to_root := inverse_root * mesh_instance.global_transform
-        var aabb := mesh_instance.get_aabb()
+		var local_to_root := inverse_root * mesh_instance.global_transform
+		var aabb := mesh_instance.get_aabb()
 
-        for x_side in [0, 1]:
-            for y_side in [0, 1]:
-                for z_side in [0, 1]:
-                    var corner := aabb.position + Vector3(
-                        aabb.size.x if x_side == 1 else 0.0,
-                        aabb.size.y if y_side == 1 else 0.0,
-                        aabb.size.z if z_side == 1 else 0.0
-                    )
-                    var root_space_point := local_to_root * corner
-                    lowest = min(lowest, root_space_point.y)
-                    found = true
+		for x_side in [0, 1]:
+			for y_side in [0, 1]:
+				for z_side in [0, 1]:
+					var corner := aabb.position + Vector3(
+						aabb.size.x if x_side == 1 else 0.0,
+						aabb.size.y if y_side == 1 else 0.0,
+						aabb.size.z if z_side == 1 else 0.0
+					)
+					var root_space_point := local_to_root * corner
+					lowest = min(lowest, root_space_point.y)
+					found = true
 
-    if not found:
-        return 0.0
+	if not found:
+		return 0.0
 
-    return lowest
+	return lowest
 
 
 func _collect_meshes(node: Node, result: Array[MeshInstance3D]) -> void:
-    for child in node.get_children():
-        if child is MeshInstance3D:
-            result.append(child as MeshInstance3D)
-        _collect_meshes(child, result)
+	for child in node.get_children():
+		if child is MeshInstance3D:
+			result.append(child as MeshInstance3D)
+		_collect_meshes(child, result)
 
 
 func _update_hover_target() -> void:
-    if _camera == null or not is_instance_valid(_camera):
-        return
+	if _camera == null or not is_instance_valid(_camera):
+		return
 
-    var center := _camera.get_viewport().get_visible_rect().size * 0.5
-    var from := _camera.project_ray_origin(center)
-    var to := from + _camera.project_ray_normal(center) * INTERACTION_DISTANCE
+	var center := _camera.get_viewport().get_visible_rect().size * 0.5
+	var from := _camera.project_ray_origin(center)
+	var to := from + _camera.project_ray_normal(center) * INTERACTION_DISTANCE
 
-    var query := PhysicsRayQueryParameters3D.create(from, to)
-    query.collision_mask = 1
-    query.collide_with_bodies = true
-    query.collide_with_areas = false
-    query.exclude = [_player.get_rid()]
+	var query := PhysicsRayQueryParameters3D.create(from, to)
+	query.collision_mask = 1
+	query.collide_with_bodies = true
+	# Area laci harus bisa menjadi target raycast agar yang tersorot hanya laci.
+	query.collide_with_areas = true
+	query.exclude = [_player.get_rid()]
 
-    var hit := _player.get_world_3d().direct_space_state.intersect_ray(query)
-    var next_target: Node3D = null
+	var hit := _player.get_world_3d().direct_space_state.intersect_ray(query)
+	var next_target: Node3D = null
 
-    if not hit.is_empty():
-        var collider := hit.get("collider") as Node
-        next_target = _find_item_ancestor(collider)
+	if not hit.is_empty():
+		var collider := hit.get("collider") as Node
+		next_target = _find_item_ancestor(collider)
 
-    if next_target != _hover_target:
-        _set_hover_target(next_target)
+	if next_target != _hover_target:
+		_set_hover_target(next_target)
 
-    if _prompt_label == null:
-        return
+	if _prompt_label == null:
+		return
 
-    if _hover_target != null and is_instance_valid(_hover_target):
-        var item_name := _display_name(_hover_target)
-        if items.size() >= MAX_SLOTS:
-            _prompt_label.text = (
-                "KLIK KIRI — " + item_name + " | INVENTORY PENUH"
-            )
-        else:
-            _prompt_label.text = "KLIK KIRI — Ambil " + item_name
-    else:
-        _prompt_label.text = ""
+	if _hover_target != null and is_instance_valid(_hover_target):
+		var target_name := String(_hover_target.get_meta(
+			"display_name", _hover_target.name
+		))
+		var interaction_type := String(_hover_target.get_meta("interaction_type", "item"))
+		if interaction_type == "item":
+			if items.size() >= MAX_SLOTS:
+				_prompt_label.text = "KLIK KIRI â€” " + target_name + " | INVENTORY PENUH"
+			else:
+				_prompt_label.text = "KLIK KIRI â€” Ambil " + target_name
+		elif interaction_type == "hiding":
+			_prompt_label.text = "KLIK KANAN â€” " + target_name
+		else:
+			_prompt_label.text = "KLIK KIRI â€” Interaksi: " + target_name
+	else:
+		_prompt_label.text = ""
 
 
 func _find_item_ancestor(node: Node) -> Node3D:
-    var current := node
-
-    while current != null:
-        if current.has_method("interact") and current.has_method("set_highlighted"):
-            return current as Node3D
-        current = current.get_parent()
-
-    return null
+	var current := node
+	while current != null:
+		if current is Node3D:
+			var bed_hide_spot := current.get_node_or_null("Map58HideSpotUnderBed")
+			if bed_hide_spot != null:
+				return bed_hide_spot
+			if current.has_method("interact"):
+				var target := current as Node3D
+				if target.has_method("set_highlighted") or target.has_meta("interaction_type"):
+					return target
+		current = current.get_parent()
+	return null
 
 
 func _set_hover_target(target: Node3D) -> void:
-    if _hover_target != null and is_instance_valid(_hover_target):
-        if _hover_target.has_method("set_highlighted"):
-            _hover_target.set_highlighted(false)
+	if _hover_target != null and is_instance_valid(_hover_target):
+		_set_target_highlight(_hover_target, false)
+	_hover_target = target
+	if _hover_target != null and is_instance_valid(_hover_target):
+		_set_target_highlight(_hover_target, true)
 
-    _hover_target = target
 
-    if _hover_target != null and is_instance_valid(_hover_target):
-        if _hover_target.has_method("set_highlighted"):
-            _hover_target.set_highlighted(true)
+func _set_target_highlight(target: Node3D, enabled: bool) -> void:
+	if target.has_method("set_highlighted"):
+		target.call("set_highlighted", enabled)
+		return
 
+	# Hiding areas have no visible mesh of their own, so highlight the furniture.
+	var visual_target := target
+	if String(target.get_meta("interaction_type", "")) == "hiding":
+		var parent_furniture := target.get_parent() as Node3D
+		if parent_furniture != null:
+			visual_target = parent_furniture
+
+	if enabled:
+		var material: ShaderMaterial = visual_target.get_meta("_interaction_outline_material") as ShaderMaterial if visual_target.has_meta("_interaction_outline_material") else null
+		if material == null:
+			material = _create_interaction_outline_material()
+			visual_target.set_meta("_interaction_outline_material", material)
+		_apply_interaction_outline_recursive(visual_target, material)
+	else:
+		_clear_interaction_outline_recursive(visual_target)
+
+
+func _create_interaction_outline_material() -> ShaderMaterial:
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode unshaded, cull_front, depth_draw_opaque;
+uniform vec4 outline_color : source_color = vec4(1.0, 0.82, 0.25, 1.0);
+uniform float outline_size = 0.025;
+void vertex() {
+	VERTEX += NORMAL * outline_size;
+}
+void fragment() {
+	ALBEDO = outline_color.rgb;
+	EMISSION = outline_color.rgb * 0.85;
+	ROUGHNESS = 1.0;
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	return material
+
+
+func _apply_interaction_outline_recursive(node: Node, material: ShaderMaterial) -> void:
+	if node is MeshInstance3D:
+		var mesh_instance := node as MeshInstance3D
+		if not mesh_instance.has_meta("_interaction_previous_overlay"):
+			mesh_instance.set_meta("_interaction_previous_overlay", mesh_instance.material_overlay)
+		mesh_instance.material_overlay = material
+	for child in node.get_children():
+		_apply_interaction_outline_recursive(child, material)
+
+
+func _clear_interaction_outline_recursive(node: Node) -> void:
+	if node is MeshInstance3D:
+		var mesh_instance := node as MeshInstance3D
+		if mesh_instance.has_meta("_interaction_previous_overlay"):
+			mesh_instance.material_overlay = mesh_instance.get_meta("_interaction_previous_overlay") as Material
+			mesh_instance.remove_meta("_interaction_previous_overlay")
+	for child in node.get_children():
+		_clear_interaction_outline_recursive(child)
 
 func _select_slot(index: int) -> void:
-    if index < 0 or index >= items.size():
-        _set_status("Slot " + str(index + 1) + " kosong.")
-        return
+	if index < 0 or index >= items.size():
+		_set_status("Slot " + str(index + 1) + " kosong.")
+		return
 
-    selected_slot = index
-    _update_held_item()
-    _update_ui()
-    _set_status("Dipilih: " + _display_name(items[index]))
+	selected_slot = index
+	_update_held_item()
+	_update_ui()
+	_set_status("Dipilih: " + _display_name(items[index]))
 
 
 func _select_valid_slot() -> void:
-    if items.is_empty():
-        selected_slot = -1
-    elif selected_slot >= items.size():
-        selected_slot = items.size() - 1
+	if items.is_empty():
+		selected_slot = -1
+	elif selected_slot >= items.size():
+		selected_slot = items.size() - 1
 
 
 func _find_item_index(item_type: String) -> int:
-    for i in range(items.size()):
-        var item := items[i]
-        if is_instance_valid(item) and String(
-            item.get_meta("item_type", "")
-        ) == item_type:
-            return i
-    return -1
+	for i in range(items.size()):
+		var item := items[i]
+		if is_instance_valid(item) and String(
+			item.get_meta("item_type", "")
+		) == item_type:
+			return i
+	return -1
 
 
 func _display_name(target: Node3D) -> String:
-    return String(target.get_meta("display_name", target.name))
+	return String(target.get_meta("display_name", target.name))
 
 
 func _set_collision_disabled(target: Node3D, disabled: bool) -> void:
-    if target is CollisionObject3D:
-        var collision_object := target as CollisionObject3D
-        collision_object.collision_layer = 0 if disabled else 1
-        collision_object.collision_mask = 0 if disabled else 1
-        collision_object.input_ray_pickable = not disabled
+	if target is CollisionObject3D:
+		var collision_object := target as CollisionObject3D
+		collision_object.collision_layer = 0 if disabled else 1
+		collision_object.collision_mask = 0 if disabled else 1
+		collision_object.input_ray_pickable = not disabled
 
-    for child in target.get_children():
-        if child is CollisionShape3D:
-            (child as CollisionShape3D).disabled = disabled
-        _set_collision_disabled(child as Node3D, disabled)
+	for child in target.get_children():
+		if child is CollisionShape3D:
+			(child as CollisionShape3D).disabled = disabled
+		_set_collision_disabled(child as Node3D, disabled)
 
 
 func _update_held_item() -> void:
-    _clear_held_display()
+	_clear_held_display()
 
-    if _held_anchor == null:
-        return
+	if _held_anchor == null:
+		return
 
-    if selected_slot < 0 or selected_slot >= items.size():
-        return
+	if selected_slot < 0 or selected_slot >= items.size():
+		return
 
-    var item := items[selected_slot]
-    if not is_instance_valid(item):
-        return
+	var item := items[selected_slot]
+	if not is_instance_valid(item):
+		return
 
-    var scene_path := item.get_scene_file_path()
-    if scene_path.is_empty():
-        return
+	var scene_path := item.get_scene_file_path()
+	if scene_path.is_empty():
+		return
 
-    var packed := load(scene_path) as PackedScene
-    if packed == null:
-        push_warning("ItemInventory: scene item tidak bisa di-load: " + scene_path)
-        return
+	var packed := load(scene_path) as PackedScene
+	if packed == null:
+		push_warning("ItemInventory: scene item tidak bisa di-load: " + scene_path)
+		return
 
-    var display := packed.instantiate() as Node3D
-    if display == null:
-        return
+	var display := packed.instantiate() as Node3D
+	if display == null:
+		return
 
-    display.name = "Held_" + String(item.get_meta("item_type", "item"))
-    _held_anchor.add_child(display)
-    _disable_held_physics(display)
+	display.name = "Held_" + String(item.get_meta("item_type", "item"))
+	_held_anchor.add_child(display)
+	_disable_held_physics(display)
 
-    var item_type := String(item.get_meta("item_type", "item"))
-    display.position = Vector3(0.04, -0.06, -0.36)
-    display.rotation = Vector3.ZERO
-    display.scale = Vector3.ONE * 1.7
+	var item_type := String(item.get_meta("item_type", "item"))
+	display.position = Vector3(0.04, -0.06, -0.36)
+	display.rotation = Vector3.ZERO
+	display.scale = Vector3.ONE * 1.7
 
-    match item_type:
-        "paper":
-            display.position = Vector3(0.04, -0.04, -0.34)
-            display.rotation_degrees = Vector3(-18.0, 10.0, -8.0)
-            display.scale = Vector3.ONE * 1.55
-            var game := get_node_or_null("../../GameManager")
-            if game != null and game.has_method("get_intro_paper_text"):
-                var paper_text := String(game.get_intro_paper_text())
-                if not paper_text.is_empty():
-                    var label := Label3D.new()
-                    label.name = "HeldQuestionText"
-                    label.position = Vector3(0.0, 0.012, 0.0)
-                    label.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
-                    label.font_size = 20
-                    label.pixel_size = 0.0015
-                    label.width = 260.0
-                    label.modulate = Color(0.08, 0.08, 0.07, 1.0)
-                    label.text = paper_text
-                    display.add_child(label)
-        "chalk":
-            display.position = Vector3(0.02, -0.06, -0.28)
-            display.rotation_degrees = Vector3(0.0, 0.0, 68.0)
-            display.scale = Vector3.ONE * 1.25
-        "class_key", "red_key", "blue_key", "yellow_key":
-            display.position = Vector3(0.06, -0.08, -0.32)
-            display.rotation_degrees = Vector3(12.0, -18.0, -22.0)
-            display.scale = Vector3.ONE * 1.35
-        "medkit":
-            display.position = Vector3(0.06, -0.12, -0.40)
-            display.rotation_degrees = Vector3(-12.0, 18.0, -10.0)
-            display.scale = Vector3.ONE * 1.35
+	match item_type:
+		"paper":
+			display.position = Vector3(0.04, -0.04, -0.34)
+			display.rotation_degrees = Vector3(-18.0, 10.0, -8.0)
+			display.scale = Vector3.ONE * 1.55
+			var game := get_node_or_null("../../GameManager")
+			if game != null and game.has_method("get_intro_paper_text"):
+				var paper_text := String(game.get_intro_paper_text())
+				if not paper_text.is_empty():
+					var label := Label3D.new()
+					label.name = "HeldQuestionText"
+					label.position = Vector3(0.0, 0.012, 0.0)
+					label.rotation_degrees = Vector3(-90.0, 0.0, 0.0)
+					label.font_size = 20
+					label.pixel_size = 0.0015
+					label.width = 260.0
+					label.modulate = Color(0.08, 0.08, 0.07, 1.0)
+					label.text = paper_text
+					display.add_child(label)
+		"chalk":
+			display.position = Vector3(0.02, -0.06, -0.28)
+			display.rotation_degrees = Vector3(0.0, 0.0, 68.0)
+			display.scale = Vector3.ONE * 1.25
+		"class_key", "red_key", "blue_key", "yellow_key":
+			display.position = Vector3(0.06, -0.08, -0.32)
+			display.rotation_degrees = Vector3(12.0, -18.0, -22.0)
+			display.scale = Vector3.ONE * 1.35
+		"medkit":
+			display.position = Vector3(0.06, -0.12, -0.40)
+			display.rotation_degrees = Vector3(-12.0, 18.0, -10.0)
+			display.scale = Vector3.ONE * 1.35
 
-    _held_display = display
+	_held_display = display
 
 
 func _disable_held_physics(node: Node3D) -> void:
-    if node is CollisionObject3D:
-        var object := node as CollisionObject3D
-        object.collision_layer = 0
-        object.collision_mask = 0
-        object.input_ray_pickable = false
+	if node is CollisionObject3D:
+		var object := node as CollisionObject3D
+		object.collision_layer = 0
+		object.collision_mask = 0
+		object.input_ray_pickable = false
 
-    if node is CollisionShape3D:
-        (node as CollisionShape3D).disabled = true
+	if node is CollisionShape3D:
+		(node as CollisionShape3D).disabled = true
 
-    if node is PhysicsBody3D:
-        (node as PhysicsBody3D).set_physics_process(false)
+	if node is PhysicsBody3D:
+		(node as PhysicsBody3D).set_physics_process(false)
 
-    for child in node.get_children():
-        if child is Node3D:
-            _disable_held_physics(child as Node3D)
+	for child in node.get_children():
+		if child is Node3D:
+			_disable_held_physics(child as Node3D)
 
 
 func _clear_held_display() -> void:
-    if _held_display != null and is_instance_valid(_held_display):
-        _held_display.queue_free()
-    _held_display = null
+	if _held_display != null and is_instance_valid(_held_display):
+		_held_display.queue_free()
+	_held_display = null
 
 
 func _build_ui() -> void:
-    var canvas := CanvasLayer.new()
-    canvas.name = "ItemInventoryUI"
-    canvas.layer = 20
-    add_child(canvas)
+	var canvas := CanvasLayer.new()
+	canvas.name = "ItemInventoryUI"
+	canvas.layer = 20
+	add_child(canvas)
 
-    var root := Control.new()
-    root.name = "Root"
-    root.set_anchors_preset(Control.PRESET_FULL_RECT)
-    root.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    canvas.add_child(root)
+	var root := Control.new()
+	root.name = "Root"
+	root.set_anchors_preset(Control.PRESET_FULL_RECT)
+	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas.add_child(root)
 
-    var prompt := Label.new()
-    prompt.name = "Prompt"
-    prompt.set_anchors_preset(Control.PRESET_CENTER_TOP)
-    prompt.offset_left = -260.0
-    prompt.offset_top = 72.0
-    prompt.offset_right = 260.0
-    prompt.offset_bottom = 104.0
-    prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-    prompt.add_theme_font_size_override("font_size", 18)
-    prompt.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    root.add_child(prompt)
-    _prompt_label = prompt
+	var prompt := Label.new()
+	prompt.name = "Prompt"
+	prompt.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	prompt.offset_left = -260.0
+	prompt.offset_top = 72.0
+	prompt.offset_right = 260.0
+	prompt.offset_bottom = 104.0
+	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	prompt.add_theme_font_size_override("font_size", 18)
+	prompt.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(prompt)
+	_prompt_label = prompt
 
-    var inventory_box := HBoxContainer.new()
-    inventory_box.name = "InventoryBox"
-    inventory_box.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-    inventory_box.offset_left = -82.0
-    inventory_box.offset_top = -105.0
-    inventory_box.offset_right = 82.0
-    inventory_box.offset_bottom = -20.0
-    inventory_box.add_theme_constant_override("separation", 8)
-    root.add_child(inventory_box)
+	var inventory_box := HBoxContainer.new()
+	inventory_box.name = "InventoryBox"
+	inventory_box.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	inventory_box.offset_left = -82.0
+	inventory_box.offset_top = -105.0
+	inventory_box.offset_right = 82.0
+	inventory_box.offset_bottom = -20.0
+	inventory_box.add_theme_constant_override("separation", 8)
+	root.add_child(inventory_box)
 
-    for index in range(MAX_SLOTS):
-        var panel := PanelContainer.new()
-        panel.custom_minimum_size = Vector2(76.0, 78.0)
-        panel.name = "Slot" + str(index + 1)
-        inventory_box.add_child(panel)
+	for index in range(MAX_SLOTS):
+		var panel := PanelContainer.new()
+		panel.custom_minimum_size = Vector2(76.0, 78.0)
+		panel.name = "Slot" + str(index + 1)
+		inventory_box.add_child(panel)
 
-        var label := Label.new()
-        label.name = "Item"
-        label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-        label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-        label.add_theme_font_size_override("font_size", 14)
-        label.text = str(index + 1) + "\n—"
-        panel.add_child(label)
+		var label := Label.new()
+		label.name = "Item"
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label.add_theme_font_size_override("font_size", 14)
+		label.text = str(index + 1) + "\n—"
+		panel.add_child(label)
 
-        _slot_panels.append(panel)
-        _slot_labels.append(label)
+		_slot_panels.append(panel)
+		_slot_labels.append(label)
 
-    var drop_button := Button.new()
-    drop_button.name = "DropButton"
-    drop_button.text = "BUANG [P]"
-    drop_button.set_anchors_preset(Control.PRESET_TOP_RIGHT)
-    drop_button.offset_left = -175.0
-    drop_button.offset_top = 24.0
-    drop_button.offset_right = -24.0
-    drop_button.offset_bottom = 66.0
-    drop_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    drop_button.pressed.connect(_drop_selected)
-    root.add_child(drop_button)
+	_status_label = Label.new()
+	_status_label.name = "Status"
+	_status_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_status_label.offset_left = 24.0
+	_status_label.offset_top = -70.0
+	_status_label.offset_right = 520.0
+	_status_label.offset_bottom = -30.0
+	_status_label.add_theme_font_size_override("font_size", 16)
+	_status_label.text = ""
+	_status_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	root.add_child(_status_label)
 
-    _status_label = Label.new()
-    _status_label.name = "Status"
-    _status_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
-    _status_label.offset_left = 24.0
-    _status_label.offset_top = -70.0
-    _status_label.offset_right = 520.0
-    _status_label.offset_bottom = -30.0
-    _status_label.add_theme_font_size_override("font_size", 16)
-    _status_label.text = ""
-    _status_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    root.add_child(_status_label)
+
+func _make_drop_button_style(bg: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = bg
+	style.border_color = Color(0.82, 0.88, 0.95, 0.82)
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(28)
+	return style
 
 
 func _update_ui() -> void:
-    for i in range(MAX_SLOTS):
-        if i < items.size() and is_instance_valid(items[i]):
-            _slot_labels[i].text = (
-                str(i + 1) + "\n" + _display_name(items[i])
-            )
-        else:
-            _slot_labels[i].text = str(i + 1) + "\n—"
+	for i in range(MAX_SLOTS):
+		if i < items.size() and is_instance_valid(items[i]):
+			_slot_labels[i].text = (
+				str(i + 1) + "\n" + _display_name(items[i])
+			)
+		else:
+			_slot_labels[i].text = str(i + 1) + "\n—"
 
-        if i == selected_slot:
-            _slot_labels[i].modulate = Color(1.0, 1.0, 0.65, 1.0)
-        else:
-            _slot_labels[i].modulate = Color.WHITE
+		if i == selected_slot:
+			_slot_labels[i].modulate = Color(1.0, 1.0, 0.65, 1.0)
+		else:
+			_slot_labels[i].modulate = Color.WHITE
 
 
 func _set_status(message: String) -> void:
-    if _status_label != null:
-        _status_label.text = message
+	# Pesan inventori generik tidak ditampilkan sebagai notifikasi HUD.
+	# Fungsi gameplay tetap berjalan; hanya spam teks status yang dihentikan.
+	return

@@ -20,6 +20,7 @@ extends Node
 @export var viewmodel_swing_degrees: float = 2.8
 
 var time_value := 0.0
+var capture_drag_time := 0.0
 
 var body: CharacterBody3D
 var visual: Node3D
@@ -107,11 +108,29 @@ func _process(delta: float) -> void:
     if not ready_for_animation or body == null:
         return
 
+    # Animasi penyeretan harus menang atas pose tangkapan statis.
+    # Tanpa prioritas ini, pemain bergerak secara fisik tetapi animasinya membeku.
+    if bool(body.get_meta("capture_dragging", false)):
+        _animate_dragged(delta)
+        return
+
+    # Animasi keadaan khusus memiliki prioritas atas input dan locomotion,
+    # agar pose tidak kembali berdiri saat bersembunyi/tertangkap/KO.
+    if bool(body.get_meta("capture_animation", false)):
+        _animate_capture(delta)
+        return
+    if bool(body.get_meta("knocked_out", false)):
+        _animate_knocked_out(delta)
+        return
+    if bool(body.get_meta("is_hidden", false)):
+        _animate_hidden(delta)
+        return
+
     if bool(body.get_meta("intro_sitting", false)):
         _animate_sitting(delta)
         return
 
-    var crouching := Input.is_key_pressed(KEY_CTRL)
+    var crouching := bool(body.get("is_crouching")) or Input.is_key_pressed(KEY_CTRL)
     var airborne := not body.is_on_floor()
     if airborne:
         _animate_jump(delta)
@@ -119,6 +138,92 @@ func _process(delta: float) -> void:
         _animate_crouch(delta)
     else:
         _animate_ground_movement(delta)
+
+
+func _animate_capture(delta: float) -> void:
+    # Reaksi tertangkap: tubuh tersentak ke belakang, tangan terangkat
+    # defensif, lalu pose mereda selama cutscene mengambil alih kamera.
+    var weight := minf(delta * 10.0, 1.0)
+    if visual != null:
+        _smooth_visual_transform(visual_base_position, visual_base_scale, 10.0, delta)
+    if torso:
+        torso.rotation = torso.rotation.lerp(torso_base_rotation + Vector3(deg_to_rad(-16.0), 0.0, deg_to_rad(8.0)), weight)
+    if arm_l:
+        arm_l.rotation = arm_l.rotation.lerp(arm_l_base + Vector3(deg_to_rad(-48.0), 0.0, deg_to_rad(-22.0)), weight)
+    if arm_r:
+        arm_r.rotation = arm_r.rotation.lerp(arm_r_base + Vector3(deg_to_rad(-48.0), 0.0, deg_to_rad(22.0)), weight)
+    if leg_l:
+        leg_l.rotation = leg_l.rotation.lerp(leg_l_base + Vector3(deg_to_rad(12.0), 0.0, 0.0), weight)
+    if leg_r:
+        leg_r.rotation = leg_r.rotation.lerp(leg_r_base + Vector3(deg_to_rad(-12.0), 0.0, 0.0), weight)
+    if view_model:
+        var target_position := view_model_base_position + Vector3(0.0, -0.12, -0.18)
+        view_model.position = view_model.position.lerp(target_position, weight)
+        view_model.rotation = view_model.rotation.lerp(view_model_base_rotation + Vector3(deg_to_rad(-12.0), 0.0, 0.0), weight)
+
+
+func _animate_dragged(delta: float) -> void:
+    # Pose penyeretan: badan tertarik ke belakang, tangan terangkat,
+    # kaki bergerak tidak teratur agar tidak tampak seperti meluncur kaku.
+    capture_drag_time += delta
+    var phase := capture_drag_time * 8.5
+    var weight := minf(delta * 8.0, 1.0)
+    if visual != null:
+        _smooth_visual_transform(visual_base_position + Vector3(0.0, -0.035, 0.0), visual_base_scale, 8.0, delta)
+    if torso:
+        var torso_target := torso_base_rotation + Vector3(deg_to_rad(17.0), 0.0, sin(phase * 0.45) * deg_to_rad(3.0))
+        torso.rotation = torso.rotation.lerp(torso_target, weight)
+    if arm_l:
+        var arm_l_target := arm_l_base + Vector3(deg_to_rad(-42.0), 0.0, deg_to_rad(-28.0))
+        arm_l.rotation = arm_l.rotation.lerp(arm_l_target, weight)
+    if arm_r:
+        var arm_r_target := arm_r_base + Vector3(deg_to_rad(-42.0), 0.0, deg_to_rad(28.0))
+        arm_r.rotation = arm_r.rotation.lerp(arm_r_target, weight)
+    if leg_l:
+        var leg_l_target := leg_l_base + Vector3(sin(phase) * deg_to_rad(18.0), 0.0, 0.0)
+        leg_l.rotation = leg_l.rotation.lerp(leg_l_target, weight)
+    if leg_r:
+        var leg_r_target := leg_r_base + Vector3(sin(phase + PI) * deg_to_rad(18.0), 0.0, 0.0)
+        leg_r.rotation = leg_r.rotation.lerp(leg_r_target, weight)
+
+
+func _animate_knocked_out(delta: float) -> void:
+    var weight := minf(delta * 5.0, 1.0)
+    var horizontal_speed := Vector2(body.velocity.x, body.velocity.z).length()
+    var crawling := horizontal_speed > 0.12
+    if crawling:
+        time_value += delta * 8.0
+    else:
+        time_value = 0.0
+
+    if visual != null:
+        _smooth_visual_transform(visual_base_position + Vector3(0.0, -0.38, 0.0), visual_base_scale * Vector3(1.0, 0.78, 1.0), 5.0, delta)
+    if torso:
+        torso.rotation = torso.rotation.lerp(torso_base_rotation + Vector3(deg_to_rad(24.0), 0.0, deg_to_rad(8.0)), weight)
+    if arm_l:
+        var left_arm_angle := -22.0 + (sin(time_value) * 12.0 if crawling else 0.0)
+        arm_l.rotation = arm_l.rotation.lerp(arm_l_base + Vector3(deg_to_rad(left_arm_angle), 0.0, deg_to_rad(-38.0)), weight)
+    if arm_r:
+        var right_arm_angle := -22.0 + (sin(time_value + PI) * 12.0 if crawling else 0.0)
+        arm_r.rotation = arm_r.rotation.lerp(arm_r_base + Vector3(deg_to_rad(right_arm_angle), 0.0, deg_to_rad(38.0)), weight)
+    if leg_l:
+        var left_leg_angle := -30.0 + (sin(time_value + PI) * 7.0 if crawling else 0.0)
+        leg_l.rotation = leg_l.rotation.lerp(leg_l_base + Vector3(deg_to_rad(left_leg_angle), 0.0, 0.0), weight)
+    if leg_r:
+        var right_leg_angle := -30.0 + (sin(time_value) * 7.0 if crawling else 0.0)
+        leg_r.rotation = leg_r.rotation.lerp(leg_r_base + Vector3(deg_to_rad(right_leg_angle), 0.0, 0.0), weight)
+
+
+func _animate_hidden(delta: float) -> void:
+    var weight := minf(delta * 8.0, 1.0)
+    if visual != null:
+        _smooth_visual_transform(visual_base_position + Vector3(0.0, -0.28, 0.0), visual_base_scale * Vector3(1.0, 0.78, 1.0), 8.0, delta)
+    if torso:
+        torso.rotation = torso.rotation.lerp(torso_base_rotation + Vector3(deg_to_rad(10.0), 0.0, 0.0), weight)
+    if arm_l:
+        arm_l.rotation = arm_l.rotation.lerp(arm_l_base + Vector3(deg_to_rad(-12.0), 0.0, deg_to_rad(-8.0)), weight)
+    if arm_r:
+        arm_r.rotation = arm_r.rotation.lerp(arm_r_base + Vector3(deg_to_rad(-12.0), 0.0, deg_to_rad(8.0)), weight)
 
 
 func _animate_sitting(delta: float) -> void:

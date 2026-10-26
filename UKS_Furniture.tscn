@@ -1,4 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bpd8agjaiw1fj"]
+
+[ext_resource type="PackedScene" path="res://UKSCabinet.tscn" id="uks_cabinet"]
+[ext_resource type="PackedScene" path="res://UKSTable.tscn" id="uks_table"]
 
 [sub_resource type="StandardMaterial3D" id="MatDarkWood"]
 albedo_color = Color(0.16, 0.09, 0.04, 1)
@@ -32,45 +35,6 @@ size = Vector3(3.1, 0.75, 1.55)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_acpyg"]
 size = Vector3(3.1, 0.75, 1.55)
-
-[sub_resource type="StandardMaterial3D" id="MatCabinet"]
-albedo_color = Color(0.45, 0.28, 0.12, 1)
-roughness = 0.92
-
-[sub_resource type="BoxMesh" id="CabinetBodyMesh"]
-material = SubResource("MatCabinet")
-size = Vector3(2, 3.2, 0.95)
-
-[sub_resource type="BoxMesh" id="CabinetTopMesh"]
-material = SubResource("MatDarkWood")
-size = Vector3(2.15, 0.14, 1.05)
-
-[sub_resource type="StandardMaterial3D" id="MatMetal"]
-albedo_color = Color(0.25, 0.27, 0.3, 1)
-metallic = 0.55
-roughness = 0.65
-
-[sub_resource type="BoxMesh" id="CabinetHandleMesh"]
-material = SubResource("MatMetal")
-size = Vector3(0.12, 0.12, 0.06)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jhxx6"]
-size = Vector3(2.15, 3.2, 1.05)
-
-[sub_resource type="StandardMaterial3D" id="MatTableWood"]
-albedo_color = Color(0.32, 0.18, 0.07, 1)
-roughness = 0.9
-
-[sub_resource type="BoxMesh" id="TableTopMesh"]
-material = SubResource("MatTableWood")
-size = Vector3(0.85, 0.12, 1.5)
-
-[sub_resource type="BoxMesh" id="TableLegMesh"]
-material = SubResource("MatTableWood")
-size = Vector3(0.1, 0.75, 0.1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_114l4"]
-size = Vector3(0.85, 0.75, 1.5)
 
 [node name="UKS_Furniture" type="Node3D" unique_id=210831671]
 
@@ -148,52 +112,8 @@ mesh = SubResource("BedLegMesh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39000005, 0)
 shape = SubResource("BoxShape3D_acpyg")
 
-[node name="Cabinet" type="Node3D" parent="." unique_id=335766268]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.351622, 0, 2.465561)
+[node name="Cabinet" parent="." unique_id=1446091287 instance=ExtResource("uks_cabinet")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4.351622, 0, 2.465561)
 
-[node name="Body" type="MeshInstance3D" parent="Cabinet" unique_id=1284891940]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 1.6, 0)
-mesh = SubResource("CabinetBodyMesh")
-
-[node name="Top" type="MeshInstance3D" parent="Cabinet" unique_id=1728619980]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 3.22, 0)
-mesh = SubResource("CabinetTopMesh")
-
-[node name="Handle" type="MeshInstance3D" parent="Cabinet" unique_id=786672428]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.51, 1.6, 2.2292808e-08)
-mesh = SubResource("CabinetHandleMesh")
-
-[node name="Collision" type="StaticBody3D" parent="Cabinet" unique_id=1820448879]
-
-[node name="Shape" type="CollisionShape3D" parent="Cabinet/Collision" unique_id=1371007826]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.645, 0)
-shape = SubResource("BoxShape3D_jhxx6")
-
-[node name="Table_Between_Beds" type="Node3D" parent="." unique_id=194582731]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12, 0, -0.1245346)
-
-[node name="Top" type="MeshInstance3D" parent="Table_Between_Beds" unique_id=194582732]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-mesh = SubResource("TableTopMesh")
-
-[node name="Leg_FL" type="MeshInstance3D" parent="Table_Between_Beds" unique_id=194582733]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.45, -0.55)
-mesh = SubResource("TableLegMesh")
-
-[node name="Leg_FR" type="MeshInstance3D" parent="Table_Between_Beds" unique_id=194582734]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.45, 0.55)
-mesh = SubResource("TableLegMesh")
-
-[node name="Leg_BL" type="MeshInstance3D" parent="Table_Between_Beds" unique_id=194582735]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.45, -0.55)
-mesh = SubResource("TableLegMesh")
-
-[node name="Leg_BR" type="MeshInstance3D" parent="Table_Between_Beds" unique_id=194582736]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.45, 0.55)
-mesh = SubResource("TableLegMesh")
-
-[node name="Collision" type="StaticBody3D" parent="Table_Between_Beds" unique_id=194582737]
-
-[node name="Shape" type="CollisionShape3D" parent="Table_Between_Beds/Collision" unique_id=194582738]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5175, 0)
-shape = SubResource("BoxShape3D_114l4")
+[node name="Table_Between_Beds" parent="." unique_id=173592517 instance=ExtResource("uks_table")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.12, 0, -0.1245346)

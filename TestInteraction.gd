@@ -53,7 +53,6 @@ func _ready() -> void:
 	for i in range(MAX_INVENTORY_SLOTS):
 		var button := $UI/BottomInventory/Slots.get_child(i) as Button
 		slot_buttons.append(button)
-		button.pressed.connect(_on_slot_pressed.bind(i))
 
 	progress_label.visible = false
 	_set_ui_mouse_mode(true)

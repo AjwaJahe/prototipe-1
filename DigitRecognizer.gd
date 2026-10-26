@@ -705,15 +705,12 @@ func _recognize_digit(
 
 
 			if total > best_score:
-
-				second_score = best_score
+				if best_digit != str(digit):
+					second_score = best_score
 				best_score = total
-				best_digit = str(
-					digit
-				)
+				best_digit = str(digit)
 
-			elif total > second_score:
-
+			elif str(digit) != best_digit and total > second_score:
 				second_score = total
 
 

@@ -54,7 +54,7 @@ func make_rack(parent: Node3D, name: String, pos: Vector3, rot_y: float, frame_m
         if y < 3.6:
             for i in range(4):
                 var bx := -0.82 + i * 0.55
-                var by := y + 0.42
+                var by: float = y + 0.42
                 var bz := -0.05
                 var box_mat := box_mats[(int(y * 10.0) + i) % box_mats.size()]
                 add_mesh(r, "Box_%s_%02d" % [str(y), i + 1], box_mesh(Vector3(0.46, 0.48, 0.72), box_mat), Vector3(bx, by, bz))
@@ -62,12 +62,23 @@ func make_rack(parent: Node3D, name: String, pos: Vector3, rot_y: float, frame_m
 
 func make_big_crate(parent: Node3D, wood: Material, dark: Material, label_mat: Material) -> void:
     var c := add_group(parent, "LargeStorageCrate", Vector3(5.25, 0, -10.85))
-    add_mesh(c, "Body", box_mesh(Vector3(2.90, 1.90, 1.55), wood), Vector3(0, 0.95, 0))
-    add_mesh(c, "Band_Left", box_mesh(Vector3(0.14, 2.00, 1.62), dark), Vector3(-1.10, 0.95, 0))
-    add_mesh(c, "Band_Right", box_mesh(Vector3(0.14, 2.00, 1.62), dark), Vector3(1.10, 0.95, 0))
-    add_mesh(c, "Band_Top", box_mesh(Vector3(2.90, 0.14, 1.62), dark), Vector3(0, 1.78, 0))
-    add_mesh(c, "Label", box_mesh(Vector3(0.95, 0.55, 0.05), label_mat), Vector3(0, 1.20, -0.79))
-    add_collision(c, "Collision", Vector3(3.00, 2.00, 1.65), Vector3(0, 1.00, 0))
+    # Dasar dan empat sisi; bagian atas sengaja terbuka agar peti bisa dipakai bersembunyi.
+    add_mesh(c, "Base", box_mesh(Vector3(2.72, 0.16, 1.38), dark), Vector3(0, 0.12, 0))
+    add_mesh(c, "FrontWall", box_mesh(Vector3(2.90, 1.55, 0.14), wood), Vector3(0, 0.91, -0.72))
+    add_mesh(c, "BackWall", box_mesh(Vector3(2.90, 1.55, 0.14), wood), Vector3(0, 0.91, 0.72))
+    add_mesh(c, "LeftWall", box_mesh(Vector3(0.14, 1.55, 1.30), wood), Vector3(-1.38, 0.91, 0))
+    add_mesh(c, "RightWall", box_mesh(Vector3(0.14, 1.55, 1.30), wood), Vector3(1.38, 0.91, 0))
+    add_mesh(c, "Band_Left", box_mesh(Vector3(0.14, 1.62, 1.62), dark), Vector3(-1.10, 0.91, 0))
+    add_mesh(c, "Band_Right", box_mesh(Vector3(0.14, 1.62, 1.62), dark), Vector3(1.10, 0.91, 0))
+    add_mesh(c, "Label", box_mesh(Vector3(0.95, 0.55, 0.05), label_mat), Vector3(0, 1.10, -0.80))
+    var lid_pivot := add_group(c, "LidPivot", Vector3(0, 1.70, 0.72))
+    add_mesh(lid_pivot, "Lid", box_mesh(Vector3(2.90, 0.16, 1.58), wood), Vector3(0, 0, -0.79))
+    add_mesh(lid_pivot, "LidBand", box_mesh(Vector3(2.90, 0.10, 0.12), dark), Vector3(0, -0.01, -1.48))
+    add_collision(c, "CrateBaseCollision", Vector3(2.72, 0.16, 1.38), Vector3(0, 0.12, 0))
+    add_collision(c, "CrateFrontCollision", Vector3(2.90, 1.55, 0.14), Vector3(0, 0.91, -0.72))
+    add_collision(c, "CrateBackCollision", Vector3(2.90, 1.55, 0.14), Vector3(0, 0.91, 0.72))
+    add_collision(c, "CrateLeftCollision", Vector3(0.14, 1.55, 1.30), Vector3(-1.38, 0.91, 0))
+    add_collision(c, "CrateRightCollision", Vector3(0.14, 1.55, 1.30), Vector3(1.38, 0.91, 0))
 
 func set_owner_recursive(n: Node, owner_node: Node) -> void:
     for child in n.get_children():

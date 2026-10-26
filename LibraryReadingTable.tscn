@@ -1,0 +1,169 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://LibraryFurnitureHighlight.gd" id="FurnitureHighlight"]
+[ext_resource type="Script" path="res://LibraryDrawerInteract.gd" id="DrawerInteract"]
+
+[sub_resource type="StandardMaterial3D" id="Wood"]
+albedo_color = Color(0.32, 0.17, 0.075, 1)
+roughness = 0.86
+[sub_resource type="StandardMaterial3D" id="WoodDark"]
+albedo_color = Color(0.16, 0.075, 0.035, 1)
+roughness = 0.9
+[sub_resource type="StandardMaterial3D" id="SeatMat"]
+albedo_color = Color(0.12, 0.13, 0.14, 1)
+roughness = 0.9
+[sub_resource type="StandardMaterial3D" id="BookRed"]
+albedo_color = Color(0.34, 0.07, 0.06, 1)
+roughness = 0.9
+[sub_resource type="StandardMaterial3D" id="BookGreen"]
+albedo_color = Color(0.08, 0.2, 0.14, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="TableTop"]
+material = SubResource("Wood")
+size = Vector3(3.8, 0.18, 2.0)
+[sub_resource type="BoxMesh" id="TableLeg"]
+material = SubResource("WoodDark")
+size = Vector3(0.13, 0.9, 0.13)
+[sub_resource type="BoxMesh" id="ChairSeat"]
+material = SubResource("SeatMat")
+size = Vector3(0.9, 0.14, 0.78)
+[sub_resource type="BoxMesh" id="ChairBack"]
+material = SubResource("SeatMat")
+size = Vector3(0.9, 0.78, 0.14)
+[sub_resource type="BoxMesh" id="ChairLeg"]
+material = SubResource("WoodDark")
+size = Vector3(0.09, 0.5, 0.09)
+[sub_resource type="BoxMesh" id="BookBase"]
+material = SubResource("BookGreen")
+size = Vector3(0.72, 0.1, 0.48)
+[sub_resource type="BoxMesh" id="BookTop"]
+material = SubResource("BookRed")
+size = Vector3(0.62, 0.09, 0.43)
+[sub_resource type="BoxShape3D" id="DrawerCollision"]
+size = Vector3(0.95, 0.25, 0.28)
+
+[sub_resource type="BoxShape3D" id="TableCollision"]
+size = Vector3(3.8, 0.18, 2.0)
+
+[node name="LibraryReadingTable" type="Node3D"]
+script = ExtResource("FurnitureHighlight")
+[node name="TableTop" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.92, 0)
+mesh = SubResource("TableTop")
+[node name="Leg_FL" type="MeshInstance3D" parent="."]
+position = Vector3(-1.65, 0.45, -0.78)
+mesh = SubResource("TableLeg")
+[node name="Leg_FR" type="MeshInstance3D" parent="."]
+position = Vector3(1.65, 0.45, -0.78)
+mesh = SubResource("TableLeg")
+[node name="Leg_BL" type="MeshInstance3D" parent="."]
+position = Vector3(-1.65, 0.45, 0.78)
+mesh = SubResource("TableLeg")
+[node name="Leg_BR" type="MeshInstance3D" parent="."]
+position = Vector3(1.65, 0.45, 0.78)
+mesh = SubResource("TableLeg")
+[node name="BookStack_Base" type="MeshInstance3D" parent="."]
+position = Vector3(-0.85, 1.04, -0.25)
+mesh = SubResource("BookBase")
+[node name="BookStack_Top" type="MeshInstance3D" parent="."]
+position = Vector3(-0.82, 1.14, -0.25)
+mesh = SubResource("BookTop")
+[node name="Chair_FrontLeft" type="Node3D" parent="."]
+script = ExtResource("FurnitureHighlight")
+position = Vector3(-1.0, 0, 1.55)
+[node name="Seat" type="MeshInstance3D" parent="Chair_FrontLeft"]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("ChairSeat")
+[node name="Back" type="MeshInstance3D" parent="Chair_FrontLeft"]
+position = Vector3(0, 0.98, 0.3)
+mesh = SubResource("ChairBack")
+[node name="Leg_1" type="MeshInstance3D" parent="Chair_FrontLeft"]
+position = Vector3(-0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_2" type="MeshInstance3D" parent="Chair_FrontLeft"]
+position = Vector3(-0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_3" type="MeshInstance3D" parent="Chair_FrontLeft"]
+position = Vector3(0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_4" type="MeshInstance3D" parent="Chair_FrontLeft"]
+position = Vector3(0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Chair_FrontRight" type="Node3D" parent="."]
+script = ExtResource("FurnitureHighlight")
+position = Vector3(1.0, 0, 1.55)
+[node name="Seat" type="MeshInstance3D" parent="Chair_FrontRight"]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("ChairSeat")
+[node name="Back" type="MeshInstance3D" parent="Chair_FrontRight"]
+position = Vector3(0, 0.98, 0.3)
+mesh = SubResource("ChairBack")
+[node name="Leg_1" type="MeshInstance3D" parent="Chair_FrontRight"]
+position = Vector3(-0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_2" type="MeshInstance3D" parent="Chair_FrontRight"]
+position = Vector3(-0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_3" type="MeshInstance3D" parent="Chair_FrontRight"]
+position = Vector3(0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_4" type="MeshInstance3D" parent="Chair_FrontRight"]
+position = Vector3(0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Chair_BackLeft" type="Node3D" parent="."]
+script = ExtResource("FurnitureHighlight")
+position = Vector3(-1.0, 0, -1.55)
+rotation = Vector3(0, 3.14159, 0)
+[node name="Seat" type="MeshInstance3D" parent="Chair_BackLeft"]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("ChairSeat")
+[node name="Back" type="MeshInstance3D" parent="Chair_BackLeft"]
+position = Vector3(0, 0.98, 0.3)
+mesh = SubResource("ChairBack")
+[node name="Leg_1" type="MeshInstance3D" parent="Chair_BackLeft"]
+position = Vector3(-0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_2" type="MeshInstance3D" parent="Chair_BackLeft"]
+position = Vector3(-0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_3" type="MeshInstance3D" parent="Chair_BackLeft"]
+position = Vector3(0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_4" type="MeshInstance3D" parent="Chair_BackLeft"]
+position = Vector3(0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Chair_BackRight" type="Node3D" parent="."]
+script = ExtResource("FurnitureHighlight")
+position = Vector3(1.0, 0, -1.55)
+rotation = Vector3(0, 3.14159, 0)
+[node name="Seat" type="MeshInstance3D" parent="Chair_BackRight"]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("ChairSeat")
+[node name="Back" type="MeshInstance3D" parent="Chair_BackRight"]
+position = Vector3(0, 0.98, 0.3)
+mesh = SubResource("ChairBack")
+[node name="Leg_1" type="MeshInstance3D" parent="Chair_BackRight"]
+position = Vector3(-0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_2" type="MeshInstance3D" parent="Chair_BackRight"]
+position = Vector3(-0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_3" type="MeshInstance3D" parent="Chair_BackRight"]
+position = Vector3(0.34, 0.25, -0.28)
+mesh = SubResource("ChairLeg")
+[node name="Leg_4" type="MeshInstance3D" parent="Chair_BackRight"]
+position = Vector3(0.34, 0.25, 0.28)
+mesh = SubResource("ChairLeg")
+[node name="Drawer_01" type="Area3D" parent="."]
+script = ExtResource("DrawerInteract")
+position = Vector3(0, 0.70, 0.85)
+metadata/drawer_width = 0.95
+[node name="InteractionShape" type="CollisionShape3D" parent="Drawer_01"]
+position = Vector3(0, 0, 0.06)
+shape = SubResource("DrawerCollision")
+
+[node name="TableCollision" type="StaticBody3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TableCollision"]
+position = Vector3(0, 0.92, 0)
+shape = SubResource("TableCollision")

@@ -18,7 +18,7 @@ func bbox_to_file(out: FileAccess, n: Node) -> void:
         a.position + Vector3(0,a.size.y,a.size.z),
         a.position + a.size
     ]:
-        var q := t * c
+        var q: Vector3 = t * c
         mn.x=min(mn.x,q.x); mn.y=min(mn.y,q.y); mn.z=min(mn.z,q.z)
         mx.x=max(mx.x,q.x); mx.y=max(mx.y,q.y); mx.z=max(mx.z,q.z)
     out.store_line(str(n.get_path())+" pos="+str(n.global_position)+" min="+str(mn)+" max="+str(mx))
@@ -31,21 +31,21 @@ func _init() -> void:
         out.close()
         quit()
         return
-    var s := packed.instantiate()
+    var s: Node = packed.instantiate()
     root.add_child(s)
-    var map58 := s.get_node_or_null("Map58")
-    var furn := s.get_node_or_null("Furniture")
+    var map58: Node = s.get_node_or_null("Map58")
+    var furn: Node = s.get_node_or_null("Furniture")
     out.store_line("Map58_exists="+str(map58 != null))
     out.store_line("Furniture_exists="+str(furn != null))
     if map58:
         out.store_line("Map58_global_pos="+str(map58.global_position))
-        var tf := map58.find_child("Toilet_Pria_Floor", true, false)
+        var tf: Node = map58.find_child("Toilet_Pria_Floor", true, false)
         if tf:
             bbox_to_file(out, tf)
         else:
             out.store_line("Toilet_Pria_Floor NOT_FOUND")
     if furn:
-        var tfurn := furn.get_node_or_null("MaleToilet_Furniture")
+        var tfurn: Node = furn.get_node_or_null("MaleToilet_Furniture")
         out.store_line("MaleToilet_exists="+str(tfurn != null))
         if tfurn:
             out.store_line("MaleToilet_local="+str(tfurn.position))

@@ -4,20 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://ks48eekvgaqg" path="res://PlayerCharacter.tscn" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://bdked6k6x8c7y" path="res://FirstPersonLocalHeadCulling.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://bk51famhlaha7" path="res://PlayerAnimation.gd" id="4_anim"]
-[ext_resource type="Script" path="res://PlayerInteractionInput.gd" id="5_interaction"]
-[ext_resource type="Script" path="res://items/ItemInventory.gd" id="6_inventory"]
+[ext_resource type="Script" uid="uid://bxpkwcihjbqak" path="res://PlayerInteractionInput.gd" id="5_interaction"]
+[ext_resource type="Script" uid="uid://c34vy51kdm1lh" path="res://items/ItemInventory.gd" id="6_inventory"]
+[ext_resource type="Script" uid="uid://kjsg0u2c8fth" path="res://MobileControls.gd" id="7_mobile_controls"]
+[ext_resource type="Script" uid="uid://dqbyj5lxrbfxd" path="res://InputRouter.gd" id="8_input_router"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1bvp3"]
 
 [sub_resource type="StandardMaterial3D" id="MatFirstPersonSleeve"]
 albedo_color = Color(0.13, 0.15, 0.19, 1)
 roughness = 0.82
-shading_mode = 1
-
-[sub_resource type="StandardMaterial3D" id="MatFirstPersonSkin"]
-albedo_color = Color(0.62, 0.40, 0.27, 1)
-roughness = 0.9
-shading_mode = 1
 
 [sub_resource type="CylinderMesh" id="MeshFirstPersonForearm"]
 top_radius = 0.12
@@ -25,6 +21,10 @@ bottom_radius = 0.15
 height = 0.72
 radial_segments = 8
 rings = 1
+
+[sub_resource type="StandardMaterial3D" id="MatFirstPersonSkin"]
+albedo_color = Color(0.62, 0.4, 0.27, 1)
+roughness = 0.9
 
 [sub_resource type="SphereMesh" id="MeshFirstPersonHand"]
 radius = 0.16
@@ -44,43 +44,48 @@ script = ExtResource("1_4flbx")
 shape = SubResource("CapsuleShape3D_1bvp3")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=1715152463]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 cull_mask = 1047553
 script = ExtResource("3_i3pqv")
 
-[node name="FirstPersonViewModel" type="Node3D" parent="CharacterBody3D/Camera3D"]
-position = Vector3(0.0, -0.02, -0.15)
+[node name="FirstPersonViewModel" type="Node3D" parent="CharacterBody3D/Camera3D" unique_id=816719028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, -0.15)
 
-[node name="Forearm" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/FirstPersonViewModel"]
-position = Vector3(0.30, -0.36, -0.50)
-rotation_degrees = Vector3(-58.0, 12.0, -16.0)
-mesh = SubResource("MeshFirstPersonForearm")
+[node name="Forearm" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/FirstPersonViewModel" unique_id=1457120762]
+transform = Transform3D(0.98885596, 0.10012522, 0.110176414, -0.14606555, 0.50939107, 0.8480481, 0.02878812, -0.85469043, 0.5183393, 0.3, -0.36, -0.5)
 material_override = SubResource("MatFirstPersonSleeve")
+mesh = SubResource("MeshFirstPersonForearm")
 
-[node name="Hand" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/FirstPersonViewModel"]
-position = Vector3(0.43, -0.62, -0.82)
-rotation_degrees = Vector3(-12.0, 10.0, -12.0)
-mesh = SubResource("MeshFirstPersonHand")
+[node name="Hand" type="MeshInstance3D" parent="CharacterBody3D/Camera3D/FirstPersonViewModel" unique_id=125749003]
+transform = Transform3D(0.97079366, 0.16943851, 0.16985355, -0.20336834, 0.9567728, 0.2079117, -0.12728299, -0.2363822, 0.96328735, 0.43, -0.62, -0.82)
 material_override = SubResource("MatFirstPersonSkin")
+mesh = SubResource("MeshFirstPersonHand")
 
-[node name="HeldItem" type="Node3D" parent="CharacterBody3D/Camera3D/FirstPersonViewModel"]
-position = Vector3(0.43, -0.48, -0.96)
+[node name="HeldItem" type="Node3D" parent="CharacterBody3D/Camera3D/FirstPersonViewModel" unique_id=625300834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43, -0.48, -0.96)
 
 [node name="PlayerCharacter" parent="CharacterBody3D" unique_id=605798639 instance=ExtResource("2_onrkg")]
 
 [node name="PlayerAnimation" type="Node" parent="CharacterBody3D" unique_id=1041752428]
 script = ExtResource("4_anim")
 
-[node name="ItemInventory" type="Node" parent="CharacterBody3D"]
+[node name="ItemInventory" type="Node" parent="CharacterBody3D" unique_id=70749032]
 script = ExtResource("6_inventory")
 
-[node name="InteractionInput" type="Node" parent="CharacterBody3D"]
+[node name="InteractionInput" type="Node" parent="CharacterBody3D" unique_id=1717299181]
 script = ExtResource("5_interaction")
 
-[node name="CrosshairLayer" type="CanvasLayer" parent="."]
+[node name="InputRouter" type="Node" parent="CharacterBody3D" unique_id=858078768]
+script = ExtResource("8_input_router")
+
+[node name="MobileControls" type="Node" parent="CharacterBody3D" unique_id=2042798675]
+script = ExtResource("7_mobile_controls")
+test_mode = 0
+
+[node name="CrosshairLayer" type="CanvasLayer" parent="." unique_id=1870570473]
 layer = 25
 
-[node name="CrosshairCenter" type="CenterContainer" parent="CrosshairLayer"]
+[node name="CrosshairCenter" type="CenterContainer" parent="CrosshairLayer" unique_id=264886578]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -88,11 +93,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Crosshair" type="Label" parent="CrosshairLayer/CrosshairCenter"]
+[node name="Crosshair" type="Label" parent="CrosshairLayer/CrosshairCenter" unique_id=29586890]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
-mouse_filter = 2

@@ -219,17 +219,18 @@ required_item_type = "class_key"
 
 [node name="PintuPerpustakaan_East" parent="." unique_id=1652608259 instance=ExtResource("15_door_class")]
 transform = Transform3D(4.750426e-08, 0, 1, 0, 1, 0, -0.629213, 0, 7.54979e-08, -28.4218, 0, 8.3676)
+required_item_type = "yellow_key"
 
 [node name="PintuLapanganBasket_West" parent="." unique_id=1727421821 instance=ExtResource("15_door_class")]
 transform = Transform3D(4.750426e-08, 0, 1, 0, 1, 0, -0.629213, 0, 7.54979e-08, 21.40465, 0, 8.0614)
 
 [node name="PintuRuangTamu_South" parent="." unique_id=1402215624 instance=ExtResource("15_door_class")]
 transform = Transform3D(0.778652, 0, 0, 0, 1, 0, 0, 0, 1, -0.0181, 0, 6.487001)
-open_distance = -3.2
+open_distance = -4.6
 
 [node name="PintuRuangTamu_North" parent="." unique_id=892503697 instance=ExtResource("15_door_class")]
 transform = Transform3D(0.505326, 0, 0, 0, 1, 0, 0, 0, 1, 3.81875, 0, -4.537995)
-open_distance = -3.2
+open_distance = -4.6
 
 [node name="PintuKepsek_East" parent="." unique_id=558195847 instance=ExtResource("15_door_class")]
 transform = Transform3D(5.231242e-08, 0, 1, 0, 1, 0, -0.692899, 0, 7.54979e-08, -21.68625, 0, -27.710602)
@@ -252,12 +253,14 @@ position = Vector3(-56.4245, 0, -41.75765)
 rotation = Vector3(0, 0, 0)
 scale = Vector3(1, 1, 1)
 open_angle_degrees = 85.0
+required_item_type = "red_key"
 
 [node name="PintuUKS_West" parent="." instance=ExtResource("17_door_wood")]
 position = Vector3(52.904663, 0, -3.488635)
 rotation = Vector3(0, 0, 0)
 scale = Vector3(1, 1, 1)
 open_angle_degrees = 85.0
+required_item_type = "blue_key"
 [node name="PintuSekolah_MainEntrance" parent="." instance=ExtResource("18_door_school")]
 position = Vector3(-2.12697, 0, 24.511354)
 rotation = Vector3(0, 0, 0)

@@ -1,0 +1,142 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://LibraryFurnitureHighlight.gd" id="FurnitureHighlight"]
+
+[sub_resource type="StandardMaterial3D" id="Wood"]
+albedo_color = Color(0.22, 0.12, 0.075, 1)
+roughness = 0.86
+
+[sub_resource type="StandardMaterial3D" id="ShelfBoard"]
+albedo_color = Color(0.34, 0.21, 0.13, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="BookRed"]
+albedo_color = Color(0.34, 0.07, 0.06, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="BookGreen"]
+albedo_color = Color(0.08, 0.2, 0.14, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="BookBlue"]
+albedo_color = Color(0.07, 0.13, 0.25, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="UprightMesh"]
+material = SubResource("Wood")
+size = Vector3(0.16, 3.25, 0.62)
+
+[sub_resource type="BoxMesh" id="PlinthMesh"]
+material = SubResource("Wood")
+size = Vector3(5.55, 0.2, 0.62)
+
+[sub_resource type="BoxMesh" id="BoardMesh"]
+material = SubResource("ShelfBoard")
+size = Vector3(5.55, 0.12, 0.62)
+
+[sub_resource type="BoxMesh" id="BookMesh"]
+size = Vector3(0.2, 0.42, 0.28)
+
+[sub_resource type="BoxShape3D" id="UprightCollision"]
+size = Vector3(0.16, 3.25, 0.62)
+
+[sub_resource type="BoxShape3D" id="PlinthCollision"]
+size = Vector3(5.55, 0.2, 0.62)
+
+[sub_resource type="BoxShape3D" id="BoardCollision"]
+size = Vector3(5.55, 0.12, 0.62)
+
+[node name="LibraryShelf_DoubleSided" type="Node3D"]
+script = ExtResource("FurnitureHighlight")
+
+[node name="Upright_Left" type="MeshInstance3D" parent="."]
+position = Vector3(-2.695, 1.625, 0)
+mesh = SubResource("UprightMesh")
+
+[node name="Upright_Right" type="MeshInstance3D" parent="."]
+position = Vector3(2.695, 1.625, 0)
+mesh = SubResource("UprightMesh")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.1, 0)
+mesh = SubResource("PlinthMesh")
+
+[node name="ShelfBoard_01" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.55, 0)
+mesh = SubResource("BoardMesh")
+
+[node name="ShelfBoard_02" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.25, 0)
+mesh = SubResource("BoardMesh")
+
+[node name="ShelfBoard_03" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.95, 0)
+mesh = SubResource("BoardMesh")
+
+[node name="ShelfBoard_04" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.65, 0)
+mesh = SubResource("BoardMesh")
+
+[node name="TopCap" type="MeshInstance3D" parent="."]
+position = Vector3(0, 3.22, 0)
+mesh = SubResource("PlinthMesh")
+
+[node name="Book_Red_Front_01" type="MeshInstance3D" parent="."]
+position = Vector3(-1.95, 0.82, -0.18)
+mesh = SubResource("BookMesh")
+material_override = SubResource("BookRed")
+
+[node name="Book_Green_Front_01" type="MeshInstance3D" parent="."]
+position = Vector3(-1.7, 0.82, -0.18)
+mesh = SubResource("BookMesh")
+material_override = SubResource("BookGreen")
+
+[node name="Book_Blue_Front_01" type="MeshInstance3D" parent="."]
+position = Vector3(-1.45, 0.82, -0.18)
+mesh = SubResource("BookMesh")
+material_override = SubResource("BookBlue")
+
+[node name="Book_Red_Back_01" type="MeshInstance3D" parent="."]
+position = Vector3(1.55, 0.82, 0.18)
+mesh = SubResource("BookMesh")
+material_override = SubResource("BookRed")
+
+[node name="Book_Green_Back_01" type="MeshInstance3D" parent="."]
+position = Vector3(1.8, 0.82, 0.18)
+mesh = SubResource("BookMesh")
+material_override = SubResource("BookGreen")
+
+[node name="Book_Blue_Back_01" type="MeshInstance3D" parent="."]
+position = Vector3(2.05, 0.82, 0.18)
+mesh = SubResource("BookMesh")
+material_override = SubResource("BookBlue")
+
+[node name="ShelfCollision" type="StaticBody3D" parent="."]
+
+[node name="Upright_Left_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(-2.695, 1.625, 0)
+shape = SubResource("UprightCollision")
+
+[node name="Upright_Right_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(2.695, 1.625, 0)
+shape = SubResource("UprightCollision")
+
+[node name="Base_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(0, 0.1, 0)
+shape = SubResource("PlinthCollision")
+
+[node name="Board_01_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(0, 0.55, 0)
+shape = SubResource("BoardCollision")
+
+[node name="Board_02_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(0, 1.25, 0)
+shape = SubResource("BoardCollision")
+
+[node name="Board_03_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(0, 1.95, 0)
+shape = SubResource("BoardCollision")
+
+[node name="Board_04_Collision" type="CollisionShape3D" parent="ShelfCollision"]
+position = Vector3(0, 2.65, 0)
+shape = SubResource("BoardCollision")

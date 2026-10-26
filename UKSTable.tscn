@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://UKSTableModel.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="table_collision"]
+size = Vector3(1.55, 0.92, 0.88)
+
+[node name="UKSTable" type="Node3D"]
+
+[node name="TableModel" parent="." instance=ExtResource("1_model")]
+
+[node name="FurnitureCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FurnitureCollision"]
+position = Vector3(0, 0.46, 0)
+shape = SubResource("table_collision")

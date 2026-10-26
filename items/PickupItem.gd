@@ -9,76 +9,68 @@ var _highlighted := false
 
 
 func _ready() -> void:
-    set_meta("interaction_type", "item")
-    set_meta("item_type", item_type)
-    set_meta("display_name", display_name)
-    set_meta("in_inventory", false)
-    _create_outline_material()
+	set_meta("interaction_type", "item")
+	set_meta("item_type", item_type)
+	set_meta("display_name", display_name)
+	set_meta("in_inventory", false)
+	_create_outline_material()
 
 
 func interact(player: Node = null) -> void:
-    if player == null:
-        return
-
-    var inventory := player.get_node_or_null("ItemInventory")
-    if inventory != null and inventory.has_method("try_pickup"):
-        inventory.try_pickup(self)
+	if player == null:
+		return
+	var inventory := player.get_node_or_null("ItemInventory")
+	if inventory != null and inventory.has_method("try_pickup"):
+		inventory.try_pickup(self)
 
 
 func on_picked_up() -> void:
-    _play_sfx("pickup")
+	_play_sfx("pickup")
+	var scene := get_tree().current_scene
+	var spawner := scene.get_node_or_null("ItemSpawner") if scene != null else null
+	if spawner != null and spawner.has_method("on_item_picked_up"):
+		spawner.on_item_picked_up(self)
 
 
 func set_highlighted(enabled: bool) -> void:
-    if _highlighted == enabled:
-        return
-
-    _highlighted = enabled
-
-    for child in get_children():
-        _apply_outline_recursive(child, enabled)
+	if _highlighted == enabled:
+		return
+	_highlighted = enabled
+	for child in get_children():
+		_apply_outline_recursive(child, enabled)
 
 
 func get_drop_surface_offset() -> float:
-    return drop_surface_offset
+	return drop_surface_offset
 
 
 func _play_sfx(sound_name: String) -> void:
-    var audio := get_tree().get_first_node_in_group("game_audio")
-    if audio != null and audio.has_method("play_sfx"):
-        audio.play_sfx(sound_name)
+	var audio := get_tree().get_first_node_in_group("game_audio")
+	if audio != null and audio.has_method("play_sfx"):
+		audio.play_sfx(sound_name)
 
 
 func _create_outline_material() -> void:
-    var shader := Shader.new()
-    shader.code = """
+	var shader := Shader.new()
+	shader.code = """
 shader_type spatial;
 render_mode unshaded, cull_front, depth_draw_opaque;
-
 uniform vec4 outline_color : source_color = vec4(1.0, 0.82, 0.25, 1.0);
 uniform float outline_size = 0.025;
-
-void vertex() {
-    VERTEX += NORMAL * outline_size;
-}
-
+void vertex() { VERTEX += NORMAL * outline_size; }
 void fragment() {
     ALBEDO = outline_color.rgb;
     EMISSION = outline_color.rgb * 0.85;
     ROUGHNESS = 1.0;
 }
 """
-    _outline_material = ShaderMaterial.new()
-    _outline_material.shader = shader
+	_outline_material = ShaderMaterial.new()
+	_outline_material.shader = shader
 
 
 func _apply_outline_recursive(node: Node, enabled: bool) -> void:
-    if node is MeshInstance3D:
-        var mesh_instance := node as MeshInstance3D
-        if enabled:
-            mesh_instance.material_overlay = _outline_material
-        else:
-            mesh_instance.material_overlay = null
-
-    for child in node.get_children():
-        _apply_outline_recursive(child, enabled)
+	if node is MeshInstance3D:
+		var mesh_instance := node as MeshInstance3D
+		mesh_instance.material_overlay = _outline_material if enabled else null
+	for child in node.get_children():
+		_apply_outline_recursive(child, enabled)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm7oser0hox7w"]
 
 [ext_resource type="PackedScene" uid="uid://de85urc7xvr18" path="res://player.tscn" id="1_player"]
-[ext_resource type="Script" uid="uid://b45dkdath602f" path="res://WhiteboardTest.gd" id="2_script"]
+[ext_resource type="Script" uid="uid://dk0fhbwbluequ" path="res://WhiteboardTest.gd" id="2_script"]
 
 [sub_resource type="StandardMaterial3D" id="FloorMat"]
 albedo_color = Color(0.16, 0.17, 0.18, 1)

@@ -13,6 +13,7 @@ var _right_closed_x: float
 
 
 func _ready() -> void:
+    add_to_group("doors")
     if left_pivot == null or right_pivot == null:
         push_error("PintuTengahKepsekGuru: pivot pintu tidak ditemukan.")
         return
@@ -57,11 +58,19 @@ func interact(_player: Node = null) -> void:
     _tween.set_parallel(false)
 
     var audio := get_tree().get_first_node_in_group("game_audio")
-    if audio != null and audio.has_method("play_sfx"):
-        audio.play_sfx("door_open" if opening else "door_close")
+    var sound_name := "door_open" if opening else "door_close"
+    if audio != null:
+        if audio.has_method("play_sfx_for_duration"):
+            audio.play_sfx_for_duration(sound_name, animation_duration, global_position)
+        elif audio.has_method("play_sfx"):
+            audio.play_sfx(sound_name, global_position)
 
     _is_open = opening
 
 
 func is_open() -> bool:
     return _is_open
+
+
+func is_transitioning() -> bool:
+    return _tween != null and _tween.is_running()

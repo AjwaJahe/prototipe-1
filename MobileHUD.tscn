@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://r82jph3nv08c"]
+
+[ext_resource type="Script" uid="uid://cb8j22ibpmpxq" path="res://MobileHUD.gd" id="1"]
+[ext_resource type="Script" uid="uid://d2jkcthsdd482" path="res://HUDActionButton.gd" id="2"]
+
+[node name="MobileHUD" type="Control" unique_id=1353514856]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1")
+test_mode = 0
+
+[node name="MovementJoystick" type="Panel" parent="." unique_id=1227984167]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -188.0
+offset_right = 188.0
+offset_bottom = -24.0
+mouse_filter = 1
+
+[node name="Knob" type="Panel" parent="MovementJoystick" unique_id=2095286608]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 49.0
+offset_right = 115.0
+offset_bottom = 115.0
+mouse_filter = 2
+
+[node name="JumpButton" type="Button" parent="." unique_id=1371850370]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -132.0
+offset_right = -28.0
+offset_bottom = -38.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+action_mode = 0
+script = ExtResource("2")
+
+[node name="RunButton" type="Button" parent="." unique_id=521448939]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -86.0
+offset_right = -154.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("2")
+action_kind = 1
+
+[node name="CrouchButton" type="Button" parent="." unique_id=1540730328]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -158.0
+offset_right = -154.0
+offset_bottom = -94.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+toggle_mode = true
+action_mode = 0
+script = ExtResource("2")
+action_kind = 2

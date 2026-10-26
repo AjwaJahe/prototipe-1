@@ -1,6 +1,8 @@
 @tool
 extends Node3D
 
+@export var global_texture_settings: Map58TextureSettings = preload("res://Map58TextureSettings.tres")
+
 @export_category("Floor")
 
 @export var floor_color: Color = Color(
@@ -61,7 +63,21 @@ var _applied := false
 
 
 func _ready() -> void:
+	_apply_global_settings()
 	call_deferred("_apply_materials")
+
+
+func _apply_global_settings() -> void:
+	if global_texture_settings == null:
+		return
+	floor_color = global_texture_settings.floor_color
+	floor_texture = global_texture_settings.floor_texture
+	floor_texture_scale = global_texture_settings.floor_texture_scale
+	floor_roughness = global_texture_settings.floor_roughness
+	wall_color = global_texture_settings.wall_color
+	wall_texture = global_texture_settings.wall_texture
+	wall_texture_scale = global_texture_settings.wall_texture_scale
+	wall_roughness = global_texture_settings.wall_roughness
 
 
 func _apply_materials() -> void:

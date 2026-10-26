@@ -102,6 +102,18 @@ bottom_radius = 0.09
 height = 0.03
 radial_segments = 20
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_SinkCol_CabinetL"]
+size = Vector3(1.28, 0.78, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_SinkCol_BasinL"]
+size = Vector3(1.1, 0.14, 0.54)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_SinkCol_CabinetR"]
+size = Vector3(1.28, 0.78, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_SinkCol_BasinR"]
+size = Vector3(1.1, 0.14, 0.54)
+
 [node name="FemaleToilet_Furniture" type="Node3D" unique_id=43913235]
 
 [node name="FurnitureRoot" type="Node3D" parent="." unique_id=1368709489]
@@ -358,6 +370,22 @@ material_override = SubResource("Material_Metal")
 mesh = SubResource("Mesh_Faucet")
 
 [node name="FurnitureCollision" type="StaticBody3D" parent="FurnitureRoot/SinkArea" unique_id=669331745]
+
+[node name="SinkCol_CabinetL" type="CollisionShape3D" parent="FurnitureRoot/SinkArea/FurnitureCollision"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.39, 1.65)
+shape = SubResource("BoxShape3D_SinkCol_CabinetL")
+
+[node name="SinkCol_BasinL" type="CollisionShape3D" parent="FurnitureRoot/SinkArea/FurnitureCollision"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.83, 1.65)
+shape = SubResource("BoxShape3D_SinkCol_BasinL")
+
+[node name="SinkCol_CabinetR" type="CollisionShape3D" parent="FurnitureRoot/SinkArea/FurnitureCollision"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.39, -1.65)
+shape = SubResource("BoxShape3D_SinkCol_CabinetR")
+
+[node name="SinkCol_BasinR" type="CollisionShape3D" parent="FurnitureRoot/SinkArea/FurnitureCollision"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.83, -1.65)
+shape = SubResource("BoxShape3D_SinkCol_BasinR")
 
 [node name="Soap_Left" type="MeshInstance3D" parent="FurnitureRoot" unique_id=537295621]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.75, 1.05, -1.3000001)

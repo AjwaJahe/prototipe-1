@@ -2,3 +2,23 @@
 .godot/
 /android/
 *.tmp
+
+ # Local/generated files excluded from GitHub
+build/
+debug/
+backup/
+video perinjau/
+_backup_mobilehud_20261012_122002/
+.godot/
+*.log
+*.tmp
+*.bak
+*.before_*
+*.deleted_backup
+*.idsig
+*.apk
+*.exe
+*.zip
+*.dll
+_desktop_visual_check.png
+__screen_*.png

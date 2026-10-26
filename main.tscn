@@ -8,14 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://b7l75jdi3ly3p" path="res://Map58_Furniture.tscn" id="6_furniture"]
 [ext_resource type="PackedScene" uid="uid://ses6lko2vaa5" path="res://BasketballCourt.tscn" id="7_basket"]
 [ext_resource type="PackedScene" uid="uid://syv0u3a3f1qf" path="res://BasketballBleachers.tscn" id="8_bleachers"]
-[ext_resource type="PackedScene" path="res://Map58_WallAboveOpenings.tscn" id="9_wall_caps"]
 [ext_resource type="PackedScene" path="res://Map58_Roof.tscn" id="10_roof"]
 [ext_resource type="PackedScene" path="res://Map58_Lighting.tscn" id="11_lighting"]
-[ext_resource type="Script" path="res://Map58Game.gd" id="12_game"]
-[ext_resource type="Script" path="res://Map58Whiteboard.gd" id="13_whiteboard"]
-[ext_resource type="Script" path="res://Map58ItemSpawner.gd" id="14_item_spawner"]
-[ext_resource type="Script" path="res://Map58FurnitureGameplay.gd" id="17_furniture_gameplay"]
-[ext_resource type="Script" path="res://Map58EditorPerformance.gd" id="18_editor_perf"]
+[ext_resource type="Script" uid="uid://8cxfep3xsu4o" path="res://Map58Game.gd" id="12_game"]
+[ext_resource type="Script" uid="uid://dgl13va6kq1ag" path="res://Map58Whiteboard.gd" id="13_whiteboard"]
+[ext_resource type="Script" uid="uid://bkh47hsgo1fy3" path="res://Map58ItemSpawnerV2.gd" id="14_item_spawner"]
+[ext_resource type="Script" uid="uid://dggfxkr4ucwfm" path="res://Map58FurnitureGameplay.gd" id="17_furniture_gameplay"]
+[ext_resource type="Script" uid="uid://dqp86ycimvmep" path="res://Map58EditorPerformance.gd" id="18_editor_perf"]
+[ext_resource type="Script" uid="uid://c0yxjwnmjqbbs" path="res://AudioManager.gd" id="19_audio"]
+[ext_resource type="Script" uid="uid://v2yrvy5yfsxr" path="res://GameAudioManager.gd" id="20_game_audio"]
+[ext_resource type="Script" uid="uid://coy5rki740vcr" path="res://UIManager.gd" id="21_ui_manager"]
+[ext_resource type="Script" uid="uid://dy6kx7yw5taly" path="res://BoardScribbles.gd" id="22_board_scribbles"]
+[ext_resource type="Script" uid="uid://l6tvodumvs3a" path="res://MultiplayerGame.gd" id="23_multiplayer_game"]
+[ext_resource type="Script" uid="uid://gj0mq4hatoee" path="res://Map58_GlobalTextureController.gd" id="24_global_textures"]
 
 [sub_resource type="Environment" id="Env_horror"]
 background_mode = 1
@@ -37,16 +42,15 @@ size = Vector3(2.4, 0.08, 0.65)
 [node name="Main" type="Node3D" unique_id=1437950529]
 script = ExtResource("18_editor_perf")
 
+[node name="GlobalMapTextureController" type="Node" parent="." unique_id=1243927438]
+script = ExtResource("24_global_textures")
+
 [node name="Player" parent="." unique_id=387136255 instance=ExtResource("1_0xm2m")]
 
 [node name="Lantai" parent="." unique_id=857479751 instance=ExtResource("2_h2yge")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1376549331]
 environment = SubResource("Env_horror")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1291981908]
-transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.7071067, 0, -0.7071067, 0.7071067, 0, 45, 0)
-light_energy = 0.0
 
 [node name="Map58" parent="." unique_id=1373125441 instance=ExtResource("3_h2yge")]
 
@@ -91,37 +95,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.22849, -0.180014, -65.2180
 [node name="TeacherSpawn" type="Marker3D" parent="SpawnManager" unique_id=1884000021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, -0.180013, -41.5864)
 
+[node name="ClassTeacherSpawn" type="Marker3D" parent="SpawnManager" unique_id=1884000022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30793, -0.0558545, -26.459)
+
 [node name="Teacher" parent="." unique_id=1037771686 instance=ExtResource("5_teacher")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.43625, 0.819987, -41.5864)
 
 [node name="Furniture" parent="." unique_id=1821440065 instance=ExtResource("6_furniture")]
+visible = false
 
 [node name="BasketballCourt" parent="." unique_id=1740109745 instance=ExtResource("7_basket")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4047, -0.18, 8.0614)
+visible = false
 
 [node name="BasketballBleachers" parent="." unique_id=472992913 instance=ExtResource("8_bleachers")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, -0.18, -3.49)
-
-[node name="Map58_WallAboveOpenings" parent="." unique_id=848082908 instance=ExtResource("9_wall_caps")]
+visible = false
 
 [node name="Map58_Roof" parent="." unique_id=221038334 instance=ExtResource("10_roof")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82425, 0, -26.4991)
+visible = false
 
 [node name="Map58_AdditionalLighting" parent="." unique_id=753648456 instance=ExtResource("11_lighting")]
+visible = false
 
-[node name="GameManager" type="Node" parent="."]
+[node name="AudioManager" type="Node" parent="." unique_id=1961061968]
+script = ExtResource("19_audio")
+
+[node name="GameAudioManager" type="Node" parent="." unique_id=1295587864]
+script = ExtResource("20_game_audio")
+
+[node name="UIManager" type="CanvasLayer" parent="." unique_id=1385303710]
+script = ExtResource("21_ui_manager")
+
+[node name="GameManager" type="Node" parent="." unique_id=133039266]
 script = ExtResource("12_game")
 
-[node name="FurnitureGameplay" type="Node3D" parent="."]
+[node name="FurnitureGameplay" type="Node3D" parent="." unique_id=2146215573]
 script = ExtResource("17_furniture_gameplay")
 
-[node name="WhiteboardController" type="Node" parent="."]
+[node name="WhiteboardController" type="Node" parent="." unique_id=1811616643]
 script = ExtResource("13_whiteboard")
 
-[node name="ItemSpawner" type="Node" parent="."]
+[node name="ItemSpawner" type="Node" parent="." unique_id=1505098546]
 script = ExtResource("14_item_spawner")
 
 [node name="Map58_Lighting" type="Node3D" parent="." unique_id=1531758293]
+visible = false
 
 [node name="Lampu_10_A" type="Node3D" parent="Map58_Lighting" unique_id=2116312080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.646515, 9.45, -26.45901)
@@ -290,3 +310,13 @@ light_color = Color(1, 0.84, 0.62, 1)
 light_energy = 3.0
 spot_range = 13.0
 spot_angle = 105.0
+
+[node name="BoardScribbles" type="Node3D" parent="." unique_id=774978783]
+script = ExtResource("22_board_scribbles")
+
+[node name="MultiplayerGame" type="Node" parent="." unique_id=671224662]
+script = ExtResource("23_multiplayer_game")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1291981908]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 45, 0)
+light_energy = 0.35

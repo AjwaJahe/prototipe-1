@@ -20,7 +20,7 @@ func _init() -> void:
 	log.store_line("INTERACTION=" + str(interaction != null))
 	log.store_line("CROSSHAIR=" + str(crosshair != null))
 
-	var door := main.get_node("Furniture/PintuKelas_10_A")
+	var door := main.get_node("Furniture/PintuKelas_10_A_South")
 	var area := door.get_node_or_null("InteractionArea")
 	var slide := door.get_node("DoorPivot") as AnimatableBody3D
 	log.store_line("AREA=" + str(area != null))

@@ -1,0 +1,399 @@
+[gd_scene format=3 uid="uid://c4ca28qx0xhd2"]
+
+[ext_resource type="Script" uid="uid://dec2j64bx1i01" path="res://MainMenu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://bwvx7wj48gg01" path="res://CorridorArt.gd" id="2_corridor"]
+[ext_resource type="Script" uid="uid://b7uhsff3vxf3v" path="res://RoomFlow.gd" id="3_room_flow"]
+[ext_resource type="Script" uid="uid://b0goqktowtjcv" path="res://CharacterSelect.gd" id="4_character_select"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 24.0
+content_margin_top = 10.0
+content_margin_right = 24.0
+content_margin_bottom = 10.0
+bg_color = Color(0.17, 0.08, 0.09, 0.98)
+border_width_left = 10
+border_color = Color(0.85, 0.12, 0.12, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 24.0
+content_margin_top = 10.0
+content_margin_right = 24.0
+content_margin_bottom = 10.0
+bg_color = Color(0.09, 0.09, 0.12, 0.92)
+border_width_left = 4
+border_color = Color(0.45, 0.07, 0.07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 24.0
+content_margin_top = 10.0
+content_margin_right = 24.0
+content_margin_bottom = 10.0
+bg_color = Color(0.28, 0.07, 0.08, 1)
+border_width_left = 10
+border_color = Color(1, 0.2, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 32.0
+content_margin_top = 28.0
+content_margin_right = 32.0
+content_margin_bottom = 28.0
+bg_color = Color(0.06, 0.06, 0.09, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 0.07, 0.07, 1)
+
+[sub_resource type="Theme" id="Theme_menu"]
+default_font_size = 22
+Button/colors/font_color = Color(0.9, 0.9, 0.92, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 26
+Button/styles/focus = SubResource("StyleBoxFlat_btn_hover")
+Button/styles/hover = SubResource("StyleBoxFlat_btn_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_btn_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="MainMenu" type="Control" unique_id=992900645]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_menu")
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="." unique_id=627412292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03, 0.03, 0.05, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1442449199]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 60
+
+[node name="Columns" type="HBoxContainer" parent="Margin" unique_id=1529711660]
+layout_mode = 2
+
+[node name="Left" type="VBoxContainer" parent="Margin/Columns" unique_id=193260979]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="TitleBox" type="VBoxContainer" parent="Margin/Columns/Left" unique_id=533899105]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Margin/Columns/Left/TitleBox" unique_id=1854022949]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 72
+text = "KELAS MALAM"
+
+[node name="Subtitle" type="Label" parent="Margin/Columns/Left/TitleBox" unique_id=1367897987]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.65, 1)
+theme_override_font_sizes/font_size = 20
+text = "Horor sekolah  |  Prototipe 1"
+
+[node name="Spacer" type="Control" parent="Margin/Columns/Left" unique_id=1351362369]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Margin/Columns/Left" unique_id=964336248]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="MulaiButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=995026085]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "MULAI"
+alignment = 0
+
+[node name="KarakterButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=403640015]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "KARAKTER"
+alignment = 0
+
+[node name="TemanButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=1661313297]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "TEMAN"
+alignment = 0
+
+[node name="AkunButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=204426389]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "AKUN"
+alignment = 0
+
+[node name="PengaturanButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=1078108189]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "PENGATURAN"
+alignment = 0
+
+[node name="KreditButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=36868321]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "KREDIT"
+alignment = 0
+
+[node name="KeluarButton" type="Button" parent="Margin/Columns/Left/Buttons" unique_id=1635880290]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+text = "KELUAR"
+alignment = 0
+
+[node name="Footer" type="Label" parent="Margin/Columns/Left" unique_id=2055171750]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.45, 1)
+theme_override_font_sizes/font_size = 16
+text = "Versi demo"
+
+[node name="Right" type="Control" parent="Margin/Columns" unique_id=1763279380]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HallwayBackdrop" type="Control" parent="Margin/Columns/Right" unique_id=1329508159]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_corridor")
+
+[node name="Door" type="ColorRect" parent="Margin/Columns/Right" unique_id=906174584]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28
+anchor_top = 0.16
+anchor_right = 0.72
+anchor_bottom = 0.84
+mouse_filter = 2
+color = Color(0.11, 0.075, 0.08, 1)
+
+[node name="DoorInset" type="ColorRect" parent="Margin/Columns/Right" unique_id=452779414]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_top = 0.21
+anchor_right = 0.67
+anchor_bottom = 0.8
+mouse_filter = 2
+color = Color(0.045, 0.045, 0.055, 1)
+
+[node name="DoorWindow" type="ColorRect" parent="Margin/Columns/Right" unique_id=1363226898]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39
+anchor_top = 0.27
+anchor_right = 0.61
+anchor_bottom = 0.43
+mouse_filter = 2
+color = Color(0.25, 0.075, 0.08, 1)
+
+[node name="DoorHandle" type="ColorRect" parent="Margin/Columns/Right" unique_id=1014711313]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64
+anchor_top = 0.55
+anchor_right = 0.66
+anchor_bottom = 0.59
+mouse_filter = 2
+color = Color(0.7, 0.48, 0.23, 1)
+
+[node name="SettingsOverlay" type="ColorRect" parent="." unique_id=1829430068]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72)
+
+[node name="Center" type="CenterContainer" parent="SettingsOverlay" unique_id=1118819510]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="SettingsOverlay/Center" unique_id=729995711]
+custom_minimum_size = Vector2(620, 0)
+layout_mode = 2
+
+[node name="Box" type="VBoxContainer" parent="SettingsOverlay/Center/Panel" unique_id=839239665]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SettingsTitle" type="Label" parent="SettingsOverlay/Center/Panel/Box" unique_id=374355575]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 38
+text = "PENGATURAN"
+
+[node name="VolumeRow" type="HBoxContainer" parent="SettingsOverlay/Center/Panel/Box" unique_id=1858214562]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="VolumeLabel" type="Label" parent="SettingsOverlay/Center/Panel/Box/VolumeRow" unique_id=292172873]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsOverlay/Center/Panel/Box/VolumeRow" unique_id=713768859]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="VolumeValue" type="Label" parent="SettingsOverlay/Center/Panel/Box/VolumeRow" unique_id=1743402447]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="FullscreenRow" type="HBoxContainer" parent="SettingsOverlay/Center/Panel/Box" unique_id=1610934256]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="FullscreenLabel" type="Label" parent="SettingsOverlay/Center/Panel/Box/FullscreenRow" unique_id=855300832]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Layar penuh"
+
+[node name="FullscreenCheck" type="CheckButton" parent="SettingsOverlay/Center/Panel/Box/FullscreenRow" unique_id=121146789]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LanguageRow" type="HBoxContainer" parent="SettingsOverlay/Center/Panel/Box" unique_id=808480720]
+layout_mode = 2
+
+[node name="LanguageLabel" type="Label" parent="SettingsOverlay/Center/Panel/Box/LanguageRow" unique_id=683164622]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+text = "Bahasa / Language"
+
+[node name="LanguageOption" type="OptionButton" parent="SettingsOverlay/Center/Panel/Box/LanguageRow" unique_id=1730409390]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KembaliButton" type="Button" parent="SettingsOverlay/Center/Panel/Box" unique_id=1824252269]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+text = "KEMBALI"
+alignment = 0
+
+[node name="InfoOverlay" type="ColorRect" parent="." unique_id=282818061]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.72)
+
+[node name="Center" type="CenterContainer" parent="InfoOverlay" unique_id=1001709928]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="InfoOverlay/Center" unique_id=1105549977]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Scroll" type="ScrollContainer" parent="InfoOverlay/Center/Panel" unique_id=1454043478]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+
+[node name="Box" type="VBoxContainer" parent="InfoOverlay/Center/Panel/Scroll" unique_id=123112834]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="InfoTitle" type="Label" parent="InfoOverlay/Center/Panel/Scroll/Box" unique_id=1492646888]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.12, 0.12, 1)
+theme_override_font_sizes/font_size = 38
+text = "INFO"
+
+[node name="InfoBody" type="Label" parent="InfoOverlay/Center/Panel/Scroll/Box" unique_id=1240804664]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(470, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fitur ini belum tersedia di prototipe."
+autowrap_mode = 3
+
+[node name="InfoOkButton" type="Button" parent="InfoOverlay/Center/Panel/Scroll/Box" unique_id=1083501372]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+text = "OKE"
+alignment = 0
+
+[node name="RoomFlow" type="Control" parent="." unique_id=1917046312]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_room_flow")
+
+[node name="CharacterSelect" type="Control" parent="." unique_id=2139607494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_character_select")

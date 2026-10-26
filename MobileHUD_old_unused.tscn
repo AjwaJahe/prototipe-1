@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dradi3frk2xve"]
+
+[ext_resource type="Script" uid="uid://cb8j22ibpmpxq" path="res://MobileHUD.gd" id="1"]
+
+[node name="MobileHUD" type="Control" unique_id=894671474]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1")
+test_mode = 1
+
+[node name="Movement" type="Panel" parent="." unique_id=1541417805]
+visible = false
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -190.0
+offset_right = 192.0
+offset_bottom = -26.0
+
+[node name="Knob" type="Panel" parent="Movement" unique_id=208173424]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 49.0
+offset_right = 115.0
+offset_bottom = 115.0
+mouse_filter = 2
+
+[node name="Actions" type="VBoxContainer" parent="." unique_id=1200973099]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -250.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 12
+alignment = 2
+
+[node name="Jump" type="Button" parent="Actions" unique_id=1705897276]
+custom_minimum_size = Vector2(92, 64)
+layout_mode = 2
+focus_mode = 0
+text = "LOMPAT"
+
+[node name="Run" type="Button" parent="Actions" unique_id=1038644442]
+custom_minimum_size = Vector2(92, 56)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+text = "LARI"
+
+[node name="Crouch" type="Button" parent="Actions" unique_id=1047564724]
+custom_minimum_size = Vector2(92, 56)
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+text = "JONGKOK"
